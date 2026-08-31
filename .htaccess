@@ -1,28 +1,29 @@
-# Matri Seva Samiti NGO Website - Enhanced .htaccess
+# Matri Seva Samiti NGO Website - Modern .htaccess
 
 # Set default index file
 DirectoryIndex index.php index.html
 
-# Basic security - prevent access to sensitive files
-<Files ~ "\.(htaccess|htpasswd|ini|log|sql|conf)$">
-    Order allow,deny
-    Deny from all
-</Files>
+# Prevent access to sensitive files (Apache 2.2 & 2.4 compatible)
+<FilesMatch "^\.(htaccess|htpasswd|ini|log|sql|conf|git|env)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
 
-# Basic error handling
-ErrorDocument 404 /404.html
-
-# URL Rewriting (if mod_rewrite is available)
+# URL Rewriting
 <IfModule mod_rewrite.c>
     RewriteEngine On
     
-    # Remove .php extension from URLs
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^([^\.]+)$ $1.php [NC,L]
-    
-    # Redirect old .php URLs to clean URLs
-    RewriteCond %{REQUEST_METHOD} !POST
-    RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
-    RewriteRule ^ /%1 [NC,L,R=301]
-</IfModule> 
+    # Allow direct access to existing files and directories
+    RewriteCond %{REQUEST_FILENAME} -d [OR]
+    RewriteCond %{REQUEST_FILENAME} -f
+    RewriteRule ^ - [L]
+
+    # Map extensionless URLs to .php files if they exist
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+</IfModule>
