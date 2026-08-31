@@ -24,7 +24,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
             <div class="donation-wrapper">
                 <!-- Left: Interactive Donation Form -->
                 <div class="donation-box-main">
-                    <h2>Select Your Contribution Amount</h2>
+                    <h2>Select Your <span class="text-underline-gold">Contribution</span> Amount</h2>
                     <p>Choose a suggested impact tier or enter your own custom amount:</p>
 
                     <!-- Preset Amount Selector -->
@@ -72,7 +72,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
 
                     <!-- Donor Information Form -->
                     <form action="ccavRequestHandler.php" method="POST" class="donation-form" id="donationForm">
-                        <h3 style="font-size: 1.3rem; margin: 30px 0 16px; color: var(--navy-900);">Donor Information (For 80G Receipt)</h3>
+                        <h3 style="font-size: 1.3rem; margin: 30px 0 16px; color: var(--forest-900);">Donor Information (For 80G Receipt)</h3>
                         
                         <div class="donation-form-grid">
                             <div class="form-group">
@@ -109,7 +109,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
 
                         <input type="hidden" name="amount" id="form-amount" value="500">
 
-                        <button type="button" onclick="document.getElementById('upiModal').classList.add('active')" class="btn btn-primary btn-lg" style="width: 100%; font-size: 1.15rem; font-weight: 700; margin-top: 10px;">
+                        <button type="button" onclick="document.getElementById('upiModal').classList.add('active')" class="btn btn-gold btn-lg btn-pulse" style="width: 100%; font-size: 1.15rem; font-weight: 700; margin-top: 10px;">
                             <i class="fas fa-lock"></i> Proceed to Donate <span id="display-donation-amount">₹500</span>
                         </button>
                     </form>
@@ -119,7 +119,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
                 <div class="donation-sidebar">
                     <!-- UPI Instant QR Code -->
                     <div class="upi-qr-card">
-                        <h3><i class="fas fa-qrcode highlight"></i> Scan to Pay with Any UPI App</h3>
+                        <h3><i class="fas fa-qrcode" style="color: var(--gold-dark);"></i> Scan & Pay with UPI</h3>
                         <p style="font-size: 0.85rem; color: var(--text-muted);">GPay, PhonePe, Paytm, BHIM, Amazon Pay</p>
                         
                         <div class="qr-image-wrap">
@@ -130,14 +130,14 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
                             <span>UPI: <strong>matrisevasamiti1910@sbi</strong></span>
                         </div>
                         <br>
-                        <button type="button" onclick="copyToClipboard('matrisevasamiti1910@sbi', 'upiBadge', 'UPI ID copied!')" class="btn btn-outline-navy btn-sm">
+                        <button type="button" onclick="copyToClipboard('matrisevasamiti1910@sbi', 'upiBadge', 'UPI ID copied!')" class="btn btn-outline-forest btn-sm">
                             <i class="fas fa-copy"></i> Copy UPI ID
                         </button>
                     </div>
 
                     <!-- Direct Bank Transfer Details -->
                     <div class="bank-details-card">
-                        <h3><i class="fas fa-university highlight"></i> Bank NEFT / RTGS Transfer</h3>
+                        <h3><i class="fas fa-university" style="color: var(--gold-dark);"></i> Bank NEFT / RTGS Details</h3>
                         <table class="bank-table">
                             <tr>
                                 <td>Account Name:</td>
@@ -165,7 +165,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
                             </tr>
                         </table>
                         <div style="margin-top: 15px; text-align: center;">
-                            <button type="button" onclick="copyToClipboard('41258963214', 'bankAccNo', 'Bank Account Number Copied!')" class="btn btn-outline-navy btn-sm">
+                            <button type="button" onclick="copyToClipboard('41258963214', 'bankAccNo', 'Bank Account Number Copied!')" class="btn btn-outline-forest btn-sm">
                                 <i class="fas fa-copy"></i> Copy Bank Details
                             </button>
                         </div>
@@ -195,10 +195,10 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
     <div class="custom-modal" id="upiModal">
         <div class="modal-dialog" style="max-width: 500px; text-align: center;">
             <button class="modal-close-btn" onclick="document.getElementById('upiModal').classList.remove('active')"><i class="fas fa-times"></i></button>
-            <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--navy-900);">Complete Your Donation</h3>
+            <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: var(--forest-900);">Complete Your Donation</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem;">Scan the QR code below using Google Pay, PhonePe, Paytm, or BHIM:</p>
             
-            <div style="width: 220px; height: 220px; margin: 20px auto; border: 3px solid var(--orange-primary); border-radius: 12px; padding: 10px; background: white;">
+            <div style="width: 220px; height: 220px; margin: 20px auto; border: 3px solid var(--gold-primary); border-radius: 12px; padding: 10px; background: white;">
                 <img src="images/scanner.jpeg" alt="UPI QR Scanner" style="width: 100%; height: 100%; object-fit: contain;">
             </div>
 
@@ -210,7 +210,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
                 <i class="fas fa-check-circle"></i> After payment, please email the transaction screenshot to <strong>matrisevasamiti1910@gmail.com</strong> with your PAN to receive the 80G Tax Exemption Certificate.
             </p>
 
-            <button type="button" class="btn btn-primary" style="margin-top: 15px; width: 100%;" onclick="alert('Thank you! Please share your transaction ID with us for 80G receipt generation.'); document.getElementById('upiModal').classList.remove('active');">
+            <button type="button" class="btn btn-gold" style="margin-top: 15px; width: 100%;" onclick="alert('Thank you! Please share your transaction ID with us for 80G receipt generation.'); document.getElementById('upiModal').classList.remove('active');">
                 <i class="fas fa-check"></i> I Have Completed the Payment
             </button>
         </div>

@@ -11,7 +11,7 @@ include 'includes/header.php';
             <div class="breadcrumb">
                 <a href="index.php">Home</a> <span>/</span> <span>Projects</span>
             </div>
-            <h1>Our <span class="highlight">Projects</span></h1>
+            <h1>Our Ground <span class="highlight">Projects</span></h1>
             <p>Real grassroots development initiatives transforming communities through tangible actions.</p>
         </div>
     </section>
@@ -19,6 +19,12 @@ include 'includes/header.php';
     <!-- Projects Section -->
     <section style="padding: 75px 0; background: var(--bg-slate);">
         <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fas fa-tasks"></i> Tangible Impact</span>
+                <h2>Explore Ongoing & Completed <span class="text-underline-gold">Projects</span></h2>
+                <p>Filter through our field initiatives across vocational skills, healthcare, and women livelihood.</p>
+            </div>
+
             <!-- Filter Tabs -->
             <div class="gallery-filter-tabs">
                 <button class="gallery-tab-btn active" onclick="filterProjects('all', event)">All Projects</button>
@@ -141,8 +147,8 @@ include 'includes/header.php';
                 <h2>Have a Project in Mind or Want to Support One?</h2>
                 <p>Collaborate with us to implement impactful developmental projects under your CSR initiatives.</p>
                 <div class="cta-banner-buttons">
-                    <a href="donate.php" class="btn btn-primary btn-lg"><i class="fas fa-heart"></i> Fund a Project</a>
-                    <a href="contact.php" class="btn btn-outline btn-lg"><i class="fas fa-handshake"></i> Propose Partnership</a>
+                    <a href="donate.php" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Fund a Project</a>
+                    <a href="contact.php" class="btn btn-outline-white btn-lg"><i class="fas fa-handshake"></i> Propose Partnership</a>
                 </div>
             </div>
         </div>

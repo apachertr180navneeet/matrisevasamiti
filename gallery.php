@@ -19,6 +19,12 @@ include 'includes/header.php';
     <!-- Gallery Section -->
     <section style="padding: 75px 0; background: var(--bg-slate);">
         <div class="container">
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fas fa-camera"></i> Field Photographs</span>
+                <h2>Capturing Real <span class="text-underline-gold">Smiles</span></h2>
+                <p>Browse through photographs of our programs in education, women empowerment, and healthcare.</p>
+            </div>
+
             <!-- Filter Tabs -->
             <div class="gallery-filter-tabs">
                 <button class="gallery-tab-btn active" onclick="filterProjects('all', event)">All Photos</button>
@@ -118,7 +124,7 @@ include 'includes/header.php';
     <div class="custom-modal" id="galleryModal">
         <div class="modal-dialog" style="max-width: 800px; padding: 20px;">
             <button class="modal-close-btn" onclick="closeModal('galleryModal')"><i class="fas fa-times"></i></button>
-            <h4 class="modal-title" style="margin-bottom: 15px; color: var(--navy-900);">Photo Preview</h4>
+            <h4 class="modal-title" style="margin-bottom: 15px; color: var(--forest-900);">Photo Preview</h4>
             <div style="max-height: 70vh; display: flex; align-items: center; justify-content: center; background: #000; border-radius: 8px; overflow: hidden;">
                 <img src="" alt="Gallery Full Preview" class="modal-image" style="max-width: 100%; max-height: 70vh; object-fit: contain;">
             </div>

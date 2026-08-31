@@ -19,9 +19,9 @@ include 'includes/header.php';
     <!-- Documents Grid -->
     <section style="padding: 75px 0; background: var(--bg-slate);">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-shield-alt"></i> Transparency & Compliance</div>
-                <h2>Official Registration Certificates</h2>
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fas fa-shield-alt"></i> Transparency & Compliance</span>
+                <h2>Official Registration <span class="text-underline-gold">Certificates</span></h2>
                 <p>Donors, CSR partners, and institutions can view and download our certified statutory registrations below.</p>
             </div>
 
@@ -36,10 +36,10 @@ include 'includes/header.php';
                         <span class="cert-reg-no">URN: AA090722075773U</span>
                         <p>Income Tax Department Certificate conferring 50% Tax Exemption to all donors under Section 80G & 12A of the Income Tax Act.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View PDF
                             </a>
-                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -49,17 +49,17 @@ include 'includes/header.php';
                 <!-- Certificate 2: CSR-1 Approval -->
                 <div class="cert-card">
                     <div class="cert-preview-wrap">
-                        <i class="fas fa-handshake" style="font-size: 4rem; color: var(--navy-700);"></i>
+                        <i class="fas fa-handshake" style="font-size: 4rem; color: var(--forest-700);"></i>
                     </div>
                     <div class="cert-body">
                         <h3>MCA CSR-1 Registration Letter</h3>
                         <span class="cert-reg-no">Reg: CSR00057390</span>
                         <p>Ministry of Corporate Affairs (MCA) approval letter authorizing Matri Seva Samiti to undertake Corporate Social Responsibility (CSR) projects.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View Letter
                             </a>
-                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -69,17 +69,17 @@ include 'includes/header.php';
                 <!-- Certificate 3: Society Registration -->
                 <div class="cert-card">
                     <div class="cert-preview-wrap">
-                        <i class="fas fa-stamp" style="font-size: 4rem; color: var(--orange-primary);"></i>
+                        <i class="fas fa-stamp" style="font-size: 4rem; color: var(--gold-dark);"></i>
                     </div>
                     <div class="cert-body">
                         <h3>Society Registration Certificate</h3>
                         <span class="cert-reg-no">Act 21 of 1860 Reg</span>
                         <p>Registration under the Societies Registration Act, 1860 issued by the Registrar of Societies, Prayagraj, Uttar Pradesh.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/Matri Seva Samiti.pdf" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/Matri Seva Samiti.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View Certificate
                             </a>
-                            <a href="assets/certificates/Matri Seva Samiti.pdf" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/Matri Seva Samiti.pdf" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -96,10 +96,10 @@ include 'includes/header.php';
                         <span class="cert-reg-no">NITI Aayog Portal Reg</span>
                         <p>Official registration acknowledgment and Unique Identifier on the NGO-Darpan Portal managed by NITI Aayog, Government of India.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/NGO Darpan.pdf" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/NGO Darpan.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View Document
                             </a>
-                            <a href="assets/certificates/NGO Darpan.pdf" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/NGO Darpan.pdf" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -116,10 +116,10 @@ include 'includes/header.php';
                         <span class="cert-reg-no">Ministry of MSME</span>
                         <p>Recognition and registration certificate issued by the Ministry of Micro, Small and Medium Enterprises, Government of India.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/Udyam Registration Certificate.pdf" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/Udyam Registration Certificate.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View Udyam
                             </a>
-                            <a href="assets/certificates/Udyam Registration Certificate.pdf" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/Udyam Registration Certificate.pdf" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -136,10 +136,10 @@ include 'includes/header.php';
                         <span class="cert-reg-no">Income Tax Department</span>
                         <p>Official PAN Card issued in the legal entity name of Matri Seva Samiti for statutory banking, taxation, and audit records.</p>
                         <div class="cert-footer-btn">
-                            <a href="assets/certificates/pancard.jpeg" target="_blank" class="btn btn-primary btn-sm" style="flex: 1;">
+                            <a href="assets/certificates/pancard.jpeg" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
                                 <i class="fas fa-eye"></i> View Image
                             </a>
-                            <a href="assets/certificates/pancard.jpeg" download class="btn btn-secondary btn-sm">
+                            <a href="assets/certificates/pancard.jpeg" download class="btn btn-forest btn-sm">
                                 <i class="fas fa-download"></i>
                             </a>
                         </div>
@@ -152,16 +152,16 @@ include 'includes/header.php';
     <!-- Statutory Summary Table for Institutional Due Diligence -->
     <section style="padding: 70px 0; background: var(--bg-white);">
         <div class="container" style="max-width: 950px;">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-clipboard-check"></i> Due Diligence</div>
-                <h2>Statutory Summary Table</h2>
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fas fa-clipboard-check"></i> Due Diligence</span>
+                <h2>Statutory Summary <span class="text-underline-gold">Table</span></h2>
                 <p>Quick reference metrics for corporate compliance and grant audits.</p>
             </div>
 
             <div style="background: var(--bg-white); border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-light); overflow: hidden;">
                 <table style="width: 100%; border-collapse: collapse; text-align: left;">
                     <thead>
-                        <tr style="background: var(--navy-900); color: var(--text-white);">
+                        <tr style="background: var(--forest-800); color: var(--text-white);">
                             <th style="padding: 16px 20px; font-size: 0.95rem;">Registration Head</th>
                             <th style="padding: 16px 20px; font-size: 0.95rem;">Issuing Authority</th>
                             <th style="padding: 16px 20px; font-size: 0.95rem;">Status / Validity</th>

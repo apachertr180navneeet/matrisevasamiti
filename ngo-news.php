@@ -19,14 +19,14 @@ include 'includes/header.php';
     <!-- News Grid Section -->
     <section style="padding: 75px 0; background: var(--bg-slate);">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-newspaper"></i> In The Field</div>
-                <h2>Recent News & Press Releases</h2>
+            <div class="section-header text-center">
+                <span class="section-tag"><i class="fas fa-newspaper"></i> In The Field</span>
+                <h2>Recent News & <span class="text-underline-gold">Press Releases</span></h2>
                 <p>Read about our grassroots interventions and community achievements across Uttar Pradesh.</p>
             </div>
 
             <div class="projects-grid">
-                <!-- News 1 (Featured) -->
+                <!-- News 1 -->
                 <article class="project-card">
                     <div class="project-thumb-wrap">
                         <img src="images/skill-development-news.jpg" alt="Skill Development Center Launch">
@@ -138,8 +138,8 @@ include 'includes/header.php';
                 <h2>Want to Cover Our Story or Feature Our Work?</h2>
                 <p>We welcome journalists, researchers, and media houses to visit our grassroots centers and cover our community initiatives.</p>
                 <div class="cta-banner-buttons">
-                    <a href="media.php" class="btn btn-primary btn-lg"><i class="fas fa-bullhorn"></i> Media & Press Kit</a>
-                    <a href="contact.php" class="btn btn-outline btn-lg"><i class="fas fa-envelope"></i> Contact Media Relations</a>
+                    <a href="media.php" class="btn btn-gold btn-lg"><i class="fas fa-bullhorn"></i> Media & Press Kit</a>
+                    <a href="contact.php" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Media Relations</a>
                 </div>
             </div>
         </div>
