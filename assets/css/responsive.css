@@ -1,148 +1,405 @@
 /* ==========================================================================
-   MATRI SEVA SAMITI - RESPONSIVE STYLESHEET
+   MATRI SEVA SAMITI - MASTER RESPONSIVE STYLESHEET
+   Supports Desktop, Laptop, Tablet, and Mobile Breakpoints
    ========================================================================== */
 
-/* --- Large Desktops (max-width: 1320px) --- */
-@media screen and (max-width: 1320px) {
-    .nav-menu {
-        gap: 2px;
+/* --------------------------------------------------------------------------
+   1. LAPTOPS & SMALL DESKTOPS (max-width: 1200px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+    .container {
+        max-width: 100%;
+        padding: 0 20px;
     }
+
+    .nav-container, .top-bar-container {
+        padding: 0 20px;
+    }
+
     .nav-link {
         padding: 7px 9px;
         font-size: 0.84rem;
     }
+
     .nav-logo .logo-title {
         font-size: 1.15rem;
     }
+
+    .hero-text-left h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-circular-frame {
+        width: 360px;
+        height: 360px;
+    }
+
+    .about-mosaic-grid {
+        gap: 40px;
+    }
+
+    .donation-wrapper {
+        gap: 30px;
+    }
 }
 
-/* --- Laptops & Tablets Landscape (max-width: 1140px) --- */
-@media screen and (max-width: 1140px) {
+/* --------------------------------------------------------------------------
+   2. TABLETS & SMALL LAPTOPS (max-width: 992px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 992px) {
+    /* Mobile Navigation Drawer */
     .nav-toggle {
         display: flex;
     }
-    
+
     .nav-menu {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 320px;
+        width: 300px;
         height: 100vh;
         background: #0a261f;
         flex-direction: column;
         align-items: flex-start;
-        padding: 85px 28px 40px;
-        gap: 8px;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.4);
+        padding: 85px 24px 40px;
+        gap: 6px;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
         transition: var(--transition-smooth);
         z-index: 1001;
         overflow-y: auto;
     }
-    
+
     .nav-menu.active {
         right: 0;
     }
-    
+
+    .nav-menu li {
+        width: 100%;
+    }
+
     .nav-link {
         width: 100%;
         padding: 12px 16px;
-        font-size: 1rem;
-        border-radius: var(--radius-md);
+        font-size: 0.95rem;
+        border-radius: var(--radius-sm);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
-    
+
     .nav-link.active {
-        background: rgba(248, 194, 71, 0.15);
+        background: rgba(248, 194, 71, 0.18);
         color: var(--gold-primary);
+    }
+
+    /* Hero Section Collapse */
+    .hero-forest-section {
+        padding: 50px 0 70px;
     }
 
     .hero-forest-grid {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 40px;
     }
+
     .hero-text-left p {
-        margin: 0 auto 30px;
+        margin: 0 auto 25px;
     }
+
     .hero-btn-group {
         justify-content: center;
     }
+
+    .hero-visual-right {
+        margin-top: 15px;
+    }
+
+    /* About Us Collapse */
     .about-mosaic-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
     }
+
+    /* Services Grid (2 Columns on Tablet) */
     .services-grid-6 {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
+
+    /* Stories Grid (2 Columns on Tablet) */
     .stories-grid-3 {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
+
+    /* Help Us Split Banner */
     .help-us-grid {
         grid-template-columns: 1fr;
     }
+
     .help-us-content {
-        padding: 50px 20px;
+        padding: 50px 30px;
+        text-align: center;
+        align-items: center;
     }
+
+    .help-us-image-wrap {
+        height: 320px;
+    }
+
+    /* Programs Subpage */
+    .program-card-detail {
+        grid-template-columns: 1fr;
+    }
+
+    .program-img-side {
+        height: 260px;
+    }
+
+    .program-content-side {
+        padding: 30px 24px;
+    }
+
+    /* Story Subpage */
+    .story-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .story-main-img {
+        height: 360px;
+    }
+
+    /* VM Cards Grid */
+    .vm-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Donation Page */
+    .donation-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    /* Contact Subpage */
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Footer (2 Columns on Tablet) */
     .footer-main-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
     }
 }
 
-/* --- Tablets Portrait (max-width: 768px) --- */
+/* --------------------------------------------------------------------------
+   3. PORTRAIT TABLETS & LARGE SMARTPHONES (max-width: 768px)
+   -------------------------------------------------------------------------- */
 @media screen and (max-width: 768px) {
+    /* Top Bar */
     .top-bar-container {
         flex-direction: column;
-        gap: 8px;
+        gap: 6px;
         text-align: center;
     }
-    
-    .top-bar-left {
+
+    .top-bar-left, .top-bar-right {
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
 
+    /* Typography Scaling */
     .hero-text-left h1 {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2.2rem;
     }
 
     .section-header h2 {
         font-size: 1.85rem;
     }
 
+    .cta-banner-content h2 {
+        font-size: 2rem;
+    }
+
+    /* Circular Hero Frame */
+    .hero-circular-frame {
+        width: 300px;
+        height: 300px;
+    }
+
+    .hero-floating-donate-pill {
+        bottom: 10px;
+        right: 0;
+        padding: 10px 18px;
+        font-size: 0.85rem;
+    }
+
+    /* Trust Strip */
     .partner-badges-flex {
-        gap: 20px;
+        gap: 16px;
+    }
+
+    .partner-logo-item {
+        font-size: 0.95rem;
+    }
+
+    /* Exclusive Events Card */
+    .event-banner-img {
+        height: 220px;
     }
 
     .event-content-bottom {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        padding: 24px 20px;
+        gap: 15px;
     }
 
     .event-big-number {
-        display: none;
+        font-size: 3rem;
+        align-self: flex-end;
     }
 
-    .footer-main-grid {
+    /* Story Key Points */
+    .story-key-points {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    /* Experience Badge */
+    .story-exp-badge {
+        position: static;
+        margin-top: 15px;
+        width: 100%;
+        border-radius: var(--radius-sm);
+        padding: 16px 20px;
+    }
+
+    /* Forms */
+    .donation-box-main, .contact-form-panel {
+        padding: 26px 20px;
+    }
+
+    .donation-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width {
+        grid-column: span 1;
+    }
+
+    /* Amount Selector */
+    .amount-selector-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .tax-calc-card {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    /* Projects & Certificates */
+    .projects-grid, .cert-grid, .committee-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-activities-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* --- Small Mobile Phones (max-width: 480px) --- */
-@media screen and (max-width: 480px) {
+/* --------------------------------------------------------------------------
+   4. SMARTPHONES & SMALL SCREENS (max-width: 576px)
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 576px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .nav-logo .logo {
+        height: 36px;
+    }
+
     .nav-logo .logo-title {
         font-size: 1.05rem;
     }
 
-    .hero-text-left h1 {
-        font-size: 2rem;
+    .language-dropdown {
+        padding: 5px 8px;
+        font-size: 0.76rem;
+    }
+
+    .btn-sm {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+
+    .btn-lg {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+
+    .hero-btn-group {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-btn-group .btn {
+        width: 100%;
     }
 
     .hero-circular-frame {
-        width: 270px;
-        height: 270px;
+        width: 250px;
+        height: 250px;
+        border-width: 5px;
     }
 
-    .services-grid-6 {
+    .photo-mosaic-wrap {
         grid-template-columns: 1fr;
+    }
+
+    .mosaic-img-box.large {
+        grid-column: span 1;
+        height: 200px;
+    }
+
+    .services-grid-6, .stories-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-main-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .cta-banner-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .cta-banner-buttons .btn {
+        width: 100%;
+    }
+
+    .program-actions {
+        flex-direction: column;
+    }
+
+    .program-actions .btn {
+        width: 100%;
     }
 
     .floating-action-group {
