@@ -1,124 +1,39 @@
 <?php 
-$page_title = "Matri Seva Samiti - Empowering Rural India Since 1995";
+$page_title = "Matri Seva Samiti - Charity is an Act of A Soft Heart";
 include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- 1. Hero Slider Section -->
-    <section class="hero-slider-section">
-        <div class="hero-slider-bg">
-            <img src="images/herobg.png" alt="Matri Seva Samiti Hero Background" class="hero-slide active">
-            <img src="images/herobg1.png" alt="Community Empowerment" class="hero-slide">
-            <img src="images/herobg2.png" alt="Rural Education & Health" class="hero-slide">
-        </div>
-        <div class="hero-overlay"></div>
+    <!-- 1. Hero Section (Forest Green with Circular Photo Montage) -->
+    <section class="hero-forest-section">
+        <div class="dots-pattern" style="top: 30px; left: 40px;"></div>
+        <div class="dots-pattern-green" style="bottom: 40px; right: 40px;"></div>
+
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-certificate"></i> Registered NGO | 80G & 12A Certified
-                </div>
-                <h1 class="hero-title">Empowering Communities, Transforming Lives</h1>
-                <div class="hero-subtitle hindi-text">"मिलकर करें प्रयास, खुशहाल हो समाज"</div>
-                <p class="hero-desc">
-                    Dedicated to grassroots rural development, quality education for underprivileged children, healthcare camps, women empowerment, and youth vocational skills across India since 1995.
-                </p>
-                <div class="hero-actions">
-                    <a href="donate.php" class="btn btn-primary btn-lg btn-pulse">
-                        <i class="fas fa-hand-holding-heart"></i> Donate Now
-                    </a>
-                    <a href="programs.php" class="btn btn-outline btn-lg">
-                        <i class="fas fa-th-large"></i> Explore Programs
-                    </a>
-                    <a href="about.php" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-info-circle"></i> Our Story
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 2. Impact Counter Strip -->
-    <section class="impact-strip-section">
-        <div class="container">
-            <div class="impact-strip-card">
-                <div class="impact-metric-box">
-                    <div class="metric-icon-wrap">
-                        <i class="fas fa-history"></i>
-                    </div>
-                    <div class="metric-data">
-                        <h3 class="metric-number" data-count="30" data-suffix="+">30+</h3>
-                        <p>Years of Service</p>
-                    </div>
-                </div>
-
-                <div class="impact-metric-box">
-                    <div class="metric-icon-wrap">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="metric-data">
-                        <h3 class="metric-number" data-count="50" data-suffix="+">50+</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                </div>
-
-                <div class="impact-metric-box">
-                    <div class="metric-icon-wrap">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="metric-data">
-                        <h3 class="metric-number" data-count="15000" data-suffix="+">15,000+</h3>
-                        <p>Beneficiaries Reached</p>
-                    </div>
-                </div>
-
-                <div class="impact-metric-box">
-                    <div class="metric-icon-wrap">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <div class="metric-data">
-                        <h3 class="metric-number" data-count="120" data-suffix="+">120+</h3>
-                        <p>Active Volunteers</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3. About Us / Story Section -->
-    <section class="story-section">
-        <div class="container">
-            <div class="story-grid">
-                <div class="story-image-wrap">
-                    <img src="images/about-us.jpg" alt="About Matri Seva Samiti" class="story-main-img">
-                    <div class="story-exp-badge">
-                        <h4>30+</h4>
-                        <p>Years of Grassroots Impact</p>
-                    </div>
-                </div>
-
-                <div class="story-text-wrap">
-                    <div class="section-tag"><i class="fas fa-heart"></i> Who We Are</div>
-                    <h2>Building Stronger Rural Communities</h2>
+            <div class="hero-forest-grid">
+                <!-- Left Text Content -->
+                <div class="hero-text-left">
+                    <h1><span class="text-underline-gold">Charity</span> is an Act of<br>A Soft Heart!</h1>
                     <p>
-                        Established in <strong>April 1995</strong> by visionary social leader <strong>Gyan Shankar Pal</strong>, Matri Seva Samiti is a registered Non-Governmental Organization based in Prayagraj, Uttar Pradesh (Registered under Societies Registration Act, 1860).
+                        Established in 1995, Matri Seva Samiti works tirelessly to uplift rural underprivileged children, provide women skill development, and run accessible healthcare camps across India.
                     </p>
-                    <p>
-                        Inspired by Mahatma Gandhi's vision that <em>"The soul of India lives in its villages,"</em> we work relentlessly to eliminate rural poverty, provide educational support to underprivileged children, and equip youth and women with market-ready vocational skills.
-                    </p>
-
-                    <div class="story-key-points">
-                        <div class="point-item"><i class="fas fa-check-circle"></i> 100% Tax Exemption under 80G</div>
-                        <div class="point-item"><i class="fas fa-check-circle"></i> CSR-1 Certified Partner</div>
-                        <div class="point-item"><i class="fas fa-check-circle"></i> Regular Health & Eye Camps</div>
-                        <div class="point-item"><i class="fas fa-check-circle"></i> Self-Help Groups for Women</div>
-                    </div>
-
-                    <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                        <a href="about.php" class="btn btn-primary">
-                            Learn More About Us <i class="fas fa-arrow-right"></i>
+                    <div class="hero-btn-group">
+                        <a href="donate.php" class="btn btn-gold btn-lg btn-pulse">
+                            Get Started
                         </a>
-                        <a href="certificate.php" class="btn btn-outline-navy">
-                            <i class="fas fa-file-alt"></i> View Accreditations
+                        <a href="about.php" class="video-play-link">
+                            <span class="play-icon-circle"><i class="fas fa-play"></i></span>
+                            <span>About Our Work</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual with Organic Circle Frame -->
+                <div class="hero-visual-right">
+                    <div class="hero-circular-frame">
+                        <img src="images/herobg.png" alt="Volunteers and Beneficiaries" class="hero-main-circle-img">
+                        <a href="donate.php" class="hero-floating-donate-pill">
+                            <span>Donate Now</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
@@ -126,230 +41,247 @@ include 'includes/header.php';
         </div>
     </section>
 
-    <!-- 4. Focus Areas / 6 Pillars -->
-    <section class="focus-pillars-section">
+    <!-- 2. Trust Partner Strip -->
+    <section class="trust-strip-wrap">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-compass"></i> What We Do</div>
-                <h2>Our Core Focus Areas</h2>
-                <p>We implement holistic, community-led programs addressing critical developmental challenges in rural and semi-urban India.</p>
+            <div class="trust-card-inner">
+                <p>Trusted by <strong>500+</strong> supporters & grassroots partners across <strong>35+ Villages</strong></p>
+                <div class="partner-badges-flex">
+                    <div class="partner-logo-item"><i class="fas fa-tree"></i> TreeNiti</div>
+                    <div class="partner-logo-item"><i class="fas fa-heartbeat"></i> RedCare</div>
+                    <div class="partner-logo-item"><i class="fas fa-seedling"></i> GreenArt</div>
+                    <div class="partner-logo-item"><i class="fas fa-hand-holding-heart"></i> BharatNGO</div>
+                    <div class="partner-logo-item"><i class="fas fa-shield-alt"></i> TrustGov</div>
+                    <div class="partner-logo-item"><i class="fas fa-smile"></i> SmileEye</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. About Us Section (with Multi-Image Mosaic) -->
+    <section class="about-mosaic-section">
+        <div class="container">
+            <div class="about-mosaic-grid">
+                <!-- Left Text -->
+                <div class="about-text-content">
+                    <span class="section-tag">About Us</span>
+                    <h2>We done with your <span class="text-underline-gold">help!</span></h2>
+                    <p>
+                        Established in April 1995 by <strong>Gyan Shankar Pal</strong>, Matri Seva Samiti is a registered Non-Governmental Organization based in Prayagraj, Uttar Pradesh (Registered under the Societies Registration Act, 1860).
+                    </p>
+                    <p>
+                        Inspired by Mahatma Gandhi's vision of rural self-reliance, we implement community-driven programs in primary education, healthcare screening, women self-help mobilization, and youth skill development.
+                    </p>
+
+                    <ul class="about-checklist">
+                        <li><i class="fas fa-check-circle"></i> 100% Tax Exemption for Donors under Section 80G</li>
+                        <li><i class="fas fa-check-circle"></i> Registered with Ministry of Corporate Affairs (CSR-1)</li>
+                        <li><i class="fas fa-check-circle"></i> Audited financial records & transparent governance</li>
+                    </ul>
+
+                    <a href="about.php" class="btn btn-gold">
+                        Learn More <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Right Multi-Image Collage -->
+                <div class="photo-mosaic-wrap">
+                    <div class="dots-pattern" style="top: -20px; right: -20px;"></div>
+                    <div class="dots-pattern-green" style="bottom: -20px; left: -20px;"></div>
+
+                    <div class="mosaic-img-box large">
+                        <img src="images/about-us.jpg" alt="Community Work">
+                    </div>
+                    <div class="mosaic-img-box">
+                        <img src="images/student1.jpeg" alt="Skill Training">
+                    </div>
+                    <div class="mosaic-img-box">
+                        <img src="images/student2.jpeg" alt="Women Tailoring">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Our Services / Focus Areas Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Our <span class="text-underline-gold">Services</span> We provide!</h2>
+                <p>Delivering comprehensive, holistic grassroots support to underserved village communities.</p>
             </div>
 
-            <div class="focus-grid">
-                <!-- Pillar 1 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
+            <div class="services-grid-6">
+                <!-- Service 1 (Featured Dark Green Card like reference) -->
+                <div class="service-card-ref featured-green">
+                    <div class="service-icon-box">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Healthy Food & Nutrition</h3>
+                    <p>Providing supplementary nutrition kits, child nourishment drives, and food assistance to vulnerable rural families and expectant mothers.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card-ref">
+                    <div class="service-icon-box">
                         <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h3>Education & Child Care</h3>
-                    <h4>(शिक्षा एवं बाल विकास)</h4>
-                    <p>Providing free remedial classes, school kits, digital literacy, and scholarships to ensure zero dropouts among underprivileged village children.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
+                    <h3>Education</h3>
+                    <p>Free remedial learning centers, school enrollment campaigns, distribution of books, and digital literacy classes for rural children.</p>
                 </div>
 
-                <!-- Pillar 2 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
-                        <i class="fas fa-female"></i>
+                <!-- Service 3 -->
+                <div class="service-card-ref">
+                    <div class="service-icon-box">
+                        <i class="fas fa-tint"></i>
                     </div>
-                    <h3>Women Empowerment</h3>
-                    <h4>(महिला सशक्तिकरण)</h4>
-                    <p>Facilitating Self-Help Groups (SHGs), micro-finance access, tailoring and handicraft training to make rural women financially independent.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
+                    <h3>Pure Water</h3>
+                    <p>Installing community water filters, promoting rainwater harvesting, and spreading hygiene awareness in remote village hamlets.</p>
                 </div>
 
-                <!-- Pillar 3 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
+                <!-- Service 4 -->
+                <div class="service-card-ref">
+                    <div class="service-icon-box">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Healthcare & Nutrition</h3>
-                    <h4>(स्वास्थ्य एवं पोषण)</h4>
-                    <p>Organizing free medical check-up camps, eye care clinics, maternal health awareness, and distributing essential medicines to remote hamlets.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
+                    <h3>Medical Aid</h3>
+                    <p>Organizing multi-specialty health camps, eye check-ups, free eyeglasses, and subsidized medicines for underprivileged patients.</p>
                 </div>
 
-                <!-- Pillar 4 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
-                        <i class="fas fa-tools"></i>
+                <!-- Service 5 -->
+                <div class="service-card-ref">
+                    <div class="service-icon-box">
+                        <i class="fas fa-tshirt"></i>
                     </div>
-                    <h3>Skill Development</h3>
-                    <h4>(कौशल विकास)</h4>
-                    <p>Offering NSDC aligned vocational courses in computers, mobile repair, tailoring, and electrical trades to make youth gainfully employable.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
+                    <h3>Clothes & Tailoring</h3>
+                    <p>Training women in sewing and garment craftsmanship, enabling them to establish self-sustaining micro-enterprises and earn steady income.</p>
                 </div>
 
-                <!-- Pillar 5 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
-                        <i class="fas fa-leaf"></i>
+                <!-- Service 6 -->
+                <div class="service-card-ref">
+                    <div class="service-icon-box">
+                        <i class="fas fa-coins"></i>
                     </div>
-                    <h3>Environment & Water</h3>
-                    <h4>(पर्यावरण एवं जल संरक्षण)</h4>
-                    <p>Promoting tree plantation drives, rainwater harvesting, solar energy adoption, and clean sanitation across rural households.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
-                </div>
-
-                <!-- Pillar 6 -->
-                <div class="focus-card">
-                    <div class="focus-icon-circle">
-                        <i class="fas fa-tractor"></i>
-                    </div>
-                    <h3>Rural Livelihoods</h3>
-                    <h4>(ग्रामीण आजीविका)</h4>
-                    <p>Training smallholder farmers in organic agriculture, modern soil health practices, and connecting rural artisans directly to fair markets.</p>
-                    <a href="programs.php" class="focus-link">Explore Program <i class="fas fa-arrow-right"></i></a>
+                    <h3>Livelihood & Skills</h3>
+                    <p>Technical and digital documentation training for rural youth to secure employment and achieve long-term financial independence.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. Featured Projects Showcase -->
-    <section class="projects-section-wrap">
+    <!-- 5. Exclusive Events / Projects (Forest Green Wide Banner) -->
+    <section class="exclusive-events-section">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-tasks"></i> On The Ground</div>
-                <h2>Featured Projects</h2>
-                <p>A glimpse into our recent grassroots initiatives transforming communities step by step.</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/student1.jpeg" alt="Skill Development for Rural Youth">
-                        <span class="project-status-tag status-completed">Completed</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Vocational Training</div>
-                        <h3>Rural Youth Skill & Digital Literacy Center</h3>
-                        <p>Equipped over 200 rural youth with computer applications and administrative documentation skills for modern office jobs.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Prayagraj, UP</span>
-                            <span><i class="fas fa-user-friends"></i> 200+ Youths</span>
-                        </div>
-                    </div>
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h2>Our <span class="text-underline-gold">Exclusive Events</span><br>We Always provide!</h2>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/project3.jpg" alt="Rural Healthcare Camp">
-                        <span class="project-status-tag status-ongoing">Ongoing</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Public Health</div>
-                        <h3>Mobile Rural Health & Preventive Care Camp</h3>
-                        <p>Providing free doctor consultations, diagnostic tests, and critical medicines to remote villages without primary healthcare access.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Bhadohi & Prayagraj</span>
-                            <span><i class="fas fa-user-friends"></i> 1,000+ Villagers</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/student2.jpeg" alt="Women Self-Help Group">
-                        <span class="project-status-tag status-ongoing">Ongoing</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Women Livelihood</div>
-                        <h3>Women Tailoring & Handicraft Micro-Enterprise</h3>
-                        <p>Empowering rural women through sewing machine training and formation of self-sustaining production groups for local garments.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Multiple Villages</span>
-                            <span><i class="fas fa-user-friends"></i> 500+ Women</span>
-                        </div>
-                    </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-outline-white btn-sm" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn btn-gold btn-sm" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="projects.php" class="btn btn-secondary">
-                    View All Projects <i class="fas fa-arrow-right"></i>
-                </a>
+            <div class="exclusive-event-card-wide">
+                <img src="images/project3.jpg" alt="Hands Together Campaign" class="event-banner-img">
+                <div class="event-content-bottom">
+                    <div class="event-text-col">
+                        <h3>Raise funds for specific campaigns</h3>
+                        <p>
+                            Join hands with Matri Seva Samiti to support rural healthcare checkups, youth digital computer labs, and women tailoring clusters across Uttar Pradesh.
+                        </p>
+                        <a href="projects.php" style="color: var(--gold-primary); font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    <div class="event-big-number">
+                        01
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Success Stories / Testimonials -->
-    <section class="testimonials-section">
+    <!-- 6. Inspiring Stories / Testimonials -->
+    <section class="inspiring-stories-section">
         <div class="container">
-            <div class="section-header">
-                <div class="section-tag"><i class="fas fa-quote-left"></i> Real Impact</div>
-                <h2>Stories of Transformation</h2>
-                <p>Hear from the people whose lives have been positively changed through our community programs.</p>
+            <div class="section-header" style="display: flex; justify-content: space-between; align-items: flex-end;">
+                <div>
+                    <h2>Inspiring <span class="text-underline-gold">Stories</span> of those<br>We have already helped.</h2>
+                </div>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn btn-outline-forest btn-sm" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn btn-gold btn-sm" style="width: 40px; height: 40px; padding: 0; border-radius: 50%;"><i class="fas fa-chevron-right"></i></button>
+                </div>
             </div>
 
-            <div class="stories-grid">
+            <div class="stories-grid-3">
                 <!-- Story 1 -->
-                <div class="story-card-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="story-quote">
-                        "Thanks to the free tailoring and entrepreneurship training provided by Matri Seva Samiti, I now run my own garment shop. I can comfortably finance my children's education and support my family."
-                    </p>
-                    <div class="story-author-wrap">
-                        <img src="images/student1.jpeg" alt="Rani Devi" class="story-author-img">
-                        <div class="story-author-info">
-                            <h4>Rani Devi</h4>
-                            <p>Tailoring Entrepreneur, Prayagraj</p>
-                        </div>
+                <div class="story-card-ref">
+                    <div class="story-card-img-wrap">
+                        <img src="images/student1.jpeg" alt="Rani Devi">
+                    </div>
+                    <div class="story-card-content">
+                        <h4>Rani Devi</h4>
+                        <span class="story-card-age">24 Years Old • Prayagraj</span>
+                        <p>"Thanks to the tailoring and entrepreneurship training by Matri Seva Samiti, I now run my own boutique and support my family."</p>
+                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Story 2 -->
-                <div class="story-card-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="story-quote">
-                        "The free health camp came as a blessing when my mother fell sick. The doctors diagnosed her condition and provided free medication. The volunteers' compassion made all the difference."
-                    </p>
-                    <div class="story-author-wrap">
-                        <img src="images/student2.jpeg" alt="Ramesh Kumar" class="story-author-img">
-                        <div class="story-author-info">
-                            <h4>Ramesh Kumar</h4>
-                            <p>Rural Health Beneficiary</p>
-                        </div>
+                <div class="story-card-ref">
+                    <div class="story-card-img-wrap">
+                        <img src="images/student2.jpeg" alt="Ramesh Kumar">
+                    </div>
+                    <div class="story-card-content">
+                        <h4>Ramesh Kumar</h4>
+                        <span class="story-card-age">16 Years Old • Student</span>
+                        <p>"The free computer training center gave me skills in digital tools and spreadsheets. I am now working as a data operator."</p>
+                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
                 <!-- Story 3 -->
-                <div class="story-card-item">
-                    <div class="quote-icon"><i class="fas fa-quote-left"></i></div>
-                    <p class="story-quote">
-                        "I gained computer and documentation skills through their youth program. Today, I am employed as a computer operator at a local enterprise. It opened doors I thought were closed."
-                    </p>
-                    <div class="story-author-wrap">
-                        <img src="images/student3.jpeg" alt="Anil Sharma" class="story-author-img">
-                        <div class="story-author-info">
-                            <h4>Anil Sharma</h4>
-                            <p>Digital Program Graduate</p>
-                        </div>
+                <div class="story-card-ref">
+                    <div class="story-card-img-wrap">
+                        <img src="images/student3.jpeg" alt="Kavita Singh">
+                    </div>
+                    <div class="story-card-content">
+                        <h4>Kavita Singh</h4>
+                        <span class="story-card-age">19 Years Old • Bhadohi</span>
+                        <p>"The health camp diagnosed my vision problems and provided free eyeglasses. I can now study comfortably without headaches."</p>
+                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 7. Call To Action Full-width Banner -->
-    <section class="cta-banner-section">
+    <!-- 7. Call To Action (Split Dark Forest Green Banner) -->
+    <section class="help-us-banner-section">
         <div class="container">
-            <div class="cta-banner-content">
-                <h2>Join Hands to Build a Self-Reliant Society</h2>
-                <p>
-                    Your generosity enables us to educate a child, support a healthcare camp, and empower a woman to stand on her own feet. All donations are 100% tax-exempt under Section 80G.
-                </p>
-                <div class="cta-banner-buttons">
-                    <a href="donate.php" class="btn btn-primary btn-lg btn-pulse">
-                        <i class="fas fa-heart"></i> Make a Donation (80G Benefit)
+            <div class="help-us-grid">
+                <!-- Left Text Content -->
+                <div class="help-us-content">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <span style="font-weight: 800; font-size: 1.2rem; color: var(--gold-primary);">NGO</span>
+                        <span style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Matri Seva Samiti</span>
+                    </div>
+                    <h2>The Way You<br><span class="text-underline-gold">Help Us!</span></h2>
+                    <p>
+                        Your financial support directly fuels grassroots empowerment. All donations are 50% tax-exempt under Section 80G of the Income Tax Act.
+                    </p>
+                    <a href="donate.php" class="btn btn-gold btn-lg btn-pulse">
+                        Donate Now
                     </a>
-                    <a href="volunteer.php" class="btn btn-outline btn-lg">
-                        <i class="fas fa-user-plus"></i> Join as a Volunteer
-                    </a>
-                    <a href="grants.php" class="btn btn-secondary btn-lg">
-                        <i class="fas fa-handshake"></i> Partner with Us (CSR)
+                </div>
+
+                <!-- Right Video / Team Photo Frame -->
+                <div class="help-us-image-wrap">
+                    <img src="images/herobg1.png" alt="Volunteers Hands Together">
+                    <a href="about.php" class="help-us-video-play-btn" title="Learn About Us">
+                        <i class="fas fa-play"></i>
                     </a>
                 </div>
             </div>
