@@ -1,6 +1,11 @@
 <?php
 // Matri Seva Samiti NGO Website Configuration
 
+// Enable error reporting to diagnose live server issues
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Site Configuration
 define('SITE_NAME', 'Matri Seva Samiti');
 define('SITE_URL', 'https://matrisevasamiti.ngo');
@@ -47,12 +52,6 @@ define('UPLOAD_PATH', __DIR__ . '/uploads/');
 define('CSRF_TOKEN_NAME', 'csrf_token');
 define('SESSION_TIMEOUT', 3600); // 1 hour
 
-// Ensure logs directory exists
-$logDir = __DIR__ . '/logs';
-if (!is_dir($logDir)) {
-    @mkdir($logDir, 0755, true);
-}
-
 // Utility Functions
 function sanitizeInput($data) {
     $data = trim($data);
@@ -79,7 +78,11 @@ function validateCSRFToken($token) {
 }
 
 function logActivity($action, $details = '') {
-    $log_file = __DIR__ . '/logs/activity.log';
+    $log_dir = __DIR__ . '/logs';
+    if (!is_dir($log_dir)) {
+        @mkdir($log_dir, 0755, true);
+    }
+    $log_file = $log_dir . '/activity.log';
     $log_entry = date('Y-m-d H:i:s') . " - " . $action;
     if ($details) {
         $log_entry .= " - " . $details;
@@ -104,38 +107,7 @@ function sendEmail($to, $subject, $body, $isHTML = true) {
     return @mail($to, $subject, $body, $headers);
 }
 
-// Environment Detection
-function isDevelopment() {
-    $host = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '';
-    return ($host === 'localhost' || 
-            strpos($host, '127.0.0.1') !== false ||
-            strpos($host, '.local') !== false);
-}
-
-// Error Handling
-if (!isDevelopment()) {
-    ini_set('display_errors', 0);
-    ini_set('log_errors', 1);
-    if (is_dir($logDir) && is_writable($logDir)) {
-        ini_set('error_log', $logDir . '/php_errors.log');
-    }
-} else {
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-}
-
-// Safe Session Initialization
-$isHttps = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') || 
-           (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
-           (isset($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] == 443);
-
-ini_set('session.cookie_httponly', 1);
-if ($isHttps) {
-    ini_set('session.cookie_secure', 1);
-}
-ini_set('session.use_strict_mode', 1);
-
+// Start session if not started
 if (session_status() === PHP_SESSION_NONE) {
     @session_start();
 }
