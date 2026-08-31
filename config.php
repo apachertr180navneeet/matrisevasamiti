@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 // Site Configuration
 define('SITE_NAME', 'Matri Seva Samiti');
-define('SITE_URL', 'https://matrisevasamiti.ngo');
+define('SITE_URL', 'https://dspremierlogistics.co.uk/ngo/');
 define('SITE_EMAIL', 'matrisevasamiti1910@gmail.com');
 define('ADMIN_EMAIL', 'matrisevasamiti1910@gmail.com');
 
