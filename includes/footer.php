@@ -1,5 +1,5 @@
     <!-- ==========================================================================
-         CLEAN MINIMAL FOOTER (AS IN REFERENCE)
+         CLEAN MINIMAL FOOTER
          ========================================================================== -->
     <footer class="minimal-footer">
         <div class="container">
@@ -21,16 +21,16 @@
                     </div>
                 </div>
 
-                <!-- Col 2: Useful Links -->
+                <!-- Col 2: Quick Links (Clean URLs) -->
                 <div class="footer-col">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="programs.php">Our Services</a></li>
-                        <li><a href="projects.php">Explore Projects</a></li>
-                        <li><a href="impact.php">Our Impact</a></li>
-                        <li><a href="certificate.php">Statutory Documents</a></li>
-                        <li><a href="contact.php">Contact Us</a></li>
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="programs">Our Services</a></li>
+                        <li><a href="projects">Explore Projects</a></li>
+                        <li><a href="impact">Our Impact</a></li>
+                        <li><a href="certificate">Statutory Documents</a></li>
+                        <li><a href="contact">Contact Us</a></li>
                     </ul>
                 </div>
 
@@ -66,14 +66,14 @@
 
             <!-- Bottom Copyright -->
             <div class="footer-copyright-strip">
-                <p>© <?php echo date('Y'); ?> Matri Seva Samiti. All rights reserved. | <a href="privacy.php" style="color: var(--text-muted);">Privacy</a> • <a href="terms.php" style="color: var(--text-muted);">Terms</a> • <a href="disclaimer.php" style="color: var(--text-muted);">Disclaimer</a></p>
+                <p>© <?php echo date('Y'); ?> Matri Seva Samiti. All rights reserved. | <a href="privacy" style="color: var(--text-muted);">Privacy</a> • <a href="terms" style="color: var(--text-muted);">Terms</a> • <a href="disclaimer" style="color: var(--text-muted);">Disclaimer</a></p>
             </div>
         </div>
     </footer>
 
     <!-- Floating Action Group -->
     <div class="floating-action-group">
-        <a href="donate.php" class="floating-btn float-donate" style="background: var(--gold-primary); color: var(--forest-900);" title="Donate Now">
+        <a href="donate" class="floating-btn float-donate" style="background: var(--gold-primary); color: var(--forest-900);" title="Donate Now">
             <i class="fas fa-hand-holding-heart"></i>
         </a>
         <button id="floatTopBtn" class="floating-btn float-top" style="background: var(--forest-800);" title="Scroll to top">

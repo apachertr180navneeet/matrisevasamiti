@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/documentherobg.png" alt="Documents Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Legal Documents</span>
+                <a href="index">Home</a> <span>/</span> <span>Legal Documents</span>
             </div>
             <h1>Statutory <span class="highlight">Accreditations</span></h1>
             <p>100% compliant, audited, and legally certified under Government of India NGO regulations.</p>

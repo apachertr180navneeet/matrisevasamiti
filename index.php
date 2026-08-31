@@ -18,10 +18,10 @@ include 'includes/header.php';
                         Established in 1995, Matri Seva Samiti works tirelessly to uplift rural underprivileged children, provide women skill development, and run accessible healthcare camps across India.
                     </p>
                     <div class="hero-btn-group">
-                        <a href="donate.php" class="btn btn-gold btn-lg btn-pulse">
+                        <a href="donate" class="btn btn-gold btn-lg btn-pulse">
                             Get Started
                         </a>
-                        <a href="about.php" class="video-play-link">
+                        <a href="about" class="video-play-link">
                             <span class="play-icon-circle"><i class="fas fa-play"></i></span>
                             <span>About Our Work</span>
                         </a>
@@ -32,7 +32,7 @@ include 'includes/header.php';
                 <div class="hero-visual-right">
                     <div class="hero-circular-frame">
                         <img src="images/herobg.png" alt="Volunteers and Beneficiaries" class="hero-main-circle-img">
-                        <a href="donate.php" class="hero-floating-donate-pill">
+                        <a href="donate" class="hero-floating-donate-pill">
                             <span>Donate Now</span> <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -79,7 +79,7 @@ include 'includes/header.php';
                         <li><i class="fas fa-check-circle"></i> Audited financial records & transparent governance</li>
                     </ul>
 
-                    <a href="about.php" class="btn btn-gold">
+                    <a href="about" class="btn btn-gold">
                         Learn More <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -190,7 +190,7 @@ include 'includes/header.php';
                         <p>
                             Join hands with Matri Seva Samiti to support rural healthcare checkups, youth digital computer labs, and women tailoring clusters across Uttar Pradesh.
                         </p>
-                        <a href="projects.php" style="color: var(--gold-primary); font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
+                        <a href="projects" style="color: var(--gold-primary); font-weight: 700; display: inline-flex; align-items: center; gap: 6px;">
                             Read More <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -225,7 +225,7 @@ include 'includes/header.php';
                         <h4>Rani Devi</h4>
                         <span class="story-card-age">24 Years Old • Prayagraj</span>
                         <p>"Thanks to the tailoring and entrepreneurship training by Matri Seva Samiti, I now run my own boutique and support my family."</p>
-                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="about" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -238,7 +238,7 @@ include 'includes/header.php';
                         <h4>Ramesh Kumar</h4>
                         <span class="story-card-age">16 Years Old • Student</span>
                         <p>"The free computer training center gave me skills in digital tools and spreadsheets. I am now working as a data operator."</p>
-                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="about" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -251,7 +251,7 @@ include 'includes/header.php';
                         <h4>Kavita Singh</h4>
                         <span class="story-card-age">19 Years Old • Bhadohi</span>
                         <p>"The health camp diagnosed my vision problems and provided free eyeglasses. I can now study comfortably without headaches."</p>
-                        <a href="about.php" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
+                        <a href="about" class="story-read-link">Read More <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -272,7 +272,7 @@ include 'includes/header.php';
                     <p>
                         Your financial support directly fuels grassroots empowerment. All donations are 50% tax-exempt under Section 80G of the Income Tax Act.
                     </p>
-                    <a href="donate.php" class="btn btn-gold btn-lg btn-pulse">
+                    <a href="donate" class="btn btn-gold btn-lg btn-pulse">
                         Donate Now
                     </a>
                 </div>
@@ -280,7 +280,7 @@ include 'includes/header.php';
                 <!-- Right Video / Team Photo Frame -->
                 <div class="help-us-image-wrap">
                     <img src="images/herobg1.png" alt="Volunteers Hands Together">
-                    <a href="about.php" class="help-us-video-play-btn" title="Learn About Us">
+                    <a href="about" class="help-us-video-play-btn" title="Learn About Us">
                         <i class="fas fa-play"></i>
                     </a>
                 </div>

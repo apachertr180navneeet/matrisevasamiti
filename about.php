@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/aboutherobg.png" alt="About Us Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>About Us</span>
+                <a href="index">Home</a> <span>/</span> <span>About Us</span>
             </div>
             <h1>About <span class="highlight">Matri Seva Samiti</span></h1>
             <p>Empowering rural India through grassroots education, healthcare, and sustainable livelihood initiatives since 1995.</p>
@@ -49,10 +49,10 @@ include 'includes/header.php';
                     </div>
 
                     <div style="display: flex; gap: 14px; flex-wrap: wrap;">
-                        <a href="donate.php" class="btn btn-gold">
+                        <a href="donate" class="btn btn-gold">
                             Support Our Cause <i class="fas fa-arrow-right"></i>
                         </a>
-                        <a href="certificate.php" class="btn btn-outline-forest">
+                        <a href="certificate" class="btn btn-outline-forest">
                             <i class="fas fa-file-alt"></i> View Accreditations
                         </a>
                     </div>
@@ -210,10 +210,10 @@ include 'includes/header.php';
                     Matri Seva Samiti operates under strict statutory standards. We hold valid 80G, 12A, CSR-1, NGO Darpan, and PAN registrations with periodic independent audits.
                 </p>
                 <div class="cta-banner-buttons">
-                    <a href="certificate.php" class="btn btn-gold btn-lg">
+                    <a href="certificate" class="btn btn-gold btn-lg">
                         <i class="fas fa-certificate"></i> View Statutory Certificates
                     </a>
-                    <a href="grants.php" class="btn btn-outline-white btn-lg">
+                    <a href="grants" class="btn btn-outline-white btn-lg">
                         <i class="fas fa-handshake"></i> CSR Partnerships
                     </a>
                 </div>

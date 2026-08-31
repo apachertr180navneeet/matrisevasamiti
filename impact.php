@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/impactherobg.png" alt="Impact Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Our Impact</span>
+                <a href="index">Home</a> <span>/</span> <span>Our Impact</span>
             </div>
             <h1>Measuring Real <span class="highlight">Impact</span></h1>
             <p>Transparency and accountability at the core of every life touched across rural India.</p>
@@ -128,8 +128,8 @@ include 'includes/header.php';
                 <h2>Help Us Expand Our Reach in 2025-26</h2>
                 <p>Support an ongoing initiative or volunteer your skills to double our impact this year.</p>
                 <div class="cta-banner-buttons">
-                    <a href="donate.php" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Donate Now</a>
-                    <a href="volunteer.php" class="btn btn-outline-white btn-lg"><i class="fas fa-user-plus"></i> Join as Volunteer</a>
+                    <a href="donate" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Donate Now</a>
+                    <a href="volunteer" class="btn btn-outline-white btn-lg"><i class="fas fa-user-plus"></i> Join as Volunteer</a>
                 </div>
             </div>
         </div>

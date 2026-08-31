@@ -10,6 +10,7 @@ if (file_exists(__DIR__ . '/../config.php')) {
 }
 
 $currentPage = basename($_SERVER['PHP_SELF']);
+$currentSlug = preg_replace('/\.php$/', '', $currentPage);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -86,8 +87,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 <span style="color: var(--gold-primary); font-weight: 600;"><i class="fas fa-certificate"></i> 80G & 12A Certified NGO</span>
             </div>
             <div class="top-bar-right">
-                <a href="volunteer.php"><i class="fas fa-hands-helping"></i> Join Volunteer</a>
-                <a href="grants.php"><i class="fas fa-hand-holding-usd"></i> CSR Funding</a>
+                <a href="volunteer"><i class="fas fa-hands-helping"></i> Join Volunteer</a>
+                <a href="grants"><i class="fas fa-hand-holding-usd"></i> CSR Funding</a>
                 <div style="display: flex; gap: 6px; margin-left: 6px;">
                     <a href="<?php echo defined('FACEBOOK_URL') ? FACEBOOK_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-facebook-f"></i></a>
                     <a href="<?php echo defined('TWITTER_URL') ? TWITTER_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-twitter"></i></a>
@@ -103,22 +104,22 @@ $currentPage = basename($_SERVER['PHP_SELF']);
         <nav class="navbar">
             <div class="nav-container">
                 <!-- Logo -->
-                <a href="index.php" class="nav-logo">
+                <a href="index" class="nav-logo">
                     <img src="logo/Logo.png" alt="Matri Seva Samiti Logo" class="logo">
                     <div class="logo-title">Matri Seva <span>Samiti</span></div>
                 </a>
 
                 <!-- Nav Menu -->
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.php" class="nav-link <?php echo $currentPage == 'index.php' ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="about.php" class="nav-link <?php echo $currentPage == 'about.php' ? 'active' : ''; ?>">About Us</a></li>
-                    <li><a href="programs.php" class="nav-link <?php echo $currentPage == 'programs.php' ? 'active' : ''; ?>">Services</a></li>
-                    <li><a href="projects.php" class="nav-link <?php echo $currentPage == 'projects.php' ? 'active' : ''; ?>">Projects</a></li>
-                    <li><a href="certificate.php" class="nav-link <?php echo $currentPage == 'certificate.php' ? 'active' : ''; ?>">Documents</a></li>
-                    <li><a href="impact.php" class="nav-link <?php echo $currentPage == 'impact.php' ? 'active' : ''; ?>">Impact</a></li>
-                    <li><a href="gallery.php" class="nav-link <?php echo $currentPage == 'gallery.php' ? 'active' : ''; ?>">Gallery</a></li>
-                    <li><a href="ngo-news.php" class="nav-link <?php echo $currentPage == 'ngo-news.php' ? 'active' : ''; ?>">News</a></li>
-                    <li><a href="contact.php" class="nav-link <?php echo $currentPage == 'contact.php' ? 'active' : ''; ?>">Contact</a></li>
+                    <li><a href="index" class="nav-link <?php echo ($currentSlug == 'index' || $currentSlug == '') ? 'active' : ''; ?>">Home</a></li>
+                    <li><a href="about" class="nav-link <?php echo $currentSlug == 'about' ? 'active' : ''; ?>">About Us</a></li>
+                    <li><a href="programs" class="nav-link <?php echo $currentSlug == 'programs' ? 'active' : ''; ?>">Services</a></li>
+                    <li><a href="projects" class="nav-link <?php echo $currentSlug == 'projects' ? 'active' : ''; ?>">Projects</a></li>
+                    <li><a href="certificate" class="nav-link <?php echo $currentSlug == 'certificate' ? 'active' : ''; ?>">Documents</a></li>
+                    <li><a href="impact" class="nav-link <?php echo $currentSlug == 'impact' ? 'active' : ''; ?>">Impact</a></li>
+                    <li><a href="gallery" class="nav-link <?php echo $currentSlug == 'gallery' ? 'active' : ''; ?>">Gallery</a></li>
+                    <li><a href="ngo-news" class="nav-link <?php echo $currentSlug == 'ngo-news' ? 'active' : ''; ?>">News</a></li>
+                    <li><a href="contact" class="nav-link <?php echo $currentSlug == 'contact' ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
 
                 <!-- Action Button -->
@@ -140,7 +141,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                         <div id="google_translate_element"></div>
                     </div>
 
-                    <a href="donate.php" class="btn btn-gold btn-sm btn-pill btn-pulse">
+                    <a href="donate" class="btn btn-gold btn-sm btn-pill btn-pulse">
                         <i class="fas fa-heart"></i> Donate Now
                     </a>
 

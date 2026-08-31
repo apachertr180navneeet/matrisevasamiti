@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/faqherobg.png" alt="FAQ Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>FAQ</span>
+                <a href="index">Home</a> <span>/</span> <span>FAQ</span>
             </div>
             <h1>Frequently Asked <span class="highlight">Questions</span></h1>
             <p>Everything you need to know about our legal status, 80G tax exemptions, donations, volunteering, and CSR partnerships.</p>
@@ -114,8 +114,8 @@ include 'includes/header.php';
                 <h2>Still Have Questions?</h2>
                 <p>Our team is happy to help you with any questions regarding donations, audits, or programs.</p>
                 <div class="cta-banner-buttons">
-                    <a href="contact.php" class="btn btn-gold btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
-                    <a href="certificate.php" class="btn btn-outline-white btn-lg"><i class="fas fa-file-alt"></i> View Legal Documents</a>
+                    <a href="contact" class="btn btn-gold btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
+                    <a href="certificate" class="btn btn-outline-white btn-lg"><i class="fas fa-file-alt"></i> View Legal Documents</a>
                 </div>
             </div>
         </div>

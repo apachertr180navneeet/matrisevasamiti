@@ -11,7 +11,7 @@ $selectedRole = isset($_GET['role']) ? htmlspecialchars($_GET['role']) : '';
         <img src="images/volunteerherobg.png" alt="Volunteer Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Volunteer</span>
+                <a href="index">Home</a> <span>/</span> <span>Volunteer</span>
             </div>
             <h1>Become a Change <span class="highlight">Maker</span></h1>
             <p>Share your skills, time, and empathy to empower rural children, women, and families across India.</p>

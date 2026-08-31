@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/careerherobg.png" alt="Careers Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Careers</span>
+                <a href="index">Home</a> <span>/</span> <span>Careers</span>
             </div>
             <h1>Work With <span class="highlight">Purpose</span></h1>
             <p>Build a rewarding career in grassroots social development, rural education, and non-profit administration.</p>
@@ -36,7 +36,7 @@ include 'includes/header.php';
                             <strong>Qualification:</strong> MSW / B.Ed / Relevant Experience<br>
                             <strong>Experience:</strong> 1-3 Years in Social Sector
                         </div>
-                        <a href="contact.php?subject=career" class="btn btn-gold btn-sm">Apply for Role</a>
+                        <a href="contact?subject=career" class="btn btn-gold btn-sm">Apply for Role</a>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@ include 'includes/header.php';
                             <strong>Qualification:</strong> BCA / PGDCA / IT Diploma<br>
                             <strong>Experience:</strong> 1+ Year Teaching Experience
                         </div>
-                        <a href="contact.php?subject=career" class="btn btn-gold btn-sm">Apply for Role</a>
+                        <a href="contact?subject=career" class="btn btn-gold btn-sm">Apply for Role</a>
                     </div>
                 </div>
 
@@ -64,7 +64,7 @@ include 'includes/header.php';
                             <strong>Qualification:</strong> Students of MSW / Sociology / Media / MBA<br>
                             <strong>Perks:</strong> Certificate & Stipend
                         </div>
-                        <a href="contact.php?subject=career" class="btn btn-gold btn-sm">Apply for Internship</a>
+                        <a href="contact?subject=career" class="btn btn-gold btn-sm">Apply for Internship</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ include 'includes/header.php';
                 <p>Send us your resume at <strong>matrisevasamiti1910@gmail.com</strong> and we will reach out when a suitable position opens.</p>
                 <div class="cta-banner-buttons">
                     <a href="mailto:matrisevasamiti1910@gmail.com" class="btn btn-gold btn-lg"><i class="fas fa-paper-plane"></i> Email Your Resume</a>
-                    <a href="volunteer.php" class="btn btn-outline-white btn-lg"><i class="fas fa-hands-helping"></i> Explore Volunteering</a>
+                    <a href="volunteer" class="btn btn-outline-white btn-lg"><i class="fas fa-hands-helping"></i> Explore Volunteering</a>
                 </div>
             </div>
         </div>

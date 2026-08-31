@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/contactherobg.png" alt="Contact Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Contact Us</span>
+                <a href="index">Home</a> <span>/</span> <span>Contact Us</span>
             </div>
             <h1>Get In Touch <span class="highlight">With Us</span></h1>
             <p>We are always eager to connect with supporters, volunteers, donors, and partners. Reach out to our team today.</p>

@@ -11,7 +11,7 @@ $selectedCause = isset($_GET['cause']) ? htmlspecialchars($_GET['cause']) : 'gen
         <img src="images/donateherobg.png" alt="Donate Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Donate</span>
+                <a href="index">Home</a> <span>/</span> <span>Donate</span>
             </div>
             <h1>Transform Lives Through <span class="highlight">Your Generosity</span></h1>
             <p>Every rupee you give empowers a rural child, heals a patient, or trains an aspiring youth. 50% tax exempt under 80G.</p>

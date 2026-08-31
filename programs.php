@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/programherobg.png" alt="Our Programs Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Our Services</span>
+                <a href="index">Home</a> <span>/</span> <span>Our Services</span>
             </div>
             <h1>Our Core <span class="highlight">Services & Programs</span></h1>
             <p>Empowering rural communities through sustainable interventions in education, healthcare, skills, and livelihood.</p>
@@ -58,8 +58,8 @@ include 'includes/header.php';
                             <span class="badge badge-forest">Dropout Students</span>
                         </div>
                         <div class="program-actions">
-                            <a href="donate.php?cause=education" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Child</a>
-                            <a href="volunteer.php?role=education" class="btn btn-forest btn-sm"><i class="fas fa-chalkboard-teacher"></i> Volunteer as Teacher</a>
+                            <a href="donate?cause=education" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Child</a>
+                            <a href="volunteer?role=education" class="btn btn-forest btn-sm"><i class="fas fa-chalkboard-teacher"></i> Volunteer as Teacher</a>
                         </div>
                     </div>
                 </div>
@@ -96,8 +96,8 @@ include 'includes/header.php';
                             <span class="badge badge-forest">Homemakers</span>
                         </div>
                         <div class="program-actions">
-                            <a href="donate.php?cause=women" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Support Women Entrepreneurs</a>
-                            <a href="volunteer.php?role=women" class="btn btn-forest btn-sm"><i class="fas fa-hands-helping"></i> Mentor a SHG</a>
+                            <a href="donate?cause=women" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Support Women Entrepreneurs</a>
+                            <a href="volunteer?role=women" class="btn btn-forest btn-sm"><i class="fas fa-hands-helping"></i> Mentor a SHG</a>
                         </div>
                     </div>
                 </div>
@@ -134,8 +134,8 @@ include 'includes/header.php';
                             <span class="badge badge-forest">Senior Citizens</span>
                         </div>
                         <div class="program-actions">
-                            <a href="donate.php?cause=health" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Fund a Health Camp</a>
-                            <a href="volunteer.php?role=health" class="btn btn-forest btn-sm"><i class="fas fa-user-md"></i> Volunteer as Doctor/Nurse</a>
+                            <a href="donate?cause=health" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Fund a Health Camp</a>
+                            <a href="volunteer?role=health" class="btn btn-forest btn-sm"><i class="fas fa-user-md"></i> Volunteer as Doctor/Nurse</a>
                         </div>
                     </div>
                 </div>
@@ -172,8 +172,8 @@ include 'includes/header.php';
                             <span class="badge badge-forest">Rural Artisans</span>
                         </div>
                         <div class="program-actions">
-                            <a href="donate.php?cause=skill" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Trainee</a>
-                            <a href="volunteer.php?role=trainer" class="btn btn-forest btn-sm"><i class="fas fa-laptop-code"></i> Volunteer as Trainer</a>
+                            <a href="donate?cause=skill" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Trainee</a>
+                            <a href="volunteer?role=trainer" class="btn btn-forest btn-sm"><i class="fas fa-laptop-code"></i> Volunteer as Trainer</a>
                         </div>
                     </div>
                 </div>
@@ -188,8 +188,8 @@ include 'includes/header.php';
                 <h2>Want to Launch a Program in Your Area?</h2>
                 <p>We partner with CSR foundations, philanthropists, and local administrations to replicate our proven development models.</p>
                 <div class="cta-banner-buttons">
-                    <a href="grants.php" class="btn btn-gold btn-lg"><i class="fas fa-handshake"></i> CSR Collaboration</a>
-                    <a href="contact.php" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Program Team</a>
+                    <a href="grants" class="btn btn-gold btn-lg"><i class="fas fa-handshake"></i> CSR Collaboration</a>
+                    <a href="contact" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Program Team</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/grantherobg.png" alt="Grants Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Grants & CSR</span>
+                <a href="index">Home</a> <span>/</span> <span>Grants & CSR</span>
             </div>
             <h1>CSR Partnerships & <span class="highlight">Grants</span></h1>
             <p>Collaborate with a certified, audited, and grassroots-driven NGO to achieve your Corporate Social Responsibility goals.</p>

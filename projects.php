@@ -9,7 +9,7 @@ include 'includes/header.php';
         <img src="images/projectherobg.png" alt="Projects Background" class="page-hero-bg">
         <div class="container">
             <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>Projects</span>
+                <a href="index">Home</a> <span>/</span> <span>Projects</span>
             </div>
             <h1>Our Ground <span class="highlight">Projects</span></h1>
             <p>Real grassroots development initiatives transforming communities through tangible actions.</p>
@@ -147,8 +147,8 @@ include 'includes/header.php';
                 <h2>Have a Project in Mind or Want to Support One?</h2>
                 <p>Collaborate with us to implement impactful developmental projects under your CSR initiatives.</p>
                 <div class="cta-banner-buttons">
-                    <a href="donate.php" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Fund a Project</a>
-                    <a href="contact.php" class="btn btn-outline-white btn-lg"><i class="fas fa-handshake"></i> Propose Partnership</a>
+                    <a href="donate" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Fund a Project</a>
+                    <a href="contact" class="btn btn-outline-white btn-lg"><i class="fas fa-handshake"></i> Propose Partnership</a>
                 </div>
             </div>
         </div>
