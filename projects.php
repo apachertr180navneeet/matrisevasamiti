@@ -1,154 +1,120 @@
 <?php 
-$page_title = "Our Projects - Matri Seva Samiti | Grassroots Initiatives";
+$page_title = "Key Projects - Matri Seva Samiti";
 include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <img src="images/projectherobg.png" alt="Projects Background" class="page-hero-bg">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index">Home</a> <span>/</span> <span>Projects</span>
-            </div>
-            <h1>Our Ground <span class="highlight">Projects</span></h1>
-            <p>Real grassroots development initiatives transforming communities through tangible actions.</p>
+    <!-- BREADCRUMBS -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">Featured Projects</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="index.php">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>Projects</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section style="padding: 75px 0; background: var(--bg-slate);">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-tasks"></i> Tangible Impact</span>
-                <h2>Explore Ongoing & Completed <span class="text-underline-gold">Projects</span></h2>
-                <p>Filter through our field initiatives across vocational skills, healthcare, and women livelihood.</p>
+    <!-- PROJECTS GALLERY SECTION -->
+    <section class="ul-projects ul-section-spacing">
+        <div class="ul-container">
+            <div class="ul-section-heading text-center">
+                <div>
+                    <span class="ul-section-sub-title">Field Work</span>
+                    <h2 class="ul-section-title">Active Grassroots Projects</h2>
+                </div>
             </div>
 
-            <!-- Filter Tabs -->
-            <div class="gallery-filter-tabs">
-                <button class="gallery-tab-btn active" onclick="filterProjects('all', event)">All Projects</button>
-                <button class="gallery-tab-btn" onclick="filterProjects('completed', event)">Completed</button>
-                <button class="gallery-tab-btn" onclick="filterProjects('ongoing', event)">Ongoing</button>
-                <button class="gallery-tab-btn" onclick="filterProjects('upcoming', event)">Upcoming</button>
-            </div>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid">
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
                 <!-- Project 1 -->
-                <div class="project-card" data-category="completed">
-                    <div class="project-thumb-wrap">
-                        <img src="images/project1.jpeg" alt="Rural Youth Skill Training">
-                        <span class="project-status-tag status-completed">Completed</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Skill Development</div>
-                        <h3>Empowering Rural Youth Through Skill Training</h3>
-                        <p>Comprehensive vocational and technical training program providing market-relevant certifications and placement assistance to economically weaker village youth.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Prayagraj, UP</span>
-                            <span><i class="fas fa-user-friends"></i> 150 Beneficiaries</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-1.jpg" alt="Project 1">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Education</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Project Nanhi Udaan</a></h3>
+                            <p class="ul-project-descr">1,200 rural girls equipped with bicycles, bags, and tuition assistance to prevent dropouts.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="project-card" data-category="completed">
-                    <div class="project-thumb-wrap">
-                        <img src="images/project2.jpg" alt="Documentation Executive Training">
-                        <span class="project-status-tag status-completed">Completed</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Digital & Office Skills</div>
-                        <h3>Documentation Executive Training Program</h3>
-                        <p>Specialized administration, spreadsheet, and computerized record-keeping workshop preparing rural trainees for modern back-office jobs.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Bhadohi, UP</span>
-                            <span><i class="fas fa-user-friends"></i> 75 Beneficiaries</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-2.jpg" alt="Project 2">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Healthcare</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Sanjeevani Mobile Clinic</a></h3>
+                            <p class="ul-project-descr">Equipped mobile van visiting 35 remote villages on scheduled dates with licensed doctors.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card" data-category="ongoing">
-                    <div class="project-thumb-wrap">
-                        <img src="images/project3.jpg" alt="Rural Health Camp">
-                        <span class="project-status-tag status-ongoing">Ongoing</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Public Health</div>
-                        <h3>Rural Healthcare & Preventive Hygiene Camp</h3>
-                        <p>Weekly mobile clinics and medical screening camps delivering free diagnostics, general doctor consultations, and essential medicines to underserved hamlets.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Prayagraj Districts</span>
-                            <span><i class="fas fa-user-friends"></i> 500+ Villagers</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-3.jpg" alt="Project 3">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Livelihoods</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Kiran Women Sewing Hub</a></h3>
+                            <p class="ul-project-descr">Training 300+ village women annually in commercial stitching and garment packaging.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card" data-category="ongoing">
-                    <div class="project-thumb-wrap">
-                        <img src="images/student2.jpeg" alt="Women Self Help Groups">
-                        <span class="project-status-tag status-ongoing">Ongoing</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Women Empowerment</div>
-                        <h3>Women's Self-Help Group Tailoring Enterprise</h3>
-                        <p>Establishment of micro-sewing clusters and collective marketing for rural women artisans to produce uniform garments and cloth bags.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Multiple Villages</span>
-                            <span><i class="fas fa-user-friends"></i> 200+ Women</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-4.jpg" alt="Project 4">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Nutrition</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Poshan Meal Support</a></h3>
+                            <p class="ul-project-descr">Nutritional supplements and midday fortified meals served across 15 community schools.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 5 -->
-                <div class="project-card" data-category="upcoming">
-                    <div class="project-thumb-wrap">
-                        <img src="images/student1.jpeg" alt="Digital Literacy in Rural Schools">
-                        <span class="project-status-tag status-upcoming">Upcoming</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Education</div>
-                        <h3>Digital Literacy Labs in Rural Government Schools</h3>
-                        <p>Equipping rural schools with solar-powered computer stations, interactive smart screens, and digital learning content for rural pupils.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> 10 Rural Schools</span>
-                            <span><i class="fas fa-user-friends"></i> 300+ Students</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-5.jpg" alt="Project 5">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Elder Care</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Vridha Seva Assistance</a></h3>
+                            <p class="ul-project-descr">Monthly ration bags, medicines, and eye surgeries for abandoned senior citizens.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 6 -->
-                <div class="project-card" data-category="upcoming">
-                    <div class="project-thumb-wrap">
-                        <img src="images/agriculture1.jpg" alt="Sustainable Agriculture Training">
-                        <span class="project-status-tag status-upcoming">Upcoming</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Environment & Farming</div>
-                        <h3>Sustainable Organic Agriculture Training</h3>
-                        <p>Hands-on capacity building for small farmers on organic vermicomposting, bio-pesticides, drip irrigation, and direct consumer market access.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-map-marker-alt"></i> Eastern UP</span>
-                            <span><i class="fas fa-user-friends"></i> 100+ Farmers</span>
+                <div class="col">
+                    <div class="ul-project">
+                        <div class="ul-project-img">
+                            <img src="assets/img/project-6.jpg" alt="Project 6">
+                        </div>
+                        <div class="ul-project-txt">
+                            <span class="tag">Environment</span>
+                            <h3 class="ul-project-title"><a href="donate.php">Harit Gram Abhiyan</a></h3>
+                            <p class="ul-project-descr">Afforestation, community fruit orchards, and solar lamp installation in tribal hamlets.</p>
+                            <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Sponsor Now</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom CTA -->
-    <section class="cta-banner-section">
-        <div class="container">
-            <div class="cta-banner-content">
-                <h2>Have a Project in Mind or Want to Support One?</h2>
-                <p>Collaborate with us to implement impactful developmental projects under your CSR initiatives.</p>
-                <div class="cta-banner-buttons">
-                    <a href="donate" class="btn btn-gold btn-lg"><i class="fas fa-heart"></i> Fund a Project</a>
-                    <a href="contact" class="btn btn-outline-white btn-lg"><i class="fas fa-handshake"></i> Propose Partnership</a>
                 </div>
             </div>
         </div>

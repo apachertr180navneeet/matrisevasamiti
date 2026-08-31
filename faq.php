@@ -1,121 +1,104 @@
 <?php 
-$page_title = "Frequently Asked Questions (FAQ) - Matri Seva Samiti";
+$page_title = "Frequently Asked Questions (FAQs) - Matri Seva Samiti";
 include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <img src="images/faqherobg.png" alt="FAQ Background" class="page-hero-bg">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index">Home</a> <span>/</span> <span>FAQ</span>
-            </div>
-            <h1>Frequently Asked <span class="highlight">Questions</span></h1>
-            <p>Everything you need to know about our legal status, 80G tax exemptions, donations, volunteering, and CSR partnerships.</p>
+    <!-- BREADCRUMBS -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">Frequently Asked Questions</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="index.php">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>FAQs</li>
+            </ul>
         </div>
     </section>
 
-    <!-- FAQ Accordion Section -->
-    <section style="padding: 80px 0; background: var(--bg-slate);">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-question-circle"></i> Clear Answers</span>
-                <h2>Frequently Asked <span class="text-underline-gold">Queries</span></h2>
-                <p>Click on any question below to expand the detailed answer:</p>
-            </div>
-
-            <div class="faq-container">
-                <!-- FAQ 1 -->
-                <div class="faq-item active">
-                    <div class="faq-header">
-                        <span>1. Is Matri Seva Samiti a registered NGO in India?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content" style="max-height: 300px;">
-                        <div class="faq-body">
-                            Yes. Matri Seva Samiti was founded in April 1995 and is formally registered under the <strong>Societies Registration Act, 1860 (Act 21 of 1860)</strong> in Uttar Pradesh. We also hold verified registrations on NITI Aayog NGO Darpan, MSME Udyam, and the Ministry of Corporate Affairs (CSR-1).
-                        </div>
+    <!-- FAQ SECTION -->
+    <section class="ul-why-join ul-section-spacing">
+        <div class="ul-container">
+            <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
+                <div class="col">
+                    <div class="ul-why-join-img">
+                        <img src="assets/img/faq-img.png" alt="FAQ Assistance" class="img-fluid">
                     </div>
                 </div>
 
-                <!-- FAQ 2 -->
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span>2. Are donations eligible for 80G Tax Exemption?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content">
-                        <div class="faq-body">
-                            Yes. All donations made to Matri Seva Samiti are eligible for a <strong>50% tax exemption under Section 80G</strong> of the Indian Income Tax Act. We provide an official 80G Tax Exemption Receipt and Form 10BE certificate for all PAN-registered donations.
+                <div class="col">
+                    <div class="ul-why-join-txt">
+                        <span class="ul-section-sub-title">Have Questions?</span>
+                        <h2 class="ul-section-title">Everything You Need To Know About MSS</h2>
+                        <p class="ul-section-descr">Here are answers to the most common questions regarding donations, 80G tax exemptions, volunteering, and field transparency.</p>
+
+                        <div class="ul-accordion">
+                            <!-- Q1 -->
+                            <div class="ul-single-accordion-item open">
+                                <div class="ul-single-accordion-item__header">
+                                    <div class="left">
+                                        <h3 class="ul-single-accordion-item__title">Are donations eligible for 80G Tax Exemption?</h3>
+                                    </div>
+                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                </div>
+                                <div class="ul-single-accordion-item__body">
+                                    <p>Yes! Matri Seva Samiti is registered under Section 80G of the Indian Income Tax Act. Indian donors can claim 50% tax deduction on their total donated amount. An official 80G tax receipt is emailed immediately upon transaction completion.</p>
+                                </div>
+                            </div>
+
+                            <!-- Q2 -->
+                            <div class="ul-single-accordion-item">
+                                <div class="ul-single-accordion-item__header">
+                                    <div class="left">
+                                        <h3 class="ul-single-accordion-item__title">How do I get my 80G Donation Receipt?</h3>
+                                    </div>
+                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                </div>
+                                <div class="ul-single-accordion-item__body">
+                                    <p>When you donate online, make sure to enter your PAN number and valid email address. Your digitally verified 80G certificate is automatically generated and sent to your email inbox within minutes.</p>
+                                </div>
+                            </div>
+
+                            <!-- Q3 -->
+                            <div class="ul-single-accordion-item">
+                                <div class="ul-single-accordion-item__header">
+                                    <div class="left">
+                                        <h3 class="ul-single-accordion-item__title">Can I donate directly via UPI / QR Code?</h3>
+                                    </div>
+                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                </div>
+                                <div class="ul-single-accordion-item__body">
+                                    <p>Yes, you can scan the official UPI QR code on our Donate page using any app (Google Pay, PhonePe, Paytm, BHIM) or send payment to <strong>matrisevasamiti1910@sbi</strong>. After payment, send us your transaction reference and PAN to receive the tax certificate.</p>
+                                </div>
+                            </div>
+
+                            <!-- Q4 -->
+                            <div class="ul-single-accordion-item">
+                                <div class="ul-single-accordion-item__header">
+                                    <div class="left">
+                                        <h3 class="ul-single-accordion-item__title">How can I become a volunteer?</h3>
+                                    </div>
+                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                </div>
+                                <div class="ul-single-accordion-item__body">
+                                    <p>Simply navigate to our Volunteer page and submit the application form. Our volunteer coordinator will reach out within 48 hours to align you with ongoing campaigns or remote tasks.</p>
+                                </div>
+                            </div>
+
+                            <!-- Q5 -->
+                            <div class="ul-single-accordion-item">
+                                <div class="ul-single-accordion-item__header">
+                                    <div class="left">
+                                        <h3 class="ul-single-accordion-item__title">Does Matri Seva Samiti accept CSR Grants?</h3>
+                                    </div>
+                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                </div>
+                                <div class="ul-single-accordion-item__body">
+                                    <p>Yes, we are registered on MCA (Ministry of Corporate Affairs) with valid CSR-1 registration, 12A, and 80G certifications for corporate partnerships and CSR project implementations.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span>3. How will my donation money be used?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content">
-                        <div class="faq-body">
-                            Your contributions directly fund our four core thematic pillars: free remedial education for rural children, women tailoring and micro-enterprise clusters, free medical and eye health camps, and youth vocational skills training. Over 85% of every rupee goes directly toward field execution.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span>4. How can I receive my 80G Tax Exemption Receipt?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content">
-                        <div class="faq-body">
-                            After completing your payment via UPI, Net Banking, or Card, simply email your transaction screenshot, Donor Full Name, and PAN card number to <strong>matrisevasamiti1910@gmail.com</strong>. Our accounts team will issue your digitally stamped 80G receipt within 48 business hours.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span>5. Is Matri Seva Samiti eligible for Corporate CSR funding?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content">
-                        <div class="faq-body">
-                            Yes. We hold MCA registration Form CSR-1 (Registration No. <strong>CSR00057390</strong>). We actively partner with corporates and PSUs for Schedule VII aligned development initiatives, providing audited utilization certificates and progress reports.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item">
-                    <div class="faq-header">
-                        <span>6. Can I volunteer with Matri Seva Samiti remotely?</span>
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </div>
-                    <div class="faq-content">
-                        <div class="faq-body">
-                            Yes! We offer both on-ground volunteering in Uttar Pradesh (teaching, healthcare camps, organizing SHGs) and remote virtual volunteering (social media storytelling, graphic design, content writing, grant research, and translation).
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom CTA -->
-    <section class="cta-banner-section">
-        <div class="container">
-            <div class="cta-banner-content">
-                <h2>Still Have Questions?</h2>
-                <p>Our team is happy to help you with any questions regarding donations, audits, or programs.</p>
-                <div class="cta-banner-buttons">
-                    <a href="contact" class="btn btn-gold btn-lg"><i class="fas fa-envelope"></i> Contact Us</a>
-                    <a href="certificate" class="btn btn-outline-white btn-lg"><i class="fas fa-file-alt"></i> View Legal Documents</a>
                 </div>
             </div>
         </div>

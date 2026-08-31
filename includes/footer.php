@@ -1,87 +1,173 @@
-    <!-- ==========================================================================
-         CLEAN MINIMAL FOOTER
-         ========================================================================== -->
-    <footer class="minimal-footer">
-        <div class="container">
-            <div class="footer-main-grid">
-                <!-- Col 1: About & Branding -->
-                <div class="footer-col">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 16px;">
-                        <img src="logo/Logo.png" alt="Matri Seva Samiti Logo" style="height: 40px; width: auto;">
-                        <h4 style="margin-bottom: 0; font-size: 1.25rem;">Matri Seva Samiti</h4>
+    <!-- FOOTER SECTION START -->
+    <footer class="ul-footer">
+        <div class="ul-footer-top">
+            <div class="ul-footer-container">
+                <div class="ul-footer-top-contact-infos">
+                    <!-- Address Info -->
+                    <div class="ul-footer-top-contact-info">
+                        <div class="ul-footer-top-contact-info-icon">
+                            <div class="ul-footer-top-contact-info-icon-inner">
+                                <i class="flaticon-pin"></i>
+                            </div>
+                        </div>
+                        <div class="ul-footer-top-contact-info-txt">
+                            <span class="ul-footer-top-contact-info-label">Head Office</span>
+                            <h5 class="ul-footer-top-contact-info-address">Plot No. 12, Seva Marg, New Delhi, India 110001</h5>
+                        </div>
                     </div>
-                    <p>
-                        Dedicated to grassroots rural development, education, healthcare, and women empowerment across India since 1995.
-                    </p>
-                    <div style="display: flex; gap: 10px; margin-top: 18px;">
-                        <a href="<?php echo defined('FACEBOOK_URL') ? FACEBOOK_URL : '#'; ?>" target="_blank" class="top-social-link" style="background: var(--forest-light); color: var(--forest-700);"><i class="fab fa-facebook-f"></i></a>
-                        <a href="<?php echo defined('TWITTER_URL') ? TWITTER_URL : '#'; ?>" target="_blank" class="top-social-link" style="background: var(--forest-light); color: var(--forest-700);"><i class="fab fa-twitter"></i></a>
-                        <a href="<?php echo defined('INSTAGRAM_URL') ? INSTAGRAM_URL : '#'; ?>" target="_blank" class="top-social-link" style="background: var(--forest-light); color: var(--forest-700);"><i class="fab fa-instagram"></i></a>
-                        <a href="<?php echo defined('LINKEDIN_URL') ? LINKEDIN_URL : '#'; ?>" target="_blank" class="top-social-link" style="background: var(--forest-light); color: var(--forest-700);"><i class="fab fa-linkedin-in"></i></a>
+
+                    <!-- Email Info -->
+                    <div class="ul-footer-top-contact-info">
+                        <div class="ul-footer-top-contact-info-icon">
+                            <div class="ul-footer-top-contact-info-icon-inner">
+                                <i class="flaticon-email"></i>
+                            </div>
+                        </div>
+                        <div class="ul-footer-top-contact-info-txt">
+                            <span class="ul-footer-top-contact-info-label">Send Email</span>
+                            <h5 class="ul-footer-top-contact-info-address"><a href="mailto:contact@matrisevasamiti.org">contact@matrisevasamiti.org</a></h5>
+                        </div>
+                    </div>
+
+                    <!-- Phone Info -->
+                    <div class="ul-footer-top-contact-info">
+                        <div class="ul-footer-top-contact-info-icon">
+                            <div class="ul-footer-top-contact-info-icon-inner">
+                                <i class="flaticon-telephone-call-1"></i>
+                            </div>
+                        </div>
+                        <div class="ul-footer-top-contact-info-txt">
+                            <span class="ul-footer-top-contact-info-label">Helpline Number</span>
+                            <h5 class="ul-footer-top-contact-info-address"><a href="tel:+919876543210">+91 98765 43210</a></h5>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Col 2: Quick Links (Clean URLs) -->
-                <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="about">About Us</a></li>
-                        <li><a href="programs">Our Services</a></li>
-                        <li><a href="projects">Explore Projects</a></li>
-                        <li><a href="impact">Our Impact</a></li>
-                        <li><a href="certificate">Statutory Documents</a></li>
-                        <li><a href="contact">Contact Us</a></li>
-                    </ul>
-                </div>
-
-                <!-- Col 3: Get In Touch -->
-                <div class="footer-col">
-                    <h4>Get In Touch</h4>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Prayagraj (Allahabad), Uttar Pradesh, India - 211019</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:matrisevasamiti1910@gmail.com" style="color: var(--text-muted);">matrisevasamiti1910@gmail.com</a>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone-alt"></i>
-                        <a href="tel:+919415451910" style="color: var(--text-muted);">+91-9415451910</a>
-                    </div>
-                </div>
-
-                <!-- Col 4: Newsletter -->
-                <div class="footer-col">
-                    <h4>Join A Newsletter</h4>
-                    <p style="font-size: 0.88rem;">Stay informed on our community progress and upcoming health camps.</p>
-                    <form class="footer-newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Matri Seva Samiti newsletter!');">
-                        <input type="email" placeholder="Your Email" class="footer-newsletter-input" required>
-                        <button type="submit" class="btn btn-gold btn-sm" style="width: 100%; font-weight: 700;">
-                            SUBSCRIBE
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Bottom Copyright -->
-            <div class="footer-copyright-strip">
-                <p>© <?php echo date('Y'); ?> Matri Seva Samiti. All rights reserved. | <a href="privacy" style="color: var(--text-muted);">Privacy</a> • <a href="terms" style="color: var(--text-muted);">Terms</a> • <a href="disclaimer" style="color: var(--text-muted);">Disclaimer</a></p>
             </div>
         </div>
+
+        <div class="ul-footer-middle">
+            <div class="ul-footer-container">
+                <div class="ul-footer-middle-wrapper wow animate__fadeInUp">
+                    <!-- Column 1: About -->
+                    <div class="ul-footer-about">
+                        <a href="index.php"><img src="logo/Logo.png" alt="Matri Seva Samiti Logo" style="max-height:60px; filter: brightness(0) invert(1);" class="logo mb-3"></a>
+                        <p class="ul-footer-about-txt">Matri Seva Samiti is committed to uplifting underprivileged children, empowering women through vocational skills, and providing accessible healthcare across India.</p>
+                        <div class="ul-footer-socials">
+                            <a href="https://facebook.com" target="_blank"><i class="flaticon-facebook"></i></a>
+                            <a href="https://twitter.com" target="_blank"><i class="flaticon-twitter"></i></a>
+                            <a href="https://linkedin.com" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
+                            <a href="https://youtube.com" target="_blank"><i class="flaticon-youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Column 2: Quick Links -->
+                    <div class="ul-footer-widget">
+                        <h3 class="ul-footer-widget-title">Quick Links</h3>
+                        <div class="ul-footer-widget-links">
+                            <a href="about.php">About MSS</a>
+                            <a href="programs.php">Our Programs</a>
+                            <a href="donate.php">Donate with 80G Exemption</a>
+                            <a href="volunteer.php">Volunteer Registration</a>
+                            <a href="certificate.php">Tax Certificates</a>
+                            <a href="contact.php">Contact Us</a>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Recent Impact Stories -->
+                    <div class="ul-footer-widget ul-footer-recent-posts">
+                        <h3 class="ul-footer-widget-title">Recent Updates</h3>
+                        <div class="ul-blog-sidebar-posts">
+                            <div class="ul-blog-sidebar-post ul-footer-post">
+                                <div class="img">
+                                    <img src="assets/img/blog-1.jpg" alt="Post Image">
+                                </div>
+                                <div class="txt">
+                                    <span class="date">
+                                        <span class="icon"><i class="flaticon-calendar"></i></span>
+                                        <span>Aug 24, 2026</span>
+                                    </span>
+                                    <h4 class="title"><a href="blogs.php">1,000+ Girls Enrolled in Rural Digital Literacy</a></h4>
+                                </div>
+                            </div>
+
+                            <div class="ul-blog-sidebar-post ul-footer-post">
+                                <div class="img">
+                                    <img src="assets/img/blog-2.jpg" alt="Post Image">
+                                </div>
+                                <div class="txt">
+                                    <span class="date">
+                                        <span class="icon"><i class="flaticon-calendar"></i></span>
+                                        <span>Aug 18, 2026</span>
+                                    </span>
+                                    <h4 class="title"><a href="blogs.php">Free Eye & General Health Checkup in 12 Villages</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Column 4: Newsletter / Connect -->
+                    <div class="ul-footer-widget ul-nwsltr-widget">
+                        <h3 class="ul-footer-widget-title">Stay Connected</h3>
+                        <div class="ul-footer-widget-links ul-footer-contact-links">
+                            <a href="mailto:contact@matrisevasamiti.org"><i class="flaticon-mail"></i> contact@matrisevasamiti.org</a>
+                            <a href="tel:+919876543210"><i class="flaticon-telephone-call"></i> +91 98765 43210</a>
+                        </div>
+                        <form action="process-contact.php" method="POST" class="ul-nwsltr-form">
+                            <div class="top">
+                                <input type="email" name="email" id="nwsltr-email" placeholder="Your Email Address" class="ul-nwsltr-input" required>
+                                <button type="submit"><i class="flaticon-next"></i></button>
+                            </div>
+                            <div class="agreement">
+                                <label for="nwsltr-agreement" class="ul-checkbox-wrapper">
+                                    <input type="checkbox" name="agreement" id="nwsltr-agreement" checked hidden>
+                                    <span class="ul-checkbox"><i class="flaticon-tick"></i></span>
+                                    <span class="ul-checkbox-txt">I agree with the <a href="privacy.php">Privacy Policy</a></span>
+                                </label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="ul-footer-bottom">
+            <div class="ul-footer-container">
+                <div class="ul-footer-bottom-wrapper">
+                    <p class="copyright-txt">&copy; <?php echo date('Y'); ?> Matri Seva Samiti. All rights reserved. Registered under Indian Societies Act XXI, 1860.</p>
+                    <div class="ul-footer-bottom-nav">
+                        <a href="terms.php">Terms & Conditions</a>
+                        <a href="privacy.php">Privacy Policy</a>
+                        <a href="disclaimer.php">Disclaimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Decorative Vector Art -->
+        <div class="ul-footer-vectors">
+            <img src="assets/img/footer-vector-img.png" alt="Footer Vector" class="ul-footer-vector-1">
+        </div>
     </footer>
+    <!-- FOOTER SECTION END -->
 
-    <!-- Floating Action Group -->
-    <div class="floating-action-group">
-        <a href="donate" class="floating-btn float-donate" style="background: var(--gold-primary); color: var(--forest-900);" title="Donate Now">
-            <i class="fas fa-hand-holding-heart"></i>
-        </a>
-        <button id="floatTopBtn" class="floating-btn float-top" style="background: var(--forest-800);" title="Scroll to top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </div>
+    <!-- Libraries JS -->
+    <script src="assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/splide/splide.min.js"></script>
+    <script src="assets/vendor/splide/splide-extension-auto-scroll.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/slim-select/slimselect.min.js"></script>
+    <script src="assets/vendor/animate-wow/wow.min.js"></script>
+    <script src="assets/vendor/splittype/index.min.js"></script>
+    <script src="assets/vendor/mixitup/mixitup.min.js"></script>
+    <script src="assets/vendor/fslightbox/fslightbox.js"></script>
+    <script src="assets/vendor/flatpickr/flatpickr.js"></script>
 
-    <!-- Scripts -->
-    <script src="assets/js/main.js"></script>
+    <!-- Custom Charitics Template Scripts -->
+    <script src="assets/js/charitics-main.js"></script>
+    <script src="assets/js/charitics-tab.js"></script>
+    <script src="assets/js/charitics-accordion.js"></script>
+    <script src="assets/js/charitics-progressbar.js"></script>
+    <script src="assets/js/charitics-donate-form.js"></script>
 </body>
 </html>

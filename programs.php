@@ -1,195 +1,114 @@
-<?php
-$page_title = "Our Services & Programs - Matri Seva Samiti";
-include 'includes/header.php';
+<?php 
+$page_title = "Our Programs - Matri Seva Samiti";
+include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <img src="images/programherobg.png" alt="Our Programs Background" class="page-hero-bg">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index">Home</a> <span>/</span> <span>Our Services</span>
-            </div>
-            <h1>Our Core <span class="highlight">Services & Programs</span></h1>
-            <p>Empowering rural communities through sustainable interventions in education, healthcare, skills, and livelihood.</p>
+    <!-- BREADCRUMBS SECTION -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">Our Programs &amp; Initiatives</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="index.php">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>Programs</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Programs List Section -->
-    <section style="padding: 80px 0; background: var(--bg-slate);">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-layer-group"></i> Grassroots Interventions</span>
-                <h2>Holistic Community <span class="text-underline-gold">Development</span></h2>
-                <p>Each program is carefully designed with community leadership to deliver measurable and long-lasting positive transformation.</p>
-            </div>
-
-            <div class="programs-container">
-                <!-- Program 1: Education & Child Care -->
-                <div class="program-card-detail">
-                    <div class="program-img-side">
-                        <img src="images/Educationimage.png" alt="Education & Child Care Program">
-                    </div>
-                    <div class="program-content-side">
-                        <div class="program-title-wrap">
-                            <h3>1. Education & Child Development</h3>
-                            <h4 class="hindi-text">शिक्षा एवं बाल विकास</h4>
-                        </div>
-                        <div class="program-field">
-                            <strong>Objective:</strong>
-                            <p>To ensure inclusive, equitable, and quality education while promoting digital literacy, foundational learning, life skills, and personality growth among children from underserved rural families.</p>
-                        </div>
-                        <div class="program-field">
-                            <strong>Key Activities:</strong>
-                            <ul class="program-activities-grid">
-                                <li><i class="fas fa-check-circle"></i> Free Remedial Learning Centers</li>
-                                <li><i class="fas fa-check-circle"></i> School Enrollment & Retention Drives</li>
-                                <li><i class="fas fa-check-circle"></i> Digital Computer Literacy Labs</li>
-                                <li><i class="fas fa-check-circle"></i> Distribution of Books & School Kits</li>
-                                <li><i class="fas fa-check-circle"></i> Career Mentorship & Guidance</li>
-                                <li><i class="fas fa-check-circle"></i> Educational Scholarships for Girls</li>
-                            </ul>
-                        </div>
-                        <div class="program-field">
-                            <strong>Target Beneficiaries:</strong>
-                            <span class="badge badge-forest">School Children</span>
-                            <span class="badge badge-forest">Adolescent Girls</span>
-                            <span class="badge badge-forest">Dropout Students</span>
-                        </div>
-                        <div class="program-actions">
-                            <a href="donate?cause=education" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Child</a>
-                            <a href="volunteer?role=education" class="btn btn-forest btn-sm"><i class="fas fa-chalkboard-teacher"></i> Volunteer as Teacher</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Program 2: Women Empowerment -->
-                <div class="program-card-detail">
-                    <div class="program-img-side">
-                        <img src="images/womenimpormentimage.png" alt="Women Empowerment Program">
-                    </div>
-                    <div class="program-content-side">
-                        <div class="program-title-wrap">
-                            <h3>2. Women Empowerment & Financial Inclusion</h3>
-                            <h4 class="hindi-text">महिला सशक्तिकरण</h4>
-                        </div>
-                        <div class="program-field">
-                            <strong>Objective:</strong>
-                            <p>To empower women socially, economically, and legally through self-help group (SHG) mobilization, tailoring enterprises, financial literacy, and gender rights awareness.</p>
-                        </div>
-                        <div class="program-field">
-                            <strong>Key Activities:</strong>
-                            <ul class="program-activities-grid">
-                                <li><i class="fas fa-check-circle"></i> Self Help Group (SHG) Formation</li>
-                                <li><i class="fas fa-check-circle"></i> Tailoring & Handicraft Training</li>
-                                <li><i class="fas fa-check-circle"></i> Micro-Finance & Bank Linkages</li>
-                                <li><i class="fas fa-check-circle"></i> Financial & Digital Banking Literacy</li>
-                                <li><i class="fas fa-check-circle"></i> Legal Rights & Domestic Safety Workshops</li>
-                                <li><i class="fas fa-check-circle"></i> Women Community Leadership Camps</li>
-                            </ul>
-                        </div>
-                        <div class="program-field">
-                            <strong>Target Beneficiaries:</strong>
-                            <span class="badge badge-forest">Rural Women</span>
-                            <span class="badge badge-forest">SHG Members</span>
-                            <span class="badge badge-forest">Homemakers</span>
-                        </div>
-                        <div class="program-actions">
-                            <a href="donate?cause=women" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Support Women Entrepreneurs</a>
-                            <a href="volunteer?role=women" class="btn btn-forest btn-sm"><i class="fas fa-hands-helping"></i> Mentor a SHG</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Program 3: Healthcare & Nutrition -->
-                <div class="program-card-detail">
-                    <div class="program-img-side">
-                        <img src="images/healthimage.png" alt="Health & Nutrition Program">
-                    </div>
-                    <div class="program-content-side">
-                        <div class="program-title-wrap">
-                            <h3>3. Healthcare, Maternal Care & Nutrition</h3>
-                            <h4 class="hindi-text">स्वास्थ्य एवं पोषण</h4>
-                        </div>
-                        <div class="program-field">
-                            <strong>Objective:</strong>
-                            <p>To make preventive and primary healthcare accessible to remote rural populations, combat malnutrition among children and lactating mothers, and promote hygiene and sanitation practices.</p>
-                        </div>
-                        <div class="program-field">
-                            <strong>Key Activities:</strong>
-                            <ul class="program-activities-grid">
-                                <li><i class="fas fa-check-circle"></i> Free Multi-Specialty Health Camps</li>
-                                <li><i class="fas fa-check-circle"></i> Eye Checkups & Free Spectacles</li>
-                                <li><i class="fas fa-check-circle"></i> Free Medicine Distribution</li>
-                                <li><i class="fas fa-check-circle"></i> Maternal & Infant Nutrition Kits</li>
-                                <li><i class="fas fa-check-circle"></i> Menstrual Hygiene & Sanitary Pad Drives</li>
-                                <li><i class="fas fa-check-circle"></i> Clean Drinking Water & Sanitation Awareness</li>
-                            </ul>
-                        </div>
-                        <div class="program-field">
-                            <strong>Target Beneficiaries:</strong>
-                            <span class="badge badge-forest">Rural Families</span>
-                            <span class="badge badge-forest">Expectant Mothers</span>
-                            <span class="badge badge-forest">Senior Citizens</span>
-                        </div>
-                        <div class="program-actions">
-                            <a href="donate?cause=health" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Fund a Health Camp</a>
-                            <a href="volunteer?role=health" class="btn btn-forest btn-sm"><i class="fas fa-user-md"></i> Volunteer as Doctor/Nurse</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Program 4: Skill Development -->
-                <div class="program-card-detail">
-                    <div class="program-img-side">
-                        <img src="images/student1.jpeg" alt="Skill Development Program">
-                    </div>
-                    <div class="program-content-side">
-                        <div class="program-title-wrap">
-                            <h3>4. Youth Skill Development & Livelihood</h3>
-                            <h4 class="hindi-text">कौशल विकास एवं रोजगार</h4>
-                        </div>
-                        <div class="program-field">
-                            <strong>Objective:</strong>
-                            <p>To provide industry-aligned technical and vocational training to economically weaker rural youth, bridging the employability gap and creating self-employment opportunities.</p>
-                        </div>
-                        <div class="program-field">
-                            <strong>Key Activities:</strong>
-                            <ul class="program-activities-grid">
-                                <li><i class="fas fa-check-circle"></i> Computer Hardware & Office Tools</li>
-                                <li><i class="fas fa-check-circle"></i> Documentation Executive Training</li>
-                                <li><i class="fas fa-check-circle"></i> Electrical & Appliance Repair</li>
-                                <li><i class="fas fa-check-circle"></i> Communication & Soft Skills Training</li>
-                                <li><i class="fas fa-check-circle"></i> Job Placement & Apprenticeship Linkages</li>
-                                <li><i class="fas fa-check-circle"></i> Micro-Enterprise Incubation</li>
-                            </ul>
-                        </div>
-                        <div class="program-field">
-                            <strong>Target Beneficiaries:</strong>
-                            <span class="badge badge-forest">Unemployed Youth</span>
-                            <span class="badge badge-forest">High School Graduates</span>
-                            <span class="badge badge-forest">Rural Artisans</span>
-                        </div>
-                        <div class="program-actions">
-                            <a href="donate?cause=skill" class="btn btn-gold btn-sm"><i class="fas fa-heart"></i> Sponsor a Trainee</a>
-                            <a href="volunteer?role=trainer" class="btn btn-forest btn-sm"><i class="fas fa-laptop-code"></i> Volunteer as Trainer</a>
-                        </div>
-                    </div>
+    <!-- PROGRAMS / SERVICES SECTION -->
+    <section class="ul-services ul-section-spacing">
+        <div class="ul-container">
+            <div class="ul-section-heading text-center">
+                <div>
+                    <span class="ul-section-sub-title">What We Do</span>
+                    <h2 class="ul-section-title">Core Social Development Initiatives</h2>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Bottom CTA -->
-    <section class="cta-banner-section">
-        <div class="container">
-            <div class="cta-banner-content">
-                <h2>Want to Launch a Program in Your Area?</h2>
-                <p>We partner with CSR foundations, philanthropists, and local administrations to replicate our proven development models.</p>
-                <div class="cta-banner-buttons">
-                    <a href="grants" class="btn btn-gold btn-lg"><i class="fas fa-handshake"></i> CSR Collaboration</a>
-                    <a href="contact" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Program Team</a>
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                <!-- Program 1 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-1.jpg" alt="Child Education">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Shiksha: Child &amp; Girl Education</a></h3>
+                            <p class="ul-service-descr">Operating primary learning centers, providing free school supplies, tuition support, and computer literacy in underserved villages.</p>
+                            <a href="donate.php" class="ul-service-btn">Support Education <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 2 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-2.jpg" alt="Healthcare Program">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Aarogya: Accessible Healthcare</a></h3>
+                            <p class="ul-service-descr">Conducting weekly mobile health clinics, free medicine distribution, maternal care checkups, and diagnostic screenings.</p>
+                            <a href="donate.php" class="ul-service-btn">Support Healthcare <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 3 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-3.jpg" alt="Women Skill Center">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Swavlamban: Women Empowerment</a></h3>
+                            <p class="ul-service-descr">Vocational sewing workshops, handicraft training, and micro-loan facilitation for self-help groups (SHGs).</p>
+                            <a href="donate.php" class="ul-service-btn">Support Women <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 4 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-4.jpg" alt="Nutrition Program">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Annapurna: Hunger &amp; Nutrition</a></h3>
+                            <p class="ul-service-descr">Distributing daily nutritious meals and monthly ration kits to impoverished families, elderly citizens, and daily wage workers.</p>
+                            <a href="donate.php" class="ul-service-btn">Donate Meals <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 5 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-5.jpg" alt="Disaster Relief">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Sahayata: Emergency &amp; Disaster Relief</a></h3>
+                            <p class="ul-service-descr">Rapid response relief during floods, extreme winters, and unforeseen crises with blankets, tarpaulins, and clean drinking water.</p>
+                            <a href="donate.php" class="ul-service-btn">Support Relief <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Program 6 -->
+                <div class="col">
+                    <div class="ul-service">
+                        <div class="ul-service-img">
+                            <img src="assets/img/service-6.jpg" alt="Environmental Action">
+                        </div>
+                        <div class="ul-service-txt">
+                            <h3 class="ul-service-title"><a href="projects.php">Prakriti: Green India &amp; Sanitation</a></h3>
+                            <p class="ul-service-descr">Tree plantation drives, village pond rejuvenation, clean water filters, and community hygiene awareness campaigns.</p>
+                            <a href="donate.php" class="ul-service-btn">Support Green Drive <i class="flaticon-up-right-arrow"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

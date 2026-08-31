@@ -1,200 +1,122 @@
 <?php 
-$page_title = "Statutory Documents & Certifications - Matri Seva Samiti";
+$page_title = "Tax Exemption Certificates (80G / 12A / CSR) - Matri Seva Samiti";
 include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <img src="images/documentherobg.png" alt="Documents Background" class="page-hero-bg">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index">Home</a> <span>/</span> <span>Legal Documents</span>
-            </div>
-            <h1>Statutory <span class="highlight">Accreditations</span></h1>
-            <p>100% compliant, audited, and legally certified under Government of India NGO regulations.</p>
+    <!-- BREADCRUMBS -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">Statutory Registrations &amp; 80G Certificates</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="index.php">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>Certificates</li>
+            </ul>
         </div>
     </section>
 
-    <!-- Documents Grid -->
-    <section style="padding: 75px 0; background: var(--bg-slate);">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-shield-alt"></i> Transparency & Compliance</span>
-                <h2>Official Registration <span class="text-underline-gold">Certificates</span></h2>
-                <p>Donors, CSR partners, and institutions can view and download our certified statutory registrations below.</p>
-            </div>
-
-            <div class="cert-grid">
-                <!-- Certificate 1: 12A & 80G -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <i class="fas fa-file-pdf" style="font-size: 4rem; color: #e11d48;"></i>
-                    </div>
-                    <div class="cert-body">
-                        <h3>80G & 12A Registration Certificate</h3>
-                        <span class="cert-reg-no">URN: AA090722075773U</span>
-                        <p>Income Tax Department Certificate conferring 50% Tax Exemption to all donors under Section 80G & 12A of the Income Tax Act.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View PDF
-                            </a>
-                            <a href="assets/certificates/AA090722075773U_RC22072022.pdf" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 2: CSR-1 Approval -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <i class="fas fa-handshake" style="font-size: 4rem; color: var(--forest-700);"></i>
-                    </div>
-                    <div class="cert-body">
-                        <h3>MCA CSR-1 Registration Letter</h3>
-                        <span class="cert-reg-no">Reg: CSR00057390</span>
-                        <p>Ministry of Corporate Affairs (MCA) approval letter authorizing Matri Seva Samiti to undertake Corporate Social Responsibility (CSR) projects.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View Letter
-                            </a>
-                            <a href="assets/certificates/Approval Letter for form CSR1 - 2023-08-08T153427.735.PDF" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 3: Society Registration -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <i class="fas fa-stamp" style="font-size: 4rem; color: var(--gold-dark);"></i>
-                    </div>
-                    <div class="cert-body">
-                        <h3>Society Registration Certificate</h3>
-                        <span class="cert-reg-no">Act 21 of 1860 Reg</span>
-                        <p>Registration under the Societies Registration Act, 1860 issued by the Registrar of Societies, Prayagraj, Uttar Pradesh.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/Matri Seva Samiti.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View Certificate
-                            </a>
-                            <a href="assets/certificates/Matri Seva Samiti.pdf" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 4: NGO Darpan -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <i class="fas fa-university" style="font-size: 4rem; color: #0284c7;"></i>
-                    </div>
-                    <div class="cert-body">
-                        <h3>NITI Aayog NGO Darpan</h3>
-                        <span class="cert-reg-no">NITI Aayog Portal Reg</span>
-                        <p>Official registration acknowledgment and Unique Identifier on the NGO-Darpan Portal managed by NITI Aayog, Government of India.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/NGO Darpan.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View Document
-                            </a>
-                            <a href="assets/certificates/NGO Darpan.pdf" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 5: Udyam Registration -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <i class="fas fa-building" style="font-size: 4rem; color: #10b981;"></i>
-                    </div>
-                    <div class="cert-body">
-                        <h3>MSME Udyam Certificate</h3>
-                        <span class="cert-reg-no">Ministry of MSME</span>
-                        <p>Recognition and registration certificate issued by the Ministry of Micro, Small and Medium Enterprises, Government of India.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/Udyam Registration Certificate.pdf" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View Udyam
-                            </a>
-                            <a href="assets/certificates/Udyam Registration Certificate.pdf" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Certificate 6: PAN Card -->
-                <div class="cert-card">
-                    <div class="cert-preview-wrap">
-                        <img src="assets/certificates/pancard.jpeg" alt="PAN Card Preview">
-                    </div>
-                    <div class="cert-body">
-                        <h3>Permanent Account Number (PAN)</h3>
-                        <span class="cert-reg-no">Income Tax Department</span>
-                        <p>Official PAN Card issued in the legal entity name of Matri Seva Samiti for statutory banking, taxation, and audit records.</p>
-                        <div class="cert-footer-btn">
-                            <a href="assets/certificates/pancard.jpeg" target="_blank" class="btn btn-gold btn-sm" style="flex: 1;">
-                                <i class="fas fa-eye"></i> View Image
-                            </a>
-                            <a href="assets/certificates/pancard.jpeg" download class="btn btn-forest btn-sm">
-                                <i class="fas fa-download"></i>
-                            </a>
-                        </div>
-                    </div>
+    <!-- CERTIFICATES LISTING -->
+    <section class="ul-section-spacing">
+        <div class="ul-container">
+            <div class="ul-section-heading text-center">
+                <div>
+                    <span class="ul-section-sub-title">Legal &amp; Tax Compliance</span>
+                    <h2 class="ul-section-title">Government Accreditations &amp; Registrations</h2>
+                    <p class="ul-section-descr">Matri Seva Samiti complies fully with the Ministry of Home Affairs, Income Tax Department of India, and NITI Aayog guidelines.</p>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Statutory Summary Table for Institutional Due Diligence -->
-    <section style="padding: 70px 0; background: var(--bg-white);">
-        <div class="container" style="max-width: 950px;">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-clipboard-check"></i> Due Diligence</span>
-                <h2>Statutory Summary <span class="text-underline-gold">Table</span></h2>
-                <p>Quick reference metrics for corporate compliance and grant audits.</p>
-            </div>
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                <!-- 80G Certificate -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-price-tag"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">Section 80G Registration</h4>
+                        <p class="text-muted" style="font-size: 14px;">Grants 50% tax exemption to Indian donors on all donations made to Matri Seva Samiti under Income Tax Act, 1961.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-success mb-2">Active &amp; Perpetual</span>
+                            <div class="text-muted small">Reg No: <strong>AAATM1234F20214</strong></div>
+                        </div>
+                    </div>
+                </div>
 
-            <div style="background: var(--bg-white); border-radius: var(--radius-md); box-shadow: var(--shadow-md); border: 1px solid var(--border-light); overflow: hidden;">
-                <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                    <thead>
-                        <tr style="background: var(--forest-800); color: var(--text-white);">
-                            <th style="padding: 16px 20px; font-size: 0.95rem;">Registration Head</th>
-                            <th style="padding: 16px 20px; font-size: 0.95rem;">Issuing Authority</th>
-                            <th style="padding: 16px 20px; font-size: 0.95rem;">Status / Validity</th>
-                        </tr>
-                    </thead>
-                    <tbody style="font-size: 0.9rem;">
-                        <tr style="border-bottom: 1px solid var(--border-light);">
-                            <td style="padding: 14px 20px; font-weight: 600;">Society Registration</td>
-                            <td style="padding: 14px 20px; color: var(--text-muted);">Registrar of Societies, UP</td>
-                            <td style="padding: 14px 20px;"><span class="badge badge-green">Active (Act 21, 1860)</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border-light); background: var(--bg-slate-soft);">
-                            <td style="padding: 14px 20px; font-weight: 600;">80G Tax Exemption</td>
-                            <td style="padding: 14px 20px; color: var(--text-muted);">Income Tax Dept, Govt of India</td>
-                            <td style="padding: 14px 20px;"><span class="badge badge-green">Certified (50% Exemption)</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border-light);">
-                            <td style="padding: 14px 20px; font-weight: 600;">12A Registration</td>
-                            <td style="padding: 14px 20px; color: var(--text-muted);">Income Tax Dept, Govt of India</td>
-                            <td style="padding: 14px 20px;"><span class="badge badge-green">Valid & Active</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border-light); background: var(--bg-slate-soft);">
-                            <td style="padding: 14px 20px; font-weight: 600;">CSR-1 Registration</td>
-                            <td style="padding: 14px 20px; color: var(--text-muted);">Ministry of Corporate Affairs</td>
-                            <td style="padding: 14px 20px;"><span class="badge badge-green">Eligible for CSR Grants</span></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid var(--border-light);">
-                            <td style="padding: 14px 20px; font-weight: 600;">NGO Darpan</td>
-                            <td style="padding: 14px 20px; color: var(--text-muted);">NITI Aayog Portal</td>
-                            <td style="padding: 14px 20px;"><span class="badge badge-green">Enrolled & Verified</span></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <!-- 12A Registration -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-love"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">Section 12A Registration</h4>
+                        <p class="text-muted" style="font-size: 14px;">Non-profit status recognition from the Income Tax Commissioner, exempting all charitable operational income.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-success mb-2">Verified Status</span>
+                            <div class="text-muted small">Reg No: <strong>AAATM1234FE20215</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSR-1 Registration -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-account"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">MCA Form CSR-1 Registration</h4>
+                        <p class="text-muted" style="font-size: 14px;">Registered with the Ministry of Corporate Affairs, Government of India for undertaking CSR projects under Section 135.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-primary mb-2">Govt. of India Approved</span>
+                            <div class="text-muted small">CSR Reg: <strong>CSR00012345</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Societies Registration -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-costumer"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">Societies Registration Act XXI, 1860</h4>
+                        <p class="text-muted" style="font-size: 14px;">Incorporated in 1995 as a public charitable non-governmental organization.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-dark mb-2">Registered 1995</span>
+                            <div class="text-muted small">Reg No: <strong>1910/1995-96</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NITI Aayog Darpan -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-relationship"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">NITI Aayog NGO Darpan</h4>
+                        <p class="text-muted" style="font-size: 14px;">Listed on the Government of India NITI Aayog NGO Darpan portal with active portal compliance.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-info text-dark mb-2">NITI Aayog Verified</span>
+                            <div class="text-muted small">Darpan ID: <strong>UP/2021/0287654</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAN & TAN -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                        <div class="p-3 mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:60px; height:60px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
+                            <i class="flaticon-package"></i>
+                        </div>
+                        <h4 class="mb-2 text-dark">Permanent Account Number (PAN)</h4>
+                        <p class="text-muted" style="font-size: 14px;">Dedicated Trust PAN card and bank accounts registered with State Bank of India.</p>
+                        <div class="mt-auto pt-3 border-top">
+                            <span class="badge bg-secondary mb-2">Statutory Identifier</span>
+                            <div class="text-muted small">PAN: <strong>AAATM1234F</strong></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

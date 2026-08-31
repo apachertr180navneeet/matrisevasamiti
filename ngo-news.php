@@ -1,145 +1,83 @@
 <?php 
-$page_title = "NGO News & Press Updates - Matri Seva Samiti";
+$page_title = "NGO News & Press Announcements - Matri Seva Samiti";
 include 'includes/header.php'; 
 ?>
 
 <main>
-    <!-- Page Hero -->
-    <section class="page-hero">
-        <img src="images/newsherobg.png" alt="News Background" class="page-hero-bg">
-        <div class="container">
-            <div class="breadcrumb">
-                <a href="index.php">Home</a> <span>/</span> <span>News & Updates</span>
-            </div>
-            <h1>Latest News & <span class="highlight">Stories</span></h1>
-            <p>Stay updated with our latest field projects, achievements, press coverage, and community milestones.</p>
+    <!-- BREADCRUMBS -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">NGO News &amp; Updates</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="index.php">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>NGO News</li>
+            </ul>
         </div>
     </section>
 
-    <!-- News Grid Section -->
-    <section style="padding: 75px 0; background: var(--bg-slate);">
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-tag"><i class="fas fa-newspaper"></i> In The Field</span>
-                <h2>Recent News & <span class="text-underline-gold">Press Releases</span></h2>
-                <p>Read about our grassroots interventions and community achievements across Uttar Pradesh.</p>
-            </div>
-
-            <div class="projects-grid">
-                <!-- News 1 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/skill-development-news.jpg" alt="Skill Development Center Launch">
-                        <span class="project-status-tag status-ongoing">Featured</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Youth Skills • Prayagraj</div>
-                        <h3>New Youth Skill Development & Computer Center Inaugurated</h3>
-                        <p>Matri Seva Samiti has opened a state-of-the-art vocational center in Jhunsi, equipped with modern computers and sewing machines to train 200+ rural youth annually.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> August 2025</span>
-                            <span><i class="fas fa-tag"></i> Program Launch</span>
+    <!-- NEWS SECTION -->
+    <section class="ul-blogs-2 ul-section-spacing">
+        <div class="ul-container wow animate__fadeInUp">
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                <div class="col">
+                    <div class="ul-blog ul-blog-2 h-100">
+                        <div class="ul-blog-img"><img src="assets/img/blog-b-1.jpg" alt="Press Release">
+                            <div class="date">
+                                <span class="number">28</span>
+                                <span class="txt">Aug</span>
+                            </div>
+                        </div>
+                        <div class="ul-blog-txt">
+                            <div class="ul-blog-infos">
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-account"></i></span><span>MSS Press</span></div>
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-price-tag"></i></span><span>Accreditation</span></div>
+                            </div>
+                            <h3 class="ul-blog-title"><a href="certificate.php">Matri Seva Samiti Receives Gold Seal of Transparency for 2026</a></h3>
+                            <p class="text-muted" style="font-size:14px;">Honored for 100% statutory compliance, timely audits, and open impact metrics.</p>
+                            <a href="certificate.php" class="ul-blog-btn">View Certificates <span class="icon"><i class="flaticon-next"></i></span></a>
                         </div>
                     </div>
-                </article>
+                </div>
 
-                <!-- News 2 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/healthcare-camp-news.jpg" alt="Free Health Camp">
-                        <span class="project-status-tag status-completed">Health</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Public Health • Bhadohi</div>
-                        <h3>Free Multi-Specialty Health Camp Reaches 500+ Villagers</h3>
-                        <p>In partnership with certified medical practitioners, our mobile healthcare team delivered free consultations, eye screenings, and free medicines in rural villages.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> July 2025</span>
-                            <span><i class="fas fa-tag"></i> Health Camp</span>
+                <div class="col">
+                    <div class="ul-blog ul-blog-2 h-100">
+                        <div class="ul-blog-img"><img src="assets/img/blog-b-3.jpg" alt="Relief Campaign">
+                            <div class="date">
+                                <span class="number">15</span>
+                                <span class="txt">Aug</span>
+                            </div>
+                        </div>
+                        <div class="ul-blog-txt">
+                            <div class="ul-blog-infos">
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-account"></i></span><span>Field Ops</span></div>
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-price-tag"></i></span><span>Relief</span></div>
+                            </div>
+                            <h3 class="ul-blog-title"><a href="donate.php">Monsoon Disaster Relief: 5,000 Dry Ration Kits Distributed</a></h3>
+                            <p class="text-muted" style="font-size:14px;">Emergency relief convoy dispatched to waterlogged lowlands providing rations and clean water.</p>
+                            <a href="donate.php" class="ul-blog-btn">Support Relief <span class="icon"><i class="flaticon-next"></i></span></a>
                         </div>
                     </div>
-                </article>
+                </div>
 
-                <!-- News 3 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/women-empowerment-news.jpg" alt="Women Self Help Groups">
-                        <span class="project-status-tag status-completed">Empowerment</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Women Welfare • Rural UP</div>
-                        <h3>15 New Women Self-Help Groups Established</h3>
-                        <p>Mobilized over 180 rural women with micro-finance credit linkages and sewing enterprise training, enabling them to start home-based garment manufacturing.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> June 2025</span>
-                            <span><i class="fas fa-tag"></i> Livelihoods</span>
+                <div class="col">
+                    <div class="ul-blog ul-blog-2 h-100">
+                        <div class="ul-blog-img"><img src="assets/img/blog-2.jpg" alt="CSR Partnership">
+                            <div class="date">
+                                <span class="number">01</span>
+                                <span class="txt">Aug</span>
+                            </div>
+                        </div>
+                        <div class="ul-blog-txt">
+                            <div class="ul-blog-infos">
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-account"></i></span><span>CSR Bureau</span></div>
+                                <div class="ul-blog-info"><span class="icon"><i class="flaticon-price-tag"></i></span><span>CSR Grant</span></div>
+                            </div>
+                            <h3 class="ul-blog-title"><a href="grants.php">New Corporate Partnership to Equip 20 Smart Classrooms</a></h3>
+                            <p class="text-muted" style="font-size:14px;">Leading IT firm partners with MSS under Section 135 CSR mandate for digital literacy.</p>
+                            <a href="grants.php" class="ul-blog-btn">CSR Details <span class="icon"><i class="flaticon-next"></i></span></a>
                         </div>
                     </div>
-                </article>
-
-                <!-- News 4 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/education-initiative-news.jpg" alt="Education Initiative">
-                        <span class="project-status-tag status-completed">Education</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Child Education • Prayagraj</div>
-                        <h3>Stationery & Learning Kits Distributed to 300+ Students</h3>
-                        <p>Annual back-to-school drive providing school bags, notebooks, and learning aids to underprivileged students from marginal farming families.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> May 2025</span>
-                            <span><i class="fas fa-tag"></i> Education</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- News 5 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/rural-development-news.jpg" alt="Organic Farming Drive">
-                        <span class="project-status-tag status-completed">Agriculture</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Environment • Eastern UP</div>
-                        <h3>Sustainable Organic Agriculture Workshop Conducted</h3>
-                        <p>Over 100 marginal farmers attended training on bio-fertilizer preparation, vermicomposting, and water-conserving drip irrigation techniques.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> April 2025</span>
-                            <span><i class="fas fa-tag"></i> Farming</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- News 6 -->
-                <article class="project-card">
-                    <div class="project-thumb-wrap">
-                        <img src="images/blog1.jpg" alt="Tree Plantation">
-                        <span class="project-status-tag status-completed">Environment</span>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-category">Green Mission • Prayagraj</div>
-                        <h3>Mass Tree Plantation Drive Along Village Roads</h3>
-                        <p>Volunteers and local school children joined hands to plant over 1,500 shade and fruit-bearing trees to improve rural green cover and soil quality.</p>
-                        <div class="project-meta-strip">
-                            <span><i class="fas fa-calendar-alt"></i> March 2025</span>
-                            <span><i class="fas fa-tag"></i> Environment</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom CTA -->
-    <section class="cta-banner-section">
-        <div class="container">
-            <div class="cta-banner-content">
-                <h2>Want to Cover Our Story or Feature Our Work?</h2>
-                <p>We welcome journalists, researchers, and media houses to visit our grassroots centers and cover our community initiatives.</p>
-                <div class="cta-banner-buttons">
-                    <a href="media.php" class="btn btn-gold btn-lg"><i class="fas fa-bullhorn"></i> Media & Press Kit</a>
-                    <a href="contact.php" class="btn btn-outline-white btn-lg"><i class="fas fa-envelope"></i> Contact Media Relations</a>
                 </div>
             </div>
         </div>

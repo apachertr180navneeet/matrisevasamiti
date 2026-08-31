@@ -14,10 +14,11 @@ $currentSlug = preg_replace('/\.php$/', '', $currentPage);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Matri Seva Samiti - NGO for Social Development'; ?></title>
+    <title><?php echo isset($page_title) ? htmlspecialchars($page_title) : 'Matri Seva Samiti - Non Profit NGO'; ?></title>
     <meta name="description" content="Matri Seva Samiti is a registered non-profit NGO dedicated to empowering rural communities through education, skill development, healthcare, and women empowerment.">
     
     <!-- Favicon -->
@@ -26,14 +27,73 @@ $currentSlug = preg_replace('/\.php$/', '', $currentPage);
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Quicksand:wght@300..700&family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Libraries CSS -->
+    <link rel="stylesheet" href="assets/icon/flaticon_charitics.css">
+    <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/vendor/splide/splide.min.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/vendor/slim-select/slimselect.css">
+    <link rel="stylesheet" href="assets/vendor/animate-wow/animate.min.css">
+    <link rel="stylesheet" href="assets/vendor/flatpickr/flatpickr.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
+
+    <!-- Custom Charitics CSS -->
+    <link rel="stylesheet" href="assets/css/charitics-style.css">
+
+    <style>
+        /* MSS Brand Color Overrides & Polish */
+        .ul-header-bottom-wrapper .logo-container img {
+            max-height: 55px;
+            width: auto;
+            object-fit: contain;
+        }
+        .ul-sidebar-header-logo img {
+            max-height: 50px;
+            width: auto;
+        }
+        .goog-te-banner-frame.skiptranslate, .goog-te-gadget-simple {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
+        .lang-select-pill {
+            background: #fff;
+            border: 1px solid var(--ul-gray2);
+            border-radius: 30px;
+            padding: 6px 12px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            outline: none;
+            color: var(--ul-black);
+            margin-right: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lang-select-pill:hover {
+            border-color: var(--ul-primary);
+        }
+        .ul-header-nav a.active {
+            color: var(--ul-primary);
+            font-weight: 700;
+        }
+        .tax-exemption-tag {
+            display: inline-block;
+            background: rgba(235, 83, 16, 0.12);
+            color: var(--ul-primary);
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-left: 6px;
+            text-transform: uppercase;
+        }
+    </style>
 
     <!-- Google Translate Script Setup -->
     <script type="text/javascript">
@@ -60,97 +120,143 @@ $currentSlug = preg_replace('/\.php$/', '', $currentPage);
                 }, 150);
             }
         }
-
-        window.addEventListener('DOMContentLoaded', function() {
-            var dropdown = document.getElementById('language-selector');
-            if (dropdown) {
-                var cookie = document.cookie.match(/googtrans=\/en\/([^;]+)/);
-                if (cookie && cookie[1]) {
-                    dropdown.value = cookie[1];
-                }
-                dropdown.addEventListener('change', function() {
-                    changeLanguage(this.value);
-                });
-            }
-        });
     </script>
-    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
-<body>
 
-    <!-- 1. Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="top-bar-left">
-                <a href="tel:+919415451910"><i class="fas fa-phone-alt"></i> +91-9415451910</a>
-                <a href="mailto:matrisevasamiti1910@gmail.com"><i class="fas fa-envelope"></i> matrisevasamiti1910@gmail.com</a>
-                <span style="color: var(--gold-primary); font-weight: 600;"><i class="fas fa-certificate"></i> 80G & 12A Certified NGO</span>
+<body>
+    <!-- PRELOADER START -->
+    <div class="preloader" id="preloader">
+        <div class="loader"></div>
+    </div>
+    <!-- PRELOADER END -->
+
+    <!-- SIDEBAR / OFFCANVAS FOR MOBILE -->
+    <div class="ul-sidebar">
+        <!-- header -->
+        <div class="ul-sidebar-header">
+            <div class="ul-sidebar-header-logo">
+                <a href="index.php">
+                    <img src="logo/Logo.png" alt="Matri Seva Samiti Logo" class="logo">
+                </a>
             </div>
-            <div class="top-bar-right">
-                <a href="volunteer"><i class="fas fa-hands-helping"></i> Join Volunteer</a>
-                <a href="grants"><i class="fas fa-hand-holding-usd"></i> CSR Funding</a>
-                <div style="display: flex; gap: 6px; margin-left: 6px;">
-                    <a href="<?php echo defined('FACEBOOK_URL') ? FACEBOOK_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="<?php echo defined('TWITTER_URL') ? TWITTER_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="<?php echo defined('INSTAGRAM_URL') ? INSTAGRAM_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="<?php echo defined('YOUTUBE_URL') ? YOUTUBE_URL : '#'; ?>" target="_blank" class="top-social-link"><i class="fab fa-youtube"></i></a>
-                </div>
+            <!-- sidebar closer -->
+            <button class="ul-sidebar-closer"><i class="flaticon-close"></i></button>
+        </div>
+
+        <div class="ul-sidebar-header-nav-wrapper d-block d-lg-none"></div>
+
+        <!-- sidebar footer -->
+        <div class="ul-sidebar-footer">
+            <span class="ul-sidebar-footer-title">Follow MSS India</span>
+            <div class="ul-sidebar-footer-social">
+                <a href="https://facebook.com" target="_blank"><i class="flaticon-facebook"></i></a>
+                <a href="https://twitter.com" target="_blank"><i class="flaticon-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="flaticon-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="flaticon-youtube"></i></a>
             </div>
         </div>
     </div>
+    <!-- SIDEBAR END -->
 
-    <!-- 2. Main Header (Forest Green) -->
-    <header class="header">
-        <nav class="navbar">
-            <div class="nav-container">
-                <!-- Logo -->
-                <a href="index" class="nav-logo">
-                    <img src="logo/Logo.png" alt="Matri Seva Samiti Logo" class="logo">
-                    <div class="logo-title">Matri Seva <span>Samiti</span></div>
-                </a>
+    <!-- SEARCH MODAL -->
+    <div class="ul-search-form-wrapper flex-grow-1 flex-shrink-0">
+        <button class="ul-search-closer"><i class="flaticon-close"></i></button>
+        <form action="blogs.php" method="GET" class="ul-search-form">
+            <div class="ul-search-form-right">
+                <input type="search" name="search" id="ul-search" placeholder="Search programs, events, causes...">
+                <button type="submit"><span class="icon"><i class="flaticon-search"></i></span></button>
+            </div>
+        </form>
+    </div>
+    <!-- SEARCH MODAL END -->
 
-                <!-- Nav Menu -->
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index" class="nav-link <?php echo ($currentSlug == 'index' || $currentSlug == '') ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="about" class="nav-link <?php echo $currentSlug == 'about' ? 'active' : ''; ?>">About Us</a></li>
-                    <li><a href="programs" class="nav-link <?php echo $currentSlug == 'programs' ? 'active' : ''; ?>">Services</a></li>
-                    <li><a href="projects" class="nav-link <?php echo $currentSlug == 'projects' ? 'active' : ''; ?>">Projects</a></li>
-                    <li><a href="certificate" class="nav-link <?php echo $currentSlug == 'certificate' ? 'active' : ''; ?>">Documents</a></li>
-                    <li><a href="impact" class="nav-link <?php echo $currentSlug == 'impact' ? 'active' : ''; ?>">Impact</a></li>
-                    <li><a href="gallery" class="nav-link <?php echo $currentSlug == 'gallery' ? 'active' : ''; ?>">Gallery</a></li>
-                    <li><a href="ngo-news" class="nav-link <?php echo $currentSlug == 'ngo-news' ? 'active' : ''; ?>">News</a></li>
-                    <li><a href="contact" class="nav-link <?php echo $currentSlug == 'contact' ? 'active' : ''; ?>">Contact</a></li>
-                </ul>
-
-                <!-- Action Button -->
-                <div class="nav-actions">
-                    <div class="nav-translate notranslate">
-                        <select id="language-selector" class="language-dropdown notranslate" translate="no">
-                            <option value="">🌐 English</option>
-                            <option value="hi">हिन्दी (Hindi)</option>
-                            <option value="bn">বাংলা (Bengali)</option>
-                            <option value="ta">தமிழ் (Tamil)</option>
-                            <option value="te">తెలుగు (Telugu)</option>
-                            <option value="mr">मराठी (Marathi)</option>
-                            <option value="gu">ગુજરાતી (Gujarati)</option>
-                            <option value="kn">ಕನ್ನಡ (Kannada)</option>
-                            <option value="ml">മലയാളം (Malayalam)</option>
-                            <option value="pa">ਪੰਜਾਬੀ (Punjabi)</option>
-                            <option value="ur">اردو (Urdu)</option>
-                        </select>
-                        <div id="google_translate_element"></div>
-                    </div>
-
-                    <a href="donate" class="btn btn-gold btn-sm btn-pill btn-pulse">
-                        <i class="fas fa-heart"></i> Donate Now
+    <!-- HEADER SECTION START -->
+    <header class="ul-header">
+        <div class="ul-header-bottom to-be-sticky">
+            <div class="ul-header-bottom-wrapper ul-header-container">
+                <div class="logo-container">
+                    <a href="index.php" class="d-inline-flex align-items-center gap-2">
+                        <img src="logo/Logo.png" alt="Matri Seva Samiti Logo" class="logo">
                     </a>
+                </div>
 
-                    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                        <span class="bar"></span>
-                    </button>
+                <!-- header nav -->
+                <div class="ul-header-nav-wrapper">
+                    <div class="to-go-to-sidebar-in-mobile">
+                        <nav class="ul-header-nav">
+                            <a href="index.php" class="<?php echo ($currentSlug == 'index' || $currentSlug == '') ? 'active' : ''; ?>">Home</a>
+                            <a href="about.php" class="<?php echo ($currentSlug == 'about') ? 'active' : ''; ?>">About Us</a>
+                            
+                            <div class="has-sub-menu">
+                                <a role="button" class="<?php echo in_array($currentSlug, ['programs', 'projects', 'impact', 'grants']) ? 'active' : ''; ?>">Our Work</a>
+                                <div class="ul-header-submenu">
+                                    <ul>
+                                        <li><a href="programs.php">All Programs</a></li>
+                                        <li><a href="projects.php">Key Projects</a></li>
+                                        <li><a href="impact.php">Impact & Reports</a></li>
+                                        <li><a href="grants.php">CSR & Grants</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="has-sub-menu">
+                                <a role="button" class="<?php echo in_array($currentSlug, ['donate', 'certificate']) ? 'active' : ''; ?>">Donate</a>
+                                <div class="ul-header-submenu">
+                                    <ul>
+                                        <li><a href="donate.php">Donate Now <span class="tax-exemption-tag">80G</span></a></li>
+                                        <li><a href="certificate.php">Tax Certificates (80G/12A)</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="has-sub-menu">
+                                <a role="button" class="<?php echo in_array($currentSlug, ['volunteer', 'career']) ? 'active' : ''; ?>">Get Involved</a>
+                                <div class="ul-header-submenu">
+                                    <ul>
+                                        <li><a href="volunteer.php">Become a Volunteer</a></li>
+                                        <li><a href="career.php">Career Opportunities</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="has-sub-menu">
+                                <a role="button" class="<?php echo in_array($currentSlug, ['gallery', 'blogs', 'ngo-news', 'faq', 'media']) ? 'active' : ''; ?>">Media</a>
+                                <div class="ul-header-submenu">
+                                    <ul>
+                                        <li><a href="gallery.php">Photo Gallery</a></li>
+                                        <li><a href="blogs.php">Impact Blogs</a></li>
+                                        <li><a href="ngo-news.php">NGO News</a></li>
+                                        <li><a href="media.php">Press & Media</a></li>
+                                        <li><a href="faq.php">FAQs</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <a href="contact.php" class="<?php echo ($currentSlug == 'contact') ? 'active' : ''; ?>">Contact</a>
+                        </nav>
+                    </div>
+                </div>
+
+                <!-- actions -->
+                <div class="ul-header-actions">
+                    <!-- Language selector -->
+                    <select class="lang-select-pill d-none d-md-inline-flex" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="hi">हिन्दी</option>
+                        <option value="bn">বাংলা</option>
+                        <option value="ta">தமிழ்</option>
+                        <option value="te">తెలుగు</option>
+                        <option value="mr">मराठी</option>
+                        <option value="gu">ગુજરાતી</option>
+                    </select>
+                    <div id="google_translate_element" style="display:none;"></div>
+
+                    <button class="ul-header-search-opener" title="Search"><i class="flaticon-search"></i></button>
+                    <a href="donate.php" class="ul-btn d-sm-inline-flex d-none"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now </a>
+                    <button class="ul-header-sidebar-opener d-lg-none d-inline-flex"><i class="flaticon-menu"></i></button>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
+    <!-- HEADER SECTION END -->
