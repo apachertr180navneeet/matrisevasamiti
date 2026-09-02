@@ -68,7 +68,7 @@ include 'includes/header.php';
                                     <span class="icon"><i class="flaticon-next"></i></span>
                                 </div>
                                 <div class="ul-single-accordion-item__body">
-                                    <p>Yes, you can scan the official UPI QR code on our Donate page using any app (Google Pay, PhonePe, Paytm, BHIM) or send payment to <strong>matrisevasamiti1910@sbi</strong>. After payment, send us your transaction reference and PAN to receive the tax certificate.</p>
+                                    <p>Yes, you can scan the official UPI QR code on our Donate page using any app (Google Pay, PhonePe, Paytm, BHIM) or send payment directly to <strong>9415451910@ybl</strong> / <strong>matrisevasamiti1910@sbi</strong>. After payment, send us your transaction reference and PAN to receive the tax certificate.</p>
                                 </div>
                             </div>
 

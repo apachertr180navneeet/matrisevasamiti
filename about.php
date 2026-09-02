@@ -23,8 +23,8 @@ include 'includes/header.php';
             <div class="row row-cols-md-2 row-cols-1 align-items-center gy-4 ul-about-row">
                 <div class="col">
                     <div class="ul-about-imgs">
-                        <div class="img-wrapper">
-                            <img src="assets/img/about-img.png" alt="MSS History and Work">
+                        <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                            <img src="images/about-us.jpg" alt="About Matri Seva Samiti" style="width: 100%; height: auto; object-fit: cover;">
                         </div>
                         <div class="ul-about-imgs-vectors">
                             <img src="assets/img/about-img-vector-1.svg" alt="Vector" class="vector-1">
@@ -35,22 +35,24 @@ include 'includes/header.php';
 
                 <div class="col">
                     <div class="ul-about-txt">
-                        <span class="ul-section-sub-title ul-section-sub-title--2">Our Story &amp; Purpose</span>
-                        <h2 class="ul-section-title">Serving Humanity with Soft Hearts &amp; Strong Hands</h2>
-                        <p class="ul-section-descr">Matri Seva Samiti was founded in 1995 with an uncompromising resolve: no child should be deprived of education, no family should suffer without essential healthcare, and every woman should have the tools to live with economic dignity.</p>
+                        <span class="ul-section-sub-title ul-section-sub-title--2">"मिलकर करें प्रयास, खुशहाल हो समाज"</span>
+                        <h2 class="ul-section-title">Our Story &amp; Purpose</h2>
+                        <p class="ul-section-descr">Matri Seva Samiti was established in <strong>April 1995</strong>, inspired by Mahatma Gandhi's vision that "real India is in villages." Founded by visionary leader <strong>Gyan Shankar Pal</strong>, our organization has been dedicated to transforming rural communities through sustainable development programs.</p>
+                        <p class="ul-section-descr">Based in <strong>Prayagraj (Allahabad), Uttar Pradesh</strong>, Matri Seva Samiti is registered under the Societies Registration Act, 1860 (Central Act, 21 of 1860) on 28 August, 2021, ensuring utmost transparency, accountability, and statutory compliance in all our initiatives.</p>
 
                         <div class="ul-about-block">
                             <div class="block-left">
                                 <div class="block-heading">
                                     <div class="icon"><i class="flaticon-love"></i></div>
-                                    <h3 class="block-title">Vision &amp; Mission</h3>
+                                    <h3 class="block-title">Our Core Approach</h3>
                                 </div>
                                 <ul class="block-list">
-                                    <li>Empower 50,000+ rural lives by 2030 through sustainable education and health initiatives</li>
-                                    <li>Provide verified 80G tax exemption receipts for every generous contribution</li>
+                                    <li>Empower rural youth with market-ready vocational skills</li>
+                                    <li>Free health clinics, mobile diagnosis &amp; nutrition kits</li>
+                                    <li>Self-help groups, tailoring hubs &amp; girl education</li>
                                 </ul>
                             </div>
-                            <div class="block-right"><img src="assets/img/about-block-img.jpg" alt="MSS Field Action"></div>
+                            <div class="block-right"><img src="images/president.png" alt="Founder President" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;"></div>
                         </div>
 
                         <div class="ul-about-bottom">
@@ -60,7 +62,7 @@ include 'includes/header.php';
                                 <div class="icon"><i class="flaticon-telephone-call"></i></div>
                                 <div class="txt">
                                     <span class="call-title">Call For Inquiries</span>
-                                    <a href="tel:+919876543210">+91 98765 43210</a>
+                                    <a href="tel:+919415451910">+91 9415451910</a>
                                 </div>
                             </div>
                         </div>
@@ -83,29 +85,29 @@ include 'includes/header.php';
                     <div class="col">
                         <div class="ul-stats-item">
                             <i class="flaticon-costumer"></i>
-                            <span class="number">12,500+</span>
-                            <span class="txt">Children Supported</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="ul-stats-item">
-                            <i class="flaticon-team"></i>
-                            <span class="number">450+</span>
-                            <span class="txt">Active Volunteers</span>
+                            <span class="number">15,000+</span>
+                            <span class="txt">Beneficiaries Reached</span>
                         </div>
                     </div>
                     <div class="col">
                         <div class="ul-stats-item">
                             <i class="flaticon-package"></i>
-                            <span class="number">35+</span>
-                            <span class="txt">Villages Transformed</span>
+                            <span class="number">50+</span>
+                            <span class="txt">Projects Completed</span>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="ul-stats-item">
+                            <i class="flaticon-team"></i>
+                            <span class="number">120+</span>
+                            <span class="txt">Active Volunteers</span>
                         </div>
                     </div>
                     <div class="col">
                         <div class="ul-stats-item">
                             <i class="flaticon-relationship"></i>
-                            <span class="number">15,000+</span>
-                            <span class="txt">Supporters Worldwide</span>
+                            <span class="number">5+</span>
+                            <span class="txt">Years of Structured Impact</span>
                         </div>
                     </div>
                 </div>
@@ -114,146 +116,154 @@ include 'includes/header.php';
     </div>
     <!-- STATS END -->
 
-    <!-- WHY CHOOSE US ACCORDION -->
-    <section class="ul-why-join ul-section-spacing">
-        <div class="ul-why-join-wrapper ul-section-spacing">
-            <div class="ul-container">
-                <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
-                    <div class="col">
-                        <div class="ul-why-join-img">
-                            <img src="assets/img/why-join.jpg" alt="Volunteers in action">
+    <!-- VISION, MISSION & VALUES CARDS -->
+    <section class="ul-section-spacing pt-0">
+        <div class="ul-container">
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+                <!-- Vision -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 text-center">
+                        <div class="mx-auto mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:70px; height:70px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 28px;">
+                            <i class="flaticon-love"></i>
                         </div>
+                        <h3 class="mb-3">Our Vision</h3>
+                        <p class="text-muted">To create a society where every individual, especially in rural areas, has access to basic needs, quality education, healthcare, and opportunities for sustainable livelihood and personal growth.</p>
                     </div>
+                </div>
 
-                    <div class="col">
-                        <div class="ul-why-join-txt">
-                            <span class="ul-section-sub-title">Our Pillars</span>
-                            <h2 class="ul-section-title">Transparent &amp; Impact-Oriented</h2>
-                            <p class="ul-section-descr">We operate with verified fiscal transparency, annual audited balance sheets, and government certifications under Indian law.</p>
-
-                            <div class="ul-accordion">
-                                <div class="ul-single-accordion-item open">
-                                    <div class="ul-single-accordion-item__header">
-                                        <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Registered 80G &amp; 12A Non-Profit</h3>
-                                        </div>
-                                        <span class="icon"><i class="flaticon-next"></i></span>
-                                    </div>
-                                    <div class="ul-single-accordion-item__body">
-                                        <p>Donations made to Matri Seva Samiti are eligible for tax deductions under Section 80G of the Indian Income Tax Act. Instant 80G tax certificates are generated upon donation.</p>
-                                    </div>
-                                </div>
-
-                                <div class="ul-single-accordion-item">
-                                    <div class="ul-single-accordion-item__header">
-                                        <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Direct Grassroots Reach</h3>
-                                        </div>
-                                        <span class="icon"><i class="flaticon-next"></i></span>
-                                    </div>
-                                    <div class="ul-single-accordion-item__body">
-                                        <p>Our volunteer centers operate directly within underserved village clusters, ensuring minimal administrative overhead and maximum benefit to end families.</p>
-                                    </div>
-                                </div>
-
-                                <div class="ul-single-accordion-item">
-                                    <div class="ul-single-accordion-item__header">
-                                        <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Annual Audits &amp; Reporting</h3>
-                                        </div>
-                                        <span class="icon"><i class="flaticon-next"></i></span>
-                                    </div>
-                                    <div class="ul-single-accordion-item__body">
-                                        <p>All financial statements and project impact logs are audited annually by certified Chartered Accountants and published for public review.</p>
-                                    </div>
-                                </div>
-                            </div>
+                <!-- Mission -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 text-center">
+                        <div class="mx-auto mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:70px; height:70px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 28px;">
+                            <i class="flaticon-fast-forward-double-right-arrows-symbol"></i>
                         </div>
+                        <h3 class="mb-3">Our Mission</h3>
+                        <p class="text-muted">Empowering rural communities through innovative skill development programs, health initiatives, and educational support that foster self-reliance and sustainable socio-economic development.</p>
+                    </div>
+                </div>
+
+                <!-- Values -->
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 text-center">
+                        <div class="mx-auto mb-3 rounded-circle d-inline-flex align-items-center justify-content-center" style="width:70px; height:70px; background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 28px;">
+                            <i class="flaticon-account"></i>
+                        </div>
+                        <h3 class="mb-3">Our Values</h3>
+                        <p class="text-muted">Integrity &amp; Transparency, Community Participation, Sustainable Development, Compassion &amp; Service, and Innovation in Grassroot Execution.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- WHY CHOOSE US END -->
 
-    <!-- TEAM SECTION -->
+    <!-- EXECUTIVE COMMITTEE SECTION -->
     <section class="ul-team ul-section-spacing pt-0">
         <div class="ul-container">
-            <div class="ul-section-heading justify-content-between">
-                <div class="left">
-                    <span class="ul-section-sub-title">Governance</span>
-                    <h2 class="ul-section-title">Leadership &amp; Advisory Board</h2>
-                </div>
-                <div>
-                    <a href="volunteer.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Join Our Team</a>
+            <div class="ul-section-heading justify-content-between text-center">
+                <div class="mx-auto">
+                    <span class="ul-section-sub-title">Governance &amp; Leadership</span>
+                    <h2 class="ul-section-title">Executive Committee</h2>
                 </div>
             </div>
 
-            <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-team-row justify-content-center">
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-2 row-cols-1 gy-4 justify-content-center mb-5">
+                <!-- President -->
                 <div class="col">
-                    <div class="ul-team-member">
+                    <div class="ul-team-member text-center">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-1.jpg" alt="Dr. Ramesh Sharma">
-                            <div class="ul-team-member-socials">
-                                <a href="#"><i class="flaticon-facebook"></i></a>
-                                <a href="#"><i class="flaticon-twitter"></i></a>
-                                <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
+                            <img src="images/president.png" alt="Gyan Shankar Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Dr. Ramesh Sharma</a></h3>
-                            <p class="ul-team-member-designation">President &amp; Founder</p>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Gyan Shankar Pal</h3>
+                            <p class="ul-team-member-designation">President</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Vice President -->
                 <div class="col">
-                    <div class="ul-team-member">
+                    <div class="ul-team-member text-center">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-2.jpg" alt="Sunita Verma">
-                            <div class="ul-team-member-socials">
-                                <a href="#"><i class="flaticon-facebook"></i></a>
-                                <a href="#"><i class="flaticon-twitter"></i></a>
-                                <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
+                            <img src="members/dheeraj-raj-pal.jpeg" alt="Dheeraj Raj Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Sunita Verma</a></h3>
-                            <p class="ul-team-member-designation">Director - Women Empowerment</p>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Dheeraj Raj Pal</h3>
+                            <p class="ul-team-member-designation">Vice President</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Managing Secretary -->
                 <div class="col">
-                    <div class="ul-team-member">
+                    <div class="ul-team-member text-center">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-3.jpg" alt="Anil Gupta">
-                            <div class="ul-team-member-socials">
-                                <a href="#"><i class="flaticon-facebook"></i></a>
-                                <a href="#"><i class="flaticon-twitter"></i></a>
-                                <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
+                            <img src="members/narendra-nath-pal.jpeg" alt="Narendra Nath Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Anil Gupta</a></h3>
-                            <p class="ul-team-member-designation">Lead - Healthcare Operations</p>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Narendra Nath Pal</h3>
+                            <p class="ul-team-member-designation">Managing Secretary</p>
                         </div>
                     </div>
                 </div>
 
+                <!-- Treasurer -->
                 <div class="col">
-                    <div class="ul-team-member">
+                    <div class="ul-team-member text-center">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-4.jpg" alt="Pooja Deshmukh">
-                            <div class="ul-team-member-socials">
-                                <a href="#"><i class="flaticon-facebook"></i></a>
-                                <a href="#"><i class="flaticon-twitter"></i></a>
-                                <a href="#"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
+                            <img src="members/mamta-pal.jpeg" alt="Mamta Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Pooja Deshmukh</a></h3>
-                            <p class="ul-team-member-designation">Head - Child Education</p>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Mamta Pal</h3>
+                            <p class="ul-team-member-designation">Treasurer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Committee Members -->
+            <div class="ul-section-heading justify-content-between text-center mt-4">
+                <div class="mx-auto">
+                    <span class="ul-section-sub-title">Field &amp; Advisory</span>
+                    <h2 class="ul-section-title">Committee Members</h2>
+                </div>
+            </div>
+
+            <div class="row row-cols-lg-3 row-cols-md-3 row-cols-sm-2 row-cols-1 gy-4 justify-content-center">
+                <!-- Member 1 -->
+                <div class="col">
+                    <div class="ul-team-member text-center">
+                        <div class="ul-team-member-img">
+                            <img src="members/priyanka-pal.jpeg" alt="Priyanka Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Priyanka Pal</h3>
+                            <p class="ul-team-member-designation">Committee Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 2 -->
+                <div class="col">
+                    <div class="ul-team-member text-center">
+                        <div class="ul-team-member-img">
+                            <img src="members/sadhana-pal.jpeg" alt="Sadhana Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Sadhana Pal</h3>
+                            <p class="ul-team-member-designation">Committee Member</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Member 3 -->
+                <div class="col">
+                    <div class="ul-team-member text-center">
+                        <div class="ul-team-member-img">
+                            <img src="members/sumitra-pal.jpeg" alt="Sumitra Pal" style="height: 280px; width: 100%; object-fit: cover; border-radius: 15px;">
+                        </div>
+                        <div class="ul-team-member-info mt-3">
+                            <h3 class="ul-team-member-name">Sumitra Pal</h3>
+                            <p class="ul-team-member-designation">Committee Member</p>
                         </div>
                     </div>
                 </div>

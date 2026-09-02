@@ -144,11 +144,12 @@ $defaultAmount = isset($_GET['amount']) && is_numeric($_GET['amount']) ? intval(
                         </div>
 
                         <div class="p-2 rounded-3 bg-light border text-center mb-3">
-                            <small class="text-muted d-block">Official UPI VPA:</small>
-                            <strong class="text-dark fs-6" id="upiVpaText">matrisevasamiti1910@sbi</strong>
+                            <small class="text-muted d-block">Official UPI ID:</small>
+                            <strong class="text-dark fs-6" id="upiVpaText">9415451910@ybl</strong>
+                            <small class="text-muted d-block mt-1">Secondary: matrisevasamiti1910@sbi</small>
                         </div>
 
-                        <button type="button" onclick="navigator.clipboard.writeText('matrisevasamiti1910@sbi'); alert('UPI ID copied to clipboard!');" class="btn btn-outline-dark btn-sm rounded-pill w-100">
+                        <button type="button" onclick="navigator.clipboard.writeText('9415451910@ybl'); alert('UPI ID copied to clipboard!');" class="btn btn-outline-dark btn-sm rounded-pill w-100">
                             <i class="flaticon-right"></i> Copy UPI ID
                         </button>
                     </div>
@@ -160,27 +161,27 @@ $defaultAmount = isset($_GET['amount']) && is_numeric($_GET['amount']) ? intval(
                             <tbody>
                                 <tr>
                                     <td class="text-muted">Account Name:</td>
-                                    <td class="fw-bold text-end">MATRI SEVA SAMITI</td>
+                                    <td class="fw-bold text-end">Matri Seva Samiti</td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted">Bank Name:</td>
-                                    <td class="fw-bold text-end">State Bank of India (SBI)</td>
+                                    <td class="fw-bold text-end">HDFC Bank Ltd.</td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted">Account No:</td>
-                                    <td class="fw-bold text-end text-primary">41258963214</td>
+                                    <td class="fw-bold text-end text-primary">50200072951175</td>
                                 </tr>
                                 <tr>
                                     <td class="text-muted">IFSC Code:</td>
-                                    <td class="fw-bold text-end">SBIN0001234</td>
+                                    <td class="fw-bold text-end">HDFC0002434</td>
                                 </tr>
                                 <tr>
-                                    <td class="text-muted">Account Type:</td>
-                                    <td class="fw-bold text-end">Current Account</td>
+                                    <td class="text-muted">Branch:</td>
+                                    <td class="fw-bold text-end small">Jhusi, Prayagraj, UP</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <button type="button" onclick="navigator.clipboard.writeText('Account: 41258963214, IFSC: SBIN0001234, Name: MATRI SEVA SAMITI'); alert('Bank details copied!');" class="btn btn-outline-dark btn-sm rounded-pill w-100">
+                        <button type="button" onclick="navigator.clipboard.writeText('Account: 50200072951175, IFSC: HDFC0002434, Bank: HDFC Bank Ltd., Name: Matri Seva Samiti'); alert('Bank details copied!');" class="btn btn-outline-dark btn-sm rounded-pill w-100">
                             Copy Bank Account Info
                         </button>
                     </div>

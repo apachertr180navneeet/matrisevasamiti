@@ -7,7 +7,7 @@ include 'includes/header.php';
     <!-- BREADCRUMBS -->
     <section class="ul-breadcrumb ul-section-spacing">
         <div class="ul-container">
-            <h2 class="ul-breadcrumb-title">Contact Us</h2>
+            <h2 class="ul-breadcrumb-title">Contact Matri Seva Samiti</h2>
             <ul class="ul-breadcrumb-nav">
                 <li><a href="index.php">Home</a></li>
                 <li><span class="separator"><i class="flaticon-right"></i></span></li>
@@ -26,7 +26,8 @@ include 'includes/header.php';
                         <div class="icon"><i class="flaticon-phone-call"></i></div>
                         <div class="txt">
                             <span class="title">Helpline Number</span>
-                            <a href="tel:+919876543210">+91 98765 43210</a>
+                            <a href="tel:+919415451910">+91 9415451910</a>
+                            <small class="d-block text-muted">Alt: +91 9838291910</small>
                         </div>
                     </div>
                 </div>
@@ -36,8 +37,9 @@ include 'includes/header.php';
                     <div class="ul-contact-info h-100">
                         <div class="icon"><i class="flaticon-comment"></i></div>
                         <div class="txt">
-                            <span class="title">Email Address</span>
-                            <a href="mailto:contact@matrisevasamiti.org">contact@matrisevasamiti.org</a>
+                            <span class="title">Official Email</span>
+                            <a href="mailto:matrisevasamiti1910@gmail.com">matrisevasamiti1910@gmail.com</a>
+                            <small class="d-block text-muted">Response within 24h</small>
                         </div>
                     </div>
                 </div>
@@ -47,9 +49,29 @@ include 'includes/header.php';
                     <div class="ul-contact-info h-100">
                         <div class="icon"><i class="flaticon-location"></i></div>
                         <div class="txt">
-                            <span class="title">Registered Office</span>
-                            <span class="descr">Plot No. 12, Seva Marg, New Delhi 110001</span>
+                            <span class="title">Headquarters</span>
+                            <span class="descr">01 Naika Chhatnag Road, Near Ram Shiv Colony, Jhunsi, Prayagraj, UP 211019</span>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 Office Locations Cards -->
+            <div class="row row-cols-md-2 row-cols-1 gy-4 mt-4">
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 bg-white border-start border-4 border-primary">
+                        <span class="badge bg-danger align-self-start mb-2">Registered &amp; Head Office</span>
+                        <h4 class="h5 mb-2 text-dark">Jhunsi Headquarters</h4>
+                        <p class="text-muted small mb-2"><i class="flaticon-pin text-danger me-1"></i> 01 NAIKA CHHATNAG ROAD NEAR RAM SHIV COLONY JHUNSI PRAYAGRAJ UP 211019</p>
+                        <p class="text-muted small mb-0"><i class="flaticon-phone-call text-primary me-1"></i> +91 9415451910 | Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 bg-white border-start border-4 border-warning">
+                        <span class="badge bg-warning text-dark align-self-start mb-2">Project &amp; Field Office</span>
+                        <h4 class="h5 mb-2 text-dark">Ustapur Outreach Center</h4>
+                        <p class="text-muted small mb-2"><i class="flaticon-pin text-danger me-1"></i> USTAPUR MAHMOODABAD NEAR RAILWAY CROSSING JHUNSI PRAYAGRAJ UP 211019</p>
+                        <p class="text-muted small mb-0"><i class="flaticon-phone-call text-primary me-1"></i> +91 9415451910 | Mon - Sat: 9:00 AM - 6:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -58,15 +80,16 @@ include 'includes/header.php';
 
     <!-- MAP SECTION -->
     <div class="ul-contact-map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.269472658931!2d77.21852087549887!3d28.621714475670832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b027d109%3A0xf67026e6f9822a10!2sConnaught%20Place%2C%20New%20Delhi!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%; height:400px; border:0;"></iframe>
+        <iframe src="https://maps.google.com/maps?q=Jhunsi,%20Prayagraj,%20Uttar%20Pradesh%20211019&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%; height:400px; border:0;"></iframe>
     </div>
 
     <!-- CONTACT FORM SECTION -->
     <section class="ul-inner-contact ul-section-spacing">
         <div class="ul-section-heading justify-content-center text-center">
             <div>
-                <span class="ul-section-sub-title">Write To Us</span>
-                <h2 class="ul-section-title">Feel Free To Get In Touch Anytime</h2>
+                <span class="ul-section-sub-title">"मिलकर करें प्रयास, खुशहाल हो समाज"</span>
+                <h2 class="ul-section-title">Send Us a Message</h2>
+                <p class="ul-section-descr">Have questions about our initiatives, tax exemptions (80G), CSR partnerships, or volunteering? Reach out to us.</p>
             </div>
         </div>
 

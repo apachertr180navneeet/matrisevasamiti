@@ -12,20 +12,21 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-banner-txt">
                         <div class="wow animate__fadeInUp">
-                            <span class="ul-banner-sub-title ul-section-sub-title">Change The World Together</span>
-                            <h1 class="ul-banner-title">For The People &amp; Cause You Care About</h1>
-                            <p class="ul-banner-descr">Established in 1995, Matri Seva Samiti works tirelessly across rural communities to educate underprivileged children, empower women with vocational skills, and deliver accessible healthcare camps.</p>
+                            <span class="ul-banner-sub-title ul-section-sub-title">"मिलकर करें प्रयास, खुशहाल हो समाज"</span>
+                            <h1 class="ul-banner-title">Matri Seva Samiti</h1>
+                            <p class="ul-banner-descr">Established in April 1995, Matri Seva Samiti is a registered non-profit organization dedicated to uplifting rural and marginalized communities across India through education, healthcare, women empowerment, and skill development.</p>
                             <div class="ul-banner-btns">
-                                <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Make Donation</a>
+                                <a href="donate.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now</a>
+                                <a href="projects.php" class="ul-btn" style="background: var(--ul-secondary, #0F2B5B); margin-left: 10px;"><i class="flaticon-up-right-arrow"></i> Explore Our Work</a>
 
-                                <div class="ul-banner-stat">
+                                <div class="ul-banner-stat mt-3">
                                     <div class="imgs">
-                                        <img src="assets/img/user-1.png" alt="Donor 1">
-                                        <img src="assets/img/user-3.png" alt="Donor 2">
-                                        <img src="assets/img/user-2.png" alt="Donor 3">
+                                        <img src="images/student1.jpeg" alt="Beneficiary 1" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                        <img src="images/student2.jpeg" alt="Beneficiary 2" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                        <img src="images/student3.jpeg" alt="Beneficiary 3" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
                                         <span class="number">15K+</span>
                                     </div>
-                                    <span class="txt">Active Donors</span>
+                                    <span class="txt">Beneficiaries Reached</span>
                                 </div>
                             </div>
                         </div>
@@ -37,8 +38,8 @@ include 'includes/header.php';
                 <!-- Banner Image Collage & Floating Vectors -->
                 <div class="col align-self-start">
                     <div class="ul-banner-img">
-                        <div class="img-wrapper">
-                            <img src="assets/img/banner-img.png" alt="Beneficiaries & Volunteers">
+                        <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                            <img src="images/herobg.png" alt="Matri Seva Samiti Social Work" style="width: 100%; height: auto; object-fit: cover;">
                         </div>
                         <div class="ul-banner-img-vectors">
                             <img src="assets/img/banner-img-vector-1.png" alt="vector" class="vector-1 wow animate__fadeInRight">
@@ -58,8 +59,8 @@ include 'includes/header.php';
                 <!-- Left Image Collage -->
                 <div class="col">
                     <div class="ul-about-imgs">
-                        <div class="img-wrapper">
-                            <img src="assets/img/about-img.png" alt="MSS Social Work">
+                        <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                            <img src="images/project1.jpeg" alt="MSS Social Work" style="width: 100%; height: 380px; object-fit: cover;">
                         </div>
                         <div class="ul-about-imgs-vectors">
                             <img src="assets/img/about-img-vector-1.svg" alt="Decoration" class="vector-1">
@@ -72,31 +73,31 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-about-txt">
                         <span class="ul-section-sub-title ul-section-sub-title--2">About Us</span>
-                        <h2 class="ul-section-title">Helping Each Other Can Make The World Better</h2>
-                        <p class="ul-section-descr">Matri Seva Samiti is a certified 80G non-profit NGO. We bridge the gap between compassionate donors and grassroot families in need of educational sponsorship, nutritious food, and women self-reliance training.</p>
+                        <h2 class="ul-section-title">Serving Humanity with Soft Hearts &amp; Strong Resolve</h2>
+                        <p class="ul-section-descr">Established in April 1995, Matri Seva Samiti is a certified 80G non-profit organization. Inspired by the vision of a self-reliant nation, we work tirelessly in the fields of education, healthcare, women empowerment, and skill development to bring lasting grassroots transformation.</p>
 
                         <div class="ul-about-block">
                             <div class="block-left">
                                 <div class="block-heading">
                                     <div class="icon"><i class="flaticon-love"></i></div>
-                                    <h3 class="block-title">Grassroots Community Action</h3>
+                                    <h3 class="block-title">Key Accreditations &amp; Impact</h3>
                                 </div>
                                 <ul class="block-list">
-                                    <li>100% Tax Exemption under Section 80G of Income Tax Act</li>
-                                    <li>Transparent fund allocation and verified field reporting</li>
+                                    <li>Registered under 80G, 12A, CSR-1 &amp; NITI Aayog NGO Darpan</li>
+                                    <li>50+ Projects Completed &amp; 15,000+ Rural Lives Empowered</li>
                                 </ul>
                             </div>
-                            <div class="block-right"><img src="assets/img/about-block-img.jpg" alt="MSS Field Program"></div>
+                            <div class="block-right"><img src="images/student1.jpeg" alt="MSS Field Program" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;"></div>
                         </div>
 
                         <div class="ul-about-bottom">
-                            <a href="about.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Explore More</a>
+                            <a href="about.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Read More</a>
 
                             <div class="ul-about-call">
                                 <div class="icon"><i class="flaticon-telephone-call"></i></div>
                                 <div class="txt">
-                                    <span class="call-title">Call Helpline 24/7</span>
-                                    <a href="tel:+919876543210">+91 98765 43210</a>
+                                    <span class="call-title">Call For Inquiries</span>
+                                    <a href="tel:+919415451910">+91 9415451910</a>
                                 </div>
                             </div>
                         </div>
@@ -147,86 +148,8 @@ include 'includes/header.php';
                     <div class="swiper-slide">
                         <div class="ul-donation">
                             <div class="ul-donation-img">
-                                <img src="assets/img/donation-1.jpg" alt="Child Nutrition Drive">
-                                <span class="tag">Nutrition</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="75">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : ₹1,87,500</span>
-                                        <span class="ul-donation-progress-label">Goal : ₹2,50,000</span>
-                                    </div>
-                                </div>
-                                <a href="donate.php" class="ul-donation-title">Nutritious Midday Meals for Slum Children</a>
-                                <p class="ul-donation-descr">Providing wholesome hot meals and dietary supplements to prevent acute childhood malnutrition.</p>
-                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cause 2 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="assets/img/donation-2.jpg" alt="Rural Girl Education">
-                                <span class="tag">Education</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="90">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : ₹4,50,000</span>
-                                        <span class="ul-donation-progress-label">Goal : ₹5,00,000</span>
-                                    </div>
-                                </div>
-                                <a href="donate.php" class="ul-donation-title">Sponsor School Kits &amp; Tuition for 500 Girls</a>
-                                <p class="ul-donation-descr">Delivering textbooks, uniforms, digital tabs, and scholarships to keep girl students in school.</p>
-                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cause 3 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="assets/img/donation-3.jpg" alt="Rural Healthcare">
-                                <span class="tag">Healthcare</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="60">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : ₹3,00,000</span>
-                                        <span class="ul-donation-progress-label">Goal : ₹5,00,000</span>
-                                    </div>
-                                </div>
-                                <a href="donate.php" class="ul-donation-title">Mobile Medical Camps in Tribal Villages</a>
-                                <p class="ul-donation-descr">Free doctor consultations, generic medicines, and diagnostic tests for remote families.</p>
-                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cause 4 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="assets/img/donation-4.jpg" alt="Women Skill Center">
-                                <span class="tag">Women Care</span>
+                                <img src="images/student1.jpeg" alt="Skill Development For Rural Youth" style="height: 220px; width: 100%; object-fit: cover;">
+                                <span class="tag">Skill Training</span>
                             </div>
                             <div class="ul-donation-txt">
                                 <div class="ul-donation-progress">
@@ -236,12 +159,90 @@ include 'includes/header.php';
                                         </div>
                                     </div>
                                     <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Raised : ₹2,55,000</span>
-                                        <span class="ul-donation-progress-label">Goal : ₹3,00,000</span>
+                                        <span class="ul-donation-progress-label">Beneficiaries : 200+ Youths</span>
+                                        <span class="ul-donation-progress-label">Goal : Self-Reliance</span>
                                     </div>
                                 </div>
-                                <a href="donate.php" class="ul-donation-title">Sewing Machines &amp; Micro-Enterprise for Widows</a>
-                                <p class="ul-donation-descr">Empowering women with vocational sewing, handicrafts, and financial literacy to earn independently.</p>
+                                <a href="donate.php" class="ul-donation-title">Skill Development For Rural Youth</a>
+                                <p class="ul-donation-descr">Empowering underprivileged village youth with computer training, vocational skills, and career guidance.</p>
+                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cause 2 -->
+                    <div class="swiper-slide">
+                        <div class="ul-donation">
+                            <div class="ul-donation-img">
+                                <img src="images/project3.jpg" alt="Rural Healthcare Initiative" style="height: 220px; width: 100%; object-fit: cover;">
+                                <span class="tag">Healthcare</span>
+                            </div>
+                            <div class="ul-donation-txt">
+                                <div class="ul-donation-progress">
+                                    <div class="donation-progress-container ul-progress-container">
+                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="90">
+                                            <div class="donation-progress-label ul-progress-label"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ul-donation-progress-labels">
+                                        <span class="ul-donation-progress-label">Beneficiaries : 1000+ Villagers</span>
+                                        <span class="ul-donation-progress-label">Goal : Free Checkups</span>
+                                    </div>
+                                </div>
+                                <a href="donate.php" class="ul-donation-title">Rural Healthcare &amp; Medical Camps</a>
+                                <p class="ul-donation-descr">Delivering accessible doctor checkups, medicines, maternal care, and eye screenings in remote areas.</p>
+                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cause 3 -->
+                    <div class="swiper-slide">
+                        <div class="ul-donation">
+                            <div class="ul-donation-img">
+                                <img src="images/student2.jpeg" alt="Women Self-Help Groups" style="height: 220px; width: 100%; object-fit: cover;">
+                                <span class="tag">Women Power</span>
+                            </div>
+                            <div class="ul-donation-txt">
+                                <div class="ul-donation-progress">
+                                    <div class="donation-progress-container ul-progress-container">
+                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="80">
+                                            <div class="donation-progress-label ul-progress-label"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ul-donation-progress-labels">
+                                        <span class="ul-donation-progress-label">Beneficiaries : 500+ Women</span>
+                                        <span class="ul-donation-progress-label">Goal : Micro Enterprise</span>
+                                    </div>
+                                </div>
+                                <a href="donate.php" class="ul-donation-title">Women Self-Help &amp; Tailoring Hubs</a>
+                                <p class="ul-donation-descr">Equipping village women with sewing machines and financial literacy to earn independent livelihood.</p>
+                                <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cause 4 -->
+                    <div class="swiper-slide">
+                        <div class="ul-donation">
+                            <div class="ul-donation-img">
+                                <img src="images/student3.jpeg" alt="Child Education Drive" style="height: 220px; width: 100%; object-fit: cover;">
+                                <span class="tag">Education</span>
+                            </div>
+                            <div class="ul-donation-txt">
+                                <div class="ul-donation-progress">
+                                    <div class="donation-progress-container ul-progress-container">
+                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="95">
+                                            <div class="donation-progress-label ul-progress-label"></div>
+                                        </div>
+                                    </div>
+                                    <div class="ul-donation-progress-labels">
+                                        <span class="ul-donation-progress-label">Beneficiaries : 1200+ Girls</span>
+                                        <span class="ul-donation-progress-label">Goal : School Kits</span>
+                                    </div>
+                                </div>
+                                <a href="donate.php" class="ul-donation-title">Project Nanhi Udaan - Girl Child Education</a>
+                                <p class="ul-donation-descr">Providing school bags, books, uniforms, and tuition sponsorship for girls to prevent dropouts.</p>
                                 <a href="donate.php" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                             </div>
                         </div>
@@ -260,7 +261,7 @@ include 'includes/header.php';
                     <!-- Donation Quick Form -->
                     <div class="col-lg-6 position-relative">
                         <div class="ul-donate-form-wrapper">
-                            <h3 class="ul-donate-form-title">Custom Donate Now</h3>
+                            <h3 class="ul-donate-form-title">Support Our Cause - Donate Now</h3>
                             <form action="donate.php" method="GET" class="ul-donate-form">
                                 <div>
                                     <input type="radio" name="amount" id="donate-amount-1" value="500" checked hidden>
@@ -301,18 +302,19 @@ include 'includes/header.php';
                     <!-- Right Impact Text -->
                     <div class="col-xl-5 col-lg-6">
                         <div class="ul-donate-form-section-txt">
-                            <span class="ul-section-sub-title text-white">Give Today</span>
-                            <h2 class="ul-section-title text-white">Support Rural Lives with Tax Exempt Donations (80G)</h2>
+                            <span class="ul-section-sub-title text-white">100% Tax Deductible (80G)</span>
+                            <h2 class="ul-section-title text-white">Support Rural India With 80G Tax Exemption</h2>
+                            <p class="text-white opacity-75 mb-3">Donations made to Matri Seva Samiti are eligible for tax deduction under Section 80G. UPI ID: <strong>9415451910@ybl</strong> / <strong>matrisevasamiti1910@sbi</strong></p>
 
                             <div class="ul-donation-progress">
                                 <div class="donation-progress-container ul-progress-container">
-                                    <div class="donation-progressbar ul-progressbar" data-ul-progress-value="82">
+                                    <div class="donation-progressbar ul-progressbar" data-ul-progress-value="85">
                                         <div class="donation-progress-label ul-progress-label"></div>
                                     </div>
                                 </div>
                                 <div class="ul-donation-progress-labels">
-                                    <span class="ul-donation-progress-label">Raised : ₹8,20,000</span>
-                                    <span class="ul-donation-progress-label">Target : ₹10,00,000</span>
+                                    <span class="ul-donation-progress-label">Beneficiaries Reached : 15,000+</span>
+                                    <span class="ul-donation-progress-label">Projects : 50+ Completed</span>
                                 </div>
                             </div>
                         </div>
@@ -383,15 +385,15 @@ include 'includes/header.php';
                     <div class="col wow animate__fadeInUp">
                         <div class="ul-event">
                             <div class="ul-event-img">
-                                <img src="assets/img/event-img.jpg" alt="Free Health Camp">
+                                <img src="images/healthcare-camp-news.jpg" alt="Health Checkup Camp" style="height: 200px; width: 100%; object-fit: cover;">
                                 <span class="date">15 <span>Sep</span></span>
                             </div>
                             <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="volunteer.php">Mega Rural Health &amp; Eye Checkup Camp</a></h3>
-                                <p class="ul-event-descr">Comprehensive health checkups, dental screening, and free eye glasses distribution.</p>
+                                <h3 class="ul-event-title"><a href="ngo-news.php">Free Health Checkup Camp in Bhadohi</a></h3>
+                                <p class="ul-event-descr">Serving over 500 residents with free doctor consultations, diagnostic screenings, and medicines.</p>
                                 <div class="ul-event-info">
                                     <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Primary Health Center, Block 4, Sonipat</p>
+                                    <p class="ul-event-info-descr">Rural Health Center, Bhadohi, UP</p>
                                 </div>
                                 <a href="volunteer.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
                             </div>
@@ -402,15 +404,15 @@ include 'includes/header.php';
                     <div class="col wow animate__fadeInUp">
                         <div class="ul-event">
                             <div class="ul-event-img">
-                                <img src="assets/img/blog-b-1.jpg" alt="Education Drive">
+                                <img src="images/skill-development-news.jpg" alt="Skill Training Graduation" style="height: 200px; width: 100%; object-fit: cover;">
                                 <span class="date">22 <span>Sep</span></span>
                             </div>
                             <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="volunteer.php">Digital Classroom Kit Distribution Drive</a></h3>
-                                <p class="ul-event-descr">Installing digital smart classrooms and learning kits in 8 rural primary schools.</p>
+                                <h3 class="ul-event-title"><a href="ngo-news.php">Skill Training Graduation &amp; Digital Literacy</a></h3>
+                                <p class="ul-event-descr">150 rural youths completing commercial stitching and computer literacy programs.</p>
                                 <div class="ul-event-info">
                                     <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Community Hall, Rohini Sector 11, Delhi</p>
+                                    <p class="ul-event-info-descr">MSS Skill Center, Jhusi, Prayagraj</p>
                                 </div>
                                 <a href="volunteer.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
                             </div>
@@ -421,15 +423,15 @@ include 'includes/header.php';
                     <div class="col wow animate__fadeInUp">
                         <div class="ul-event">
                             <div class="ul-event-img">
-                                <img src="assets/img/blog-2.jpg" alt="Tree Plantation">
+                                <img src="images/rural-development-news.jpg" alt="Tree Plantation Drive" style="height: 200px; width: 100%; object-fit: cover;">
                                 <span class="date">05 <span>Oct</span></span>
                             </div>
                             <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="volunteer.php">Green India Plantation Drive: 5,000 Saplings</a></h3>
-                                <p class="ul-event-descr">Promoting village biodiversity, medicinal herbs, and environmental awareness.</p>
+                                <h3 class="ul-event-title"><a href="ngo-news.php">Tree Plantation Drive: 1,000+ Saplings</a></h3>
+                                <p class="ul-event-descr">Promoting village biodiversity, riverbank green belts, and environmental awareness.</p>
                                 <div class="ul-event-info">
                                     <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Riverbank Greenbelt, Ghaziabad</p>
+                                    <p class="ul-event-info-descr">Ganga Greenbelt, Jhusi, Prayagraj</p>
                                 </div>
                                 <a href="volunteer.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
                             </div>
@@ -440,15 +442,15 @@ include 'includes/header.php';
                     <div class="col wow animate__fadeInUp">
                         <div class="ul-event">
                             <div class="ul-event-img">
-                                <img src="assets/img/blog-b-3.jpg" alt="Women Skill Exhibition">
+                                <img src="images/women-empowerment-news.jpg" alt="Women Self Help Exhibition" style="height: 200px; width: 100%; object-fit: cover;">
                                 <span class="date">12 <span>Oct</span></span>
                             </div>
                             <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="volunteer.php">Self-Help Group Handicraft &amp; Food Fair</a></h3>
-                                <p class="ul-event-descr">Showcasing handmade items, garments, and organic foods produced by rural women.</p>
+                                <h3 class="ul-event-title"><a href="ngo-news.php">Self-Help Group Handicraft &amp; Garment Fair</a></h3>
+                                <p class="ul-event-descr">Showcasing tailored garments, bags, and handicrafts made by empowered women.</p>
                                 <div class="ul-event-info">
                                     <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Dilli Haat, INA, New Delhi</p>
+                                    <p class="ul-event-info-descr">Ram Shiv Colony Center, Prayagraj</p>
                                 </div>
                                 <a href="volunteer.php" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
                             </div>
@@ -472,8 +474,8 @@ include 'includes/header.php';
             <div class="ul-container">
                 <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
                     <div class="col">
-                        <div class="ul-why-join-img">
-                            <img src="assets/img/why-join.jpg" alt="Join as Volunteer">
+                        <div class="ul-why-join-img" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                            <img src="images/project2.jpg" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
                         </div>
                     </div>
 
@@ -546,7 +548,7 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-team-member">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-1.jpg" alt="Dr. Ramesh Sharma">
+                            <img src="members/dheeraj-raj-pal.jpeg" alt="Dheeraj Raj Pal" style="height: 280px; width: 100%; object-fit: cover;">
                             <div class="ul-team-member-socials">
                                 <a href="#"><i class="flaticon-facebook"></i></a>
                                 <a href="#"><i class="flaticon-twitter"></i></a>
@@ -555,8 +557,8 @@ include 'includes/header.php';
                             </div>
                         </div>
                         <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Dr. Ramesh Sharma</a></h3>
-                            <p class="ul-team-member-designation">President &amp; Founder</p>
+                            <h3 class="ul-team-member-name"><a href="about.php">Dheeraj Raj Pal</a></h3>
+                            <p class="ul-team-member-designation">President</p>
                         </div>
                     </div>
                 </div>
@@ -565,7 +567,7 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-team-member">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-2.jpg" alt="Sunita Verma">
+                            <img src="members/narendra-nath-pal.jpeg" alt="Narendra Nath Pal" style="height: 280px; width: 100%; object-fit: cover;">
                             <div class="ul-team-member-socials">
                                 <a href="#"><i class="flaticon-facebook"></i></a>
                                 <a href="#"><i class="flaticon-twitter"></i></a>
@@ -574,8 +576,8 @@ include 'includes/header.php';
                             </div>
                         </div>
                         <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Sunita Verma</a></h3>
-                            <p class="ul-team-member-designation">Director - Women Empowerment</p>
+                            <h3 class="ul-team-member-name"><a href="about.php">Narendra Nath Pal</a></h3>
+                            <p class="ul-team-member-designation">Vice President</p>
                         </div>
                     </div>
                 </div>
@@ -584,7 +586,7 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-team-member">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-3.jpg" alt="Anil Gupta">
+                            <img src="members/mamta-pal.jpeg" alt="Mamta Pal" style="height: 280px; width: 100%; object-fit: cover;">
                             <div class="ul-team-member-socials">
                                 <a href="#"><i class="flaticon-facebook"></i></a>
                                 <a href="#"><i class="flaticon-twitter"></i></a>
@@ -593,8 +595,8 @@ include 'includes/header.php';
                             </div>
                         </div>
                         <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Anil Gupta</a></h3>
-                            <p class="ul-team-member-designation">Lead - Healthcare Operations</p>
+                            <h3 class="ul-team-member-name"><a href="about.php">Mamta Pal</a></h3>
+                            <p class="ul-team-member-designation">Secretary</p>
                         </div>
                     </div>
                 </div>
@@ -603,7 +605,7 @@ include 'includes/header.php';
                 <div class="col">
                     <div class="ul-team-member">
                         <div class="ul-team-member-img">
-                            <img src="assets/img/member-4.jpg" alt="Pooja Deshmukh">
+                            <img src="members/priyanka-pal.jpeg" alt="Priyanka Pal" style="height: 280px; width: 100%; object-fit: cover;">
                             <div class="ul-team-member-socials">
                                 <a href="#"><i class="flaticon-facebook"></i></a>
                                 <a href="#"><i class="flaticon-twitter"></i></a>
@@ -612,8 +614,8 @@ include 'includes/header.php';
                             </div>
                         </div>
                         <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="about.php">Pooja Deshmukh</a></h3>
-                            <p class="ul-team-member-designation">Head - Child Education</p>
+                            <h3 class="ul-team-member-name"><a href="about.php">Priyanka Pal</a></h3>
+                            <p class="ul-team-member-designation">Treasurer</p>
                         </div>
                     </div>
                 </div>
@@ -647,7 +649,7 @@ include 'includes/header.php';
                             <p class="ul-review-descr">“Visiting Matri Seva Samiti's learning center in Delhi was life changing. The joy and confidence in the children’s eyes proves that every rupee donated makes a real difference.”</p>
                             <div class="ul-review-bottom">
                                 <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="assets/img/user-1.png" alt="Deepak Mehta"></div>
+                                    <div class="reviewer-image"><img src="images/student1.jpeg" alt="Deepak Mehta" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
                                     <div>
                                         <h3 class="reviewer-name">Deepak Mehta</h3>
                                         <span class="reviewer-role">CSR Partner &amp; Donor</span>
@@ -671,7 +673,7 @@ include 'includes/header.php';
                             <p class="ul-review-descr">“Through the MSS sewing center, I learned tailoring and bought my own machine. Today I earn ₹12,000 monthly and support my children's school fees proudly.”</p>
                             <div class="ul-review-bottom">
                                 <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="assets/img/user-2.png" alt="Kavita Devi"></div>
+                                    <div class="reviewer-image"><img src="images/student2.jpeg" alt="Kavita Devi" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
                                     <div>
                                         <h3 class="reviewer-name">Kavita Devi</h3>
                                         <span class="reviewer-role">Beneficiary - Skill Center</span>
@@ -695,7 +697,7 @@ include 'includes/header.php';
                             <p class="ul-review-descr">“I receive my 80G tax exemption receipt instantly upon making my online donation, along with transparent quarterly field impact newsletters.”</p>
                             <div class="ul-review-bottom">
                                 <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="assets/img/user-3.png" alt="Priya Nair"></div>
+                                    <div class="reviewer-image"><img src="images/student3.jpeg" alt="Priya Nair" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
                                     <div>
                                         <h3 class="reviewer-name">Priya Nair</h3>
                                         <span class="reviewer-role">Monthly Sustaining Donor</span>
@@ -825,39 +827,39 @@ include 'includes/header.php';
         <div class="ul-gallery-slider swiper">
             <div class="swiper-wrapper">
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-1.png" alt="Gallery Photo 1">
+                    <img src="images/student1.jpeg" alt="Education Initiative" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-1.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/student1.jpeg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-2.png" alt="Gallery Photo 2">
+                    <img src="images/student2.jpeg" alt="Women Skill Program" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-2.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/student2.jpeg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-3.png" alt="Gallery Photo 3">
+                    <img src="images/student3.jpeg" alt="Girl Child Sponsorship" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-3.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/student3.jpeg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-4.png" alt="Gallery Photo 4">
+                    <img src="images/project1.jpeg" alt="Community Relief" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-4.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/project1.jpeg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-5.png" alt="Gallery Photo 5">
+                    <img src="images/project2.jpg" alt="Health Camp" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-5.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/project2.jpg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
                 <div class="ul-gallery-item swiper-slide">
-                    <img src="assets/img/gallery-item-6.png" alt="Gallery Photo 6">
+                    <img src="images/project3.jpg" alt="Skill Center" style="height: 200px; width: 100%; object-fit: cover;">
                     <div class="ul-gallery-item-btn-wrapper">
-                        <a href="assets/img/gallery-item-6.png" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        <a href="images/project3.jpg" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
                     </div>
                 </div>
             </div>

@@ -31,12 +31,12 @@ include 'includes/header.php';
                 <!-- Media 1 -->
                 <div class="col">
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                        <img src="assets/img/blog-1.jpg" alt="Dainik Jagran Coverage" class="img-fluid" style="height:220px; object-fit:cover;">
+                        <img src="images/education-initiative-news.jpg" alt="Dainik Jagran Coverage" class="img-fluid" style="height:220px; object-fit:cover;">
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <span class="badge bg-primary text-white mb-2 align-self-start">Dainik Jagran</span>
-                            <h5 class="text-dark mb-2">"MSS Empowers 500 Rural Girls with Digital Smart Learning"</h5>
-                            <p class="text-muted small">Special feature on the inauguration of digital smart classrooms in Sonipat and Prayagraj clusters.</p>
-                            <span class="text-muted mt-auto" style="font-size:12px;"><i class="flaticon-calendar me-1"></i> Published: July 2026</span>
+                            <h5 class="text-dark mb-2">"MSS Empowers Rural Youths with Digital Smart Learning"</h5>
+                            <p class="text-muted small">Special feature on the inauguration of digital smart classrooms in Prayagraj clusters.</p>
+                            <span class="text-muted mt-auto" style="font-size:12px;"><i class="flaticon-calendar me-1"></i> Prayagraj Edition</span>
                         </div>
                     </div>
                 </div>
@@ -44,12 +44,12 @@ include 'includes/header.php';
                 <!-- Media 2 -->
                 <div class="col">
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                        <img src="assets/img/blog-2.jpg" alt="Amar Ujala Feature" class="img-fluid" style="height:220px; object-fit:cover;">
+                        <img src="images/healthcare-camp-news.jpg" alt="Amar Ujala Feature" class="img-fluid" style="height:220px; object-fit:cover;">
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <span class="badge bg-danger text-white mb-2 align-self-start">Amar Ujala</span>
-                            <h5 class="text-dark mb-2">"Mega Eye Camp Restores Vision for 120 Senior Citizens"</h5>
-                            <p class="text-muted small">Front-page story on the free surgical eye camp conducted by Matri Seva Samiti in remote rural blocks.</p>
-                            <span class="text-muted mt-auto" style="font-size:12px;"><i class="flaticon-calendar me-1"></i> Published: June 2026</span>
+                            <h5 class="text-dark mb-2">"Mega Health &amp; Eye Camp Serves 500+ Villagers"</h5>
+                            <p class="text-muted small">Front-page coverage on the free health checkups and medicine distribution by Matri Seva Samiti.</p>
+                            <span class="text-muted mt-auto" style="font-size:12px;"><i class="flaticon-calendar me-1"></i> Regional Coverage</span>
                         </div>
                     </div>
                 </div>
@@ -57,7 +57,7 @@ include 'includes/header.php';
                 <!-- Media 3 -->
                 <div class="col">
                     <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
-                        <img src="assets/img/blog-3.jpg" alt="The Hindu Social Impact" class="img-fluid" style="height:220px; object-fit:cover;">
+                        <img src="images/women-empowerment-news.jpg" alt="The Hindu Social Impact" class="img-fluid" style="height:220px; object-fit:cover;">
                         <div class="p-4 d-flex flex-column flex-grow-1">
                             <span class="badge bg-dark text-white mb-2 align-self-start">The Hindu</span>
                             <h5 class="text-dark mb-2">"Grassroots Women Micro-Enterprises: The MSS Blueprint"</h5>

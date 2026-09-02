@@ -1,5 +1,5 @@
 <?php 
-$page_title = "Impact & Reports - Matri Seva Samiti";
+$page_title = "Our Impact - Matri Seva Samiti";
 include 'includes/header.php'; 
 ?>
 
@@ -7,7 +7,7 @@ include 'includes/header.php';
     <!-- BREADCRUMBS -->
     <section class="ul-breadcrumb ul-section-spacing">
         <div class="ul-container">
-            <h2 class="ul-breadcrumb-title">Impact &amp; Transparency Reports</h2>
+            <h2 class="ul-breadcrumb-title">Our Impact &amp; Footprint</h2>
             <ul class="ul-breadcrumb-nav">
                 <li><a href="index.php">Home</a></li>
                 <li><span class="separator"><i class="flaticon-right"></i></span></li>
@@ -16,100 +16,104 @@ include 'includes/header.php';
         </div>
     </section>
 
-    <!-- STATS COUNTER -->
-    <div class="ul-stats ul-section-spacing">
-        <div class="ul-container">
-            <div class="ul-stats-wrapper wow animate__fadeInUp">
-                <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-bs-row justify-content-center">
-                    <div class="col">
-                        <div class="ul-stats-item">
-                            <i class="flaticon-costumer"></i>
-                            <span class="number">12,500+</span>
-                            <span class="txt">Children Educated</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="ul-stats-item">
-                            <i class="flaticon-team"></i>
-                            <span class="number">3,200+</span>
-                            <span class="txt">Women Trained</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="ul-stats-item">
-                            <i class="flaticon-package"></i>
-                            <span class="number">45,000+</span>
-                            <span class="txt">Health Treatments</span>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="ul-stats-item">
-                            <i class="flaticon-relationship"></i>
-                            <span class="number">100%</span>
-                            <span class="txt">Audited Transparency</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- IMPACT REPORTS DOWNLOAD -->
-    <section class="ul-section-spacing pt-0">
+    <!-- IMPACT INTRO SECTION -->
+    <section class="ul-section-spacing">
         <div class="ul-container">
             <div class="ul-section-heading text-center">
                 <div>
-                    <span class="ul-section-sub-title">Accountability</span>
-                    <h2 class="ul-section-title">Annual Reports &amp; Financial Audits</h2>
+                    <span class="ul-section-sub-title">"मिलकर करें प्रयास, खुशहाल हो समाज"</span>
+                    <h2 class="ul-section-title">Creating Sustainable &amp; Measurable Change</h2>
+                    <p class="ul-section-descr mx-auto" style="max-width: 850px;">
+                        For over 5 years, <strong>Matri Seva Samiti</strong> has been relentlessly committed to grassroots social transformation. Through dedicated initiatives in vocational skill training, preventive healthcare, women empowerment, child education, and environmental protection, we uplift underserved communities across Uttar Pradesh.
+                    </p>
                 </div>
             </div>
 
-            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
+            <!-- STATS CARDS -->
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4 mb-5">
                 <div class="col">
-                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="p-3 rounded-circle" style="background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
-                                <i class="flaticon-calendar"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0 text-dark">Annual Report 2025-26</h5>
-                                <small class="text-muted">PDF • 3.2 MB</small>
-                            </div>
-                        </div>
-                        <p class="text-muted" style="font-size: 14px;">Detailed summary of field projects, girl child literacy expansion, and health camp milestones.</p>
-                        <a href="about.php" class="ul-btn mt-auto"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> View Overview</a>
+                    <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-primary">
+                        <h2 class="display-5 fw-bold text-primary mb-2">5+</h2>
+                        <h5 class="text-dark mb-1">Years of Service</h5>
+                        <p class="text-muted small mb-0">Dedicated Grassroots Impact</p>
                     </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-success">
+                        <h2 class="display-5 fw-bold text-success mb-2">50+</h2>
+                        <h5 class="text-dark mb-1">Projects Executed</h5>
+                        <p class="text-muted small mb-0">Successfully Implemented</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-warning">
+                        <h2 class="display-5 fw-bold text-warning mb-2">15,000+</h2>
+                        <h5 class="text-dark mb-1">Lives Impacted</h5>
+                        <p class="text-muted small mb-0">Direct Beneficiaries</p>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-info">
+                        <h2 class="display-5 fw-bold text-info mb-2">120+</h2>
+                        <h5 class="text-dark mb-1">Active Volunteers</h5>
+                        <p class="text-muted small mb-0">Committed Field Workers</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOCUS AREAS & COMMITMENT -->
+            <div class="row row-cols-lg-2 row-cols-1 gy-5 align-items-center">
+                <div class="col">
+                    <h3 class="h3 text-dark mb-3">Our Core Focus Areas</h3>
+                    <ul class="list-unstyled">
+                        <li class="d-flex align-items-center mb-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-3"><i class="flaticon-right text-white"></i></span>
+                            <div>
+                                <strong class="text-dark">Child &amp; Youth Education:</strong>
+                                <span class="text-muted"> Free tutoring, digital computer literacy, school kits.</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-3"><i class="flaticon-right text-white"></i></span>
+                            <div>
+                                <strong class="text-dark">Vocational Skill Training:</strong>
+                                <span class="text-muted"> Tailoring, fashion designing, and administrative documentation.</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-3"><i class="flaticon-right text-white"></i></span>
+                            <div>
+                                <strong class="text-dark">Women Empowerment &amp; SHGs:</strong>
+                                <span class="text-muted"> Self-Help Group micro-enterprises and financial independence.</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-3"><i class="flaticon-right text-white"></i></span>
+                            <div>
+                                <strong class="text-dark">Rural Healthcare &amp; Medical Camps:</strong>
+                                <span class="text-muted"> Free diagnostic doctor camps and preventive nutrition.</span>
+                            </div>
+                        </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <span class="badge bg-danger rounded-circle p-2 me-3"><i class="flaticon-right text-white"></i></span>
+                            <div>
+                                <strong class="text-dark">Environmental &amp; Water Conservation:</strong>
+                                <span class="text-muted"> Tree plantations and village rainwater harvesting.</span>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
 
                 <div class="col">
-                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="p-3 rounded-circle" style="background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
-                                <i class="flaticon-calendar"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0 text-dark">Audited Financials 2024-25</h5>
-                                <small class="text-muted">PDF • 1.8 MB</small>
-                            </div>
+                    <div class="card p-4 p-md-5 border-0 shadow rounded-4 text-white" style="background: linear-gradient(135deg, #0F2B5B 0%, #1a3f7a 100%);">
+                        <h3 class="text-white mb-3">Our Commitment to Transparency</h3>
+                        <p class="text-light small mb-4" style="line-height: 1.8;">
+                            Every single rupee donated is meticulously audited, and our programs are tracked with verifiable field metrics. With 80G tax certification, 12A registration, and CSR-1 approval, Matri Seva Samiti guarantees the highest standards of governance and statutory compliance.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <a href="donate.php" class="btn btn-warning rounded-pill px-4 font-bold">Donate Now &rarr;</a>
+                            <a href="volunteer.php" class="btn btn-outline-light rounded-pill px-4">Join as Volunteer</a>
                         </div>
-                        <p class="text-muted" style="font-size: 14px;">Chartered Accountant audited balance sheet, income &amp; expenditure statements, and tax filings.</p>
-                        <a href="certificate.php" class="ul-btn mt-auto"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> View Certifications</a>
-                    </div>
-                </div>
-
-                <div class="col">
-                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                        <div class="d-flex align-items-center gap-3 mb-3">
-                            <div class="p-3 rounded-circle" style="background: rgba(235, 83, 16, 0.1); color: var(--ul-primary); font-size: 24px;">
-                                <i class="flaticon-love"></i>
-                            </div>
-                            <div>
-                                <h5 class="mb-0 text-dark">CSR Impact Assessment</h5>
-                                <small class="text-muted">PDF • 2.5 MB</small>
-                            </div>
-                        </div>
-                        <p class="text-muted" style="font-size: 14px;">Third-party evaluation of community transformation and women livelihood sustainability index.</p>
-                        <a href="grants.php" class="ul-btn mt-auto"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> CSR Info</a>
                     </div>
                 </div>
             </div>
