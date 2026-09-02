@@ -626,7 +626,7 @@ include 'includes/header.php';
 
     <!-- 9. TESTIMONIAL SECTION -->
     <section class="ul-testimonial ul-section-spacing">
-        <div class="ul-testimonial-container">
+        <div class="ul-container">
             <div class="ul-section-heading text-center">
                 <div>
                     <span class="ul-section-sub-title">Testimonials</span>
@@ -637,30 +637,6 @@ include 'includes/header.php';
             <div class="ul-testimonial-slider swiper">
                 <div class="swiper-wrapper">
                     <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <div class="ul-review">
-                            <div class="ul-review-rating">
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                            </div>
-                            <p class="ul-review-descr">“Visiting Matri Seva Samiti's learning center in Delhi was life changing. The joy and confidence in the children’s eyes proves that every rupee donated makes a real difference.”</p>
-                            <div class="ul-review-bottom">
-                                <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="images/student1.jpeg" alt="Deepak Mehta" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                    <div>
-                                        <h3 class="reviewer-name">Deepak Mehta</h3>
-                                        <span class="reviewer-role">CSR Partner &amp; Donor</span>
-                                    </div>
-                                </div>
-                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
                     <div class="swiper-slide">
                         <div class="ul-review">
                             <div class="ul-review-rating">
@@ -684,7 +660,7 @@ include 'includes/header.php';
                         </div>
                     </div>
 
-                    <!-- Slide 3 -->
+                    <!-- Slide 2 -->
                     <div class="swiper-slide">
                         <div class="ul-review">
                             <div class="ul-review-rating">
@@ -707,9 +683,57 @@ include 'includes/header.php';
                             </div>
                         </div>
                     </div>
+
+                    <!-- Slide 3 -->
+                    <div class="swiper-slide">
+                        <div class="ul-review">
+                            <div class="ul-review-rating">
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                            </div>
+                            <p class="ul-review-descr">“Visiting Matri Seva Samiti's learning center in Prayagraj was life changing. The joy and confidence in the children’s eyes proves that every rupee donated makes a real difference.”</p>
+                            <div class="ul-review-bottom">
+                                <div class="ul-review-reviewer">
+                                    <div class="reviewer-image"><img src="images/student1.jpeg" alt="Deepak Mehta" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
+                                    <div>
+                                        <h3 class="reviewer-name">Deepak Mehta</h3>
+                                        <span class="reviewer-role">CSR Partner &amp; Donor</span>
+                                    </div>
+                                </div>
+                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 -->
+                    <div class="swiper-slide">
+                        <div class="ul-review">
+                            <div class="ul-review-rating">
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                                <i class="flaticon-star"></i>
+                            </div>
+                            <p class="ul-review-descr">“The free mobile healthcare camp organized by Matri Seva Samiti diagnosed my father's condition and provided free essential medicines on time.”</p>
+                            <div class="ul-review-bottom">
+                                <div class="ul-review-reviewer">
+                                    <div class="reviewer-image"><img src="images/project1.jpeg" alt="Ramesh Kumar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
+                                    <div>
+                                        <h3 class="reviewer-name">Ramesh Kumar</h3>
+                                        <span class="reviewer-role">Rural Beneficiary</span>
+                                    </div>
+                                </div>
+                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="ul-testimonial-slider-pagination"></div>
+                <div class="ul-testimonial-slider-pagination text-center mt-4"></div>
             </div>
         </div>
     </section>

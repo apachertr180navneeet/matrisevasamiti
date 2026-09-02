@@ -709,26 +709,20 @@ document.addEventListener("DOMContentLoaded", (event) => {
         spaceBetween: 15,
         pagination: {
             el: ".ul-testimonial-slider-pagination",
+            clickable: true,
         },
         breakpoints: {
             768: {
                 slidesPerView: 2,
+                spaceBetween: 20,
             },
             992: {
-                spaceBetween: 20,
+                spaceBetween: 24,
                 slidesPerView: 3,
             },
             1200: {
-                spaceBetween: 20,
-                slidesPerView: 4,
-            },
-            1680: {
-                slidesPerView: 4,
-                spaceBetween: 26,
-            },
-            1700: {
-                slidesPerView: 4,
                 spaceBetween: 30,
+                slidesPerView: 3,
             }
         }
     });
