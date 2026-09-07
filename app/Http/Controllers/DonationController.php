@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Log;
+use App\Models\Donation;
 use App\Services\CCAvenueService;
 
 class DonationController extends Controller
@@ -45,6 +46,22 @@ class DonationController extends Controller
         $payload['cancel_url'] = $cancelUrl;
         $payload['language'] = $language;
 
+        try {
+            Donation::create([
+                'order_id' => $orderId,
+                'amount' => $amount,
+                'currency' => $currency,
+                'billing_name' => $request->input('billing_name', 'Anonymous'),
+                'billing_email' => $request->input('billing_email', ''),
+                'billing_tel' => $request->input('billing_tel', ''),
+                'pan_number' => $request->input('merchant_param1', ''),
+                'cause' => $request->input('merchant_param2', 'general'),
+                'order_status' => 'Initiated',
+            ]);
+        } catch (\Exception $e) {
+            Log::error('Error recording donation initiation in MySQL: ' . $e->getMessage());
+        }
+
         $merchantData = '';
         foreach ($payload as $key => $value) {
             $merchantData .= $key . '=' . $value . '&';
@@ -70,6 +87,22 @@ class DonationController extends Controller
         if (!empty($encResp)) {
             $responseData = $this->ccavenue->parseResponse($encResp);
             $orderStatus = $responseData['order_status'] ?? '';
+            $orderId = $responseData['order_id'] ?? '';
+
+            if ($orderId) {
+                try {
+                    Donation::where('order_id', $orderId)->update([
+                        'tracking_id' => $responseData['tracking_id'] ?? null,
+                        'bank_ref_no' => $responseData['bank_ref_no'] ?? null,
+                        'order_status' => $orderStatus ?: 'Unknown',
+                        'payment_mode' => $responseData['payment_mode'] ?? null,
+                        'raw_response' => json_encode($responseData),
+                    ]);
+                } catch (\Exception $e) {
+                    Log::error('Error updating donation response in MySQL: ' . $e->getMessage());
+                }
+            }
+
             Log::info('CCAvenue Response Received:', $responseData);
         }
 

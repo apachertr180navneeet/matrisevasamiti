@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use App\Models\Contact;
 use App\Mail\ContactFormMail;
 
 class ContactController extends Controller
@@ -29,6 +30,13 @@ class ContactController extends Controller
         ]);
 
         try {
+            // Save to MySQL Database
+            Contact::create($validated);
+        } catch (\Exception $e) {
+            Log::error('Error saving contact to MySQL: ' . $e->getMessage());
+        }
+
+        try {
             $adminEmail = config('site.admin_email', 'matrisevasamiti1910@gmail.com');
             Mail::to($adminEmail)->send(new ContactFormMail($validated));
 
@@ -37,7 +45,6 @@ class ContactController extends Controller
         } catch (\Exception $e) {
             Log::error('Error sending contact email: ' . $e->getMessage(), ['exception' => $e]);
 
-            // Even if mail server credentials are not configured on local env, acknowledge receipt gracefully
             return redirect()->route('contact.index')
                 ->with('contact_success', "Thank you for your message! We'll get back to you soon.");
         }

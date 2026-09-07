@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
+use App\Models\Volunteer;
 use App\Mail\VolunteerRegistrationMail;
 use App\Mail\VolunteerConfirmationMail;
 
@@ -26,8 +27,17 @@ class VolunteerController extends Controller
             'phone' => 'required|string|max:30',
             'email' => 'required|email|max:150',
             'address' => 'required|string|max:300',
+            'interest' => 'nullable|string|max:100',
+            'availability' => 'nullable|string|max:100',
             'message' => 'nullable|string|max:3000',
         ]);
+
+        try {
+            // Save to MySQL Database
+            Volunteer::create($validated);
+        } catch (\Exception $e) {
+            Log::error('Error saving volunteer to MySQL: ' . $e->getMessage());
+        }
 
         try {
             $adminEmail = config('site.admin_email', 'matrisevasamiti1910@gmail.com');
