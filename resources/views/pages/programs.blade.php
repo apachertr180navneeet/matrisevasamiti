@@ -26,29 +26,48 @@
             </div>
 
             <div class="row row-cols-lg-2 row-cols-1 gy-4">
-                <!-- Program 1 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <div class="row g-0 h-100">
-                            <div class="col-md-5">
-                                <img src="{{ asset('images/Educationimage.png') }}" alt="Education & Child Development" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 250px;">
-                            </div>
-                            <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
-                                <div>
-                                    <span class="badge bg-warning text-dark mb-2">शिक्षा एवं बाल विकास</span>
-                                    <h3 class="h4 mb-2 text-dark">1. Education &amp; Child Development</h3>
-                                    <p class="text-muted small mb-2"><strong>Objective:</strong> Ensuring inclusive, equitable education while promoting digital literacy, learning kits, and school retention.</p>
-                                    <ul class="text-muted small ps-3 mb-3">
-                                        <li>Free Educational Centers &amp; Tuition</li>
-                                        <li>Books &amp; Digital Learning Kits Distribution</li>
-                                        <li>Scholarships &amp; Career Mentorship</li>
-                                    </ul>
+                @forelse($programs as $prog)
+                    <div class="col">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
+                            <div class="row g-0 h-100">
+                                <div class="col-md-5">
+                                    <img src="{{ asset($prog->image ?? 'images/Educationimage.png') }}" alt="{{ $prog->title }}" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 250px;">
                                 </div>
-                                <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill align-self-start">Support Education &rarr;</a>
+                                <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
+                                    <div>
+                                        <span class="badge bg-warning text-dark mb-2">{{ $prog->category ?? 'Social Initiative' }}</span>
+                                        <h3 class="h4 mb-2 text-dark">{{ $prog->title }}</h3>
+                                        <p class="text-muted small mb-2">{{ $prog->short_description }}</p>
+                                        @if($prog->description)
+                                            <p class="text-muted small mb-3 text-truncate-3" style="font-size:0.85rem;">{{ Str::limit(strip_tags($prog->description), 140) }}</p>
+                                        @endif
+                                    </div>
+                                    <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill align-self-start">Support {{ $prog->title }} &rarr;</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                @empty
+                    <!-- Fallback if no programs in database -->
+                    <div class="col">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
+                            <div class="row g-0 h-100">
+                                <div class="col-md-5">
+                                    <img src="{{ asset('images/Educationimage.png') }}" alt="Education & Child Development" class="img-fluid h-100 w-100" style="object-fit: cover; min-height: 250px;">
+                                </div>
+                                <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
+                                    <div>
+                                        <span class="badge bg-warning text-dark mb-2">शिक्षा एवं बाल विकास</span>
+                                        <h3 class="h4 mb-2 text-dark">1. Education &amp; Child Development</h3>
+                                        <p class="text-muted small mb-2"><strong>Objective:</strong> Ensuring inclusive, equitable education while promoting digital literacy, learning kits, and school retention.</p>
+                                    </div>
+                                    <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill align-self-start">Support Education &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforelse
+            </div>
 
                 <!-- Program 2 -->
                 <div class="col">

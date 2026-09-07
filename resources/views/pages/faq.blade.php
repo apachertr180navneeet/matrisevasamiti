@@ -31,18 +31,35 @@
                         <p class="ul-section-descr">Here are answers to the most common questions regarding donations, 80G tax exemptions, volunteering, and field transparency.</p>
 
                         <div class="ul-accordion">
-                            <!-- Q1 -->
-                            <div class="ul-single-accordion-item open">
-                                <div class="ul-single-accordion-item__header">
-                                    <div class="left">
-                                        <h3 class="ul-single-accordion-item__title">Are donations eligible for 80G Tax Exemption?</h3>
+                            @if(isset($faqs) && $faqs->count() > 0)
+                                @foreach($faqs as $idx => $f)
+                                    <div class="ul-single-accordion-item {{ $idx === 0 ? 'open' : '' }}">
+                                        <div class="ul-single-accordion-item__header">
+                                            <div class="left">
+                                                <h3 class="ul-single-accordion-item__title">{{ $f->question }}</h3>
+                                            </div>
+                                            <span class="icon"><i class="flaticon-next"></i></span>
+                                        </div>
+                                        <div class="ul-single-accordion-item__body">
+                                            <p>{{ $f->answer }}</p>
+                                        </div>
                                     </div>
-                                    <span class="icon"><i class="flaticon-next"></i></span>
+                                @endforeach
+                            @else
+                                <!-- Q1 -->
+                                <div class="ul-single-accordion-item open">
+                                    <div class="ul-single-accordion-item__header">
+                                        <div class="left">
+                                            <h3 class="ul-single-accordion-item__title">Are donations eligible for 80G Tax Exemption?</h3>
+                                        </div>
+                                        <span class="icon"><i class="flaticon-next"></i></span>
+                                    </div>
+                                    <div class="ul-single-accordion-item__body">
+                                        <p>Yes! Matri Seva Samiti is registered under Section 80G of the Indian Income Tax Act. Indian donors can claim 50% tax deduction on their total donated amount.</p>
+                                    </div>
                                 </div>
-                                <div class="ul-single-accordion-item__body">
-                                    <p>Yes! Matri Seva Samiti is registered under Section 80G of the Indian Income Tax Act. Indian donors can claim 50% tax deduction on their total donated amount. An official 80G tax receipt is emailed immediately upon transaction completion.</p>
-                                </div>
-                            </div>
+                            @endif
+                        </div>
 
                             <!-- Q2 -->
                             <div class="ul-single-accordion-item">

@@ -12,7 +12,7 @@
                     </div>
                     <div class="ul-footer-top-contact-info-txt">
                         <span class="ul-footer-top-contact-info-label">Main Registered Office</span>
-                        <h5 class="ul-footer-top-contact-info-address">{{ config('site.address_primary') }}</h5>
+                        <h5 class="ul-footer-top-contact-info-address">{{ config('site.contact_address', config('site.address_primary')) }}</h5>
                     </div>
                 </div>
 
@@ -25,7 +25,7 @@
                     </div>
                     <div class="ul-footer-top-contact-info-txt">
                         <span class="ul-footer-top-contact-info-label">Send Email</span>
-                        <h5 class="ul-footer-top-contact-info-address"><a href="mailto:{{ config('site.email') }}">{{ config('site.email') }}</a></h5>
+                        <h5 class="ul-footer-top-contact-info-address"><a href="mailto:{{ config('site.contact_email', config('site.email')) }}">{{ config('site.contact_email', config('site.email')) }}</a></h5>
                     </div>
                 </div>
 
@@ -38,7 +38,7 @@
                     </div>
                     <div class="ul-footer-top-contact-info-txt">
                         <span class="ul-footer-top-contact-info-label">Helpline Number</span>
-                        <h5 class="ul-footer-top-contact-info-address"><a href="tel:{{ config('site.phone_primary') }}">{{ config('site.phone_primary') }} / {{ config('site.phone_secondary') }}</a></h5>
+                        <h5 class="ul-footer-top-contact-info-address"><a href="tel:{{ config('site.contact_phone_primary', config('site.phone_primary')) }}">{{ config('site.contact_phone_primary', config('site.phone_primary')) }}</a></h5>
                     </div>
                 </div>
             </div>
@@ -50,13 +50,13 @@
             <div class="ul-footer-middle-wrapper wow animate__fadeInUp">
                 <!-- Column 1: About -->
                 <div class="ul-footer-about">
-                    <a href="{{ route('home') }}"><img src="{{ asset('logo/Logo.png') }}" alt="Matri Seva Samiti Logo" style="max-height:60px; filter: brightness(0) invert(1);" class="logo mb-3"></a>
-                    <p class="ul-footer-about-txt">{{ config('site.org_mission') }}</p>
+                    <a href="{{ route('home') }}"><img src="{{ asset(config('site.site_logo', config('site.logo', 'logo/Logo.png'))) }}" alt="{{ config('site.site_name', 'Matri Seva Samiti') }} Logo" style="max-height:60px; filter: brightness(0) invert(1);" class="logo mb-3"></a>
+                    <p class="ul-footer-about-txt">{{ config('site.site_description', config('site.org_mission')) }}</p>
                     <div class="ul-footer-socials">
-                        <a href="{{ config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
-                        <a href="{{ config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
-                        <a href="{{ config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
-                        <a href="{{ config('site.social.youtube') }}" target="_blank"><i class="flaticon-youtube"></i></a>
+                        <a href="{{ config('site.facebook_url', config('site.social.facebook')) }}" target="_blank"><i class="flaticon-facebook"></i></a>
+                        <a href="{{ config('site.twitter_url', config('site.social.twitter')) }}" target="_blank"><i class="flaticon-twitter"></i></a>
+                        <a href="{{ config('site.linkedin_url', config('site.social.linkedin')) }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
+                        <a href="{{ config('site.youtube_url', config('site.social.youtube')) }}" target="_blank"><i class="flaticon-youtube"></i></a>
                     </div>
                 </div>
 

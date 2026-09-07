@@ -19,8 +19,10 @@ class DonationController extends Controller
 
     public function index(): View
     {
+        $causes = \App\Models\Cause::where('is_active', true)->orderBy('sort_order', 'asc')->get();
         return view('pages.donate', [
             'page_title' => 'Donate Now - Matri Seva Samiti',
+            'causes' => $causes,
         ]);
     }
 

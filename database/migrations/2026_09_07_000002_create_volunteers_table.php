@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('interest')->nullable();
             $table->string('availability')->nullable();
             $table->text('message')->nullable();
+            $table->string('status')->default('pending'); // pending, approved, rejected
             $table->timestamps();
         });
     }

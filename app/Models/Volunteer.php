@@ -17,5 +17,6 @@ class Volunteer extends Model
         'interest',
         'availability',
         'message',
+        'status',
     ];
 }

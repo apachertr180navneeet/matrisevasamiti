@@ -4,7 +4,7 @@
         <div class="ul-header-bottom-wrapper ul-header-container">
             <div class="logo-container">
                 <a href="{{ route('home') }}" class="d-inline-flex align-items-center gap-2">
-                    <img src="{{ asset('logo/Logo.png') }}" alt="Matri Seva Samiti Logo" class="logo">
+                    <img src="{{ asset(config('site.site_logo', config('site.logo', 'logo/Logo.png'))) }}" alt="{{ config('site.site_name', 'Matri Seva Samiti') }} Logo" class="logo">
                 </a>
             </div>
 

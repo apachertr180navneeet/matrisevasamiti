@@ -53,22 +53,37 @@ $galleryImages = [
             </div>
 
             <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4">
-                @foreach ($galleryImages as $item)
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative group h-100">
-                        <img src="{{ asset($item['src']) }}" alt="{{ $item['title'] }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;">
-                        <div class="p-3 bg-white d-flex justify-content-between align-items-center">
-                            <div>
-                                <span class="badge bg-light text-danger mb-1">{{ $item['category'] }}</span>
-                                <h4 class="h6 mb-0 text-dark">{{ $item['title'] }}</h4>
+                @if(isset($gallery) && $gallery->count() > 0)
+                    @foreach ($gallery as $item)
+                    <div class="col">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative group h-100">
+                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;">
+                            <div class="p-3 bg-white d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title h6 mb-1 text-dark">{{ $item->title }}</h5>
+                                    <span class="badge bg-light text-muted border">{{ $item->category }}</span>
+                                </div>
+                                <a href="{{ asset($item->image) }}" target="_blank" class="btn btn-sm btn-outline-primary rounded-circle" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;"><i class="flaticon-up-right-arrow"></i></a>
                             </div>
-                            <a href="{{ asset($item['src']) }}" data-fslightbox="gallery" class="btn btn-outline-danger btn-sm rounded-circle p-2 d-inline-flex align-items-center justify-content-center" style="width: 38px; height: 38px;">
-                                <i class="flaticon-search"></i>
-                            </a>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @else
+                    @foreach ($galleryImages as $item)
+                    <div class="col">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative group h-100">
+                            <img src="{{ asset($item['src']) }}" alt="{{ $item['title'] }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;">
+                            <div class="p-3 bg-white d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h5 class="card-title h6 mb-1 text-dark">{{ $item['title'] }}</h5>
+                                    <span class="badge bg-light text-muted border">{{ $item['category'] }}</span>
+                                </div>
+                                <a href="{{ asset($item['src']) }}" target="_blank" class="btn btn-sm btn-outline-primary rounded-circle" style="width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;"><i class="flaticon-up-right-arrow"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

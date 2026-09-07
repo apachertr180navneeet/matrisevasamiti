@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('subject');
             $table->text('message');
+            $table->string('status')->default('unread'); // unread, contacted, resolved
             $table->timestamps();
         });
     }
