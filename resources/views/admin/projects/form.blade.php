@@ -76,6 +76,13 @@
                                     <img id="projPreview" src="{{ asset($project->image ?? 'images/project1.jpeg') }}" alt="Project Preview">
                                 </div>
                             </div>
+
+                            <div class="col-12">
+                                <div class="form-check form-switch mt-2">
+                                    <input class="form-check-input" type="checkbox" name="is_active" value="1" id="is_active" {{ old('is_active', $project->is_active ?? true) ? 'checked' : '' }}>
+                                    <label class="form-check-label fs-6 fw-semibold text-dark ms-2" for="is_active">Publish Project on Website (Active)</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mt-4 pt-3 border-top d-flex justify-content-end gap-2">

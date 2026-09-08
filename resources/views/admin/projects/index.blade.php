@@ -47,6 +47,12 @@
                                     @else
                                         <span class="badge bg-secondary">{{ $project->status }}</span>
                                     @endif
+
+                                    @if($project->is_active)
+                                        <span class="badge bg-success-subtle text-success border border-success-subtle ms-1">Active</span>
+                                    @else
+                                        <span class="badge bg-danger-subtle text-danger border border-danger-subtle ms-1">Hidden</span>
+                                    @endif
                                 </td>
                                 <td class="text-end">
                                     <a href="{{ route('admin.projects.edit', $project->id) }}" class="btn btn-sm btn-light border me-1"><i class="bi bi-pencil"></i></a>
