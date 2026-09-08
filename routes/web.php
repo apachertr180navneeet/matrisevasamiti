@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\VolunteerController;
@@ -122,3 +123,57 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('certificates', AdminCertificateController::class);
     Route::resource('faqs', AdminFaqController::class);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Server Maintenance & Utility Routes (Run without SSH/Terminal)
+|--------------------------------------------------------------------------
+*/
+Route::get('/run-migrate', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        return '<pre style="background:#111;color:#0f0;padding:20px;font-size:16px;">Migration Result:<br>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return '<pre style="background:#111;color:#f33;padding:20px;font-size:16px;">Error:<br>' . $e->getMessage() . '</pre>';
+    }
+});
+
+Route::get('/run-seed', function () {
+    try {
+        Artisan::call('db:seed', ['--force' => true]);
+        return '<pre style="background:#111;color:#0f0;padding:20px;font-size:16px;">Seeder Result:<br>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return '<pre style="background:#111;color:#f33;padding:20px;font-size:16px;">Error:<br>' . $e->getMessage() . '</pre>';
+    }
+});
+
+Route::get('/run-migrate-seed', function () {
+    try {
+        Artisan::call('migrate', ['--force' => true]);
+        $migrateOutput = Artisan::output();
+        Artisan::call('db:seed', ['--force' => true]);
+        $seedOutput = Artisan::output();
+        return '<pre style="background:#111;color:#0f0;padding:20px;font-size:16px;">Migration & Seeder Complete!<br><br>--- MIGRATION OUTPUT ---<br>' . $migrateOutput . '<br>--- SEEDER OUTPUT ---<br>' . $seedOutput . '</pre>';
+    } catch (\Exception $e) {
+        return '<pre style="background:#111;color:#f33;padding:20px;font-size:16px;">Error:<br>' . $e->getMessage() . '</pre>';
+    }
+});
+
+Route::get('/run-clear-cache', function () {
+    try {
+        Artisan::call('optimize:clear');
+        return '<pre style="background:#111;color:#0f0;padding:20px;font-size:16px;">Cache Cleared Successfully!<br>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return '<pre style="background:#111;color:#f33;padding:20px;font-size:16px;">Error:<br>' . $e->getMessage() . '</pre>';
+    }
+});
+
+Route::get('/run-storage-link', function () {
+    try {
+        Artisan::call('storage:link');
+        return '<pre style="background:#111;color:#0f0;padding:20px;font-size:16px;">Storage Link Created!<br>' . Artisan::output() . '</pre>';
+    } catch (\Exception $e) {
+        return '<pre style="background:#111;color:#f33;padding:20px;font-size:16px;">Error:<br>' . $e->getMessage() . '</pre>';
+    }
+});
+
