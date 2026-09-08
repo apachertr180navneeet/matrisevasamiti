@@ -501,6 +501,12 @@
                 </a>
             </li>
             <li class="menu-item">
+                <a href="{{ route('admin.grants.index') }}" class="menu-link {{ request()->routeIs('admin.grants.*') ? 'active' : '' }}">
+                    <i class="bi bi-award-fill"></i>
+                    <span>CSR &amp; Grants</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.faqs.index') }}" class="menu-link {{ request()->routeIs('admin.faqs.*') ? 'active' : '' }}">
                     <i class="bi bi-question-circle-fill"></i>
                     <span>FAQs</span>

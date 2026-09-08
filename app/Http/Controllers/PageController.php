@@ -14,6 +14,7 @@ use App\Models\Member;
 use App\Models\Testimonial;
 use App\Models\Faq;
 use App\Models\Certificate;
+use App\Models\Grant;
 use App\Models\Donation;
 
 class PageController extends Controller
@@ -65,7 +66,8 @@ class PageController extends Controller
 
     public function grants(): View
     {
-        return view('pages.grants');
+        $grants = Grant::where('is_active', true)->orderBy('sort_order', 'asc')->get();
+        return view('pages.grants', compact('grants'));
     }
 
     public function gallery(): View

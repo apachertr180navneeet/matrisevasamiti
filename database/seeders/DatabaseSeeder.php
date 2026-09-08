@@ -16,6 +16,7 @@ use App\Models\Member;
 use App\Models\Testimonial;
 use App\Models\Faq;
 use App\Models\Certificate;
+use App\Models\Grant;
 
 class DatabaseSeeder extends Seeder
 {
@@ -612,6 +613,59 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($certs as $c) {
             Certificate::create($c);
+        }
+
+        // 13. Focus Grant Verticals
+        Grant::truncate();
+        $defaultGrants = [
+            [
+                'title' => 'Education Development & Smart Learning Grant',
+                'slug' => 'education-development-smart-learning-grant',
+                'category' => 'Education & Skills',
+                'badge_color' => 'danger',
+                'amount_range' => '₹5 - ₹10 Lakhs',
+                'short_description' => 'Supporting computer labs, digital educational content, and student study kits across rural government and community schools.',
+                'tags' => 'Equipment Support, Study Materials, Teacher Capacity',
+                'sort_order' => 1,
+                'is_active' => true,
+            ],
+            [
+                'title' => 'Rural Healthcare & Mobile Diagnosis Fund',
+                'slug' => 'rural-healthcare-mobile-diagnosis-fund',
+                'category' => 'Healthcare',
+                'badge_color' => 'success',
+                'amount_range' => '₹3 - ₹8 Lakhs',
+                'short_description' => 'Funding village medical checkup camps, essential medicine distribution, and maternal child health screenings.',
+                'tags' => 'Medical Supplies, Doctor Camps, Hygiene Kits',
+                'sort_order' => 2,
+                'is_active' => true,
+            ],
+            [
+                'title' => 'Women Empowerment & Micro-Enterprise Grant',
+                'slug' => 'women-empowerment-micro-enterprise-grant',
+                'category' => 'Women Livelihood',
+                'badge_color' => 'warning',
+                'amount_range' => '₹2 - ₹6 Lakhs',
+                'short_description' => 'Promoting Self-Help Groups (SHGs), modern commercial sewing machines, and artisan handicraft marketing linkages.',
+                'tags' => 'Sewing Machines, Micro-Credit, Market Stalls',
+                'sort_order' => 3,
+                'is_active' => true,
+            ],
+            [
+                'title' => 'Environmental Conservation & Clean Energy Grant',
+                'slug' => 'environmental-conservation-clean-energy-grant',
+                'category' => 'Environment',
+                'badge_color' => 'info',
+                'amount_range' => '₹4 - ₹12 Lakhs',
+                'short_description' => 'Rainwater harvesting structures, pond rejuvenation, rural solar lighting, and massive tree plantation drives.',
+                'tags' => 'Solar Panels, Water Harvesting, 10K+ Saplings',
+                'sort_order' => 4,
+                'is_active' => true,
+            ],
+        ];
+
+        foreach ($defaultGrants as $grant) {
+            Grant::create($grant);
         }
     }
 }

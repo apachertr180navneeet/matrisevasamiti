@@ -56,73 +56,96 @@
             <div class="mb-5">
                 <h3 class="h3 text-dark text-center mb-4">Focus Grant Verticals</h3>
                 <div class="row row-cols-lg-2 row-cols-1 gy-4">
-                    <!-- Grant 1 -->
-                    <div class="col">
-                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-danger">Education &amp; Skills</span>
-                                <strong class="text-primary">₹5 - ₹10 Lakhs</strong>
+                    @if(isset($grants) && $grants->count() > 0)
+                        @foreach($grants as $item)
+                            <div class="col">
+                                <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span class="badge bg-{{ $item->badge_color ?? 'primary' }}">{{ $item->category }}</span>
+                                        <strong class="text-primary">{{ $item->amount_range }}</strong>
+                                    </div>
+                                    <h4 class="h5 text-dark mb-2">{{ $item->title }}</h4>
+                                    <p class="text-muted small mb-3">{{ $item->short_description }}</p>
+                                    @if(!empty($item->tags_array))
+                                        <div class="d-flex flex-wrap gap-2 text-muted small">
+                                            @foreach($item->tags_array as $tag)
+                                                <span class="badge bg-light text-dark border">{{ $tag }}</span>
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                </div>
                             </div>
-                            <h4 class="h5 text-dark mb-2">Education Development &amp; Smart Learning Grant</h4>
-                            <p class="text-muted small mb-3">Supporting computer labs, digital educational content, and student study kits across rural government and community schools.</p>
-                            <div class="d-flex flex-wrap gap-2 text-muted small">
-                                <span class="badge bg-light text-dark border">Equipment Support</span>
-                                <span class="badge bg-light text-dark border">Study Materials</span>
-                                <span class="badge bg-light text-dark border">Teacher Capacity</span>
+                        @endforeach
+                    @else
+                        <!-- Fallback default grant verticals -->
+                        <!-- Grant 1 -->
+                        <div class="col">
+                            <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-danger">Education &amp; Skills</span>
+                                    <strong class="text-primary">₹5 - ₹10 Lakhs</strong>
+                                </div>
+                                <h4 class="h5 text-dark mb-2">Education Development &amp; Smart Learning Grant</h4>
+                                <p class="text-muted small mb-3">Supporting computer labs, digital educational content, and student study kits across rural government and community schools.</p>
+                                <div class="d-flex flex-wrap gap-2 text-muted small">
+                                    <span class="badge bg-light text-dark border">Equipment Support</span>
+                                    <span class="badge bg-light text-dark border">Study Materials</span>
+                                    <span class="badge bg-light text-dark border">Teacher Capacity</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Grant 2 -->
-                    <div class="col">
-                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-success">Healthcare</span>
-                                <strong class="text-success">₹3 - ₹8 Lakhs</strong>
-                            </div>
-                            <h4 class="h5 text-dark mb-2">Rural Healthcare &amp; Mobile Diagnosis Fund</h4>
-                            <p class="text-muted small mb-3">Funding village medical checkup camps, essential medicine distribution, and maternal child health screenings.</p>
-                            <div class="d-flex flex-wrap gap-2 text-muted small">
-                                <span class="badge bg-light text-dark border">Medical Supplies</span>
-                                <span class="badge bg-light text-dark border">Doctor Camps</span>
-                                <span class="badge bg-light text-dark border">Hygiene Kits</span>
+                        <!-- Grant 2 -->
+                        <div class="col">
+                            <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-success">Healthcare</span>
+                                    <strong class="text-success">₹3 - ₹8 Lakhs</strong>
+                                </div>
+                                <h4 class="h5 text-dark mb-2">Rural Healthcare &amp; Mobile Diagnosis Fund</h4>
+                                <p class="text-muted small mb-3">Funding village medical checkup camps, essential medicine distribution, and maternal child health screenings.</p>
+                                <div class="d-flex flex-wrap gap-2 text-muted small">
+                                    <span class="badge bg-light text-dark border">Medical Supplies</span>
+                                    <span class="badge bg-light text-dark border">Doctor Camps</span>
+                                    <span class="badge bg-light text-dark border">Hygiene Kits</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Grant 3 -->
-                    <div class="col">
-                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-warning text-dark">Women Livelihood</span>
-                                <strong class="text-warning">₹2 - ₹6 Lakhs</strong>
-                            </div>
-                            <h4 class="h5 text-dark mb-2">Women Empowerment &amp; Micro-Enterprise Grant</h4>
-                            <p class="text-muted small mb-3">Promoting Self-Help Groups (SHGs), modern commercial sewing machines, and artisan handicraft marketing linkages.</p>
-                            <div class="d-flex flex-wrap gap-2 text-muted small">
-                                <span class="badge bg-light text-dark border">Sewing Machines</span>
-                                <span class="badge bg-light text-dark border">Micro-Credit</span>
-                                <span class="badge bg-light text-dark border">Market Stalls</span>
+                        <!-- Grant 3 -->
+                        <div class="col">
+                            <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-warning text-dark">Women Livelihood</span>
+                                    <strong class="text-warning">₹2 - ₹6 Lakhs</strong>
+                                </div>
+                                <h4 class="h5 text-dark mb-2">Women Empowerment &amp; Micro-Enterprise Grant</h4>
+                                <p class="text-muted small mb-3">Promoting Self-Help Groups (SHGs), modern commercial sewing machines, and artisan handicraft marketing linkages.</p>
+                                <div class="d-flex flex-wrap gap-2 text-muted small">
+                                    <span class="badge bg-light text-dark border">Sewing Machines</span>
+                                    <span class="badge bg-light text-dark border">Micro-Credit</span>
+                                    <span class="badge bg-light text-dark border">Market Stalls</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Grant 4 -->
-                    <div class="col">
-                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="badge bg-info text-dark">Environment</span>
-                                <strong class="text-info">₹4 - ₹12 Lakhs</strong>
-                            </div>
-                            <h4 class="h5 text-dark mb-2">Environmental Conservation &amp; Clean Energy Grant</h4>
-                            <p class="text-muted small mb-3">Rainwater harvesting structures, pond rejuvenation, rural solar lighting, and massive tree plantation drives.</p>
-                            <div class="d-flex flex-wrap gap-2 text-muted small">
-                                <span class="badge bg-light text-dark border">Solar Panels</span>
-                                <span class="badge bg-light text-dark border">Water Harvesting</span>
-                                <span class="badge bg-light text-dark border">10K+ Saplings</span>
+                        <!-- Grant 4 -->
+                        <div class="col">
+                            <div class="card p-4 border-0 shadow-sm rounded-4 h-100">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="badge bg-info text-dark">Environment</span>
+                                    <strong class="text-info">₹4 - ₹12 Lakhs</strong>
+                                </div>
+                                <h4 class="h5 text-dark mb-2">Environmental Conservation &amp; Clean Energy Grant</h4>
+                                <p class="text-muted small mb-3">Rainwater harvesting structures, pond rejuvenation, rural solar lighting, and massive tree plantation drives.</p>
+                                <div class="d-flex flex-wrap gap-2 text-muted small">
+                                    <span class="badge bg-light text-dark border">Solar Panels</span>
+                                    <span class="badge bg-light text-dark border">Water Harvesting</span>
+                                    <span class="badge bg-light text-dark border">10K+ Saplings</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
 
