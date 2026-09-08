@@ -16,7 +16,7 @@ class SettingController extends Controller
 
     public function update(Request $request)
     {
-        $data = $request->except(['_token', 'site_logo', 'site_favicon']);
+        $data = $request->except(['_token', 'site_logo', 'site_favicon', 'about_image']);
 
         // Handle text/config settings
         foreach ($data as $key => $value) {
@@ -25,6 +25,7 @@ class SettingController extends Controller
             elseif (str_ends_with($key, '_url')) $group = 'social';
             elseif (in_array($key, ['ngo_darpan_id', 'tax_exemption_80g', 'tax_exemption_12a', 'csr_registration_no', 'pan_number'])) $group = 'legal';
             elseif (str_starts_with($key, 'bank_') || $key === 'upi_id') $group = 'bank';
+            elseif (str_starts_with($key, 'about_') || str_starts_with($key, 'org_') || str_starts_with($key, 'impact_')) $group = 'about';
 
             SiteSetting::set($key, $value ?? '', $group);
         }
@@ -41,6 +42,13 @@ class SettingController extends Controller
             $request->validate(['site_favicon' => 'image|mimes:jpeg,png,ico,svg|max:1024']);
             $path = $request->file('site_favicon')->store('settings', 'public');
             SiteSetting::set('site_favicon', 'storage/' . $path, 'general');
+        }
+
+        // Handle about section image upload
+        if ($request->hasFile('about_image')) {
+            $request->validate(['about_image' => 'image|mimes:jpeg,png,jpg,webp|max:3072']);
+            $path = $request->file('about_image')->store('settings', 'public');
+            SiteSetting::set('about_image', 'storage/' . $path, 'about');
         }
 
         return back()->with('success', 'Site settings updated successfully.');

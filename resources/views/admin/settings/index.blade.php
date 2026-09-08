@@ -24,6 +24,11 @@
                         </button>
                     </li>
                     <li class="nav-item">
+                        <button class="nav-link py-3 px-4 fw-semibold" data-bs-toggle="tab" data-bs-target="#tab-about" type="button">
+                            <i class="bi bi-info-circle me-2"></i> About Us Page
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <button class="nav-link py-3 px-4 fw-semibold" data-bs-toggle="tab" data-bs-target="#tab-contact" type="button">
                             <i class="bi bi-telephone me-2"></i> Contact Info
                         </button>
@@ -85,7 +90,92 @@
                         </div>
                     </div>
 
-                    <!-- 2. CONTACT INFO -->
+                    <!-- 2. ABOUT US PAGE SETTINGS -->
+                    <div class="tab-pane fade" id="tab-about">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="alert alert-info py-2 px-3 small d-flex align-items-center justify-content-between mb-2">
+                                    <span><i class="bi bi-info-circle-fill me-2"></i> Manage the texts, mission, vision, values, and impact stats displayed on the public About page.</span>
+                                    <a href="{{ route('admin.members.index') }}" class="btn btn-sm btn-outline-primary bg-white">
+                                        <i class="bi bi-person-badge-fill me-1"></i> Manage Board &amp; Leadership Members &rarr;
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Founder / President Name</label>
+                                <input type="text" name="org_owner" class="form-control" value="{{ $settings['org_owner'] ?? 'Gyan Shankar Pal' }}" placeholder="e.g. Gyan Shankar Pal">
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">About Page Photo / Feature Image</label>
+                                <input type="file" name="about_image" class="form-control" onchange="previewImage(this, 'aboutPreview')">
+                                <div class="mt-2 img-preview-box" style="max-width: 220px; height: 110px;">
+                                    <img id="aboutPreview" src="{{ asset($settings['about_image'] ?? 'images/about-us.jpg') }}" alt="About Preview">
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Story &amp; Purpose Description (Leave blank to use default history)</label>
+                                <textarea name="about_story" class="form-control" rows="3" placeholder="Detailed history, foundation story, and background of the organization...">{{ $settings['about_story'] ?? '' }}</textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Our Mission Statement</label>
+                                <textarea name="org_mission" class="form-control" rows="3" placeholder="Our Mission...">{{ $settings['org_mission'] ?? 'To create an inclusive society where rural communities have access to quality education, healthcare, and sustainable livelihood.' }}</textarea>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Our Vision Statement</label>
+                                <textarea name="org_vision" class="form-control" rows="3" placeholder="Our Vision...">{{ $settings['org_vision'] ?? 'To create a society where every individual, especially in rural areas, has access to basic needs, quality education, healthcare, and opportunities for sustainable livelihood and personal growth.' }}</textarea>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Our Core Values</label>
+                                <textarea name="org_values" class="form-control" rows="2" placeholder="Integrity & Transparency, Community Participation, Sustainable Development...">{{ $settings['org_values'] ?? 'Integrity & Transparency, Community Participation, Sustainable Development, Compassion & Service, and Innovation in Grassroot Execution.' }}</textarea>
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">Core Approach Bullet Points</h6>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label class="form-label">Approach Point 1</label>
+                                <input type="text" name="about_approach_1" class="form-control" value="{{ $settings['about_approach_1'] ?? 'Empower rural youth with market-ready vocational skills' }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Approach Point 2</label>
+                                <input type="text" name="about_approach_2" class="form-control" value="{{ $settings['about_approach_2'] ?? 'Free health clinics, mobile diagnosis & nutrition kits' }}">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Approach Point 3</label>
+                                <input type="text" name="about_approach_3" class="form-control" value="{{ $settings['about_approach_3'] ?? 'Self-help groups, tailoring hubs & girl education' }}">
+                            </div>
+
+                            <div class="col-12 mt-3">
+                                <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">Impact Numbers &amp; Counters</h6>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Beneficiaries Reached</label>
+                                <input type="text" name="impact_beneficiaries" class="form-control" value="{{ $settings['impact_beneficiaries'] ?? '15,000+' }}">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Projects Completed</label>
+                                <input type="text" name="impact_projects" class="form-control" value="{{ $settings['impact_projects'] ?? '50+' }}">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Active Volunteers</label>
+                                <input type="text" name="impact_volunteers" class="form-control" value="{{ $settings['impact_volunteers'] ?? '120+' }}">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="form-label">Years of Impact</label>
+                                <input type="text" name="impact_years" class="form-control" value="{{ $settings['impact_years'] ?? '5+' }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. CONTACT INFO -->
                     <div class="tab-pane fade" id="tab-contact">
                         <div class="row g-3">
                             <div class="col-md-6">
