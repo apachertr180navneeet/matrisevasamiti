@@ -473,7 +473,7 @@
             <li class="menu-item">
                 <a href="{{ route('admin.news.index') }}" class="menu-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
                     <i class="bi bi-newspaper"></i>
-                    <span>News &amp; Media</span>
+                    <span>News &amp; Events</span>
                 </a>
             </li>
             <li class="menu-item">

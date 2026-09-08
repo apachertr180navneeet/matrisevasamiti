@@ -40,7 +40,7 @@ Route::get('/impact', [PageController::class, 'impact'])->name('impact');
 Route::get('/certificate', [PageController::class, 'certificate'])->name('certificate');
 Route::get('/grants', [PageController::class, 'grants'])->name('grants');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
-Route::get('/media', [PageController::class, 'media'])->name('media');
+Route::redirect('/media', '/news', 301);
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/career', [PageController::class, 'career'])->name('career');
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');

@@ -75,15 +75,9 @@ class PageController extends Controller
         return view('pages.gallery', compact('gallery', 'categories'));
     }
 
-    public function media(): View
-    {
-        $media = NewsEvent::where('is_published', true)->whereIn('type', ['media', 'press'])->orderBy('sort_order', 'asc')->latest('published_date')->get();
-        return view('pages.media', compact('media'));
-    }
-
     public function news(): View
     {
-        $news = NewsEvent::where('is_published', true)->whereIn('type', ['news', 'event'])->orderBy('sort_order', 'asc')->latest('published_date')->get();
+        $news = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->get();
         return view('pages.news', compact('news'));
     }
 

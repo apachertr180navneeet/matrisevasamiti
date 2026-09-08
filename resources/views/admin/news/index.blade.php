@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', 'News & Media')
+@section('title', 'News & Events')
 
 @section('content')
 <div class="container-fluid px-0">
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
             <h4 class="fw-bold mb-1" style="color: #0F2B5B;">News, Events &amp; Press Releases</h4>
-            <p class="text-muted small mb-0">Publish stories, press coverages, and upcoming events.</p>
+            <p class="text-muted small mb-0">Publish stories, field updates, and upcoming events.</p>
         </div>
         <a href="{{ route('admin.news.create') }}" class="btn-admin-primary">
             <i class="bi bi-plus-circle me-1"></i> Add New Post

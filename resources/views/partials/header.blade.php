@@ -48,12 +48,11 @@
                         </div>
 
                         <div class="has-sub-menu">
-                            <a role="button" class="{{ request()->routeIs(['gallery', 'news', 'faq', 'media']) ? 'active' : '' }}">Media</a>
+                            <a role="button" class="{{ request()->routeIs(['gallery', 'news', 'faq']) ? 'active' : '' }}">Media</a>
                             <div class="ul-header-submenu">
                                 <ul>
                                     <li><a href="{{ route('gallery') }}">Photo Gallery</a></li>
                                     <li><a href="{{ route('news') }}">NGO News</a></li>
-                                    <li><a href="{{ route('media') }}">Press & Media</a></li>
                                     <li><a href="{{ route('faq') }}">FAQs</a></li>
                                 </ul>
                             </div>
