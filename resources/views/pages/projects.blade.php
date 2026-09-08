@@ -26,121 +26,45 @@
             </div>
 
             <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                <!-- Project 1 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/project1.jpeg') }}" alt="Rural Youth Empowerment" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-success mb-2">Completed</span>
-                                <h3 class="h5 mb-2 text-dark">Empowering Economically Weaker Rural Youths Through Skill Development</h3>
-                                <p class="text-muted small mb-3">Comprehensive skill development program focusing on rural youth empowerment through vocational training and capacity building.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Prayagraj, UP</span>
-                                    <span><i class="flaticon-account text-primary"></i> 150 Beneficiaries</span>
+                @forelse($projects as $proj)
+                    @php
+                        $badgeClass = match(strtolower($proj->status ?? 'ongoing')) {
+                            'completed' => 'bg-success',
+                            'upcoming' => 'bg-info text-dark',
+                            default => 'bg-warning text-dark',
+                        };
+                    @endphp
+                    <div class="col">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
+                            <img src="{{ asset($proj->image ?? 'images/project1.jpeg') }}" alt="{{ $proj->title }}" style="height: 240px; width: 100%; object-fit: cover;">
+                            <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
+                                <div>
+                                    <span class="badge {{ $badgeClass }} mb-2">{{ ucfirst($proj->status ?? 'Ongoing') }}</span>
+                                    <h3 class="h5 mb-2 text-dark">{{ $proj->title }}</h3>
+                                    <p class="text-muted small mb-3">{{ $proj->summary ?? Str::limit(strip_tags($proj->details), 120) }}</p>
+                                    @if($proj->location || $proj->beneficiaries)
+                                        <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
+                                            @if($proj->location)
+                                                <span><i class="flaticon-pin text-danger"></i> {{ $proj->location }}</span>
+                                            @endif
+                                            @if($proj->beneficiaries)
+                                                <span><i class="flaticon-account text-primary"></i> {{ $proj->beneficiaries }}</span>
+                                            @endif
+                                        </div>
+                                    @endif
                                 </div>
+                                <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Support This Project &rarr;</a>
                             </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Support Similar Project &rarr;</a>
                         </div>
                     </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/project2.jpg') }}" alt="Documentation Training" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-success mb-2">Completed</span>
-                                <h3 class="h5 mb-2 text-dark">Documentation Executive Training Program</h3>
-                                <p class="text-muted small mb-3">Training program for rural youth in documentation, digital data entry, and administrative skills to enhance direct employment.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Bhadohi, UP</span>
-                                    <span><i class="flaticon-account text-primary"></i> 75 Beneficiaries</span>
-                                </div>
-                            </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Support Similar Project &rarr;</a>
-                        </div>
+                @empty
+                    <div class="col-12 text-center py-5">
+                        <p class="text-muted">No projects found at the moment.</p>
                     </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/project3.jpg') }}" alt="Healthcare Awareness" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-warning text-dark mb-2">Ongoing</span>
-                                <h3 class="h5 mb-2 text-dark">Rural Healthcare Awareness &amp; Mobile Camps</h3>
-                                <p class="text-muted small mb-3">Community health initiatives delivering free doctor consultations, diagnostic screenings, and medicines in remote village clusters.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Prayagraj, UP</span>
-                                    <span><i class="flaticon-account text-primary"></i> 500+ Beneficiaries</span>
-                                </div>
-                            </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Sponsor Medical Camp &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/womenimpormentimage.png') }}" alt="Women Self Help" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-warning text-dark mb-2">Ongoing</span>
-                                <h3 class="h5 mb-2 text-dark">Women's Self-Help Group (SHG) Initiative</h3>
-                                <p class="text-muted small mb-3">Empowering rural women through the formation of self-help groups, tailoring hubs, and microfinance support for small enterprises.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Multiple Villages</span>
-                                    <span><i class="flaticon-account text-primary"></i> 200+ Women</span>
-                                </div>
-                            </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Support Women Group &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/student1.jpeg') }}" alt="Digital Literacy" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-info text-dark mb-2">Upcoming</span>
-                                <h3 class="h5 mb-2 text-dark">Digital Smart Classroom &amp; Computer Literacy</h3>
-                                <p class="text-muted small mb-3">Introducing computer education, digital kits, and smart learning tools in rural schools to bridge the digital divide.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Rural Schools</span>
-                                    <span><i class="flaticon-account text-primary"></i> 300+ Students</span>
-                                </div>
-                            </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Sponsor School Kit &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="col">
-                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0">
-                        <img src="{{ asset('images/rural-development-news.jpg') }}" alt="Sustainable Agriculture" style="height: 240px; width: 100%; object-fit: cover;">
-                        <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
-                            <div>
-                                <span class="badge bg-info text-dark mb-2">Upcoming</span>
-                                <h3 class="h5 mb-2 text-dark">Sustainable Agriculture &amp; Organic Farming</h3>
-                                <p class="text-muted small mb-3">Training smallholder farmers in sustainable agricultural practices, organic fertilizers, and water-efficient crop techniques.</p>
-                                <div class="d-flex justify-content-between text-muted small border-top pt-2 mb-3">
-                                    <span><i class="flaticon-pin text-danger"></i> Prayagraj Rural</span>
-                                    <span><i class="flaticon-account text-primary"></i> 100+ Farmers</span>
-                                </div>
-                            </div>
-                            <a href="{{ route('donate.index') }}" class="btn btn-outline-danger btn-sm rounded-pill w-100">Support Farmer Training &rarr;</a>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
 </main>
 @endsection
+
