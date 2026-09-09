@@ -447,6 +447,12 @@
 
             <li class="menu-header">Content Management</li>
             <li class="menu-item">
+                <a href="{{ route('admin.home-sections.index') }}" class="menu-link {{ request()->routeIs('admin.home-sections.*') ? 'active' : '' }}">
+                    <i class="bi bi-house-gear-fill"></i>
+                    <span>Home Page Content</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.banners.index') }}" class="menu-link {{ request()->routeIs('admin.banners.*') ? 'active' : '' }}">
                     <i class="bi bi-image-fill"></i>
                     <span>Hero Banners</span>

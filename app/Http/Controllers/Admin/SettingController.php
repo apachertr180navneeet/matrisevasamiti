@@ -53,4 +53,32 @@ class SettingController extends Controller
 
         return back()->with('success', 'Site settings updated successfully.');
     }
+
+    public function homeSections()
+    {
+        $settings = SiteSetting::all()->pluck('value', 'key');
+        return view('admin.home_sections.index', compact('settings'));
+    }
+
+    public function updateHomeSections(Request $request)
+    {
+        $data = $request->except(['_token', 'home_about_image', 'home_about_thumb_image', 'home_why_image', 'home_hero_image']);
+
+        // Handle text settings
+        foreach ($data as $key => $value) {
+            SiteSetting::set($key, $value ?? '', 'home_section');
+        }
+
+        // Handle image uploads
+        $imageFields = ['home_about_image', 'home_about_thumb_image', 'home_why_image', 'home_hero_image'];
+        foreach ($imageFields as $field) {
+            if ($request->hasFile($field)) {
+                $request->validate([$field => 'image|mimes:jpeg,png,jpg,webp,svg|max:4096']);
+                $path = $request->file($field)->store('home_sections', 'public');
+                SiteSetting::set($field, 'storage/' . $path, 'home_section');
+            }
+        }
+
+        return back()->with('success', 'Home page sections and content updated successfully.');
+    }
 }

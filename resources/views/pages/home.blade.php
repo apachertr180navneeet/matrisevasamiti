@@ -171,7 +171,7 @@
                 <div class="col">
                     <div class="ul-about-imgs">
                         <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ !empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project1.jpeg') }}" alt="About {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}" style="width: 100%; height: 380px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['home_about_image']) ? asset($siteSettings['home_about_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project1.jpeg')) }}" alt="About {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}" style="width: 100%; height: 380px; object-fit: cover;">
                         </div>
                         <div class="ul-about-imgs-vectors">
                             <img src="{{ asset('assets/img/about-img-vector-1.svg') }}" alt="Decoration" class="vector-1">
@@ -183,32 +183,34 @@
                 <!-- Right Text & Highlights -->
                 <div class="col">
                     <div class="ul-about-txt">
-                        <span class="ul-section-sub-title ul-section-sub-title--2">{{ $siteSettings['tagline'] ?? 'About Us' }}</span>
-                        <h2 class="ul-section-title">Serving Humanity with Soft Hearts &amp; Strong Resolve</h2>
-                        <p class="ul-section-descr">{{ !empty($siteSettings['about_story']) ? Str::limit($siteSettings['about_story'], 280) : 'Established in April ' . ($siteSettings['org_established'] ?? config('site.org_established', '2019')) . ', ' . ($siteSettings['site_name'] ?? 'Matri Seva Samiti') . ' is a certified 80G non-profit organization dedicated to grassroots transformation across education, healthcare, women empowerment, and skill development.' }}</p>
+                        <span class="ul-section-sub-title ul-section-sub-title--2">{{ $siteSettings['home_about_subtitle'] ?? $siteSettings['tagline'] ?? 'About Us' }}</span>
+                        <h2 class="ul-section-title">{{ $siteSettings['home_about_title'] ?? 'Serving Humanity with Soft Hearts & Strong Resolve' }}</h2>
+                        <p class="ul-section-descr">{{ !empty($siteSettings['home_about_description']) ? $siteSettings['home_about_description'] : (!empty($siteSettings['about_story']) ? Str::limit($siteSettings['about_story'], 280) : 'Established in April ' . ($siteSettings['org_established'] ?? config('site.org_established', '2019')) . ', ' . ($siteSettings['site_name'] ?? 'Matri Seva Samiti') . ' is a certified 80G non-profit organization dedicated to grassroots transformation across education, healthcare, women empowerment, and skill development.') }}</p>
 
                         <div class="ul-about-block">
                             <div class="block-left">
                                 <div class="block-heading">
                                     <div class="icon"><i class="flaticon-love"></i></div>
-                                    <h3 class="block-title">Key Accreditations &amp; Impact</h3>
+                                    <h3 class="block-title">{{ $siteSettings['home_about_block_title'] ?? 'Key Accreditations & Impact' }}</h3>
                                 </div>
                                 <ul class="block-list">
-                                    <li>Registered under 80G, 12A, CSR-1 &amp; NITI Aayog NGO Darpan</li>
-                                    <li>{{ $siteSettings['impact_projects'] ?? '50+' }} Projects Completed &amp; {{ $siteSettings['impact_beneficiaries'] ?? '15,000+' }} Rural Lives Empowered</li>
+                                    <li>{{ $siteSettings['home_about_point_1'] ?? 'Registered under 80G, 12A, CSR-1 & NITI Aayog NGO Darpan' }}</li>
+                                    <li>{{ $siteSettings['home_about_point_2'] ?? (($siteSettings['impact_projects'] ?? '50+') . ' Projects Completed & ' . ($siteSettings['impact_beneficiaries'] ?? '15,000+') . ' Rural Lives Empowered') }}</li>
                                 </ul>
                             </div>
-                            <div class="block-right"><img src="{{ asset('images/student1.jpeg') }}" alt="MSS Field Program" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;"></div>
+                            <div class="block-right">
+                                <img src="{{ !empty($siteSettings['home_about_thumb_image']) ? asset($siteSettings['home_about_thumb_image']) : asset('images/student1.jpeg') }}" alt="MSS Field Program" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                            </div>
                         </div>
 
                         <div class="ul-about-bottom">
-                            <a href="{{ route('about') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Read More</a>
+                            <a href="{{ route('about') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> {{ $siteSettings['home_about_btn_text'] ?? 'Read More' }}</a>
 
                             <div class="ul-about-call">
                                 <div class="icon"><i class="flaticon-telephone-call"></i></div>
                                 <div class="txt">
-                                    <span class="call-title">Call For Inquiries</span>
-                                    <a href="tel:{{ $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}">{{ $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}</a>
+                                    <span class="call-title">{{ $siteSettings['home_about_call_title'] ?? 'Call For Inquiries' }}</span>
+                                    <a href="tel:{{ $siteSettings['home_about_phone'] ?? $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}">{{ $siteSettings['home_about_phone'] ?? $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -229,8 +231,8 @@
         <div class="ul-container">
             <div class="ul-section-heading ul-donations-heading justify-content-between text-center">
                 <div class="left">
-                    <span class="ul-section-sub-title"><span class="txt">Help &amp; Donate</span></span>
-                    <h2 class="ul-section-title">Inspiring and Helping for a Better Lifestyle</h2>
+                    <span class="ul-section-sub-title"><span class="txt">{{ $siteSettings['home_causes_subtitle'] ?? 'Help & Donate' }}</span></span>
+                    <h2 class="ul-section-title">{{ $siteSettings['home_causes_title'] ?? 'Inspiring and Helping for a Better Lifestyle' }}</h2>
                 </div>
 
                 <div class="flex-shrink-0">
@@ -239,9 +241,9 @@
                             <img src="{{ asset('assets/img/user-1.png') }}" alt="Donor">
                             <img src="{{ asset('assets/img/user-3.png') }}" alt="Donor">
                             <img src="{{ asset('assets/img/user-2.png') }}" alt="Donor">
-                            <span class="number">{{ $siteSettings['stat_4_number'] ?? '15K+' }}</span>
+                            <span class="number">{{ $siteSettings['home_causes_stat_number'] ?? $siteSettings['stat_4_number'] ?? '15K+' }}</span>
                         </div>
-                        <span class="txt text-white">Active Donors</span>
+                        <span class="txt text-white">{{ $siteSettings['home_causes_stat_label'] ?? 'Active Donors' }}</span>
                     </div>
                 </div>
                 <div class="ul-slider-nav ul-donations-slider-nav">
@@ -329,7 +331,7 @@
                     <!-- Donation Quick Form -->
                     <div class="col-lg-6 position-relative">
                         <div class="ul-donate-form-wrapper">
-                            <h3 class="ul-donate-form-title">Support Our Cause - Donate Now</h3>
+                            <h3 class="ul-donate-form-title">{{ $siteSettings['home_donate_form_title'] ?? 'Support Our Cause - Donate Now' }}</h3>
                             <form action="{{ route('donate.index') }}" method="GET" class="ul-donate-form">
                                 <div>
                                     <input type="radio" name="amount" id="donate-amount-1" value="500" checked hidden>
@@ -370,19 +372,19 @@
                     <!-- Right Impact Text -->
                     <div class="col-xl-5 col-lg-6">
                         <div class="ul-donate-form-section-txt">
-                            <span class="ul-section-sub-title text-white">100% Tax Deductible (80G)</span>
-                            <h2 class="ul-section-title text-white">Support Rural India With 80G Tax Exemption</h2>
-                            <p class="text-white opacity-75 mb-3">Donations made to {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }} are eligible for tax deduction under Section 80G. UPI ID: <strong>{{ $siteSettings['upi_id'] ?? '9415451910@ybl / matrisevasamiti1910@sbi' }}</strong></p>
+                            <span class="ul-section-sub-title text-white">{{ $siteSettings['home_donate_subtitle'] ?? '100% Tax Deductible (80G)' }}</span>
+                            <h2 class="ul-section-title text-white">{{ $siteSettings['home_donate_title'] ?? 'Support Rural India With 80G Tax Exemption' }}</h2>
+                            <p class="text-white opacity-75 mb-3">{{ $siteSettings['home_donate_description'] ?? ('Donations made to ' . ($siteSettings['site_name'] ?? 'Matri Seva Samiti') . ' are eligible for tax deduction under Section 80G. UPI ID: ' . ($siteSettings['upi_id'] ?? '9415451910@ybl / matrisevasamiti1910@sbi')) }}</p>
 
                             <div class="ul-donation-progress">
                                 <div class="donation-progress-container ul-progress-container">
-                                    <div class="donation-progressbar ul-progressbar" data-ul-progress-value="85">
+                                    <div class="donation-progressbar ul-progressbar" data-ul-progress-value="{{ $siteSettings['home_donate_progress_percent'] ?? '85' }}">
                                         <div class="donation-progress-label ul-progress-label"></div>
                                     </div>
                                 </div>
                                 <div class="ul-donation-progress-labels">
-                                    <span class="ul-donation-progress-label">Beneficiaries Reached : {{ $siteSettings['impact_beneficiaries'] ?? '15,000+' }}</span>
-                                    <span class="ul-donation-progress-label">Projects : {{ $siteSettings['impact_projects'] ?? '50+' }} Completed</span>
+                                    <span class="ul-donation-progress-label">{{ $siteSettings['home_donate_progress_label_1'] ?? ('Beneficiaries Reached : ' . ($siteSettings['impact_beneficiaries'] ?? '15,000+')) }}</span>
+                                    <span class="ul-donation-progress-label">{{ $siteSettings['home_donate_progress_label_2'] ?? ('Projects : ' . ($siteSettings['impact_projects'] ?? '50+') . ' Completed') }}</span>
                                 </div>
                             </div>
                         </div>
@@ -440,10 +442,10 @@
         <div class="ul-container">
             <div class="ul-section-heading align-items-center wow animate__fadeInUp">
                 <div class="left">
-                    <span class="ul-section-sub-title">Upcoming Events</span>
-                    <h2 class="ul-section-title text-white">Join Our Community Outreach Schedule</h2>
+                    <span class="ul-section-sub-title">{{ $siteSettings['home_events_subtitle'] ?? 'Upcoming Events' }}</span>
+                    <h2 class="ul-section-title text-white">{{ $siteSettings['home_events_title'] ?? 'Join Our Community Outreach Schedule' }}</h2>
                 </div>
-                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Join An Event</a>
+                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> {{ $siteSettings['home_events_btn_text'] ?? 'Join An Event' }}</a>
             </div>
 
             <!-- Events Grid -->
@@ -528,50 +530,50 @@
                 <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
                     <div class="col">
                         <div class="ul-why-join-img" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ !empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project2.jpg') }}" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['home_why_image']) ? asset($siteSettings['home_why_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project2.jpg')) }}" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="ul-why-join-txt">
-                            <span class="ul-section-sub-title">Join Us</span>
-                            <h2 class="ul-section-title">Why We Need You To Become A Volunteer</h2>
-                            <p class="ul-section-descr">Volunteers are the heart and soul of {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}. Together, we reach the most remote households to spark lasting smiles.</p>
+                            <span class="ul-section-sub-title">{{ $siteSettings['home_why_subtitle'] ?? 'Join Us' }}</span>
+                            <h2 class="ul-section-title">{{ $siteSettings['home_why_title'] ?? 'Why We Need You To Become A Volunteer' }}</h2>
+                            <p class="ul-section-descr">{{ $siteSettings['home_why_description'] ?? ('Volunteers are the heart and soul of ' . ($siteSettings['site_name'] ?? 'Matri Seva Samiti') . '. Together, we reach the most remote households to spark lasting smiles.') }}</p>
 
                             <div class="ul-accordion">
                                 <div class="ul-single-accordion-item open">
                                     <div class="ul-single-accordion-item__header">
                                         <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Direct Grassroot Fulfillment &amp; Experience</h3>
+                                            <h3 class="ul-single-accordion-item__title">{{ $siteSettings['home_why_acc1_title'] ?? 'Direct Grassroot Fulfillment & Experience' }}</h3>
                                         </div>
                                         <span class="icon"><i class="flaticon-next"></i></span>
                                     </div>
                                     <div class="ul-single-accordion-item__body">
-                                        <p>Work directly on the field with educators, healthcare specialists, and women mentors. Gain hands-on leadership experience and official volunteering certification.</p>
+                                        <p>{{ $siteSettings['home_why_acc1_text'] ?? 'Work directly on the field with educators, healthcare specialists, and women mentors. Gain hands-on leadership experience and official volunteering certification.' }}</p>
                                     </div>
                                 </div>
 
                                 <div class="ul-single-accordion-item">
                                     <div class="ul-single-accordion-item__header">
                                         <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Flexible Virtual &amp; On-Field Roles</h3>
+                                            <h3 class="ul-single-accordion-item__title">{{ $siteSettings['home_why_acc2_title'] ?? 'Flexible Virtual & On-Field Roles' }}</h3>
                                         </div>
                                         <span class="icon"><i class="flaticon-next"></i></span>
                                     </div>
                                     <div class="ul-single-accordion-item__body">
-                                        <p>Contribute on weekends or remotely in content writing, digital awareness, campaign management, and teaching sessions.</p>
+                                        <p>{{ $siteSettings['home_why_acc2_text'] ?? 'Contribute on weekends or remotely in content writing, digital awareness, campaign management, and teaching sessions.' }}</p>
                                     </div>
                                 </div>
 
                                 <div class="ul-single-accordion-item">
                                     <div class="ul-single-accordion-item__header">
                                         <div class="left">
-                                            <h3 class="ul-single-accordion-item__title">Be Part of a Transparent National Network</h3>
+                                            <h3 class="ul-single-accordion-item__title">{{ $siteSettings['home_why_acc3_title'] ?? 'Be Part of a Transparent National Network' }}</h3>
                                         </div>
                                         <span class="icon"><i class="flaticon-next"></i></span>
                                     </div>
                                     <div class="ul-single-accordion-item__body">
-                                        <p>Join over {{ $siteSettings['impact_volunteers'] ?? '450+' }} passionate changemakers across India working with verifiable accountability, regular audit reports, and heartfelt passion.</p>
+                                        <p>{{ $siteSettings['home_why_acc3_text'] ?? ('Join over ' . ($siteSettings['impact_volunteers'] ?? '450+') . ' passionate changemakers across India working with verifiable accountability, regular audit reports, and heartfelt passion.') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -588,11 +590,11 @@
         <div class="ul-container">
             <div class="ul-section-heading justify-content-between">
                 <div class="left">
-                    <span class="ul-section-sub-title">Our Team</span>
-                    <h2 class="ul-section-title">Dedicated Social Workers &amp; Leaders</h2>
+                    <span class="ul-section-sub-title">{{ $siteSettings['home_team_subtitle'] ?? 'Our Team' }}</span>
+                    <h2 class="ul-section-title">{{ $siteSettings['home_team_title'] ?? 'Dedicated Social Workers & Leaders' }}</h2>
                 </div>
                 <div>
-                    <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Join MSS</a>
+                    <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> {{ $siteSettings['home_team_btn_text'] ?? 'Join MSS' }}</a>
                 </div>
             </div>
 
@@ -638,8 +640,8 @@
         <div class="ul-container">
             <div class="ul-section-heading text-center">
                 <div>
-                    <span class="ul-section-sub-title">Testimonials</span>
-                    <h2 class="ul-section-title">What Donors &amp; Beneficiaries Say</h2>
+                    <span class="ul-section-sub-title">{{ $siteSettings['home_testi_subtitle'] ?? 'Testimonials' }}</span>
+                    <h2 class="ul-section-title">{{ $siteSettings['home_testi_title'] ?? 'What Donors & Beneficiaries Say' }}</h2>
                 </div>
             </div>
 
@@ -712,9 +714,9 @@
                 <div class="col-sm-5">
                     <div class="ul-section-heading">
                         <div class="left">
-                            <span class="ul-section-sub-title">Latest Updates</span>
-                            <h2 class="ul-section-title">Read Our Impact Stories</h2>
-                            <p class="ul-section-descr">Discover how your contributions bring tangible transformation to underprivileged communities across India.</p>
+                            <span class="ul-section-sub-title">{{ $siteSettings['home_blogs_subtitle'] ?? 'Latest Updates' }}</span>
+                            <h2 class="ul-section-title">{{ $siteSettings['home_blogs_title'] ?? 'Read Our Impact Stories' }}</h2>
+                            <p class="ul-section-descr">{{ $siteSettings['home_blogs_description'] ?? 'Discover how your contributions bring tangible transformation to underprivileged communities across India.' }}</p>
                             <div class="ul-blogs-slider-nav ul-slider-nav">
                                 <button class="prev"><i class="flaticon-back"></i></button>
                                 <button class="next"><i class="flaticon-next"></i></button>

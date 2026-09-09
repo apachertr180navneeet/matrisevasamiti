@@ -98,6 +98,10 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('/settings', [AdminSettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [AdminSettingController::class, 'update'])->name('settings.update');
 
+    // Home Page Content / Sections Manager
+    Route::get('/home-sections', [AdminSettingController::class, 'homeSections'])->name('home-sections.index');
+    Route::post('/home-sections', [AdminSettingController::class, 'updateHomeSections'])->name('home-sections.update');
+
     // Leads & Communication
     Route::get('/contacts', [AdminContactInboxController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/{contact}', [AdminContactInboxController::class, 'show'])->name('contacts.show');

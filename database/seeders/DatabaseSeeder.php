@@ -88,6 +88,55 @@ class DatabaseSeeder extends Seeder
             ['key' => 'stat_4_number', 'value' => '15,000+', 'group' => 'about'],
             ['key' => 'stat_4_title', 'value' => 'Supporters Worldwide', 'group' => 'about'],
             ['key' => 'stat_4_icon', 'value' => 'flaticon-relationship', 'group' => 'about'],
+
+            // Home Page Section Content
+            ['key' => 'home_about_subtitle', 'value' => 'About Us', 'group' => 'home_section'],
+            ['key' => 'home_about_title', 'value' => 'Serving Humanity with Soft Hearts & Strong Resolve', 'group' => 'home_section'],
+            ['key' => 'home_about_description', 'value' => 'Established in April 2019, Matri Seva Samiti is a certified 80G non-profit organization dedicated to grassroots transformation across education, healthcare, women empowerment, and skill development.', 'group' => 'home_section'],
+            ['key' => 'home_about_block_title', 'value' => 'Key Accreditations & Impact', 'group' => 'home_section'],
+            ['key' => 'home_about_point_1', 'value' => 'Registered under 80G, 12A, CSR-1 & NITI Aayog NGO Darpan', 'group' => 'home_section'],
+            ['key' => 'home_about_point_2', 'value' => '50+ Projects Completed & 15,000+ Rural Lives Empowered', 'group' => 'home_section'],
+            ['key' => 'home_about_btn_text', 'value' => 'Read More', 'group' => 'home_section'],
+            ['key' => 'home_about_call_title', 'value' => 'Call For Inquiries', 'group' => 'home_section'],
+            ['key' => 'home_about_phone', 'value' => '+91 9415451910', 'group' => 'home_section'],
+
+            ['key' => 'home_causes_subtitle', 'value' => 'Help & Donate', 'group' => 'home_section'],
+            ['key' => 'home_causes_title', 'value' => 'Inspiring and Helping for a Better Lifestyle', 'group' => 'home_section'],
+            ['key' => 'home_causes_stat_number', 'value' => '15K+', 'group' => 'home_section'],
+            ['key' => 'home_causes_stat_label', 'value' => 'Active Donors', 'group' => 'home_section'],
+
+            ['key' => 'home_donate_form_title', 'value' => 'Support Our Cause - Donate Now', 'group' => 'home_section'],
+            ['key' => 'home_donate_subtitle', 'value' => '100% Tax Deductible (80G)', 'group' => 'home_section'],
+            ['key' => 'home_donate_title', 'value' => 'Support Rural India With 80G Tax Exemption', 'group' => 'home_section'],
+            ['key' => 'home_donate_description', 'value' => 'Donations made to Matri Seva Samiti are eligible for tax deduction under Section 80G. UPI ID: 9415451910@ybl / matrisevasamiti1910@sbi', 'group' => 'home_section'],
+            ['key' => 'home_donate_progress_percent', 'value' => '85', 'group' => 'home_section'],
+            ['key' => 'home_donate_progress_label_1', 'value' => 'Beneficiaries Reached : 15,000+', 'group' => 'home_section'],
+            ['key' => 'home_donate_progress_label_2', 'value' => 'Projects : 50+ Completed', 'group' => 'home_section'],
+
+            ['key' => 'home_events_subtitle', 'value' => 'Upcoming Events', 'group' => 'home_section'],
+            ['key' => 'home_events_title', 'value' => 'Join Our Community Outreach Schedule', 'group' => 'home_section'],
+            ['key' => 'home_events_btn_text', 'value' => 'Join An Event', 'group' => 'home_section'],
+
+            ['key' => 'home_why_subtitle', 'value' => 'Join Us', 'group' => 'home_section'],
+            ['key' => 'home_why_title', 'value' => 'Why We Need You To Become A Volunteer', 'group' => 'home_section'],
+            ['key' => 'home_why_description', 'value' => 'Volunteers are the heart and soul of Matri Seva Samiti. Together, we reach the most remote households to spark lasting smiles.', 'group' => 'home_section'],
+            ['key' => 'home_why_acc1_title', 'value' => 'Direct Grassroot Fulfillment & Experience', 'group' => 'home_section'],
+            ['key' => 'home_why_acc1_text', 'value' => 'Work directly on the field with educators, healthcare specialists, and women mentors. Gain hands-on leadership experience and official volunteering certification.', 'group' => 'home_section'],
+            ['key' => 'home_why_acc2_title', 'value' => 'Flexible Virtual & On-Field Roles', 'group' => 'home_section'],
+            ['key' => 'home_why_acc2_text', 'value' => 'Contribute on weekends or remotely in content writing, digital awareness, campaign management, and teaching sessions.', 'group' => 'home_section'],
+            ['key' => 'home_why_acc3_title', 'value' => 'Be Part of a Transparent National Network', 'group' => 'home_section'],
+            ['key' => 'home_why_acc3_text', 'value' => 'Join over 450+ passionate changemakers across India working with verifiable accountability, regular audit reports, and heartfelt passion.', 'group' => 'home_section'],
+
+            ['key' => 'home_team_subtitle', 'value' => 'Our Team', 'group' => 'home_section'],
+            ['key' => 'home_team_title', 'value' => 'Dedicated Social Workers & Leaders', 'group' => 'home_section'],
+            ['key' => 'home_team_btn_text', 'value' => 'Join MSS', 'group' => 'home_section'],
+
+            ['key' => 'home_testi_subtitle', 'value' => 'Testimonials', 'group' => 'home_section'],
+            ['key' => 'home_testi_title', 'value' => 'What Donors & Beneficiaries Say', 'group' => 'home_section'],
+
+            ['key' => 'home_blogs_subtitle', 'value' => 'Latest Updates', 'group' => 'home_section'],
+            ['key' => 'home_blogs_title', 'value' => 'Read Our Impact Stories', 'group' => 'home_section'],
+            ['key' => 'home_blogs_description', 'value' => 'Discover how your contributions bring tangible transformation to underprivileged communities across India.', 'group' => 'home_section'],
         ];
 
         foreach ($settings as $setting) {
