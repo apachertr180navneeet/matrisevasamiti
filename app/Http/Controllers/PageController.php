@@ -15,6 +15,7 @@ use App\Models\Testimonial;
 use App\Models\Faq;
 use App\Models\Certificate;
 use App\Models\Grant;
+use App\Models\Career;
 use App\Models\Donation;
 
 class PageController extends Controller
@@ -25,11 +26,13 @@ class PageController extends Controller
         $causes = Cause::where('is_active', true)->orderBy('sort_order', 'asc')->get();
         $programs = Program::where('is_active', true)->orderBy('sort_order', 'asc')->take(4)->get();
         $projects = Project::where('is_active', true)->orderBy('sort_order', 'asc')->take(3)->get();
+        $members = Member::where('is_active', true)->orderBy('sort_order', 'asc')->take(4)->get();
         $testimonials = Testimonial::where('is_active', true)->orderBy('sort_order', 'asc')->get();
-        $gallery = GalleryItem::where('is_active', true)->orderBy('sort_order', 'asc')->take(6)->get();
-        $news = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->take(3)->get();
+        $gallery = GalleryItem::where('is_active', true)->orderBy('sort_order', 'asc')->take(10)->get();
+        $events = NewsEvent::where('is_published', true)->where('type', 'event')->orderBy('sort_order', 'asc')->latest('published_date')->take(4)->get();
+        $news = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->take(6)->get();
 
-        return view('pages.home', compact('banners', 'causes', 'programs', 'projects', 'testimonials', 'gallery', 'news'));
+        return view('pages.home', compact('banners', 'causes', 'programs', 'projects', 'members', 'testimonials', 'gallery', 'events', 'news'));
     }
 
     public function about(): View
@@ -85,7 +88,8 @@ class PageController extends Controller
 
     public function career(): View
     {
-        return view('pages.career');
+        $careers = Career::where('is_active', true)->orderBy('sort_order', 'asc')->latest()->get();
+        return view('pages.career', compact('careers'));
     }
 
     public function faq(): View

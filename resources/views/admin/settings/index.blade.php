@@ -29,6 +29,11 @@
                         </button>
                     </li>
                     <li class="nav-item">
+                        <button class="nav-link py-3 px-4 fw-semibold" data-bs-toggle="tab" data-bs-target="#tab-stats" type="button">
+                            <i class="bi bi-speedometer2 me-2"></i> Stats &amp; Counters
+                        </button>
+                    </li>
+                    <li class="nav-item">
                         <button class="nav-link py-3 px-4 fw-semibold" data-bs-toggle="tab" data-bs-target="#tab-contact" type="button">
                             <i class="bi bi-telephone me-2"></i> Contact Info
                         </button>
@@ -279,6 +284,94 @@
                             <div class="col-md-6">
                                 <label class="form-label">UPI ID / VPA</label>
                                 <input type="text" name="upi_id" class="form-control" value="{{ $settings['upi_id'] ?? '' }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- STATS & COUNTERS TAB -->
+                    <div class="tab-pane fade" id="tab-stats">
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <div class="alert alert-info py-2 px-3 small d-flex align-items-center mb-3">
+                                    <i class="bi bi-info-circle-fill me-2 fs-5"></i>
+                                    <span>Configure the 4 milestone numbers / statistics displayed in circular counters across the Homepage and About pages.</span>
+                                </div>
+                            </div>
+
+                            <!-- Stat 1 -->
+                            <div class="col-md-6">
+                                <div class="card p-3 border rounded-3 bg-light h-100">
+                                    <h6 class="fw-bold text-primary mb-3"><i class="bi bi-1-circle-fill me-2"></i> Counter Circle 1</h6>
+                                    <div class="mb-3">
+                                        <label class="form-label">Metric / Number</label>
+                                        <input type="text" name="stat_1_number" class="form-control" value="{{ $settings['stat_1_number'] ?? '12,500+' }}" placeholder="e.g. 12,500+">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Title / Label</label>
+                                        <input type="text" name="stat_1_title" class="form-control" value="{{ $settings['stat_1_title'] ?? 'Children Supported' }}" placeholder="e.g. Children Supported">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Icon Class</label>
+                                        <input type="text" name="stat_1_icon" class="form-control font-monospace small" value="{{ $settings['stat_1_icon'] ?? 'flaticon-costumer' }}" placeholder="flaticon-costumer">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stat 2 -->
+                            <div class="col-md-6">
+                                <div class="card p-3 border rounded-3 bg-light h-100">
+                                    <h6 class="fw-bold text-success mb-3"><i class="bi bi-2-circle-fill me-2"></i> Counter Circle 2</h6>
+                                    <div class="mb-3">
+                                        <label class="form-label">Metric / Number</label>
+                                        <input type="text" name="stat_2_number" class="form-control" value="{{ $settings['stat_2_number'] ?? '450+' }}" placeholder="e.g. 450+">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Title / Label</label>
+                                        <input type="text" name="stat_2_title" class="form-control" value="{{ $settings['stat_2_title'] ?? 'Active Volunteers' }}" placeholder="e.g. Active Volunteers">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Icon Class</label>
+                                        <input type="text" name="stat_2_icon" class="form-control font-monospace small" value="{{ $settings['stat_2_icon'] ?? 'flaticon-team' }}" placeholder="flaticon-team">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stat 3 -->
+                            <div class="col-md-6">
+                                <div class="card p-3 border rounded-3 bg-light h-100">
+                                    <h6 class="fw-bold text-warning mb-3"><i class="bi bi-3-circle-fill me-2"></i> Counter Circle 3</h6>
+                                    <div class="mb-3">
+                                        <label class="form-label">Metric / Number</label>
+                                        <input type="text" name="stat_3_number" class="form-control" value="{{ $settings['stat_3_number'] ?? '35+' }}" placeholder="e.g. 35+">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Title / Label</label>
+                                        <input type="text" name="stat_3_title" class="form-control" value="{{ $settings['stat_3_title'] ?? 'Villages Transformed' }}" placeholder="e.g. Villages Transformed">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Icon Class</label>
+                                        <input type="text" name="stat_3_icon" class="form-control font-monospace small" value="{{ $settings['stat_3_icon'] ?? 'flaticon-package' }}" placeholder="flaticon-package">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Stat 4 -->
+                            <div class="col-md-6">
+                                <div class="card p-3 border rounded-3 bg-light h-100">
+                                    <h6 class="fw-bold text-info mb-3"><i class="bi bi-4-circle-fill me-2"></i> Counter Circle 4</h6>
+                                    <div class="mb-3">
+                                        <label class="form-label">Metric / Number</label>
+                                        <input type="text" name="stat_4_number" class="form-control" value="{{ $settings['stat_4_number'] ?? '15,000+' }}" placeholder="e.g. 15,000+">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="form-label">Title / Label</label>
+                                        <input type="text" name="stat_4_title" class="form-control" value="{{ $settings['stat_4_title'] ?? 'Supporters Worldwide' }}" placeholder="e.g. Supporters Worldwide">
+                                    </div>
+                                    <div>
+                                        <label class="form-label">Icon Class</label>
+                                        <input type="text" name="stat_4_icon" class="form-control font-monospace small" value="{{ $settings['stat_4_icon'] ?? 'flaticon-relationship' }}" placeholder="flaticon-relationship">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

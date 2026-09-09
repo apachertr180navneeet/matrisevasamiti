@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialControll
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\CertificateController as AdminCertificateController;
 use App\Http\Controllers\Admin\GrantController as AdminGrantController;
+use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\ContactInboxController as AdminContactInboxController;
 use App\Http\Controllers\Admin\VolunteerAdminController as AdminVolunteerController;
 use App\Http\Controllers\Admin\DonationAdminController as AdminDonationController;
@@ -123,6 +124,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('testimonials', AdminTestimonialController::class);
     Route::resource('certificates', AdminCertificateController::class);
     Route::resource('grants', AdminGrantController::class);
+    Route::resource('careers', AdminCareerController::class);
     Route::resource('faqs', AdminFaqController::class);
 });
 

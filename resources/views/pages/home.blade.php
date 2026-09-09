@@ -4,49 +4,162 @@
 <main class="overflow-hidden">
     <!-- 1. HERO / BANNER SECTION -->
     <section class="ul-banner">
-        <div class="ul-banner-container">
-            <div class="row gy-4 row-cols-lg-2 row-cols-1 align-items-center flex-column-reverse flex-lg-row">
-                <!-- Banner Text Content -->
-                <div class="col">
-                    <div class="ul-banner-txt">
-                        <div class="wow animate__fadeInUp">
-                            <span class="ul-banner-sub-title ul-section-sub-title">"मिलकर करें प्रयास, खुशहाल हो समाज"</span>
-                            <h1 class="ul-banner-title">Matri Seva Samiti</h1>
-                            <p class="ul-banner-descr">Established in April {{ config('site.org_established') }}, Matri Seva Samiti is a registered non-profit organization dedicated to uplifting rural and marginalized communities across India through education, healthcare, women empowerment, and skill development.</p>
-                            <div class="ul-banner-btns">
-                                <a href="{{ route('donate.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now</a>
-                                <a href="{{ route('projects') }}" class="ul-btn" style="background: var(--ul-secondary, #0F2B5B); margin-left: 10px;"><i class="flaticon-up-right-arrow"></i> Explore Our Work</a>
+        @if(isset($banners) && $banners->isNotEmpty())
+            @if($banners->count() == 1)
+                @php $b = $banners->first(); @endphp
+                <div class="ul-banner-container">
+                    <div class="row gy-4 row-cols-lg-2 row-cols-1 align-items-center flex-column-reverse flex-lg-row">
+                        <!-- Banner Text Content -->
+                        <div class="col">
+                            <div class="ul-banner-txt">
+                                <div class="wow animate__fadeInUp">
+                                    @if($b->subtitle)
+                                        <span class="ul-banner-sub-title ul-section-sub-title">{{ $b->subtitle }}</span>
+                                    @endif
+                                    <h1 class="ul-banner-title">{{ $b->title }}</h1>
+                                    @if($b->description)
+                                        <p class="ul-banner-descr">{{ $b->description }}</p>
+                                    @endif
+                                    <div class="ul-banner-btns">
+                                        <a href="{{ $b->btn_link ?: route('donate.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> {{ $b->btn_text ?: 'Donate Now' }}</a>
+                                        @if($b->secondary_btn_text)
+                                            <a href="{{ $b->secondary_btn_link ?: route('projects') }}" class="ul-btn" style="background: var(--ul-secondary, #0F2B5B); margin-left: 10px;"><i class="flaticon-up-right-arrow"></i> {{ $b->secondary_btn_text }}</a>
+                                        @endif
 
-                                <div class="ul-banner-stat mt-3">
-                                    <div class="imgs">
-                                        <img src="{{ asset('images/student1.jpeg') }}" alt="Beneficiary 1" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
-                                        <img src="{{ asset('images/student2.jpeg') }}" alt="Beneficiary 2" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
-                                        <img src="{{ asset('images/student3.jpeg') }}" alt="Beneficiary 3" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
-                                        <span class="number">15K+</span>
+                                        <div class="ul-banner-stat mt-3">
+                                            <div class="imgs">
+                                                <img src="{{ asset('images/student1.jpeg') }}" alt="Beneficiary 1" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                <img src="{{ asset('images/student2.jpeg') }}" alt="Beneficiary 2" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                <img src="{{ asset('images/student3.jpeg') }}" alt="Beneficiary 3" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                <span class="number">{{ $siteSettings['impact_beneficiaries'] ?? '15K+' }}</span>
+                                            </div>
+                                            <span class="txt">Beneficiaries Reached</span>
+                                        </div>
                                     </div>
-                                    <span class="txt">Beneficiaries Reached</span>
                                 </div>
+
+                                <img src="{{ asset('assets/img/vector-img.png') }}" alt="Vector Art" class="ul-banner-txt-vector">
                             </div>
                         </div>
 
-                        <img src="{{ asset('assets/img/vector-img.png') }}" alt="Vector Art" class="ul-banner-txt-vector">
+                        <!-- Banner Image Collage & Floating Vectors -->
+                        <div class="col align-self-start">
+                            <div class="ul-banner-img">
+                                <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                                    <img src="{{ !empty($b->image) ? asset($b->image) : asset('images/herobg.png') }}" alt="{{ $b->title }}" style="width: 100%; height: auto; object-fit: cover;">
+                                </div>
+                                <div class="ul-banner-img-vectors">
+                                    <img src="{{ asset('assets/img/banner-img-vector-1.png') }}" alt="vector" class="vector-1 wow animate__fadeInRight">
+                                    <img src="{{ asset('assets/img/banner-img-vector-2.png') }}" alt="vector" class="vector-2 wow animate__fadeInDown">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            @else
+                <!-- Multiple Banners Slider -->
+                <div class="ul-home-hero-slider swiper">
+                    <div class="swiper-wrapper">
+                        @foreach($banners as $b)
+                            <div class="swiper-slide">
+                                <div class="ul-banner-container">
+                                    <div class="row gy-4 row-cols-lg-2 row-cols-1 align-items-center flex-column-reverse flex-lg-row">
+                                        <div class="col">
+                                            <div class="ul-banner-txt">
+                                                <div>
+                                                    @if($b->subtitle)
+                                                        <span class="ul-banner-sub-title ul-section-sub-title">{{ $b->subtitle }}</span>
+                                                    @endif
+                                                    <h1 class="ul-banner-title">{{ $b->title }}</h1>
+                                                    @if($b->description)
+                                                        <p class="ul-banner-descr">{{ $b->description }}</p>
+                                                    @endif
+                                                    <div class="ul-banner-btns">
+                                                        <a href="{{ $b->btn_link ?: route('donate.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> {{ $b->btn_text ?: 'Donate Now' }}</a>
+                                                        @if($b->secondary_btn_text)
+                                                            <a href="{{ $b->secondary_btn_link ?: route('projects') }}" class="ul-btn" style="background: var(--ul-secondary, #0F2B5B); margin-left: 10px;"><i class="flaticon-up-right-arrow"></i> {{ $b->secondary_btn_text }}</a>
+                                                        @endif
 
-                <!-- Banner Image Collage & Floating Vectors -->
-                <div class="col align-self-start">
-                    <div class="ul-banner-img">
-                        <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ asset('images/herobg.png') }}" alt="Matri Seva Samiti Social Work" style="width: 100%; height: auto; object-fit: cover;">
+                                                        <div class="ul-banner-stat mt-3">
+                                                            <div class="imgs">
+                                                                <img src="{{ asset('images/student1.jpeg') }}" alt="Beneficiary 1" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                                <img src="{{ asset('images/student2.jpeg') }}" alt="Beneficiary 2" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                                <img src="{{ asset('images/student3.jpeg') }}" alt="Beneficiary 3" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                                                <span class="number">{{ $siteSettings['impact_beneficiaries'] ?? '15K+' }}</span>
+                                                            </div>
+                                                            <span class="txt">Beneficiaries Reached</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="{{ asset('assets/img/vector-img.png') }}" alt="Vector Art" class="ul-banner-txt-vector">
+                                            </div>
+                                        </div>
+
+                                        <div class="col align-self-start">
+                                            <div class="ul-banner-img">
+                                                <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                                                    <img src="{{ !empty($b->image) ? asset($b->image) : asset('images/herobg.png') }}" alt="{{ $b->title }}" style="width: 100%; height: auto; object-fit: cover;">
+                                                </div>
+                                                <div class="ul-banner-img-vectors">
+                                                    <img src="{{ asset('assets/img/banner-img-vector-1.png') }}" alt="vector" class="vector-1">
+                                                    <img src="{{ asset('assets/img/banner-img-vector-2.png') }}" alt="vector" class="vector-2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="ul-home-hero-pagination text-center mt-3"></div>
+                </div>
+            @endif
+        @else
+            <!-- Fallback Default Hero Banner -->
+            <div class="ul-banner-container">
+                <div class="row gy-4 row-cols-lg-2 row-cols-1 align-items-center flex-column-reverse flex-lg-row">
+                    <!-- Banner Text Content -->
+                    <div class="col">
+                        <div class="ul-banner-txt">
+                            <div class="wow animate__fadeInUp">
+                                <span class="ul-banner-sub-title ul-section-sub-title">{{ $siteSettings['tagline'] ?? '"मिलकर करें प्रयास, खुशहाल हो समाज"' }}</span>
+                                <h1 class="ul-banner-title">{{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}</h1>
+                                <p class="ul-banner-descr">{{ $siteSettings['site_description'] ?? 'Established in April ' . ($siteSettings['org_established'] ?? '2019') . ', Matri Seva Samiti is a registered non-profit organization dedicated to uplifting rural and marginalized communities across India through education, healthcare, women empowerment, and skill development.' }}</p>
+                                <div class="ul-banner-btns">
+                                    <a href="{{ route('donate.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now</a>
+                                    <a href="{{ route('projects') }}" class="ul-btn" style="background: var(--ul-secondary, #0F2B5B); margin-left: 10px;"><i class="flaticon-up-right-arrow"></i> Explore Our Work</a>
+
+                                    <div class="ul-banner-stat mt-3">
+                                        <div class="imgs">
+                                            <img src="{{ asset('images/student1.jpeg') }}" alt="Beneficiary 1" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                            <img src="{{ asset('images/student2.jpeg') }}" alt="Beneficiary 2" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                            <img src="{{ asset('images/student3.jpeg') }}" alt="Beneficiary 3" style="width:36px; height:36px; border-radius:50%; object-fit:cover;">
+                                            <span class="number">{{ $siteSettings['impact_beneficiaries'] ?? '15K+' }}</span>
+                                        </div>
+                                        <span class="txt">Beneficiaries Reached</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <img src="{{ asset('assets/img/vector-img.png') }}" alt="Vector Art" class="ul-banner-txt-vector">
                         </div>
-                        <div class="ul-banner-img-vectors">
-                            <img src="{{ asset('assets/img/banner-img-vector-1.png') }}" alt="vector" class="vector-1 wow animate__fadeInRight">
-                            <img src="{{ asset('assets/img/banner-img-vector-2.png') }}" alt="vector" class="vector-2 wow animate__fadeInDown">
+                    </div>
+
+                    <!-- Banner Image Collage & Floating Vectors -->
+                    <div class="col align-self-start">
+                        <div class="ul-banner-img">
+                            <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
+                                <img src="{{ asset('images/herobg.png') }}" alt="Matri Seva Samiti Social Work" style="width: 100%; height: auto; object-fit: cover;">
+                            </div>
+                            <div class="ul-banner-img-vectors">
+                                <img src="{{ asset('assets/img/banner-img-vector-1.png') }}" alt="vector" class="vector-1 wow animate__fadeInRight">
+                                <img src="{{ asset('assets/img/banner-img-vector-2.png') }}" alt="vector" class="vector-2 wow animate__fadeInDown">
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
     </section>
     <!-- HERO SECTION END -->
 
@@ -58,7 +171,7 @@
                 <div class="col">
                     <div class="ul-about-imgs">
                         <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ asset('images/project1.jpeg') }}" alt="MSS Social Work" style="width: 100%; height: 380px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project1.jpeg') }}" alt="About {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}" style="width: 100%; height: 380px; object-fit: cover;">
                         </div>
                         <div class="ul-about-imgs-vectors">
                             <img src="{{ asset('assets/img/about-img-vector-1.svg') }}" alt="Decoration" class="vector-1">
@@ -70,9 +183,9 @@
                 <!-- Right Text & Highlights -->
                 <div class="col">
                     <div class="ul-about-txt">
-                        <span class="ul-section-sub-title ul-section-sub-title--2">About Us</span>
+                        <span class="ul-section-sub-title ul-section-sub-title--2">{{ $siteSettings['tagline'] ?? 'About Us' }}</span>
                         <h2 class="ul-section-title">Serving Humanity with Soft Hearts &amp; Strong Resolve</h2>
-                        <p class="ul-section-descr">Established in April {{ config('site.org_established') }}, Matri Seva Samiti is a certified 80G non-profit organization. Inspired by the vision of a self-reliant nation, we work tirelessly in the fields of education, healthcare, women empowerment, and skill development to bring lasting grassroots transformation.</p>
+                        <p class="ul-section-descr">{{ !empty($siteSettings['about_story']) ? Str::limit($siteSettings['about_story'], 280) : 'Established in April ' . ($siteSettings['org_established'] ?? config('site.org_established', '2019')) . ', ' . ($siteSettings['site_name'] ?? 'Matri Seva Samiti') . ' is a certified 80G non-profit organization dedicated to grassroots transformation across education, healthcare, women empowerment, and skill development.' }}</p>
 
                         <div class="ul-about-block">
                             <div class="block-left">
@@ -82,7 +195,7 @@
                                 </div>
                                 <ul class="block-list">
                                     <li>Registered under 80G, 12A, CSR-1 &amp; NITI Aayog NGO Darpan</li>
-                                    <li>50+ Projects Completed &amp; 15,000+ Rural Lives Empowered</li>
+                                    <li>{{ $siteSettings['impact_projects'] ?? '50+' }} Projects Completed &amp; {{ $siteSettings['impact_beneficiaries'] ?? '15,000+' }} Rural Lives Empowered</li>
                                 </ul>
                             </div>
                             <div class="block-right"><img src="{{ asset('images/student1.jpeg') }}" alt="MSS Field Program" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;"></div>
@@ -95,7 +208,7 @@
                                 <div class="icon"><i class="flaticon-telephone-call"></i></div>
                                 <div class="txt">
                                     <span class="call-title">Call For Inquiries</span>
-                                    <a href="tel:{{ config('site.phone_primary') }}">{{ config('site.phone_primary') }}</a>
+                                    <a href="tel:{{ $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}">{{ $siteSettings['contact_phone_primary'] ?? config('site.phone_primary', '+91 9415451910') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -126,7 +239,7 @@
                             <img src="{{ asset('assets/img/user-1.png') }}" alt="Donor">
                             <img src="{{ asset('assets/img/user-3.png') }}" alt="Donor">
                             <img src="{{ asset('assets/img/user-2.png') }}" alt="Donor">
-                            <span class="number">15K+</span>
+                            <span class="number">{{ $siteSettings['stat_4_number'] ?? '15K+' }}</span>
                         </div>
                         <span class="txt text-white">Active Donors</span>
                     </div>
@@ -142,109 +255,66 @@
         <div class="ul-container wow animate__fadeInUp">
             <div class="ul-donations-slider swiper overflow-visible">
                 <div class="swiper-wrapper">
-                    <!-- Cause 1 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="{{ asset('images/student1.jpeg') }}" alt="Skill Development For Rural Youth" style="height: 220px; width: 100%; object-fit: cover;">
-                                <span class="tag">Skill Training</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="85">
-                                            <div class="donation-progress-label ul-progress-label"></div>
+                    @forelse($causes as $cause)
+                        @php
+                            $raised = (float) ($cause->raised_amount ?? 0);
+                            $goal = (float) ($cause->goal_amount ?? 0);
+                            $progress = $goal > 0 ? min(100, round(($raised / $goal) * 100)) : 0;
+                            $imageSrc = !empty($cause->image) ? asset($cause->image) : asset('images/project1.jpeg');
+                        @endphp
+                        <div class="swiper-slide">
+                            <div class="ul-donation">
+                                <div class="ul-donation-img">
+                                    <img src="{{ $imageSrc }}" alt="{{ $cause->title }}" style="height: 220px; width: 100%; object-fit: cover;">
+                                    @if($cause->category)
+                                        <span class="tag">{{ $cause->category }}</span>
+                                    @endif
+                                </div>
+                                <div class="ul-donation-txt">
+                                    <div class="ul-donation-progress">
+                                        <div class="donation-progress-container ul-progress-container">
+                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="{{ $progress }}">
+                                                <div class="donation-progress-label ul-progress-label"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ul-donation-progress-labels">
+                                            <span class="ul-donation-progress-label">Raised : ₹{{ number_format($raised) }}</span>
+                                            <span class="ul-donation-progress-label">Goal : ₹{{ number_format($goal) }}</span>
                                         </div>
                                     </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Beneficiaries : 200+ Youths</span>
-                                        <span class="ul-donation-progress-label">Goal : Self-Reliance</span>
-                                    </div>
+                                    <a href="{{ route('donate.index', ['cause_id' => $cause->id]) }}" class="ul-donation-title">{{ $cause->title }}</a>
+                                    <p class="ul-donation-descr">{{ Str::limit($cause->short_description ?: $cause->description, 110) }}</p>
+                                    <a href="{{ route('donate.index', ['cause_id' => $cause->id]) }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                                 </div>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-title">Skill Development For Rural Youth</a>
-                                <p class="ul-donation-descr">Empowering underprivileged village youth with computer training, vocational skills, and career guidance.</p>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Cause 2 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="{{ asset('images/project3.jpg') }}" alt="Rural Healthcare Initiative" style="height: 220px; width: 100%; object-fit: cover;">
-                                <span class="tag">Healthcare</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="90">
-                                            <div class="donation-progress-label ul-progress-label"></div>
+                    @empty
+                        <!-- Fallback default causes -->
+                        <div class="swiper-slide">
+                            <div class="ul-donation">
+                                <div class="ul-donation-img">
+                                    <img src="{{ asset('images/student1.jpeg') }}" alt="Skill Development" style="height: 220px; width: 100%; object-fit: cover;">
+                                    <span class="tag">Skill Training</span>
+                                </div>
+                                <div class="ul-donation-txt">
+                                    <div class="ul-donation-progress">
+                                        <div class="donation-progress-container ul-progress-container">
+                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="85">
+                                                <div class="donation-progress-label ul-progress-label"></div>
+                                            </div>
+                                        </div>
+                                        <div class="ul-donation-progress-labels">
+                                            <span class="ul-donation-progress-label">Beneficiaries : 200+ Youths</span>
+                                            <span class="ul-donation-progress-label">Goal : Self-Reliance</span>
                                         </div>
                                     </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Beneficiaries : 1000+ Villagers</span>
-                                        <span class="ul-donation-progress-label">Goal : Free Checkups</span>
-                                    </div>
+                                    <a href="{{ route('donate.index') }}" class="ul-donation-title">Skill Development For Rural Youth</a>
+                                    <p class="ul-donation-descr">Empowering underprivileged village youth with computer training, vocational skills, and career guidance.</p>
+                                    <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                                 </div>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-title">Rural Healthcare &amp; Medical Camps</a>
-                                <p class="ul-donation-descr">Delivering accessible doctor checkups, medicines, maternal care, and eye screenings in remote areas.</p>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Cause 3 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="{{ asset('images/student2.jpeg') }}" alt="Women Self-Help Groups" style="height: 220px; width: 100%; object-fit: cover;">
-                                <span class="tag">Women Power</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="80">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Beneficiaries : 500+ Women</span>
-                                        <span class="ul-donation-progress-label">Goal : Micro Enterprise</span>
-                                    </div>
-                                </div>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-title">Women Self-Help &amp; Tailoring Hubs</a>
-                                <p class="ul-donation-descr">Equipping village women with sewing machines and financial literacy to earn independent livelihood.</p>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Cause 4 -->
-                    <div class="swiper-slide">
-                        <div class="ul-donation">
-                            <div class="ul-donation-img">
-                                <img src="{{ asset('images/student3.jpeg') }}" alt="Child Education Drive" style="height: 220px; width: 100%; object-fit: cover;">
-                                <span class="tag">Education</span>
-                            </div>
-                            <div class="ul-donation-txt">
-                                <div class="ul-donation-progress">
-                                    <div class="donation-progress-container ul-progress-container">
-                                        <div class="donation-progressbar ul-progressbar" data-ul-progress-value="95">
-                                            <div class="donation-progress-label ul-progress-label"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ul-donation-progress-labels">
-                                        <span class="ul-donation-progress-label">Beneficiaries : 1200+ Girls</span>
-                                        <span class="ul-donation-progress-label">Goal : School Kits</span>
-                                    </div>
-                                </div>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-title">Project Nanhi Udaan - Girl Child Education</a>
-                                <p class="ul-donation-descr">Providing school bags, books, uniforms, and tuition sponsorship for girls to prevent dropouts.</p>
-                                <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -302,7 +372,7 @@
                         <div class="ul-donate-form-section-txt">
                             <span class="ul-section-sub-title text-white">100% Tax Deductible (80G)</span>
                             <h2 class="ul-section-title text-white">Support Rural India With 80G Tax Exemption</h2>
-                            <p class="text-white opacity-75 mb-3">Donations made to Matri Seva Samiti are eligible for tax deduction under Section 80G. UPI ID: <strong>9415451910@ybl</strong> / <strong>matrisevasamiti1910@sbi</strong></p>
+                            <p class="text-white opacity-75 mb-3">Donations made to {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }} are eligible for tax deduction under Section 80G. UPI ID: <strong>{{ $siteSettings['upi_id'] ?? '9415451910@ybl / matrisevasamiti1910@sbi' }}</strong></p>
 
                             <div class="ul-donation-progress">
                                 <div class="donation-progress-container ul-progress-container">
@@ -311,8 +381,8 @@
                                     </div>
                                 </div>
                                 <div class="ul-donation-progress-labels">
-                                    <span class="ul-donation-progress-label">Beneficiaries Reached : 15,000+</span>
-                                    <span class="ul-donation-progress-label">Projects : 50+ Completed</span>
+                                    <span class="ul-donation-progress-label">Beneficiaries Reached : {{ $siteSettings['impact_beneficiaries'] ?? '15,000+' }}</span>
+                                    <span class="ul-donation-progress-label">Projects : {{ $siteSettings['impact_projects'] ?? '50+' }} Completed</span>
                                 </div>
                             </div>
                         </div>
@@ -330,33 +400,33 @@
                 <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-bs-row justify-content-center">
                     <div class="col">
                         <div class="ul-stats-item">
-                            <i class="flaticon-costumer"></i>
-                            <span class="number">12,500+</span>
-                            <span class="txt">Children Supported</span>
+                            <i class="{{ $siteSettings['stat_1_icon'] ?? 'flaticon-costumer' }}"></i>
+                            <span class="number">{{ $siteSettings['stat_1_number'] ?? $siteSettings['impact_beneficiaries'] ?? '12,500+' }}</span>
+                            <span class="txt">{{ $siteSettings['stat_1_title'] ?? 'Children Supported' }}</span>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="ul-stats-item">
-                            <i class="flaticon-team"></i>
-                            <span class="number">450+</span>
-                            <span class="txt">Active Volunteers</span>
+                            <i class="{{ $siteSettings['stat_2_icon'] ?? 'flaticon-team' }}"></i>
+                            <span class="number">{{ $siteSettings['stat_2_number'] ?? $siteSettings['impact_volunteers'] ?? '450+' }}</span>
+                            <span class="txt">{{ $siteSettings['stat_2_title'] ?? 'Active Volunteers' }}</span>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="ul-stats-item">
-                            <i class="flaticon-package"></i>
-                            <span class="number">35+</span>
-                            <span class="txt">Villages Transformed</span>
+                            <i class="{{ $siteSettings['stat_3_icon'] ?? 'flaticon-package' }}"></i>
+                            <span class="number">{{ $siteSettings['stat_3_number'] ?? $siteSettings['impact_projects'] ?? '35+' }}</span>
+                            <span class="txt">{{ $siteSettings['stat_3_title'] ?? 'Villages Transformed' }}</span>
                         </div>
                     </div>
 
                     <div class="col">
                         <div class="ul-stats-item">
-                            <i class="flaticon-relationship"></i>
-                            <span class="number">15,000+</span>
-                            <span class="txt">Supporters Worldwide</span>
+                            <i class="{{ $siteSettings['stat_4_icon'] ?? 'flaticon-relationship' }}"></i>
+                            <span class="number">{{ $siteSettings['stat_4_number'] ?? '15,000+' }}</span>
+                            <span class="txt">{{ $siteSettings['stat_4_title'] ?? 'Supporters Worldwide' }}</span>
                         </div>
                     </div>
                 </div>
@@ -379,81 +449,66 @@
             <!-- Events Grid -->
             <div class="ul-events-wrapper">
                 <div class="row ul-bs-row row-cols-lg-2 row-cols-1">
-                    <!-- Event 1 -->
-                    <div class="col wow animate__fadeInUp">
-                        <div class="ul-event">
-                            <div class="ul-event-img">
-                                <img src="{{ asset('images/healthcare-camp-news.jpg') }}" alt="Health Checkup Camp" style="height: 200px; width: 100%; object-fit: cover;">
-                                <span class="date">15 <span>Sep</span></span>
-                            </div>
-                            <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="{{ route('news') }}">Free Health Checkup Camp in Bhadohi</a></h3>
-                                <p class="ul-event-descr">Serving over 500 residents with free doctor consultations, diagnostic screenings, and medicines.</p>
-                                <div class="ul-event-info">
-                                    <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Rural Health Center, Bhadohi, UP</p>
+                    @php
+                        $displayEvents = isset($events) && $events->isNotEmpty() ? $events : (isset($news) ? $news->where('type', 'event') : collect());
+                    @endphp
+                    @forelse($displayEvents as $event)
+                        <div class="col wow animate__fadeInUp">
+                            <div class="ul-event">
+                                <div class="ul-event-img">
+                                    <img src="{{ !empty($event->image) ? asset($event->image) : asset('images/healthcare-camp-news.jpg') }}" alt="{{ $event->title }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                    @if($event->published_date)
+                                        <span class="date">{{ \Carbon\Carbon::parse($event->published_date)->format('d') }} <span>{{ \Carbon\Carbon::parse($event->published_date)->format('M') }}</span></span>
+                                    @endif
                                 </div>
-                                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                <div class="ul-event-txt">
+                                    <h3 class="ul-event-title"><a href="{{ route('news') }}">{{ $event->title }}</a></h3>
+                                    <p class="ul-event-descr">{{ Str::limit($event->excerpt ?: strip_tags($event->content), 120) }}</p>
+                                    <div class="ul-event-info">
+                                        <span class="ul-event-info-title">Category</span>
+                                        <p class="ul-event-info-descr">{{ $event->category ?? 'Community Outreach' }}</p>
+                                    </div>
+                                    <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Event 2 -->
-                    <div class="col wow animate__fadeInUp">
-                        <div class="ul-event">
-                            <div class="ul-event-img">
-                                <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Skill Training Graduation" style="height: 200px; width: 100%; object-fit: cover;">
-                                <span class="date">22 <span>Sep</span></span>
-                            </div>
-                            <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="{{ route('news') }}">Skill Training Graduation &amp; Digital Literacy</a></h3>
-                                <p class="ul-event-descr">150 rural youths completing commercial stitching and computer literacy programs.</p>
-                                <div class="ul-event-info">
-                                    <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">MSS Skill Center, Jhusi, Prayagraj</p>
+                    @empty
+                        <!-- Fallback Event -->
+                        <div class="col wow animate__fadeInUp">
+                            <div class="ul-event">
+                                <div class="ul-event-img">
+                                    <img src="{{ asset('images/healthcare-camp-news.jpg') }}" alt="Health Checkup Camp" style="height: 200px; width: 100%; object-fit: cover;">
+                                    <span class="date">15 <span>Sep</span></span>
                                 </div>
-                                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                <div class="ul-event-txt">
+                                    <h3 class="ul-event-title"><a href="{{ route('news') }}">Free Health Checkup Camp in Bhadohi</a></h3>
+                                    <p class="ul-event-descr">Serving over 500 residents with free doctor consultations, diagnostic screenings, and medicines.</p>
+                                    <div class="ul-event-info">
+                                        <span class="ul-event-info-title">Venue</span>
+                                        <p class="ul-event-info-descr">Rural Health Center, Bhadohi, UP</p>
+                                    </div>
+                                    <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Event 3 -->
-                    <div class="col wow animate__fadeInUp">
-                        <div class="ul-event">
-                            <div class="ul-event-img">
-                                <img src="{{ asset('images/rural-development-news.jpg') }}" alt="Tree Plantation Drive" style="height: 200px; width: 100%; object-fit: cover;">
-                                <span class="date">05 <span>Oct</span></span>
-                            </div>
-                            <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="{{ route('news') }}">Tree Plantation Drive: 1,000+ Saplings</a></h3>
-                                <p class="ul-event-descr">Promoting village biodiversity, riverbank green belts, and environmental awareness.</p>
-                                <div class="ul-event-info">
-                                    <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Ganga Greenbelt, Jhusi, Prayagraj</p>
+                        <div class="col wow animate__fadeInUp">
+                            <div class="ul-event">
+                                <div class="ul-event-img">
+                                    <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Skill Training Graduation" style="height: 200px; width: 100%; object-fit: cover;">
+                                    <span class="date">22 <span>Sep</span></span>
                                 </div>
-                                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                <div class="ul-event-txt">
+                                    <h3 class="ul-event-title"><a href="{{ route('news') }}">Skill Training Graduation &amp; Digital Literacy</a></h3>
+                                    <p class="ul-event-descr">150 rural youths completing commercial stitching and computer literacy programs.</p>
+                                    <div class="ul-event-info">
+                                        <span class="ul-event-info-title">Venue</span>
+                                        <p class="ul-event-info-descr">MSS Skill Center, Jhusi, Prayagraj</p>
+                                    </div>
+                                    <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Event 4 -->
-                    <div class="col wow animate__fadeInUp">
-                        <div class="ul-event">
-                            <div class="ul-event-img">
-                                <img src="{{ asset('images/women-empowerment-news.jpg') }}" alt="Women Self Help Exhibition" style="height: 200px; width: 100%; object-fit: cover;">
-                                <span class="date">12 <span>Oct</span></span>
-                            </div>
-                            <div class="ul-event-txt">
-                                <h3 class="ul-event-title"><a href="{{ route('news') }}">Self-Help Group Handicraft &amp; Garment Fair</a></h3>
-                                <p class="ul-event-descr">Showcasing tailored garments, bags, and handicrafts made by empowered women.</p>
-                                <div class="ul-event-info">
-                                    <span class="ul-event-info-title">Venue</span>
-                                    <p class="ul-event-info-descr">Ram Shiv Colony Center, Prayagraj</p>
-                                </div>
-                                <a href="{{ route('volunteer.index') }}" class="ul-btn"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Register as Volunteer</a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>
@@ -473,7 +528,7 @@
                 <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
                     <div class="col">
                         <div class="ul-why-join-img" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ asset('images/project2.jpg') }}" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project2.jpg') }}" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
                         </div>
                     </div>
 
@@ -481,7 +536,7 @@
                         <div class="ul-why-join-txt">
                             <span class="ul-section-sub-title">Join Us</span>
                             <h2 class="ul-section-title">Why We Need You To Become A Volunteer</h2>
-                            <p class="ul-section-descr">Volunteers are the heart and soul of Matri Seva Samiti. Together, we reach the most remote households to spark lasting smiles.</p>
+                            <p class="ul-section-descr">Volunteers are the heart and soul of {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}. Together, we reach the most remote households to spark lasting smiles.</p>
 
                             <div class="ul-accordion">
                                 <div class="ul-single-accordion-item open">
@@ -516,7 +571,7 @@
                                         <span class="icon"><i class="flaticon-next"></i></span>
                                     </div>
                                     <div class="ul-single-accordion-item__body">
-                                        <p>Join over 450+ passionate changemakers across India working with verifiable accountability, regular audit reports, and heartfelt passion.</p>
+                                        <p>Join over {{ $siteSettings['impact_volunteers'] ?? '450+' }} passionate changemakers across India working with verifiable accountability, regular audit reports, and heartfelt passion.</p>
                                     </div>
                                 </div>
                             </div>
@@ -542,77 +597,37 @@
             </div>
 
             <div class="row row-cols-md-4 row-cols-sm-3 row-cols-2 row-cols-xxs-1 ul-team-row justify-content-center">
-                <!-- Member 1 -->
-                <div class="col">
-                    <div class="ul-team-member">
-                        <div class="ul-team-member-img">
-                            <img src="{{ asset('members/dheeraj-raj-pal.jpeg') }}" alt="Dheeraj Raj Pal" style="height: 280px; width: 100%; object-fit: cover;">
-                            <div class="ul-team-member-socials">
-                                <a href="{{ config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
-                                <a href="{{ config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
-                                <a href="{{ config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
+                @forelse($members as $member)
+                    <div class="col">
+                        <div class="ul-team-member">
+                            <div class="ul-team-member-img">
+                                <img src="{{ !empty($member->photo) ? asset($member->photo) : asset('images/student1.jpeg') }}" alt="{{ $member->name }}" style="height: 280px; width: 100%; object-fit: cover;">
+                                <div class="ul-team-member-socials">
+                                    <a href="{{ $member->facebook ?: config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
+                                    <a href="{{ $member->twitter ?: config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
+                                    <a href="{{ $member->linkedin ?: config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
+                                </div>
+                            </div>
+                            <div class="ul-team-member-info">
+                                <h3 class="ul-team-member-name"><a href="{{ route('about') }}">{{ $member->name }}</a></h3>
+                                <p class="ul-team-member-designation">{{ $member->designation }}</p>
                             </div>
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="{{ route('about') }}">Dheeraj Raj Pal</a></h3>
-                            <p class="ul-team-member-designation">President</p>
-                        </div>
                     </div>
-                </div>
-
-                <!-- Member 2 -->
-                <div class="col">
-                    <div class="ul-team-member">
-                        <div class="ul-team-member-img">
-                            <img src="{{ asset('members/narendra-nath-pal.jpeg') }}" alt="Narendra Nath Pal" style="height: 280px; width: 100%; object-fit: cover;">
-                            <div class="ul-team-member-socials">
-                                <a href="{{ config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
-                                <a href="{{ config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
-                                <a href="{{ config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
+                @empty
+                    <!-- Fallback default leadership -->
+                    <div class="col">
+                        <div class="ul-team-member">
+                            <div class="ul-team-member-img">
+                                <img src="{{ asset('members/dheeraj-raj-pal.jpeg') }}" alt="Dheeraj Raj Pal" style="height: 280px; width: 100%; object-fit: cover;">
+                            </div>
+                            <div class="ul-team-member-info">
+                                <h3 class="ul-team-member-name"><a href="{{ route('about') }}">Dheeraj Raj Pal</a></h3>
+                                <p class="ul-team-member-designation">President</p>
                             </div>
                         </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="{{ route('about') }}">Narendra Nath Pal</a></h3>
-                            <p class="ul-team-member-designation">Vice President</p>
-                        </div>
                     </div>
-                </div>
-
-                <!-- Member 3 -->
-                <div class="col">
-                    <div class="ul-team-member">
-                        <div class="ul-team-member-img">
-                            <img src="{{ asset('members/mamta-pal.jpeg') }}" alt="Mamta Pal" style="height: 280px; width: 100%; object-fit: cover;">
-                            <div class="ul-team-member-socials">
-                                <a href="{{ config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
-                                <a href="{{ config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
-                                <a href="{{ config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="{{ route('about') }}">Mamta Pal</a></h3>
-                            <p class="ul-team-member-designation">Secretary</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 4 -->
-                <div class="col">
-                    <div class="ul-team-member">
-                        <div class="ul-team-member-img">
-                            <img src="{{ asset('members/priyanka-pal.jpeg') }}" alt="Priyanka Pal" style="height: 280px; width: 100%; object-fit: cover;">
-                            <div class="ul-team-member-socials">
-                                <a href="{{ config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
-                                <a href="{{ config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
-                                <a href="{{ config('site.social.linkedin') }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
-                            </div>
-                        </div>
-                        <div class="ul-team-member-info">
-                            <h3 class="ul-team-member-name"><a href="{{ route('about') }}">Priyanka Pal</a></h3>
-                            <p class="ul-team-member-designation">Treasurer</p>
-                        </div>
-                    </div>
-                </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -630,101 +645,58 @@
 
             <div class="ul-testimonial-slider swiper">
                 <div class="swiper-wrapper">
-                    <!-- Slide 1 -->
-                    <div class="swiper-slide">
-                        <div class="ul-review">
-                            <div class="ul-review-rating">
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                            </div>
-                            <p class="ul-review-descr">“Through the MSS sewing center, I learned tailoring and bought my own machine. Today I earn ₹12,000 monthly and support my children's school fees proudly.”</p>
-                            <div class="ul-review-bottom">
-                                <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="{{ asset('images/student2.jpeg') }}" alt="Kavita Devi" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                    <div>
-                                        <h3 class="reviewer-name">Kavita Devi</h3>
-                                        <span class="reviewer-role">Beneficiary - Skill Center</span>
-                                    </div>
+                    @forelse($testimonials as $testi)
+                        <div class="swiper-slide">
+                            <div class="ul-review">
+                                <div class="ul-review-rating">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= ($testi->rating ?? 5))
+                                            <i class="flaticon-star text-warning"></i>
+                                        @else
+                                            <i class="flaticon-star text-muted opacity-50"></i>
+                                        @endif
+                                    @endfor
                                 </div>
-                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                                <p class="ul-review-descr">“{{ $testi->quote }}”</p>
+                                <div class="ul-review-bottom">
+                                    <div class="ul-review-reviewer">
+                                        <div class="reviewer-image">
+                                            <img src="{{ !empty($testi->photo) ? asset($testi->photo) : asset('images/student1.jpeg') }}" alt="{{ $testi->name }}" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+                                        </div>
+                                        <div>
+                                            <h3 class="reviewer-name">{{ $testi->name }}</h3>
+                                            <span class="reviewer-role">{{ $testi->designation }}{{ $testi->location ? ' • ' . $testi->location : '' }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="swiper-slide">
-                        <div class="ul-review">
-                            <div class="ul-review-rating">
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                            </div>
-                            <p class="ul-review-descr">“I receive my 80G tax exemption receipt instantly upon making my online donation, along with transparent quarterly field impact newsletters.”</p>
-                            <div class="ul-review-bottom">
-                                <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="{{ asset('images/student3.jpeg') }}" alt="Priya Nair" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                    <div>
-                                        <h3 class="reviewer-name">Priya Nair</h3>
-                                        <span class="reviewer-role">Monthly Sustaining Donor</span>
-                                    </div>
+                    @empty
+                        <!-- Fallback Testimonial -->
+                        <div class="swiper-slide">
+                            <div class="ul-review">
+                                <div class="ul-review-rating">
+                                    <i class="flaticon-star"></i>
+                                    <i class="flaticon-star"></i>
+                                    <i class="flaticon-star"></i>
+                                    <i class="flaticon-star"></i>
+                                    <i class="flaticon-star"></i>
                                 </div>
-                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                                <p class="ul-review-descr">“Through the MSS sewing center, I learned tailoring and bought my own machine. Today I earn ₹12,000 monthly and support my children's school fees proudly.”</p>
+                                <div class="ul-review-bottom">
+                                    <div class="ul-review-reviewer">
+                                        <div class="reviewer-image"><img src="{{ asset('images/student2.jpeg') }}" alt="Kavita Devi" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
+                                        <div>
+                                            <h3 class="reviewer-name">Kavita Devi</h3>
+                                            <span class="reviewer-role">Beneficiary - Skill Center</span>
+                                        </div>
+                                    </div>
+                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="swiper-slide">
-                        <div class="ul-review">
-                            <div class="ul-review-rating">
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                            </div>
-                            <p class="ul-review-descr">“Visiting Matri Seva Samiti's learning center in Prayagraj was life changing. The joy and confidence in the children’s eyes proves that every rupee donated makes a real difference.”</p>
-                            <div class="ul-review-bottom">
-                                <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="{{ asset('images/student1.jpeg') }}" alt="Deepak Mehta" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                    <div>
-                                        <h3 class="reviewer-name">Deepak Mehta</h3>
-                                        <span class="reviewer-role">CSR Partner &amp; Donor</span>
-                                    </div>
-                                </div>
-                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="swiper-slide">
-                        <div class="ul-review">
-                            <div class="ul-review-rating">
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                                <i class="flaticon-star"></i>
-                            </div>
-                            <p class="ul-review-descr">“The free mobile healthcare camp organized by Matri Seva Samiti diagnosed my father's condition and provided free essential medicines on time.”</p>
-                            <div class="ul-review-bottom">
-                                <div class="ul-review-reviewer">
-                                    <div class="reviewer-image"><img src="{{ asset('images/project1.jpeg') }}" alt="Ramesh Kumar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                    <div>
-                                        <h3 class="reviewer-name">Ramesh Kumar</h3>
-                                        <span class="reviewer-role">Rural Beneficiary</span>
-                                    </div>
-                                </div>
-                                <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
 
                 <div class="ul-testimonial-slider-pagination text-center mt-4"></div>
@@ -755,83 +727,68 @@
                 <div class="col-sm-7">
                     <div class="ul-blogs-slider swiper">
                         <div class="swiper-wrapper">
-                            <!-- Blog 1 -->
-                            <div class="swiper-slide">
-                                <div class="ul-blog">
-                                    <div class="ul-blog-img"><img src="{{ asset('assets/img/blog-1.jpg') }}" alt="Child Education">
-                                        <div class="date">
-                                            <span class="number">24</span>
-                                            <span class="txt">Aug</span>
+                            @php
+                                $displayBlogs = isset($news) ? $news->where('type', '!=', 'event') : collect();
+                                if ($displayBlogs->isEmpty() && isset($news)) {
+                                    $displayBlogs = $news;
+                                }
+                            @endphp
+                            @forelse($displayBlogs as $blog)
+                                <div class="swiper-slide">
+                                    <div class="ul-blog">
+                                        <div class="ul-blog-img">
+                                            <img src="{{ !empty($blog->image) ? asset($blog->image) : asset('assets/img/blog-1.jpg') }}" alt="{{ $blog->title }}" style="height: 220px; width: 100%; object-fit: cover;">
+                                            @if($blog->published_date)
+                                                <div class="date">
+                                                    <span class="number">{{ \Carbon\Carbon::parse($blog->published_date)->format('d') }}</span>
+                                                    <span class="txt">{{ \Carbon\Carbon::parse($blog->published_date)->format('M') }}</span>
+                                                </div>
+                                            @endif
                                         </div>
-                                    </div>
-                                    <div class="ul-blog-txt">
-                                        <div class="ul-blog-infos">
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-account"></i></span>
-                                                <span>MSS Editorial</span>
+                                        <div class="ul-blog-txt">
+                                            <div class="ul-blog-infos">
+                                                <div class="ul-blog-info">
+                                                    <span class="icon"><i class="flaticon-account"></i></span>
+                                                    <span>MSS Team</span>
+                                                </div>
+                                                @if($blog->category)
+                                                    <div class="ul-blog-info">
+                                                        <span class="icon"><i class="flaticon-price-tag"></i></span>
+                                                        <span>{{ $blog->category }}</span>
+                                                    </div>
+                                                @endif
                                             </div>
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                <span>Education</span>
-                                            </div>
+                                            <a href="{{ route('news') }}" class="ul-blog-title">{{ $blog->title }}</a>
+                                            <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
                                         </div>
-                                        <a href="{{ route('news') }}" class="ul-blog-title">Giving Education: The Greatest Gift For A Child's Future</a>
-                                        <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Blog 2 -->
-                            <div class="swiper-slide">
-                                <div class="ul-blog">
-                                    <div class="ul-blog-img"><img src="{{ asset('assets/img/blog-2.jpg') }}" alt="Healthcare Camp">
-                                        <div class="date">
-                                            <span class="number">18</span>
-                                            <span class="txt">Aug</span>
-                                        </div>
-                                    </div>
-                                    <div class="ul-blog-txt">
-                                        <div class="ul-blog-infos">
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-account"></i></span>
-                                                <span>Health Team</span>
-                                            </div>
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                <span>Healthcare</span>
+                            @empty
+                                <div class="swiper-slide">
+                                    <div class="ul-blog">
+                                        <div class="ul-blog-img"><img src="{{ asset('assets/img/blog-1.jpg') }}" alt="Child Education">
+                                            <div class="date">
+                                                <span class="number">24</span>
+                                                <span class="txt">Aug</span>
                                             </div>
                                         </div>
-                                        <a href="{{ route('news') }}" class="ul-blog-title">Overcoming Medical Inaccessibility in Remote Villages</a>
-                                        <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
+                                        <div class="ul-blog-txt">
+                                            <div class="ul-blog-infos">
+                                                <div class="ul-blog-info">
+                                                    <span class="icon"><i class="flaticon-account"></i></span>
+                                                    <span>MSS Editorial</span>
+                                                </div>
+                                                <div class="ul-blog-info">
+                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
+                                                    <span>Education</span>
+                                                </div>
+                                            </div>
+                                            <a href="{{ route('news') }}" class="ul-blog-title">Giving Education: The Greatest Gift For A Child's Future</a>
+                                            <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
-                            <!-- Blog 3 -->
-                            <div class="swiper-slide">
-                                <div class="ul-blog">
-                                    <div class="ul-blog-img"><img src="{{ asset('assets/img/blog-3.jpg') }}" alt="Women Skill Center">
-                                        <div class="date">
-                                            <span class="number">10</span>
-                                            <span class="txt">Aug</span>
-                                        </div>
-                                    </div>
-                                    <div class="ul-blog-txt">
-                                        <div class="ul-blog-infos">
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-account"></i></span>
-                                                <span>Skill Team</span>
-                                            </div>
-                                            <div class="ul-blog-info">
-                                                <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                <span>Empowerment</span>
-                                            </div>
-                                        </div>
-                                        <a href="{{ route('news') }}" class="ul-blog-title">How Micro-Enterprises Empower Rural Women Financially</a>
-                                        <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforelse
                         </div>
                     </div>
                 </div>
@@ -844,45 +801,78 @@
     <div class="ul-gallery overflow-hidden ul-section-spacing mx-auto pt-0">
         <div class="ul-gallery-slider swiper">
             <div class="swiper-wrapper">
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/student1.jpeg') }}" alt="Education Initiative" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/student1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                @if(isset($gallery) && $gallery->isNotEmpty())
+                    @foreach($gallery as $item)
+                        <div class="ul-gallery-item swiper-slide">
+                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" style="height: 200px; width: 100%; object-fit: cover;">
+                            <div class="ul-gallery-item-btn-wrapper">
+                                <a href="{{ asset($item->image) }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/student1.jpeg') }}" alt="Education Initiative" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/student1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/student2.jpeg') }}" alt="Women Skill Program" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/student2.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/student2.jpeg') }}" alt="Women Skill Program" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/student2.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/student3.jpeg') }}" alt="Girl Child Sponsorship" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/student3.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/student3.jpeg') }}" alt="Girl Child Sponsorship" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/student3.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/project1.jpeg') }}" alt="Community Relief" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/project1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/project1.jpeg') }}" alt="Community Relief" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/project1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/project2.jpg') }}" alt="Health Camp" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/project2.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/project2.jpg') }}" alt="Health Camp" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/project2.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
-                <div class="ul-gallery-item swiper-slide">
-                    <img src="{{ asset('images/project3.jpg') }}" alt="Skill Center" style="height: 200px; width: 100%; object-fit: cover;">
-                    <div class="ul-gallery-item-btn-wrapper">
-                        <a href="{{ asset('images/project3.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                    <div class="ul-gallery-item swiper-slide">
+                        <img src="{{ asset('images/project3.jpg') }}" alt="Skill Center" style="height: 200px; width: 100%; object-fit: cover;">
+                        <div class="ul-gallery-item-btn-wrapper">
+                            <a href="{{ asset('images/project3.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                        </div>
                     </div>
-                </div>
+                @endif
             </div>
         </div>
     </div>
     <!-- GALLERY STRIP END -->
 </main>
 @endsection
+
+@push('scripts')
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.ul-home-hero-slider')) {
+        new Swiper('.ul-home-hero-slider', {
+            slidesPerView: 1,
+            loop: true,
+            autoplay: {
+                delay: 6000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.ul-home-hero-pagination',
+                clickable: true,
+            },
+            speed: 800,
+        });
+    }
+});
+</script>
+@endpush

@@ -507,6 +507,12 @@
                 </a>
             </li>
             <li class="menu-item">
+                <a href="{{ route('admin.careers.index') }}" class="menu-link {{ request()->routeIs('admin.careers.*') ? 'active' : '' }}">
+                    <i class="bi bi-briefcase-fill"></i>
+                    <span>Careers / Jobs</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.faqs.index') }}" class="menu-link {{ request()->routeIs('admin.faqs.*') ? 'active' : '' }}">
                     <i class="bi bi-question-circle-fill"></i>
                     <span>FAQs</span>

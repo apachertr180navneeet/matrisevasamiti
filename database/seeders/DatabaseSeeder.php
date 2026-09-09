@@ -17,6 +17,7 @@ use App\Models\Testimonial;
 use App\Models\Faq;
 use App\Models\Certificate;
 use App\Models\Grant;
+use App\Models\Career;
 
 class DatabaseSeeder extends Seeder
 {
@@ -70,6 +71,23 @@ class DatabaseSeeder extends Seeder
             ['key' => 'bank_ifsc_code', 'value' => 'SBIN0001234', 'group' => 'bank'],
             ['key' => 'bank_branch', 'value' => 'Main Branch, Lucknow', 'group' => 'bank'],
             ['key' => 'upi_id', 'value' => 'matrisevasamiti@sbi', 'group' => 'bank'],
+
+            // Stats / Circular Counters
+            ['key' => 'stat_1_number', 'value' => '12,500+', 'group' => 'about'],
+            ['key' => 'stat_1_title', 'value' => 'Children Supported', 'group' => 'about'],
+            ['key' => 'stat_1_icon', 'value' => 'flaticon-costumer', 'group' => 'about'],
+
+            ['key' => 'stat_2_number', 'value' => '450+', 'group' => 'about'],
+            ['key' => 'stat_2_title', 'value' => 'Active Volunteers', 'group' => 'about'],
+            ['key' => 'stat_2_icon', 'value' => 'flaticon-team', 'group' => 'about'],
+
+            ['key' => 'stat_3_number', 'value' => '35+', 'group' => 'about'],
+            ['key' => 'stat_3_title', 'value' => 'Villages Transformed', 'group' => 'about'],
+            ['key' => 'stat_3_icon', 'value' => 'flaticon-package', 'group' => 'about'],
+
+            ['key' => 'stat_4_number', 'value' => '15,000+', 'group' => 'about'],
+            ['key' => 'stat_4_title', 'value' => 'Supporters Worldwide', 'group' => 'about'],
+            ['key' => 'stat_4_icon', 'value' => 'flaticon-relationship', 'group' => 'about'],
         ];
 
         foreach ($settings as $setting) {
@@ -666,6 +684,54 @@ class DatabaseSeeder extends Seeder
 
         foreach ($defaultGrants as $grant) {
             Grant::create($grant);
+        }
+
+        // 14. Careers / Job Openings
+        Career::truncate();
+        $defaultCareers = [
+            [
+                'title' => 'Field Project Coordinator',
+                'slug' => 'field-project-coordinator',
+                'job_type' => 'Full Time',
+                'location' => 'Delhi / Prayagraj',
+                'experience' => '1-3 Years in NGO Fieldwork',
+                'qualification' => 'MSW / B.Ed / Social Sciences',
+                'stipend_salary' => 'As per NGO standards',
+                'short_description' => 'Manage rural remedial school centers, coordinate with teachers, organize health camp logistics, and liaise with village heads.',
+                'description' => 'Lead grassroots survey initiatives, monitor rural program deliverables, conduct community meetings, and maintain structured field progress reports.',
+                'sort_order' => 1,
+                'is_active' => true,
+            ],
+            [
+                'title' => 'Digital & Vocational Trainer',
+                'slug' => 'digital-vocational-trainer',
+                'job_type' => 'Full Time / Part Time',
+                'location' => 'Prayagraj, UP',
+                'experience' => '1+ Year Teaching Experience',
+                'qualification' => 'BCA / PGDCA / IT Diploma',
+                'stipend_salary' => 'Competitive NGO Honorarium',
+                'short_description' => 'Conduct computer literacy batches, basic coding, MS Office, and digital bookkeeping courses for rural students and youth.',
+                'description' => 'Deliver practical classroom instruction in digital literacy, typing, internet safety, and job-oriented computer applications to rural youth batches.',
+                'sort_order' => 2,
+                'is_active' => true,
+            ],
+            [
+                'title' => 'Social Media & Content Intern',
+                'slug' => 'social-media-content-intern',
+                'job_type' => 'Paid Internship',
+                'location' => 'Remote / Hybrid',
+                'experience' => 'Freshers Welcome',
+                'qualification' => 'Journalism / Mass Comm / English',
+                'stipend_salary' => 'Paid Stipend + Certificate',
+                'short_description' => 'Document field stories, capture photography/videography of beneficiaries, manage social media accounts, and draft quarterly impact bulletins.',
+                'description' => 'Create compelling impact stories, photo captions, reels, and digital newsletters covering MSS social work across villages.',
+                'sort_order' => 3,
+                'is_active' => true,
+            ],
+        ];
+
+        foreach ($defaultCareers as $career) {
+            Career::create($career);
         }
     }
 }

@@ -25,7 +25,7 @@ class SettingController extends Controller
             elseif (str_ends_with($key, '_url')) $group = 'social';
             elseif (in_array($key, ['ngo_darpan_id', 'tax_exemption_80g', 'tax_exemption_12a', 'csr_registration_no', 'pan_number'])) $group = 'legal';
             elseif (str_starts_with($key, 'bank_') || $key === 'upi_id') $group = 'bank';
-            elseif (str_starts_with($key, 'about_') || str_starts_with($key, 'org_') || str_starts_with($key, 'impact_')) $group = 'about';
+            elseif (str_starts_with($key, 'about_') || str_starts_with($key, 'org_') || str_starts_with($key, 'impact_') || str_starts_with($key, 'stat_')) $group = 'about';
 
             SiteSetting::set($key, $value ?? '', $group);
         }
