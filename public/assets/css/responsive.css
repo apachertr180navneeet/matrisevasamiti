@@ -1007,3 +1007,68 @@ textarea.form-control {
         max-width: 100%;
     }
 }
+
+/* --------------------------------------------------------------------------
+   Gallery Strip & Hero Slider Polish
+   -------------------------------------------------------------------------- */
+.ul-gallery {
+    width: 100%;
+    position: relative;
+}
+
+.ul-gallery-slider {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+.ul-gallery-slider .swiper-wrapper {
+    align-items: center;
+}
+
+.ul-gallery-item {
+    border-radius: 16px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+    height: 220px !important;
+    transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+.ul-gallery-item img {
+    border-radius: 16px !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+}
+
+.ul-gallery-item:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16) !important;
+}
+
+@media screen and (max-width: 576px) {
+    .ul-gallery-item {
+        height: 170px !important;
+        border-radius: 12px !important;
+    }
+    .ul-gallery-item img {
+        border-radius: 12px !important;
+    }
+}
+
+.ul-home-hero-pagination .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: #CBD5E1;
+    opacity: 0.7;
+    margin: 0 5px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.ul-home-hero-pagination .swiper-pagination-bullet-active {
+    background: var(--ul-primary, #FF5E14);
+    opacity: 1;
+    width: 28px;
+    border-radius: 6px;
+}

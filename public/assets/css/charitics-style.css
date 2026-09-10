@@ -3081,16 +3081,28 @@ button {
 .ul-gallery-item {
   position: relative;
   overflow: hidden;
-  border-radius: 999px;
-  transition: 0.4s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  height: 220px;
+}
+.ul-gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
 }
 .ul-gallery-item:hover .ul-gallery-item-btn-wrapper {
   opacity: 1;
 }
 .ul-gallery-item img {
   width: 100%;
-  aspect-ratio: 1/1;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.5s ease;
+}
+.ul-gallery-item:hover img {
+  transform: scale(1.08);
 }
 .ul-gallery-item-btn-wrapper {
   position: absolute;
@@ -3098,26 +3110,29 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1;
+  z-index: 2;
   opacity: 0;
-  transition: 0.3s ease;
-}
-.ul-gallery-item-btn-wrapper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--ul-gradient);
-  background: var(--ul-primary);
-  opacity: 70%;
-  z-index: -1;
+  border-radius: 16px;
+  background: rgba(15, 43, 91, 0.65);
+  transition: opacity 0.3s ease;
 }
 .ul-gallery-item-btn-wrapper a {
-  font-size: clamp(34px, 2.1vw, 40px);
-  color: var(--white);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: var(--ul-primary, #FF5E14);
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 .ul-gallery-item-btn-wrapper a:hover {
-  color: var(--black);
+  background: var(--ul-primary, #FF5E14);
+  color: #ffffff;
+  transform: scale(1.15);
 }
 
 .ul-cta {

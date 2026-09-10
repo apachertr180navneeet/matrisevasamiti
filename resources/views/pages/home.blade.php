@@ -803,53 +803,31 @@
     <div class="ul-gallery overflow-hidden ul-section-spacing mx-auto pt-0">
         <div class="ul-gallery-slider swiper">
             <div class="swiper-wrapper">
-                @if(isset($gallery) && $gallery->isNotEmpty())
-                    @foreach($gallery as $item)
-                        <div class="ul-gallery-item swiper-slide">
-                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" style="height: 200px; width: 100%; object-fit: cover;">
-                            <div class="ul-gallery-item-btn-wrapper">
-                                <a href="{{ asset($item->image) }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
+                @php
+                    $rawGallery = isset($gallery) && $gallery->isNotEmpty() ? $gallery : collect([
+                        (object)['image' => 'images/student1.jpeg', 'title' => 'Education Initiative'],
+                        (object)['image' => 'images/student2.jpeg', 'title' => 'Women Skill Program'],
+                        (object)['image' => 'images/student3.jpeg', 'title' => 'Girl Child Sponsorship'],
+                        (object)['image' => 'images/project1.jpeg', 'title' => 'Community Relief'],
+                        (object)['image' => 'images/project2.jpg', 'title' => 'Free Health Camp'],
+                        (object)['image' => 'images/project3.jpg', 'title' => 'Skill Training Center'],
+                    ]);
+                    
+                    // Repeat items to ensure smooth infinite carousel looping across large screens
+                    $galleryList = collect();
+                    $repeatCount = $rawGallery->count() < 8 ? ceil(10 / max(1, $rawGallery->count())) : 1;
+                    for ($r = 0; $r < $repeatCount; $r++) {
+                        $galleryList = $galleryList->concat($rawGallery);
+                    }
+                @endphp
+                @foreach($galleryList as $item)
                     <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/student1.jpeg') }}" alt="Education Initiative" style="height: 200px; width: 100%; object-fit: cover;">
+                        <img src="{{ asset($item->image) }}" alt="{{ $item->title ?? 'Gallery Image' }}" loading="lazy">
                         <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/student1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
+                            <a href="{{ asset($item->image) }}" data-fslightbox="gallery" title="{{ $item->title ?? 'View Image' }}"><i class="flaticon-instagram"></i></a>
                         </div>
                     </div>
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/student2.jpeg') }}" alt="Women Skill Program" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/student2.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/student3.jpeg') }}" alt="Girl Child Sponsorship" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/student3.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/project1.jpeg') }}" alt="Community Relief" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/project1.jpeg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/project2.jpg') }}" alt="Health Camp" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/project2.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                    <div class="ul-gallery-item swiper-slide">
-                        <img src="{{ asset('images/project3.jpg') }}" alt="Skill Center" style="height: 200px; width: 100%; object-fit: cover;">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset('images/project3.jpg') }}" data-fslightbox="gallery"><i class="flaticon-instagram"></i></a>
-                        </div>
-                    </div>
-                @endif
+                @endforeach
             </div>
         </div>
     </div>
