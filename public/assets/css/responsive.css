@@ -1,415 +1,807 @@
 /* ==========================================================================
-   MATRI SEVA SAMITI - MASTER RESPONSIVE STYLESHEET
-   Supports Desktop, Laptop, Tablet, and Mobile Breakpoints
+   MATRI SEVA SAMITI - MASTER RESPONSIVE & MOBILE/TABLET STYLESHEET
+   Handles Extra Small Mobile, Mobile, Tablet Portrait, Tablet Landscape & Laptops
+   Breakpoints: 320px, 480px, 576px, 768px, 991px, 1200px
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
-   1. LAPTOPS & SMALL DESKTOPS (max-width: 1200px)
+   0. ROOT & UNIVERSAL MOBILE / TABLET RESETS
    -------------------------------------------------------------------------- */
-@media screen and (max-width: 1200px) {
-    .container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
+html {
+    overflow-x: hidden !important;
+    width: 100%;
+    -webkit-text-size-adjust: 100%;
+}
 
-    .nav-container, .top-bar-container {
-        padding: 0 20px;
-    }
+body {
+    overflow-x: hidden !important;
+    width: 100%;
+    position: relative !important;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
 
-    .nav-link {
-        padding: 7px 9px;
-        font-size: 0.84rem;
-    }
+/* Prevent horizontal overflow on containers and sections */
+.ul-container,
+.ul-header-container,
+.ul-footer-container,
+.ul-banner-container,
+.ul-inner-container,
+.ul-inner-page-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
 
-    .nav-logo .logo-title {
-        font-size: 1.15rem;
-    }
-
-    .hero-text-left h1 {
-        font-size: 2.8rem;
-    }
-
-    .hero-circular-frame {
-        width: 360px;
-        height: 360px;
-    }
-
-    .about-mosaic-grid {
-        gap: 40px;
-    }
-
-    .donation-wrapper {
-        gap: 30px;
+@media (min-width: 576px) {
+    .ul-container,
+    .ul-header-container,
+    .ul-footer-container,
+    .ul-banner-container,
+    .ul-inner-page-container {
+        max-width: 540px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
     }
 }
 
+@media (min-width: 768px) {
+    .ul-container,
+    .ul-header-container,
+    .ul-footer-container,
+    .ul-banner-container,
+    .ul-inner-page-container {
+        max-width: 720px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .ul-container,
+    .ul-header-container,
+    .ul-footer-container,
+    .ul-banner-container,
+    .ul-inner-page-container {
+        max-width: 960px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .ul-container,
+    .ul-header-container,
+    .ul-footer-container,
+    .ul-banner-container,
+    .ul-inner-page-container {
+        max-width: 1170px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .ul-container,
+    .ul-header-container,
+    .ul-footer-container,
+    .ul-banner-container {
+        max-width: 1320px !important;
+    }
+}
+
+/* Fluid Images and Media */
+img, svg, video, iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Touch input comfortable size & prevent iOS zoom on input focus */
+input, select, textarea, button {
+    font-size: 16px !important;
+    max-width: 100%;
+}
+
+.form-control, .form-select {
+    font-size: 15px !important;
+    min-height: 48px;
+    border-radius: 10px;
+}
+
+textarea.form-control {
+    min-height: 120px;
+}
+
+/* Section Spacing Responsive Scaling */
+.ul-section-spacing {
+    padding-top: clamp(40px, 6vw, 100px) !important;
+    padding-bottom: clamp(40px, 6vw, 100px) !important;
+}
+
+/* Responsive Table Wrapper */
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+}
+
 /* --------------------------------------------------------------------------
-   2. TABLETS & SMALL LAPTOPS (max-width: 992px)
+   1. HEADER & TOP NAVIGATION (TABLET & MOBILE)
    -------------------------------------------------------------------------- */
-@media screen and (max-width: 992px) {
-    /* Mobile Navigation Drawer */
-    .nav-toggle {
+.ul-header {
+    width: 100%;
+    position: relative;
+    z-index: 998;
+}
+
+.ul-header-bottom {
+    transition: all 0.3s ease;
+    background: #ffffff;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+.ul-header-bottom.to-be-sticky.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(0); }
+}
+
+.ul-header-bottom-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.logo-container .logo {
+    max-height: 46px;
+    width: auto;
+    object-fit: contain;
+}
+
+.ul-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.ul-header-actions .ul-btn {
+    padding: 9px 18px;
+    font-size: 14px;
+    border-radius: 30px;
+    white-space: nowrap;
+}
+
+.ul-header-search-opener,
+.ul-header-sidebar-opener {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.ul-header-search-opener {
+    background: #f4f4f4;
+    color: var(--ul-black, #1E252F);
+    font-size: 16px;
+}
+
+.ul-header-search-opener:hover {
+    background: var(--ul-primary, #EB5310);
+    color: #ffffff;
+}
+
+.ul-header-sidebar-opener {
+    background: var(--ul-primary, #EB5310);
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.ul-header-sidebar-opener:hover {
+    background: var(--ul-secondary, #FAA019);
+}
+
+/* --------------------------------------------------------------------------
+   2. MOBILE & TABLET OFFCANVAS DRAWER / SIDEBAR
+   -------------------------------------------------------------------------- */
+.ul-sidebar-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 20, 30, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.ul-sidebar-backdrop.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ul-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 320px;
+    max-width: 86vw;
+    height: 100vh;
+    background: #ffffff;
+    z-index: 9999;
+    transform: translateX(105%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+}
+
+.ul-sidebar.active {
+    transform: translateX(0);
+}
+
+.ul-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+    background: #fafafa;
+}
+
+.ul-sidebar-header-logo img {
+    max-height: 44px;
+    width: auto;
+}
+
+.ul-sidebar-closer {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #eee;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.ul-sidebar-closer:hover {
+    background: var(--ul-primary, #EB5310);
+    color: #fff;
+}
+
+.ul-sidebar-body {
+    padding: 16px 20px;
+    flex-grow: 1;
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-nav > a,
+.ul-sidebar-header-nav-wrapper .ul-header-nav > .has-sub-menu > a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 14px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ul-black, #1E252F);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-nav > a:hover,
+.ul-sidebar-header-nav-wrapper .ul-header-nav > a.active,
+.ul-sidebar-header-nav-wrapper .ul-header-nav > .has-sub-menu.active > a {
+    background: rgba(235, 83, 16, 0.08);
+    color: var(--ul-primary, #EB5310);
+}
+
+.ul-sidebar-header-nav-wrapper .has-sub-menu {
+    position: relative;
+}
+
+.ul-sidebar-header-nav-wrapper .has-sub-menu > a::after {
+    content: "\f140";
+    font-family: flaticon_charitics !important;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.ul-sidebar-header-nav-wrapper .has-sub-menu.active > a::after {
+    transform: rotate(180deg);
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-submenu {
+    display: none;
+    padding-left: 12px;
+    margin: 4px 0 8px;
+    border-left: 2px solid var(--ul-primary, #EB5310);
+    background: transparent;
+    box-shadow: none;
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: all;
+    min-width: 100%;
+}
+
+.ul-sidebar-header-nav-wrapper .has-sub-menu.active .ul-header-submenu {
+    display: block;
+    animation: fadeIn 0.25s ease;
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-submenu li a {
+    display: block;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    border-radius: 6px;
+}
+
+.ul-sidebar-header-nav-wrapper .ul-header-submenu li a:hover {
+    color: var(--ul-primary, #EB5310);
+    background: #f9f9f9;
+}
+
+/* Sidebar Quick Action & Language Selector */
+.ul-sidebar-extra {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.ul-sidebar-lang {
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.ul-sidebar-lang select {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+    font-weight: 600;
+    background: #fcfcfc;
+    color: #333;
+}
+
+.ul-sidebar-cta-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    border-radius: 10px;
+    background: var(--ul-primary, #EB5310);
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(235, 83, 16, 0.25);
+    margin-bottom: 10px;
+}
+
+.ul-sidebar-footer {
+    padding: 20px;
+    background: #fafafa;
+    border-top: 1px solid #f0f0f0;
+}
+
+.ul-sidebar-footer-title {
+    display: block;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 700;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.ul-sidebar-footer-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ul-sidebar-footer-social a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    color: #555;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.ul-sidebar-footer-social a:hover {
+    background: var(--ul-primary, #EB5310);
+    color: #fff;
+    border-color: var(--ul-primary, #EB5310);
+}
+
+/* --------------------------------------------------------------------------
+   3. HERO & BANNER SECTION (MOBILE & TABLET)
+   -------------------------------------------------------------------------- */
+.ul-banner {
+    position: relative;
+    padding: clamp(30px, 5vw, 80px) 0;
+}
+
+.ul-banner-txt-vector,
+.ul-banner-img-vectors {
+    pointer-events: none;
+}
+
+@media screen and (max-width: 991px) {
+    .ul-banner {
+        padding: 30px 0 50px;
+    }
+
+    .ul-banner .row {
+        gap: 25px;
+    }
+
+    .ul-banner-title {
+        font-size: clamp(26px, 6.5vw, 42px) !important;
+        line-height: 1.25 !important;
+        margin-bottom: 15px !important;
+    }
+
+    .ul-banner-descr {
+        font-size: 15px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .ul-banner-btns {
         display: flex;
-    }
-
-    .nav-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 300px;
-        height: 100vh;
-        background: #0a261f;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 85px 24px 40px;
-        gap: 6px;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-        transition: var(--transition-smooth);
-        z-index: 1001;
-        overflow-y: auto;
-    }
-
-    .nav-menu.active {
-        right: 0;
-    }
-
-    .nav-menu li {
-        width: 100%;
-    }
-
-    .nav-link {
-        width: 100%;
-        padding: 12px 16px;
-        font-size: 0.95rem;
-        border-radius: var(--radius-sm);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .nav-link.active {
-        background: rgba(248, 194, 71, 0.18);
-        color: var(--gold-primary);
-    }
-
-    /* Hero Section Collapse */
-    .hero-forest-section {
-        padding: 50px 0 70px;
-    }
-
-    .hero-forest-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .hero-text-left p {
-        margin: 0 auto 25px;
-    }
-
-    .hero-btn-group {
-        justify-content: center;
-    }
-
-    .hero-visual-right {
-        margin-top: 15px;
-    }
-
-    /* About Us Collapse */
-    .about-mosaic-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    /* Services Grid (2 Columns on Tablet) */
-    .services-grid-6 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    /* Stories Grid (2 Columns on Tablet) */
-    .stories-grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    /* Help Us Split Banner */
-    .help-us-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .help-us-content {
-        padding: 50px 30px;
-        text-align: center;
+        flex-wrap: wrap;
+        gap: 12px;
         align-items: center;
     }
 
-    .help-us-image-wrap {
-        height: 320px;
+    .ul-banner-btns .ul-btn {
+        margin-left: 0 !important;
+        padding: 12px 22px;
+        font-size: 14px;
     }
 
-    /* Programs Subpage */
-    .program-card-detail {
-        grid-template-columns: 1fr;
+    .ul-banner-stat {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
 
-    .program-img-side {
-        height: 260px;
+    .ul-banner-img-vectors {
+        display: none !important;
     }
 
-    .program-content-side {
-        padding: 30px 24px;
+    .ul-banner-txt-vector {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .ul-banner-btns {
+        flex-direction: column;
+        width: 100%;
     }
 
-    /* Story Subpage */
-    .story-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    .story-main-img {
-        height: 360px;
-    }
-
-    /* VM Cards Grid */
-    .vm-cards-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* Donation Page */
-    .donation-wrapper {
-        grid-template-columns: 1fr;
-    }
-
-    /* Contact Subpage */
-    .contact-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    /* Footer (2 Columns on Tablet) */
-    .footer-main-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
+    .ul-banner-btns .ul-btn {
+        width: 100%;
+        justify-content: center;
     }
 }
 
 /* --------------------------------------------------------------------------
-   3. PORTRAIT TABLETS & LARGE SMARTPHONES (max-width: 768px)
+   4. BREADCRUMBS RESPONSIVE
    -------------------------------------------------------------------------- */
-@media screen and (max-width: 768px) {
-    /* Top Bar */
-    .top-bar-container {
-        flex-direction: column;
-        gap: 6px;
-        text-align: center;
+.ul-breadcrumb {
+    padding: clamp(40px, 8vw, 100px) 0 !important;
+    text-align: center;
+}
+
+.ul-breadcrumb-title {
+    font-size: clamp(24px, 5.5vw, 44px) !important;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.ul-breadcrumb-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 13px;
+    padding: 6px 16px;
+    gap: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   5. DONATION PAGE RESPONSIVE POLISH
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+    .amt-pill {
+        padding: 12px 8px !important;
     }
 
-    .top-bar-left, .top-bar-right {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 10px;
+    .amt-pill h4 {
+        font-size: 18px !important;
     }
 
-    /* Typography Scaling */
-    .hero-text-left h1 {
-        font-size: 2.3rem;
+    .amt-pill small {
+        font-size: 10px !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    #amount-pills .col-6 {
+        width: 50% !important;
     }
 
-    .page-hero h1 {
-        font-size: 2.2rem;
-    }
-
-    .section-header h2 {
-        font-size: 1.85rem;
-    }
-
-    .cta-banner-content h2 {
-        font-size: 2rem;
-    }
-
-    /* Circular Hero Frame */
-    .hero-circular-frame {
-        width: 300px;
-        height: 300px;
-    }
-
-    .hero-floating-donate-pill {
-        bottom: 10px;
-        right: 0;
-        padding: 10px 18px;
-        font-size: 0.85rem;
-    }
-
-    /* Trust Strip */
-    .partner-badges-flex {
-        gap: 16px;
-    }
-
-    .partner-logo-item {
-        font-size: 0.95rem;
-    }
-
-    /* Exclusive Events Card */
-    .event-banner-img {
-        height: 220px;
-    }
-
-    .event-content-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 24px 20px;
-        gap: 15px;
-    }
-
-    .event-big-number {
-        font-size: 3rem;
-        align-self: flex-end;
-    }
-
-    /* Story Key Points */
-    .story-key-points {
-        grid-template-columns: 1fr;
-        gap: 10px;
-    }
-
-    /* Experience Badge */
-    .story-exp-badge {
-        position: static;
-        margin-top: 15px;
-        width: 100%;
-        border-radius: var(--radius-sm);
-        padding: 16px 20px;
-    }
-
-    /* Forms */
-    .donation-box-main, .contact-form-panel {
-        padding: 26px 20px;
-    }
-
-    .donation-form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-group.full-width {
-        grid-column: span 1;
-    }
-
-    /* Amount Selector */
-    .amount-selector-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+    .amt-pill {
+        min-height: 72px;
     }
 
     .tax-calc-card {
         flex-direction: column;
-        text-align: center;
-        gap: 10px;
+        align-items: flex-start !important;
+        gap: 8px;
     }
+}
 
-    /* Projects & Certificates */
-    .projects-grid, .cert-grid, .committee-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .program-activities-grid {
-        grid-template-columns: 1fr;
+@media screen and (max-width: 400px) {
+    #amount-pills .col-6 {
+        width: 100% !important;
     }
 }
 
 /* --------------------------------------------------------------------------
-   4. SMARTPHONES & SMALL SCREENS (max-width: 576px)
+   6. STATS & COUNTERS RESPONSIVE
    -------------------------------------------------------------------------- */
-@media screen and (max-width: 576px) {
-    .container {
-        padding: 0 16px;
+.ul-stats-wrapper {
+    width: 100%;
+}
+
+@media screen and (max-width: 767px) {
+    .ul-stats-item {
+        padding: 20px 12px;
+        text-align: center;
     }
 
-    .nav-container {
-        padding: 0 16px;
+    .ul-stats-item .number {
+        font-size: clamp(26px, 7vw, 36px) !important;
     }
 
-    .nav-logo .logo {
-        height: 36px;
+    .ul-stats-item .txt {
+        font-size: 13px !important;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   7. ABOUT, APPROACH & STORY COMPONENTS
+   -------------------------------------------------------------------------- */
+@media screen and (max-width: 991px) {
+    .ul-about-imgs-vectors,
+    .ul-about-vectors {
+        display: none !important;
     }
 
-    .nav-logo .logo-title {
-        font-size: 1.05rem;
-    }
-
-    .language-dropdown {
-        padding: 5px 8px;
-        font-size: 0.76rem;
-    }
-
-    .btn-sm {
-        padding: 6px 14px;
-        font-size: 0.8rem;
-    }
-
-    .btn-lg {
-        padding: 12px 24px;
-        font-size: 0.95rem;
-        width: 100%;
-    }
-
-    .hero-btn-group {
+    .ul-about-block {
         flex-direction: column;
-        width: 100%;
+        gap: 15px;
     }
 
-    .hero-btn-group .btn {
-        width: 100%;
+    .ul-about-block .block-right {
+        align-self: flex-start;
     }
 
-    .hero-circular-frame {
-        width: 250px;
-        height: 250px;
-        border-width: 5px;
+    .ul-about-bottom {
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   8. CARDS, GRIDS & LISTINGS (PROGRAMS, PROJECTS, GRANTS, NEWS)
+   -------------------------------------------------------------------------- */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1) !important;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .card.p-md-5 {
+        padding: 20px 16px !important;
     }
 
-    .photo-mosaic-wrap {
-        grid-template-columns: 1fr;
+    .ul-section-title {
+        font-size: clamp(22px, 5.5vw, 32px) !important;
     }
 
-    .mosaic-img-box.large {
-        grid-column: span 1;
-        height: 200px;
+    .ul-section-descr {
+        font-size: 14px !important;
     }
+}
 
-    .services-grid-6, .stories-grid-3 {
-        grid-template-columns: 1fr;
-    }
+/* --------------------------------------------------------------------------
+   9. FAQ ACCORDION TOUCH POLISH
+   -------------------------------------------------------------------------- */
+.ul-single-accordion-item {
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    margin-bottom: 12px !important;
+}
 
-    .footer-main-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
+.ul-single-accordion-item__title {
+    font-size: 15px !important;
+    font-weight: 700;
+}
 
-    .cta-banner-buttons {
+.ul-single-accordion-item__header {
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* --------------------------------------------------------------------------
+   10. FOOTER RESPONSIVE OVERRIDES
+   -------------------------------------------------------------------------- */
+.ul-footer-top-contact-infos {
+    padding: 24px 20px !important;
+    border-radius: 16px !important;
+}
+
+@media screen and (max-width: 991px) {
+    .ul-footer-top-contact-infos {
         flex-direction: column;
+        align-items: flex-start !important;
+        gap: 18px !important;
+    }
+
+    .ul-footer-top-contact-info {
         width: 100%;
     }
 
-    .cta-banner-buttons .btn {
-        width: 100%;
+    .ul-footer-middle-wrapper {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 30px !important;
     }
 
-    .program-actions {
+    .ul-footer-about,
+    .ul-footer-widget {
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .ul-footer-middle-wrapper {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    .ul-footer-bottom-wrapper {
         flex-direction: column;
+        text-align: center;
+        gap: 12px;
     }
 
-    .program-actions .btn {
-        width: 100%;
+    .ul-footer-bottom-nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
-    .floating-action-group {
-        bottom: 20px;
-        right: 15px;
+    .ul-footer-vectors {
+        display: none !important;
     }
+}
 
-    .floating-btn {
-        width: 44px;
-        height: 44px;
-        font-size: 1.1rem;
+/* --------------------------------------------------------------------------
+   11. FLOATING ACTION BUTTONS (MOBILE / TABLET HELPLINE & WHATSAPP)
+   -------------------------------------------------------------------------- */
+.mss-floating-actions {
+    position: fixed;
+    bottom: 24px;
+    right: 20px;
+    z-index: 9990;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.mss-fab-btn {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.mss-fab-btn.whatsapp {
+    background: #25D366;
+}
+
+.mss-fab-btn.donate {
+    background: var(--ul-primary, #EB5310);
+}
+
+.mss-fab-btn.scroll-top {
+    background: var(--ul-black, #1E252F);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+}
+
+.mss-fab-btn.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mss-fab-btn:hover {
+    transform: scale(1.1);
+}
+
+@media screen and (min-width: 992px) {
+    .mss-fab-btn.donate {
+        display: none;
     }
+}
+
+/* --------------------------------------------------------------------------
+   12. PRELOADER FAILSAFE
+   -------------------------------------------------------------------------- */
+.preloader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }

@@ -26,8 +26,9 @@
     <link rel="stylesheet" href="{{ asset('assets/vendor/flatpickr/flatpickr.min.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Custom Charitics CSS -->
+    <!-- Custom Charitics CSS & Master Responsive CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/charitics-style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
 
     <style>
         /* MSS Brand Color Overrides & Polish */
@@ -126,6 +127,19 @@
 
     @include('partials.footer')
 
+    <!-- Floating Action Buttons (Mobile / Tablet quick actions) -->
+    <div class="mss-floating-actions">
+        <a href="{{ route('donate.index') }}" class="mss-fab-btn donate d-lg-none" title="Quick Donate">
+            <i class="flaticon-fast-forward-double-right-arrows-symbol"></i>
+        </a>
+        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', config('site.phone_primary', '919415451910')) }}?text=Hello%20Matri%20Seva%20Samiti%2C%20I%20would%20like%20to%20know%20more%20about%20your%20initiatives." target="_blank" rel="noopener noreferrer" class="mss-fab-btn whatsapp" title="Chat on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button type="button" class="mss-fab-btn scroll-top" id="mssScrollTopBtn" title="Back to Top">
+            <i class="fas fa-chevron-up"></i>
+        </button>
+    </div>
+
     <!-- Libraries JS -->
     <script src="{{ asset('assets/vendor/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/splide/splide.min.js') }}"></script>
@@ -144,6 +158,23 @@
     <script src="{{ asset('assets/js/charitics-accordion.js') }}"></script>
     <script src="{{ asset('assets/js/charitics-progressbar.js') }}"></script>
     <script src="{{ asset('assets/js/charitics-donate-form.js') }}"></script>
+
+    <script>
+        // Scroll To Top Button Logic
+        const scrollTopBtn = document.getElementById('mssScrollTopBtn');
+        if (scrollTopBtn) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    scrollTopBtn.classList.add('visible');
+                } else {
+                    scrollTopBtn.classList.remove('visible');
+                }
+            });
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    </script>
 
     @stack('scripts')
 </body>

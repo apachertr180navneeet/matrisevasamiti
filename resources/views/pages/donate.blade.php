@@ -79,12 +79,12 @@ $defaultAmount = is_numeric(request()->get('amount')) ? intval(request()->get('a
                         </div>
 
                         <!-- 80G Tax Benefit Card -->
-                        <div class="p-3 mb-4 rounded-3 d-flex justify-content-between align-items-center" style="background: rgba(235, 83, 16, 0.08); border: 1px dashed var(--ul-primary);">
+                        <div class="p-3 mb-4 rounded-3 d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 tax-calc-card" style="background: rgba(235, 83, 16, 0.08); border: 1px dashed var(--ul-primary);">
                             <div>
                                 <h6 class="mb-1 text-dark font-bold"><i class="flaticon-price-tag me-1" style="color:var(--ul-primary);"></i> Section 80G Tax Exemption Benefit</h6>
                                 <p class="mb-0 text-muted" style="font-size: 12px;">50% of your donation qualifies for income tax deduction under Indian IT rules.</p>
                             </div>
-                            <div class="text-end">
+                            <div class="text-sm-end">
                                 <span class="badge bg-white text-dark border px-3 py-2 fs-6" id="taxBenefitAmount">₹{{ number_format($defaultAmount * 0.15) }} Saved</span>
                             </div>
                         </div>
