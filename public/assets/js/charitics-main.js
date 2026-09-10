@@ -689,6 +689,46 @@ document.addEventListener("DOMContentLoaded", (event) => {
         }
     }
 
+    // donations slider
+    const donationsSliderEl = document.querySelector(".ul-donations-slider");
+    if (donationsSliderEl) {
+        const donationSlides = donationsSliderEl.querySelectorAll(".swiper-slide");
+        new Swiper(".ul-donations-slider", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: donationSlides.length > 3,
+            speed: 700,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+            watchOverflow: true,
+            navigation: {
+                prevEl: ".ul-donations-slider-nav .prev",
+                nextEl: ".ul-donations-slider-nav .next",
+            },
+            breakpoints: {
+                480: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                },
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 28,
+                }
+            }
+        });
+    }
+
     // testimonial slider
     const testimonialSliderEl = document.querySelector(".ul-testimonial-slider");
     if (testimonialSliderEl) {

@@ -257,18 +257,74 @@
         <div class="ul-container wow animate__fadeInUp">
             <div class="ul-donations-slider swiper">
                 <div class="swiper-wrapper">
-                    @forelse($causes as $cause)
+                    @php
+                        $displayCauses = isset($causes) && $causes->isNotEmpty() ? $causes->all() : [];
+                        
+                        $fallbackCauses = [
+                            (object)[
+                                'id' => null,
+                                'title' => 'Girl Child Education & Smart Classrooms',
+                                'category' => 'Education',
+                                'short_description' => 'Providing quality learning kits, digital smart tools, and scholarships to rural girl students.',
+                                'raised_amount' => 35000,
+                                'goal_amount' => 500000,
+                                'image' => 'images/student1.jpeg',
+                            ],
+                            (object)[
+                                'id' => null,
+                                'title' => 'Women Tailoring & Skill Empowerment Center',
+                                'category' => 'Women Empowerment',
+                                'short_description' => 'Providing commercial sewing machines, fabric kits, and master trainer coaching for rural women to earn livelihood.',
+                                'raised_amount' => 48000,
+                                'goal_amount' => 200000,
+                                'image' => 'images/project2.jpg',
+                            ],
+                            (object)[
+                                'id' => null,
+                                'title' => 'Free Rural Health & Diagnostic Camps',
+                                'category' => 'Healthcare',
+                                'short_description' => 'Organizing free specialized doctor consultations, diagnostic tests, and vital medicines in remote village areas.',
+                                'raised_amount' => 62000,
+                                'goal_amount' => 150000,
+                                'image' => 'images/project1.jpeg',
+                            ],
+                            (object)[
+                                'id' => null,
+                                'title' => 'Digital Literacy & Computer Labs for Youths',
+                                'category' => 'Skill Training',
+                                'short_description' => 'Equipping village community centers with computers, internet access, and digital literacy training courses.',
+                                'raised_amount' => 85000,
+                                'goal_amount' => 300000,
+                                'image' => 'images/student3.jpeg',
+                            ],
+                        ];
+
+                        // If database has fewer than 3 causes, supplement with curated MSS initiatives so carousel is full
+                        if (count($displayCauses) < 3) {
+                            $existingTitles = array_map(function($c) { return is_object($c) ? $c->title : ''; }, $displayCauses);
+                            foreach ($fallbackCauses as $fb) {
+                                if (count($displayCauses) >= 4) break;
+                                if (!in_array($fb->title, $existingTitles)) {
+                                    $displayCauses[] = $fb;
+                                    $existingTitles[] = $fb->title;
+                                }
+                            }
+                        }
+                    @endphp
+
+                    @foreach($displayCauses as $cause)
                         @php
                             $raised = (float) ($cause->raised_amount ?? 0);
                             $goal = (float) ($cause->goal_amount ?? 0);
                             $progress = $goal > 0 ? min(100, round(($raised / $goal) * 100)) : 0;
                             $imageSrc = !empty($cause->image) ? asset($cause->image) : asset('images/project1.jpeg');
+                            $donateUrl = !empty($cause->id) ? route('donate.index', ['cause_id' => $cause->id]) : route('donate.index');
                         @endphp
                         <div class="swiper-slide">
                             <div class="ul-donation">
                                 <div class="ul-donation-img">
                                     <img src="{{ $imageSrc }}" alt="{{ $cause->title }}" style="height: 220px; width: 100%; object-fit: cover;">
-                                    @if($cause->category)
+                                    @if(!empty($cause->category))
                                         <span class="tag">{{ $cause->category }}</span>
                                     @endif
                                 </div>
@@ -284,39 +340,13 @@
                                             <span class="ul-donation-progress-label">Goal : ₹{{ number_format($goal) }}</span>
                                         </div>
                                     </div>
-                                    <a href="{{ route('donate.index', ['cause_id' => $cause->id]) }}" class="ul-donation-title">{{ $cause->title }}</a>
+                                    <a href="{{ $donateUrl }}" class="ul-donation-title">{{ $cause->title }}</a>
                                     <p class="ul-donation-descr">{{ Str::limit($cause->short_description ?: $cause->description, 110) }}</p>
-                                    <a href="{{ route('donate.index', ['cause_id' => $cause->id]) }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
+                                    <a href="{{ $donateUrl }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
                                 </div>
                             </div>
                         </div>
-                    @empty
-                        <!-- Fallback default causes -->
-                        <div class="swiper-slide">
-                            <div class="ul-donation">
-                                <div class="ul-donation-img">
-                                    <img src="{{ asset('images/student1.jpeg') }}" alt="Skill Development" style="height: 220px; width: 100%; object-fit: cover;">
-                                    <span class="tag">Skill Training</span>
-                                </div>
-                                <div class="ul-donation-txt">
-                                    <div class="ul-donation-progress">
-                                        <div class="donation-progress-container ul-progress-container">
-                                            <div class="donation-progressbar ul-progressbar" data-ul-progress-value="85">
-                                                <div class="donation-progress-label ul-progress-label"></div>
-                                            </div>
-                                        </div>
-                                        <div class="ul-donation-progress-labels">
-                                            <span class="ul-donation-progress-label">Beneficiaries : 200+ Youths</span>
-                                            <span class="ul-donation-progress-label">Goal : Self-Reliance</span>
-                                        </div>
-                                    </div>
-                                    <a href="{{ route('donate.index') }}" class="ul-donation-title">Skill Development For Rural Youth</a>
-                                    <p class="ul-donation-descr">Empowering underprivileged village youth with computer training, vocational skills, and career guidance.</p>
-                                    <a href="{{ route('donate.index') }}" class="ul-donation-btn">Donate now <i class="flaticon-up-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    @endforelse
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -647,7 +677,46 @@
 
             <div class="ul-testimonial-slider swiper">
                 <div class="swiper-wrapper">
-                    @forelse($testimonials as $testi)
+                    @php
+                        $displayTestis = isset($testimonials) && $testimonials->isNotEmpty() ? $testimonials->all() : [];
+                        $fallbackTestis = [
+                            (object)[
+                                'name' => 'Kavita Devi',
+                                'designation' => 'Beneficiary',
+                                'location' => 'Prayagraj Skill Center',
+                                'quote' => 'Through the MSS sewing center, I learned tailoring and bought my own machine. Today I earn ₹12,000 monthly and support my children\'s school fees proudly.',
+                                'rating' => 5,
+                                'photo' => 'images/student2.jpeg',
+                            ],
+                            (object)[
+                                'name' => 'Rajeshwar Sharma',
+                                'designation' => 'Donor & CSR Partner',
+                                'location' => 'New Delhi',
+                                'quote' => 'Matri Seva Samiti provides exceptional ground transparency. Receiving regular student report cards and 80G tax receipts gave us complete trust in their social mission.',
+                                'rating' => 5,
+                                'photo' => 'assets/img/user-1.png',
+                            ],
+                            (object)[
+                                'name' => 'Pooja Vishwakarma',
+                                'designation' => 'Computer Lab Graduate',
+                                'location' => 'Bhadohi, UP',
+                                'quote' => 'The digital literacy course gave me hands-on computer training and confidence. I recently secured a job at an administrative center in town.',
+                                'rating' => 5,
+                                'photo' => 'images/student3.jpeg',
+                            ],
+                        ];
+                        if (count($displayTestis) < 3) {
+                            $existingNames = array_map(function($t) { return is_object($t) ? $t->name : ''; }, $displayTestis);
+                            foreach ($fallbackTestis as $ft) {
+                                if (count($displayTestis) >= 3) break;
+                                if (!in_array($ft->name, $existingNames)) {
+                                    $displayTestis[] = $ft;
+                                }
+                            }
+                        }
+                    @endphp
+
+                    @foreach($displayTestis as $testi)
                         <div class="swiper-slide">
                             <div class="ul-review">
                                 <div class="ul-review-rating">
@@ -667,38 +736,14 @@
                                         </div>
                                         <div>
                                             <h3 class="reviewer-name">{{ $testi->name }}</h3>
-                                            <span class="reviewer-role">{{ $testi->designation }}{{ $testi->location ? ' • ' . $testi->location : '' }}</span>
+                                            <span class="reviewer-role">{{ $testi->designation }}{{ !empty($testi->location) ? ' • ' . $testi->location : '' }}</span>
                                         </div>
                                     </div>
                                     <div class="ul-review-icon"><i class="flaticon-left"></i></div>
                                 </div>
                             </div>
                         </div>
-                    @empty
-                        <!-- Fallback Testimonial -->
-                        <div class="swiper-slide">
-                            <div class="ul-review">
-                                <div class="ul-review-rating">
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                    <i class="flaticon-star"></i>
-                                </div>
-                                <p class="ul-review-descr">“Through the MSS sewing center, I learned tailoring and bought my own machine. Today I earn ₹12,000 monthly and support my children's school fees proudly.”</p>
-                                <div class="ul-review-bottom">
-                                    <div class="ul-review-reviewer">
-                                        <div class="reviewer-image"><img src="{{ asset('images/student2.jpeg') }}" alt="Kavita Devi" style="width:50px; height:50px; border-radius:50%; object-fit:cover;"></div>
-                                        <div>
-                                            <h3 class="reviewer-name">Kavita Devi</h3>
-                                            <span class="reviewer-role">Beneficiary - Skill Center</span>
-                                        </div>
-                                    </div>
-                                    <div class="ul-review-icon"><i class="flaticon-left"></i></div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforelse
+                    @endforeach
                 </div>
 
                 <div class="ul-testimonial-slider-pagination text-center mt-4"></div>
@@ -730,17 +775,46 @@
                     <div class="ul-blogs-slider swiper">
                         <div class="swiper-wrapper">
                             @php
-                                $displayBlogs = isset($news) ? $news->where('type', '!=', 'event') : collect();
-                                if ($displayBlogs->isEmpty() && isset($news)) {
-                                    $displayBlogs = $news;
+                                $displayBlogs = isset($news) ? $news->where('type', '!=', 'event')->values()->all() : [];
+                                if (empty($displayBlogs) && isset($news) && $news->isNotEmpty()) {
+                                    $displayBlogs = $news->values()->all();
+                                }
+                                $fallbackBlogs = [
+                                    (object)[
+                                        'title' => 'Giving Education: The Greatest Gift For A Child\'s Future',
+                                        'category' => 'Education',
+                                        'published_date' => '2026-08-24',
+                                        'image' => 'assets/img/blog-1.jpg',
+                                    ],
+                                    (object)[
+                                        'title' => 'Women Tailoring Center Empowers Over 120 Village Families',
+                                        'category' => 'Skill Training',
+                                        'published_date' => '2026-08-18',
+                                        'image' => 'images/project2.jpg',
+                                    ],
+                                    (object)[
+                                        'title' => 'Free Health Checkup Camp Concludes With 450+ Beneficiaries',
+                                        'category' => 'Healthcare',
+                                        'published_date' => '2026-08-10',
+                                        'image' => 'images/healthcare-camp-news.jpg',
+                                    ],
+                                ];
+                                if (count($displayBlogs) < 3) {
+                                    $existingBlogTitles = array_map(function($b) { return is_object($b) ? $b->title : ''; }, $displayBlogs);
+                                    foreach ($fallbackBlogs as $fb) {
+                                        if (count($displayBlogs) >= 3) break;
+                                        if (!in_array($fb->title, $existingBlogTitles)) {
+                                            $displayBlogs[] = $fb;
+                                        }
+                                    }
                                 }
                             @endphp
-                            @forelse($displayBlogs as $blog)
+                            @foreach($displayBlogs as $blog)
                                 <div class="swiper-slide">
                                     <div class="ul-blog">
                                         <div class="ul-blog-img">
                                             <img src="{{ !empty($blog->image) ? asset($blog->image) : asset('assets/img/blog-1.jpg') }}" alt="{{ $blog->title }}" style="height: 220px; width: 100%; object-fit: cover;">
-                                            @if($blog->published_date)
+                                            @if(!empty($blog->published_date))
                                                 <div class="date">
                                                     <span class="number">{{ \Carbon\Carbon::parse($blog->published_date)->format('d') }}</span>
                                                     <span class="txt">{{ \Carbon\Carbon::parse($blog->published_date)->format('M') }}</span>
@@ -753,7 +827,7 @@
                                                     <span class="icon"><i class="flaticon-account"></i></span>
                                                     <span>MSS Team</span>
                                                 </div>
-                                                @if($blog->category)
+                                                @if(!empty($blog->category))
                                                     <div class="ul-blog-info">
                                                         <span class="icon"><i class="flaticon-price-tag"></i></span>
                                                         <span>{{ $blog->category }}</span>
@@ -765,32 +839,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            @empty
-                                <div class="swiper-slide">
-                                    <div class="ul-blog">
-                                        <div class="ul-blog-img"><img src="{{ asset('assets/img/blog-1.jpg') }}" alt="Child Education">
-                                            <div class="date">
-                                                <span class="number">24</span>
-                                                <span class="txt">Aug</span>
-                                            </div>
-                                        </div>
-                                        <div class="ul-blog-txt">
-                                            <div class="ul-blog-infos">
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-account"></i></span>
-                                                    <span>MSS Editorial</span>
-                                                </div>
-                                                <div class="ul-blog-info">
-                                                    <span class="icon"><i class="flaticon-price-tag"></i></span>
-                                                    <span>Education</span>
-                                                </div>
-                                            </div>
-                                            <a href="{{ route('news') }}" class="ul-blog-title">Giving Education: The Greatest Gift For A Child's Future</a>
-                                            <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            @endforelse
+                            @endforeach
                         </div>
                     </div>
                 </div>
