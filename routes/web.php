@@ -67,6 +67,79 @@ Route::post('/ccavRequestHandler', [DonationController::class, 'process']); // L
 Route::match(['get', 'post'], '/donate/response', [DonationController::class, 'response'])->name('donate.response');
 Route::match(['get', 'post'], '/ccavResponseHandler', [DonationController::class, 'response']); // Legacy fallback
 
+/*
+|--------------------------------------------------------------------------
+| Legacy Website Routes (/perviouswebsite & /public/perviouswebsite)
+|--------------------------------------------------------------------------
+*/
+$handleLegacySite = function ($file = '') {
+    $file = ltrim($file, '/');
+    if (empty($file) || $file === '/') {
+        $file = 'index.php';
+    }
+    
+    // Resolve target path across public and base directories
+    $possiblePaths = [
+        public_path('perviouswebsite/' . $file),
+        public_path('previouswebsite/' . $file),
+        base_path('perviouswebsite/' . $file),
+    ];
+    
+    $targetPath = null;
+    foreach ($possiblePaths as $p) {
+        if (file_exists($p) && is_file($p)) {
+            $targetPath = $p;
+            break;
+        }
+        if (file_exists($p . '.php') && is_file($p . '.php')) {
+            $targetPath = $p . '.php';
+            break;
+        }
+        if (is_dir($p) && file_exists($p . '/index.php')) {
+            $targetPath = $p . '/index.php';
+            break;
+        }
+    }
+    
+    if (!$targetPath) {
+        abort(404, 'Legacy website file not found.');
+    }
+    
+    $extension = strtolower(pathinfo($targetPath, PATHINFO_EXTENSION));
+    $staticTypes = [
+        'css'   => 'text/css',
+        'js'    => 'application/javascript',
+        'jpg'   => 'image/jpeg',
+        'jpeg'  => 'image/jpeg',
+        'png'   => 'image/png',
+        'gif'   => 'image/gif',
+        'svg'   => 'image/svg+xml',
+        'webp'  => 'image/webp',
+        'ico'   => 'image/x-icon',
+        'pdf'   => 'application/pdf',
+        'woff'  => 'font/woff',
+        'woff2' => 'font/woff2',
+        'ttf'   => 'font/ttf',
+    ];
+    
+    if (isset($staticTypes[$extension])) {
+        return response()->file($targetPath, ['Content-Type' => $staticTypes[$extension]]);
+    }
+    
+    // Execute legacy PHP script within its directory context
+    chdir(dirname($targetPath));
+    ob_start();
+    include $targetPath;
+    $output = ob_get_clean();
+    
+    return response($output)->header('Content-Type', 'text/html; charset=UTF-8');
+};
+
+Route::any('/perviouswebsite/{file?}', $handleLegacySite)->where('file', '.*');
+Route::any('/previouswebsite/{file?}', $handleLegacySite)->where('file', '.*');
+Route::any('/public/perviouswebsite/{file?}', $handleLegacySite)->where('file', '.*');
+Route::any('/public/previouswebsite/{file?}', $handleLegacySite)->where('file', '.*');
+
 
 /*
 |--------------------------------------------------------------------------
