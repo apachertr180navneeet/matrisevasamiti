@@ -662,47 +662,45 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     // dontations slider
-    new Swiper(".ul-donations-slider", {
-        slidesPerView: 6,
-        spaceBetween: 20,
-        // loop: true,
-        autoplay: true,
-        navigation: {
-            prevEl: ".ul-donations-slider-nav .prev",
-            nextEl: ".ul-donations-slider-nav .next",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.2,
-                centeredSlides: true,
+    if (document.querySelector(".ul-donations-slider")) {
+        const donationSlides = document.querySelectorAll(".ul-donations-slider .swiper-slide");
+        new Swiper(".ul-donations-slider", {
+            slidesPerView: 1.15,
+            spaceBetween: 20,
+            loop: donationSlides.length > 3,
+            autoplay: {
+                delay: 4500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
             },
-            480: {
-                slidesPerView: 1.7,
-                centeredSlides: true,
+            navigation: {
+                prevEl: ".ul-donations-slider-nav .prev",
+                nextEl: ".ul-donations-slider-nav .next",
             },
-            576: {
-                slidesPerView: 2,
-            },
-            768: {
-                slidesPerView: 3,
-            },
-            1200: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-            1400: {
-                slidesPerView: 4,
-            },
-            1680: {
-                slidesPerView: 4,
-                spaceBetween: 27,
-            },
-            1700: {
-                slidesPerView: 4,
-                spaceBetween: 30,
+            breakpoints: {
+                480: {
+                    slidesPerView: 1.4,
+                    spaceBetween: 20,
+                },
+                576: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 24,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 24,
+                },
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 28,
+                }
             }
-        }
-    });
+        });
+    }
 
     // menus title slider
     if (document.querySelector(".ul-menus-title-slider")) {

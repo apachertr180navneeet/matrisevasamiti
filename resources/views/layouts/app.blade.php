@@ -65,9 +65,35 @@
         .lang-select-pill:hover {
             border-color: var(--ul-primary);
         }
-        .ul-header-nav a.active {
-            color: var(--ul-primary);
+        /* MSS Navigation & Header Colors */
+        .ul-header-nav a,
+        .ul-header-nav a:not([href]):not([class]),
+        .ul-header-nav .has-sub-menu > a {
+            color: var(--ul-black, #1E252F) !important;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .ul-header-nav a:hover,
+        .ul-header-nav a:not([href]):hover,
+        .ul-header-nav .has-sub-menu:hover > a {
+            color: var(--ul-primary, #EB5310) !important;
+        }
+        .ul-header-nav a.active,
+        .ul-header-nav .has-sub-menu > a.active,
+        .ul-header-nav .has-sub-menu.active > a {
+            color: var(--ul-primary, #EB5310) !important;
             font-weight: 700;
+        }
+        .ul-header-search-opener {
+            color: var(--ul-black, #1E252F) !important;
+        }
+        .ul-header-search-opener i {
+            color: var(--ul-black, #1E252F) !important;
+            font-size: 16px;
+        }
+        .ul-header-search-opener:hover i {
+            color: #ffffff !important;
         }
         .tax-exemption-tag {
             display: inline-block;

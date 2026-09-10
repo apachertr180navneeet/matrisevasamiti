@@ -243,19 +243,19 @@
                             <img src="{{ asset('assets/img/user-2.png') }}" alt="Donor">
                             <span class="number">{{ $siteSettings['home_causes_stat_number'] ?? $siteSettings['stat_4_number'] ?? '15K+' }}</span>
                         </div>
-                        <span class="txt text-white">{{ $siteSettings['home_causes_stat_label'] ?? 'Active Donors' }}</span>
+                        <span class="txt">{{ $siteSettings['home_causes_stat_label'] ?? 'Active Donors' }}</span>
                     </div>
                 </div>
                 <div class="ul-slider-nav ul-donations-slider-nav">
-                    <button class="prev"><i class="flaticon-back"></i></button>
-                    <button class="next"><i class="flaticon-next"></i></button>
+                    <button class="prev" aria-label="Previous Slide"><i class="flaticon-back"></i></button>
+                    <button class="next" aria-label="Next Slide"><i class="flaticon-next"></i></button>
                 </div>
             </div>
         </div>
 
         <!-- Donations Swiper Slider -->
         <div class="ul-container wow animate__fadeInUp">
-            <div class="ul-donations-slider swiper overflow-visible">
+            <div class="ul-donations-slider swiper">
                 <div class="swiper-wrapper">
                     @forelse($causes as $cause)
                         @php

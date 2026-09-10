@@ -1,0 +1,28 @@
+# Matri Seva Samiti NGO Website - Enhanced .htaccess
+
+# Set default index file
+DirectoryIndex index.php index.html
+
+# Basic security - prevent access to sensitive files
+<Files ~ "\.(htaccess|htpasswd|ini|log|sql|conf)$">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Basic error handling
+ErrorDocument 404 /404.html
+
+# URL Rewriting (if mod_rewrite is available)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Remove .php extension from URLs
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+    
+    # Redirect old .php URLs to clean URLs
+    RewriteCond %{REQUEST_METHOD} !POST
+    RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+    RewriteRule ^ /%1 [NC,L,R=301]
+</IfModule> 
