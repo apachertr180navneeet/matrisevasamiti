@@ -79,6 +79,14 @@
                                     <label class="form-check-label fs-6 fw-semibold text-dark ms-2" for="is_active">Active (Visible on Frontend)</label>
                                 </div>
                             </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Featured Image (Optional)</label>
+                                <input type="file" name="image" class="form-control" onchange="previewImage(this, 'grantPreview')">
+                                <div class="mt-2 img-preview-box" style="max-width: 260px; height: 140px;">
+                                    <img id="grantPreview" src="{{ asset($grant->image ?? 'images/project1.jpeg') }}" alt="Grant Preview">
+                                </div>
+                            </div>
                         </div>
 
                         <div class="mt-4 pt-3 border-top d-flex justify-content-end gap-2">

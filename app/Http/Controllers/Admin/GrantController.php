@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Grant;
+use App\Services\FileUploadService;
 use Illuminate\Support\Str;
 
 class GrantController extends Controller
@@ -31,18 +32,20 @@ class GrantController extends Controller
             'short_description' => 'nullable|string',
             'description' => 'nullable|string',
             'tags' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
-            'sort_order' => 'integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['badge_color'] = $request->badge_color ?? 'primary';
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? 0;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('grants', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'grants');
+        } else {
+            unset($data['image']);
         }
 
         Grant::create($data);
@@ -65,18 +68,20 @@ class GrantController extends Controller
             'short_description' => 'nullable|string',
             'description' => 'nullable|string',
             'tags' => 'nullable|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
-            'sort_order' => 'integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['badge_color'] = $request->badge_color ?? 'primary';
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? $grant->sort_order;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('grants', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'grants', $grant->image);
+        } else {
+            unset($data['image']);
         }
 
         $grant->update($data);
@@ -85,6 +90,7 @@ class GrantController extends Controller
 
     public function destroy(Grant $grant)
     {
+        FileUploadService::delete($grant->image);
         $grant->delete();
         return redirect()->route('admin.grants.index')->with('success', 'Grant opportunity deleted successfully.');
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 @php
-$certificates = [
+$defaultCertificates = [
     [
         "title" => "GST Certificate",
         "category" => "Registration",
@@ -73,28 +73,53 @@ $certificates = [
             </div>
 
             <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 gy-4">
-                @foreach ($certificates as $cert)
-                <div class="col">
-                    <div class="card p-4 border-0 shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between">
-                        <div>
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-warning text-dark">{{ $cert['category'] }}</span>
-                                <small class="text-muted"><i class="flaticon-calendar me-1"></i> {{ $cert['date'] }}</small>
+                @if(isset($certificates) && $certificates->count() > 0)
+                    @foreach ($certificates as $cert)
+                    <div class="col">
+                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-warning text-dark">{{ $cert->type }}</span>
+                                    <small class="text-muted"><i class="flaticon-calendar me-1"></i> {{ $cert->year ?? 'Active' }}</small>
+                                </div>
+                                <h4 class="h5 mb-2 text-dark">{{ $cert->title }}</h4>
+                                <p class="text-muted small mb-3">{{ $cert->description }}</p>
                             </div>
-                            <h4 class="h5 mb-2 text-dark">{{ $cert['title'] }}</h4>
-                            <p class="text-muted small mb-3">{{ $cert['desc'] }}</p>
-                        </div>
-                        <div class="pt-3 border-top d-flex gap-2">
-                            <a href="{{ asset($cert['file']) }}" target="_blank" class="btn btn-outline-danger btn-sm rounded-pill flex-grow-1">
-                                <i class="flaticon-search me-1"></i> View
-                            </a>
-                            <a href="{{ asset($cert['file']) }}" download class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
-                                <i class="flaticon-package me-1"></i> Download
-                            </a>
+                            <div class="pt-3 border-top d-flex gap-2">
+                                <a href="{{ asset($cert->file_path) }}" target="_blank" class="btn btn-outline-danger btn-sm rounded-pill flex-grow-1">
+                                    <i class="flaticon-search me-1"></i> View
+                                </a>
+                                <a href="{{ asset($cert->file_path) }}" download class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
+                                    <i class="flaticon-package me-1"></i> Download
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
+                @else
+                    @foreach ($defaultCertificates as $cert)
+                    <div class="col">
+                        <div class="card p-4 border-0 shadow-sm rounded-4 h-100 d-flex flex-column justify-content-between">
+                            <div>
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <span class="badge bg-warning text-dark">{{ $cert['category'] }}</span>
+                                    <small class="text-muted"><i class="flaticon-calendar me-1"></i> {{ $cert['date'] }}</small>
+                                </div>
+                                <h4 class="h5 mb-2 text-dark">{{ $cert['title'] }}</h4>
+                                <p class="text-muted small mb-3">{{ $cert['desc'] }}</p>
+                            </div>
+                            <div class="pt-3 border-top d-flex gap-2">
+                                <a href="{{ asset($cert['file']) }}" target="_blank" class="btn btn-outline-danger btn-sm rounded-pill flex-grow-1">
+                                    <i class="flaticon-search me-1"></i> View
+                                </a>
+                                <a href="{{ asset($cert['file']) }}" download class="btn btn-secondary btn-sm rounded-pill flex-grow-1">
+                                    <i class="flaticon-package me-1"></i> Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

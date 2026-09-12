@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Testimonial;
+use App\Services\FileUploadService;
 
 class TestimonialController extends Controller
 {
@@ -25,18 +26,20 @@ class TestimonialController extends Controller
             'name' => 'required|string|max:255',
             'designation' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'quote' => 'required|string',
             'rating' => 'integer|min:1|max:5',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? 0;
 
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('testimonials', 'public');
-            $data['photo'] = 'storage/' . $path;
+            $data['photo'] = FileUploadService::upload($request->file('photo'), 'testimonials');
+        } else {
+            unset($data['photo']);
         }
 
         Testimonial::create($data);
@@ -54,18 +57,20 @@ class TestimonialController extends Controller
             'name' => 'required|string|max:255',
             'designation' => 'nullable|string|max:255',
             'location' => 'nullable|string|max:255',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:2048',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'quote' => 'required|string',
             'rating' => 'integer|min:1|max:5',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? $testimonial->sort_order;
 
         if ($request->hasFile('photo')) {
-            $path = $request->file('photo')->store('testimonials', 'public');
-            $data['photo'] = 'storage/' . $path;
+            $data['photo'] = FileUploadService::upload($request->file('photo'), 'testimonials', $testimonial->photo);
+        } else {
+            unset($data['photo']);
         }
 
         $testimonial->update($data);
@@ -74,6 +79,7 @@ class TestimonialController extends Controller
 
     public function destroy(Testimonial $testimonial)
     {
+        FileUploadService::delete($testimonial->photo);
         $testimonial->delete();
         return redirect()->route('admin.testimonials.index')->with('success', 'Testimonial deleted.');
     }

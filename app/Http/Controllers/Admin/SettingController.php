@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SiteSetting;
+use App\Services\FileUploadService;
 
 class SettingController extends Controller
 {
@@ -32,23 +33,26 @@ class SettingController extends Controller
 
         // Handle logo upload
         if ($request->hasFile('site_logo')) {
-            $request->validate(['site_logo' => 'image|mimes:jpeg,png,jpg,svg,webp|max:2048']);
-            $path = $request->file('site_logo')->store('settings', 'public');
-            SiteSetting::set('site_logo', 'storage/' . $path, 'general');
+            $request->validate(['site_logo' => 'image|mimes:jpeg,png,jpg,svg,webp,ico,gif|max:5120']);
+            $oldLogo = SiteSetting::get('site_logo');
+            $path = FileUploadService::upload($request->file('site_logo'), 'settings', $oldLogo);
+            SiteSetting::set('site_logo', $path, 'general');
         }
 
         // Handle favicon upload
         if ($request->hasFile('site_favicon')) {
-            $request->validate(['site_favicon' => 'image|mimes:jpeg,png,ico,svg|max:1024']);
-            $path = $request->file('site_favicon')->store('settings', 'public');
-            SiteSetting::set('site_favicon', 'storage/' . $path, 'general');
+            $request->validate(['site_favicon' => 'image|mimes:jpeg,png,ico,svg,webp,gif|max:3072']);
+            $oldFav = SiteSetting::get('site_favicon');
+            $path = FileUploadService::upload($request->file('site_favicon'), 'settings', $oldFav);
+            SiteSetting::set('site_favicon', $path, 'general');
         }
 
         // Handle about section image upload
         if ($request->hasFile('about_image')) {
-            $request->validate(['about_image' => 'image|mimes:jpeg,png,jpg,webp|max:3072']);
-            $path = $request->file('about_image')->store('settings', 'public');
-            SiteSetting::set('about_image', 'storage/' . $path, 'about');
+            $request->validate(['about_image' => 'image|mimes:jpeg,png,jpg,webp,avif|max:5120']);
+            $oldAbout = SiteSetting::get('about_image');
+            $path = FileUploadService::upload($request->file('about_image'), 'settings', $oldAbout);
+            SiteSetting::set('about_image', $path, 'about');
         }
 
         return back()->with('success', 'Site settings updated successfully.');
@@ -73,9 +77,10 @@ class SettingController extends Controller
         $imageFields = ['home_about_image', 'home_about_thumb_image', 'home_why_image', 'home_hero_image'];
         foreach ($imageFields as $field) {
             if ($request->hasFile($field)) {
-                $request->validate([$field => 'image|mimes:jpeg,png,jpg,webp,svg|max:4096']);
-                $path = $request->file($field)->store('home_sections', 'public');
-                SiteSetting::set($field, 'storage/' . $path, 'home_section');
+                $request->validate([$field => 'image|mimes:jpeg,png,jpg,webp,svg,gif,avif|max:5120']);
+                $oldImg = SiteSetting::get($field);
+                $path = FileUploadService::upload($request->file($field), 'home_sections', $oldImg);
+                SiteSetting::set($field, $path, 'home_section');
             }
         }
 

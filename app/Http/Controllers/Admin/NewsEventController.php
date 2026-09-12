@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\NewsEvent;
+use App\Services\FileUploadService;
 use Illuminate\Support\Str;
 
 class NewsEventController extends Controller
@@ -28,20 +29,22 @@ class NewsEventController extends Controller
             'type' => 'required|string|in:news,event,media,press',
             'category' => 'nullable|string|max:100',
             'published_date' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'excerpt' => 'nullable|string',
             'content' => 'nullable|string',
             'is_published' => 'boolean',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['is_published'] = $request->has('is_published');
         $data['published_date'] = $request->published_date ?? now();
+        $data['sort_order'] = $request->sort_order ?? 0;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('news', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'news');
+        } else {
+            unset($data['image']);
         }
 
         NewsEvent::create($data);
@@ -61,19 +64,21 @@ class NewsEventController extends Controller
             'type' => 'required|string|in:news,event,media,press',
             'category' => 'nullable|string|max:100',
             'published_date' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'excerpt' => 'nullable|string',
             'content' => 'nullable|string',
             'is_published' => 'boolean',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['is_published'] = $request->has('is_published');
+        $data['sort_order'] = $request->sort_order ?? $news->sort_order;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('news', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'news', $news->image);
+        } else {
+            unset($data['image']);
         }
 
         $news->update($data);
@@ -82,6 +87,7 @@ class NewsEventController extends Controller
 
     public function destroy(NewsEvent $news)
     {
+        FileUploadService::delete($news->image);
         $news->delete();
         return redirect()->route('admin.news.index')->with('success', 'Article deleted successfully.');
     }

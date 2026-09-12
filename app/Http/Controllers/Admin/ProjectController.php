@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use App\Services\FileUploadService;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -28,20 +29,22 @@ class ProjectController extends Controller
             'location' => 'nullable|string|max:255',
             'beneficiaries' => 'nullable|string|max:255',
             'project_date' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'summary' => 'nullable|string',
             'details' => 'nullable|string',
             'status' => 'required|string|in:Ongoing,Completed,Upcoming',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? 0;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('projects', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'projects');
+        } else {
+            unset($data['image']);
         }
 
         Project::create($data);
@@ -61,20 +64,22 @@ class ProjectController extends Controller
             'location' => 'nullable|string|max:255',
             'beneficiaries' => 'nullable|string|max:255',
             'project_date' => 'nullable|date',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,webp|max:3072',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
             'summary' => 'nullable|string',
             'details' => 'nullable|string',
             'status' => 'required|string|in:Ongoing,Completed,Upcoming',
-            'sort_order' => 'integer',
+            'sort_order' => 'nullable|integer',
             'is_active' => 'boolean',
         ]);
 
         $data['slug'] = $request->filled('slug') ? Str::slug($request->slug) : Str::slug($request->title);
         $data['is_active'] = $request->has('is_active');
+        $data['sort_order'] = $request->sort_order ?? $project->sort_order;
 
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('projects', 'public');
-            $data['image'] = 'storage/' . $path;
+            $data['image'] = FileUploadService::upload($request->file('image'), 'projects', $project->image);
+        } else {
+            unset($data['image']);
         }
 
         $project->update($data);
@@ -83,6 +88,7 @@ class ProjectController extends Controller
 
     public function destroy(Project $project)
     {
+        FileUploadService::delete($project->image);
         $project->delete();
         return redirect()->route('admin.projects.index')->with('success', 'Project deleted successfully.');
     }

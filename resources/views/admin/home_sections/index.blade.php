@@ -149,21 +149,17 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">About Main Image</label>
-                            <input type="file" name="home_about_image" class="form-control" accept="image/*">
-                            @if(!empty($settings['home_about_image']) || !empty($settings['about_image']))
-                                <div class="mt-2">
-                                    <img src="{{ asset($settings['home_about_image'] ?? $settings['about_image']) }}" alt="About Image" style="height: 70px; border-radius: 8px; object-fit: cover;">
-                                </div>
-                            @endif
+                            <input type="file" name="home_about_image" class="form-control" accept="image/*" onchange="previewImage(this, 'homeAboutPreview')">
+                            <div class="mt-2 img-preview-box" style="max-width: 220px; height: 100px;">
+                                <img id="homeAboutPreview" src="{{ asset($settings['home_about_image'] ?? $settings['about_image'] ?? 'images/about-us.jpg') }}" alt="About Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label">About Small Thumbnail Image</label>
-                            <input type="file" name="home_about_thumb_image" class="form-control" accept="image/*">
-                            @if(!empty($settings['home_about_thumb_image']))
-                                <div class="mt-2">
-                                    <img src="{{ asset($settings['home_about_thumb_image']) }}" alt="Thumbnail" style="height: 70px; border-radius: 8px; object-fit: cover;">
-                                </div>
-                            @endif
+                            <input type="file" name="home_about_thumb_image" class="form-control" accept="image/*" onchange="previewImage(this, 'homeAboutThumbPreview')">
+                            <div class="mt-2 img-preview-box" style="max-width: 150px; height: 100px;">
+                                <img id="homeAboutThumbPreview" src="{{ asset($settings['home_about_thumb_image'] ?? 'images/student2.jpeg') }}" alt="Thumbnail" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -386,12 +382,10 @@
                         </div>
                         <div class="col-md-12">
                             <label class="form-label">Volunteer Section Image</label>
-                            <input type="file" name="home_why_image" class="form-control" accept="image/*">
-                            @if(!empty($settings['home_why_image']))
-                                <div class="mt-2">
-                                    <img src="{{ asset($settings['home_why_image']) }}" alt="Why Join Image" style="height: 80px; border-radius: 8px; object-fit: cover;">
-                                </div>
-                            @endif
+                            <input type="file" name="home_why_image" class="form-control" accept="image/*" onchange="previewImage(this, 'homeWhyPreview')">
+                            <div class="mt-2 img-preview-box" style="max-width: 220px; height: 110px;">
+                                <img id="homeWhyPreview" src="{{ asset($settings['home_why_image'] ?? 'images/project1.jpeg') }}" alt="Why Join Image" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                            </div>
                         </div>
 
                         <!-- Accordion Items -->
