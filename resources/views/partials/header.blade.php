@@ -77,7 +77,6 @@
                 </select>
                 <div id="google_translate_element" style="display:none;"></div>
 
-                <button class="ul-header-search-opener" title="Search"><i class="flaticon-search"></i></button>
                 <a href="{{ route('donate.index') }}" class="ul-btn d-sm-inline-flex d-none"><i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate Now </a>
                 <button class="ul-header-sidebar-opener d-lg-none d-inline-flex"><i class="flaticon-menu"></i></button>
             </div>

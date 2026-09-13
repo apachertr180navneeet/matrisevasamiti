@@ -3083,15 +3083,7 @@ button {
   overflow: hidden;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
   height: 220px;
-}
-.ul-gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.16);
-}
-.ul-gallery-item:hover .ul-gallery-item-btn-wrapper {
-  opacity: 1;
 }
 .ul-gallery-item img {
   width: 100%;
@@ -3099,10 +3091,6 @@ button {
   object-fit: cover;
   display: block;
   border-radius: 16px;
-  transition: transform 0.5s ease;
-}
-.ul-gallery-item:hover img {
-  transform: scale(1.08);
 }
 .ul-gallery-item-btn-wrapper {
   position: absolute;

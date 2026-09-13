@@ -872,9 +872,6 @@
                 @foreach($galleryList as $item)
                     <div class="ul-gallery-item swiper-slide">
                         <img src="{{ asset($item->image) }}" alt="{{ $item->title ?? 'Gallery Image' }}" loading="lazy">
-                        <div class="ul-gallery-item-btn-wrapper">
-                            <a href="{{ asset($item->image) }}" data-fslightbox="gallery" title="{{ $item->title ?? 'View Image' }}"><i class="flaticon-instagram"></i></a>
-                        </div>
                     </div>
                 @endforeach
             </div>
