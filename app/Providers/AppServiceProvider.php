@@ -40,6 +40,13 @@ class AppServiceProvider extends ServiceProvider
             } else {
                 View::share('siteSettings', config('site', []));
             }
+
+            View::composer('partials.footer', function ($view) {
+                if (Schema::hasTable('news_events')) {
+                    $footerNews = \App\Models\NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->take(2)->get();
+                    $view->with('footerNews', $footerNews);
+                }
+            });
         } catch (\Throwable $e) {
             View::share('siteSettings', config('site', []));
         }

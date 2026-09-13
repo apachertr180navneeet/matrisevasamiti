@@ -77,31 +77,35 @@
                 <div class="ul-footer-widget ul-footer-recent-posts">
                     <h3 class="ul-footer-widget-title">Recent Updates</h3>
                     <div class="ul-blog-sidebar-posts">
-                        <div class="ul-blog-sidebar-post ul-footer-post">
-                            <div class="img">
-                                <img src="{{ asset('assets/img/blog-1.jpg') }}" alt="Post Image">
+                        @if(isset($footerNews) && $footerNews->count() > 0)
+                            @foreach($footerNews as $item)
+                                <div class="ul-blog-sidebar-post ul-footer-post">
+                                    <div class="img">
+                                        <img src="{{ asset($item->image ?? 'assets/img/blog-1.jpg') }}" alt="{{ $item->title }}" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+                                    </div>
+                                    <div class="txt">
+                                        <span class="date">
+                                            <span class="icon"><i class="flaticon-calendar"></i></span>
+                                            <span>{{ optional($item->published_date)->format('M d, Y') ?? 'Recent' }}</span>
+                                        </span>
+                                        <h4 class="title"><a href="{{ $item->type === 'blog' ? route('blogs') : route('news') }}">{{ Str::limit($item->title, 45) }}</a></h4>
+                                    </div>
+                                </div>
+                            @endforeach
+                        @else
+                            <div class="ul-blog-sidebar-post ul-footer-post">
+                                <div class="img">
+                                    <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Post Image">
+                                </div>
+                                <div class="txt">
+                                    <span class="date">
+                                        <span class="icon"><i class="flaticon-calendar"></i></span>
+                                        <span>Recent Update</span>
+                                    </span>
+                                    <h4 class="title"><a href="{{ route('news') }}">New Skill Development Center Inaugurated in Jhunsi</a></h4>
+                                </div>
                             </div>
-                            <div class="txt">
-                                <span class="date">
-                                    <span class="icon"><i class="flaticon-calendar"></i></span>
-                                    <span>Aug 24, {{ date('Y') }}</span>
-                                </span>
-                                <h4 class="title"><a href="{{ route('news') }}">1,000+ Girls Enrolled in Rural Digital Literacy</a></h4>
-                            </div>
-                        </div>
-
-                        <div class="ul-blog-sidebar-post ul-footer-post">
-                            <div class="img">
-                                <img src="{{ asset('assets/img/blog-2.jpg') }}" alt="Post Image">
-                            </div>
-                            <div class="txt">
-                                <span class="date">
-                                    <span class="icon"><i class="flaticon-calendar"></i></span>
-                                    <span>Aug 18, {{ date('Y') }}</span>
-                                </span>
-                                <h4 class="title"><a href="{{ route('news') }}">Free Eye & General Health Checkup in 12 Villages</a></h4>
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
 

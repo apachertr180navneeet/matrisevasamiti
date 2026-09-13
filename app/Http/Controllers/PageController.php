@@ -86,6 +86,15 @@ class PageController extends Controller
         return view('pages.news', compact('news'));
     }
 
+    public function blogs(): View
+    {
+        $blogs = NewsEvent::where('is_published', true)->where('type', 'blog')->orderBy('sort_order', 'asc')->latest('published_date')->get();
+        if ($blogs->isEmpty()) {
+            $blogs = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->get();
+        }
+        return view('pages.blogs', compact('blogs'));
+    }
+
     public function career(): View
     {
         $careers = Career::where('is_active', true)->orderBy('sort_order', 'asc')->latest()->get();

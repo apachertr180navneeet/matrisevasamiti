@@ -31,29 +31,29 @@
             <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 gy-4 mb-5">
                 <div class="col">
                     <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-primary">
-                        <h2 class="display-5 fw-bold text-primary mb-2">5+</h2>
-                        <h5 class="text-dark mb-1">Years of Service</h5>
+                        <h2 class="display-5 fw-bold text-primary mb-2">{{ config('site.stat_4_number', config('site.impact_years', '5+')) }}</h2>
+                        <h5 class="text-dark mb-1">{{ config('site.stat_4_title', 'Years of Service') }}</h5>
                         <p class="text-muted small mb-0">Dedicated Grassroots Impact</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-success">
-                        <h2 class="display-5 fw-bold text-success mb-2">50+</h2>
-                        <h5 class="text-dark mb-1">Projects Executed</h5>
+                        <h2 class="display-5 fw-bold text-success mb-2">{{ config('site.stat_2_number', config('site.impact_projects', '50+')) }}</h2>
+                        <h5 class="text-dark mb-1">{{ config('site.stat_2_title', 'Projects Executed') }}</h5>
                         <p class="text-muted small mb-0">Successfully Implemented</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-warning">
-                        <h2 class="display-5 fw-bold text-warning mb-2">15,000+</h2>
-                        <h5 class="text-dark mb-1">Lives Impacted</h5>
+                        <h2 class="display-5 fw-bold text-warning mb-2">{{ config('site.stat_1_number', config('site.impact_beneficiaries', '15,000+')) }}</h2>
+                        <h5 class="text-dark mb-1">{{ config('site.stat_1_title', 'Lives Impacted') }}</h5>
                         <p class="text-muted small mb-0">Direct Beneficiaries</p>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card p-4 border-0 shadow-sm rounded-4 text-center h-100 border-bottom border-4 border-info">
-                        <h2 class="display-5 fw-bold text-info mb-2">120+</h2>
-                        <h5 class="text-dark mb-1">Active Volunteers</h5>
+                        <h2 class="display-5 fw-bold text-info mb-2">{{ config('site.stat_3_number', config('site.impact_volunteers', '120+')) }}</h2>
+                        <h5 class="text-dark mb-1">{{ config('site.stat_3_title', 'Active Volunteers') }}</h5>
                         <p class="text-muted small mb-0">Committed Field Workers</p>
                     </div>
                 </div>
