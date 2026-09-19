@@ -21,12 +21,15 @@
                                 <ul>
                                     <li><a href="{{ route('programs') }}">All Programs</a></li>
                                     <li><a href="{{ route('projects') }}">Key Projects</a></li>
-                                    <li><a href="{{ route('products') }}">Artisan Products <span class="badge bg-success ms-1" style="font-size: 10px; padding: 2px 6px;">Shop</span></a></li>
                                     <li><a href="{{ route('impact') }}">Impact & Reports</a></li>
                                     <li><a href="{{ route('grants') }}">CSR & Grants</a></li>
                                 </ul>
                             </div>
                         </div>
+
+                        <a href="{{ route('products') }}" class="{{ request()->routeIs('products') ? 'active' : '' }}">
+                            Products <span class="badge bg-success ms-1" style="font-size: 10px; padding: 2px 6px; border-radius: 999px;">Store</span>
+                        </a>
 
                         <div class="has-sub-menu">
                             <a role="button" class="{{ request()->routeIs(['donate.index', 'certificate']) ? 'active' : '' }}">Donate</a>
