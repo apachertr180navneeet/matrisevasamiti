@@ -38,4 +38,16 @@ class ContactInboxController extends Controller
         $contact->delete();
         return redirect()->route('admin.contacts.index')->with('success', 'Message deleted.');
     }
+
+    public function bulkDestroy(Request $request)
+    {
+        $request->validate([
+            'ids' => 'required|array|min:1',
+            'ids.*' => 'exists:contacts,id',
+        ]);
+
+        $count = Contact::whereIn('id', $request->ids)->delete();
+
+        return redirect()->route('admin.contacts.index')->with('success', "{$count} messages deleted successfully.");
+    }
 }

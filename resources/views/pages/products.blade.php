@@ -1,195 +1,317 @@
 @extends('layouts.app')
 
-@section('title', 'Matri Srijani — मातृ सृजनी • Handcrafted Products & Organic Store')
+@section('title', 'Artisan Store — Matri Srijani | Handcrafted & Natural Products')
 
 @section('content')
-<!-- MATRI SRIJANI ARTISAN PRODUCT PAGE (Design based on Matrikala Matrisrijani) -->
-<div class="srijani-page-wrapper">
-    <!-- Ambient Floating Orbs -->
-    <div class="srijani-floating-orb orb-a"></div>
-    <div class="srijani-floating-orb orb-b"></div>
+<!-- ULTRA PREMIUM MATRI SRIJANI ARTISAN PRODUCT STORE -->
+<div class="srijani-master-wrapper">
+    <!-- Ambient Background Lighting -->
+    <div class="srijani-ambient-glow glow-1"></div>
+    <div class="srijani-ambient-glow glow-2"></div>
+    <div class="srijani-ambient-glow glow-3"></div>
 
-    <!-- HERO SECTION -->
-    <section class="srijani-hero">
+    <!-- 1. HERO SHOWCASE SECTION -->
+    <section class="srijani-hero-section">
         <div class="srijani-container">
-            <div class="srijani-hero-card">
-                <div class="srijani-hero-copy">
-                    <span class="srijani-kicker">✦ Inspired by her • Created for tomorrow</span>
-                    <h1 class="srijani-hero-title">Matri Srijani</h1>
-                    <p class="srijani-hero-desc">
-                        A premium digital home for authentic Indian craftsmanship, natural wellness products, and women-led rural creativity under Matri Seva Samiti.
-                    </p>
-                    <div class="srijani-hero-actions">
-                        <a href="#products-catalog" class="srijani-btn srijani-btn-gold">
-                            <span>Explore Collection</span>
-                            <i class="bi bi-arrow-down-right"></i>
-                        </a>
-                        <a href="https://wa.me/919415451910?text={{ urlencode('Namaste Matri Seva Samiti, I would like to inquire about your handcrafted products and custom orders.') }}" target="_blank" rel="noopener noreferrer" class="srijani-btn srijani-btn-secondary">
-                            <i class="bi bi-whatsapp text-success me-1"></i> WhatsApp Helpline
-                        </a>
-                    </div>
-                    <div class="srijani-hero-stats">
-                        <span><b>01</b> Heritage Craft</span>
-                        <span><b>02</b> 100% Handmade</span>
-                        <span><b>03</b> WhatsApp Ordering</span>
-                    </div>
-                </div>
+            <div class="srijani-hero-glass-box">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <div class="srijani-hero-content">
+                            <!-- Live Store Pill -->
+                            <div class="srijani-live-pill mb-3">
+                                <span class="srijani-pulse-dot"></span>
+                                <span>Matri Srijani • Rural Artisan &amp; SHG Store</span>
+                            </div>
 
-                <div class="srijani-hero-art">
-                    <div class="srijani-hero-ring"></div>
-                    <div class="srijani-hero-logo-box">
-                        <img src="{{ asset(config('site.site_logo', config('site.logo', 'logo/Logo.png'))) }}" alt="Matri Srijani Logo" class="srijani-hero-img">
+                            <h1 class="srijani-hero-headline">
+                                Authentic Indian Craftsmanship &amp; <span class="text-gradient-gold">Natural Products</span>
+                            </h1>
+
+                            <p class="srijani-hero-subtext">
+                                Every handcrafted item tells a story of dignity, resilience, and artistry. Hand-stitched, wheel-thrown, and organically prepared by rural women self-help groups under <strong>{{ config('site.site_name', 'Matri Seva Samiti') }}</strong>.
+                            </p>
+
+                            @php
+                                $waPhone = preg_replace('/[^0-9]/', '', (string) config('site.contact_phone_primary', config('site.phone_primary', '919415451910')));
+                                if (strlen($waPhone) === 10) $waPhone = '91' . $waPhone;
+                            @endphp
+
+                            <!-- Hero CTAs -->
+                            <div class="d-flex flex-wrap gap-3 align-items-center mb-4">
+                                <a href="#products-catalog" class="srijani-cta-gold">
+                                    <span>Explore Products</span>
+                                    <i class="bi bi-bag-check-fill ms-2"></i>
+                                </a>
+                                <a href="https://wa.me/{{ $waPhone }}?text={{ urlencode('Namaste ' . config('site.site_name', 'Matri Seva Samiti') . ', I would like to inquire about your handcrafted products and custom orders.') }}" target="_blank" rel="noopener noreferrer" class="srijani-cta-whatsapp">
+                                    <i class="bi bi-whatsapp fs-5"></i>
+                                    <span>WhatsApp Helpline</span>
+                                </a>
+                            </div>
+
+                            <!-- Trust Metric Highlights -->
+                            <div class="srijani-hero-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-num">500+</span>
+                                    <span class="metric-label">SHG Artisans</span>
+                                </div>
+                                <div class="metric-divider"></div>
+                                <div class="metric-item">
+                                    <span class="metric-num">100%</span>
+                                    <span class="metric-label">Handmade &amp; Eco</span>
+                                </div>
+                                <div class="metric-divider"></div>
+                                <div class="metric-item">
+                                    <span class="metric-num">4.9 ★</span>
+                                    <span class="metric-label">Quality Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-5 text-center">
+                        <div class="srijani-hero-visual">
+                            <div class="rotating-halo"></div>
+                            <div class="floating-badge-top">
+                                <i class="bi bi-heart-fill text-danger me-1"></i> Fair Trade SHG
+                            </div>
+                            <div class="srijani-hero-emblem-card">
+                                <img src="{{ asset(config('site.site_logo', config('site.logo', 'logo/Logo.png'))) }}" alt="Matri Srijani Logo" class="srijani-emblem-img">
+                                <div class="emblem-meta mt-3">
+                                    <h5 class="mb-0 fw-bold" style="color: #7d241f; font-family: Georgia, serif;">Matri Srijani</h5>
+                                    <small class="text-muted">मातृ सृजनी • स्वावलंबन से स्वाभिमान</small>
+                                </div>
+                            </div>
+                            <div class="floating-badge-bottom">
+                                <i class="bi bi-whatsapp text-success me-1"></i> Easy 1-Click Order
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- STORY & MISSION 3-CARD GRID -->
-    <section class="srijani-section pt-2">
+    <!-- 2. WHY SHOP WITH US (4 FEATURE PILLARS) -->
+    <section class="srijani-pillars-section">
         <div class="srijani-container">
-            <div class="srijani-section-head">
-                <span class="srijani-kicker">Our Story</span>
-                <h2>Culture, Craft &amp; Community</h2>
-            </div>
-            <div class="srijani-info-grid">
-                <article class="srijani-info-card">
-                    <span class="srijani-card-number">01</span>
-                    <h3>Handmade Heritage</h3>
-                    <p>Every product is hand-crafted with ancestral techniques by self-help group women, celebrating rich Indian traditions and sustainability.</p>
-                </article>
-                <article class="srijani-info-card">
-                    <span class="srijani-card-number">02</span>
-                    <h3>Vision</h3>
-                    <p>To establish economic self-reliance for rural women artisans through fair wages, market access, and dignified vocational livelihoods.</p>
-                </article>
-                <article class="srijani-info-card">
-                    <span class="srijani-card-number">03</span>
-                    <h3>Direct Impact</h3>
-                    <p>100% of proceeds directly empower grassroots women artisan clusters, providing skill upgrades, toolkits, and family healthcare support.</p>
-                </article>
-            </div>
-        </div>
-    </section>
+            <div class="row row-cols-lg-4 row-cols-md-2 row-cols-1 g-4">
+                <div class="col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon bg-icon-amber">
+                            <i class="bi bi-gem"></i>
+                        </div>
+                        <h5 class="pillar-title">100% Handcrafted</h5>
+                        <p class="pillar-desc">Artisanal creations made with ancestral skills, natural fibers, and zero chemical additives.</p>
+                    </div>
+                </div>
 
-    <!-- TRUST STRIP -->
-    <section class="srijani-section py-3">
-        <div class="srijani-container">
-            <div class="srijani-trust-strip">
-                <div>
-                    <b>✦ Curated Craft</b>
-                    <span>Thoughtfully handcrafted products</span>
+                <div class="col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon bg-icon-emerald">
+                            <i class="bi bi-whatsapp"></i>
+                        </div>
+                        <h5 class="pillar-title">Direct WhatsApp Order</h5>
+                        <p class="pillar-desc">No complicated cart checkout. Direct 1-on-1 WhatsApp chat to customize color, size, and address.</p>
+                    </div>
                 </div>
-                <div>
-                    <b>💬 WhatsApp Ordering</b>
-                    <span>Direct chat &amp; order assistance</span>
+
+                <div class="col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon bg-icon-blue">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5 class="pillar-title">Pan-India Delivery</h5>
+                        <p class="pillar-desc">Safe, eco-friendly packaging and reliable courier dispatch directly to your doorstep.</p>
+                    </div>
                 </div>
-                <div>
-                    <b>✓ Fair SHG Wages</b>
-                    <span>Supporting rural women artisans</span>
-                </div>
-                <div>
-                    <b>⌁ Pan-India Delivery</b>
-                    <span>Safe packing &amp; door delivery</span>
+
+                <div class="col">
+                    <div class="pillar-card">
+                        <div class="pillar-icon bg-icon-rose">
+                            <i class="bi bi-heart-fill"></i>
+                        </div>
+                        <h5 class="pillar-title">Empower Rural Women</h5>
+                        <p class="pillar-desc">100% of profit margins go directly to rural women artisans, funding vocational training and family support.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS CATALOGUE SECTION -->
-    <section class="srijani-section" id="products-catalog">
+    <!-- 3. HOW TO ORDER IN 3 EASY STEPS -->
+    <section class="srijani-steps-section py-4">
         <div class="srijani-container">
-            <div class="srijani-section-head d-flex justify-content-between align-items-end flex-wrap gap-3 mb-4">
-                <div>
-                    <span class="srijani-kicker">Curated Catalogue</span>
-                    <h2>Artisan Products &amp; Store</h2>
-                    <p class="srijani-muted mb-0">Discover products one beautiful story at a time. Order directly via WhatsApp.</p>
+            <div class="srijani-steps-box">
+                <div class="text-center mb-4">
+                    <span class="srijani-mini-badge">Simple Ordering Process</span>
+                    <h3 class="fw-bold mt-1" style="font-family: Georgia, serif; color: #5d1c18;">How WhatsApp Ordering Works</h3>
+                </div>
+                <div class="row g-4 text-center">
+                    <div class="col-md-4">
+                        <div class="step-card">
+                            <div class="step-circle">1</div>
+                            <h6 class="fw-bold mb-1">Pick Your Product</h6>
+                            <p class="small text-muted mb-0">Browse our catalogue below and choose your favorite handcrafted item.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="step-card">
+                            <div class="step-circle">2</div>
+                            <h6 class="fw-bold mb-1">Tap "Buy on WhatsApp"</h6>
+                            <p class="small text-muted mb-0">It automatically opens a pre-filled chat with product title and price.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="step-card">
+                            <div class="step-circle">3</div>
+                            <h6 class="fw-bold mb-1">Confirm &amp; Receive</h6>
+                            <p class="small text-muted mb-0">Share your delivery address, pay via UPI, and receive tracking details.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Category & Search Bar -->
-            <div class="srijani-filter-bar mb-4">
-                <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
-                    <div class="d-flex flex-wrap gap-2" id="srijaniFilterPills">
-                        <button type="button" class="srijani-tab-btn active" data-filter="all">
-                            All Products ({{ $products->count() }})
-                        </button>
-                        @foreach($categories as $cat)
-                            <button type="button" class="srijani-tab-btn" data-filter="{{ Str::slug($cat) }}">
-                                {{ $cat }}
+    <!-- 4. PRODUCT CATALOGUE & FILTER SECTION -->
+    <section class="srijani-catalog-section" id="products-catalog">
+        <div class="srijani-container">
+            <!-- Section Header -->
+            <div class="srijani-section-title-wrap text-center mb-4">
+                <span class="srijani-mini-badge">Curated Handcraft Collection</span>
+                <h2 class="srijani-catalog-heading">Artisan Products &amp; Store</h2>
+                <p class="srijani-catalog-sub">Click any item to view specifications or order directly via WhatsApp.</p>
+            </div>
+
+            <!-- Sticky Filter & Search Toolbar -->
+            <div class="srijani-toolbar-box mb-5">
+                <div class="row g-3 align-items-center justify-content-between">
+                    <div class="col-lg-8">
+                        <div class="srijani-category-pills" id="srijaniCategoryNav">
+                            <button type="button" class="srijani-cat-btn active" data-filter="all">
+                                <i class="bi bi-grid-fill me-1"></i> All Items ({{ $products->count() }})
                             </button>
-                        @endforeach
+                            @foreach($categories as $cat)
+                                <button type="button" class="srijani-cat-btn" data-filter="{{ Str::slug($cat) }}">
+                                    {{ $cat }}
+                                </button>
+                            @endforeach
+                        </div>
                     </div>
 
-                    <div class="srijani-search-box">
-                        <i class="bi bi-search"></i>
-                        <input type="text" id="srijaniSearchInput" placeholder="Search crafts, bags, decor...">
+                    <div class="col-lg-4">
+                        <div class="srijani-search-field">
+                            <i class="bi bi-search"></i>
+                            <input type="text" id="srijaniLiveSearch" placeholder="Search craft, bags, kurti, pottery...">
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- PRODUCT FEED (Wide & Grid Responsive Cards) -->
-            <div class="srijani-feed" id="srijaniProductFeed">
+            <!-- PRODUCT CARDS GRID -->
+            <div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 g-4" id="srijaniGrid">
                 @forelse($products as $product)
                     @php
                         $catSlug = Str::slug($product->category ?? 'general');
                     @endphp
-                    <article class="srijani-product-card" data-category="{{ $catSlug }}" data-title="{{ strtolower($product->name) }}">
-                        <div class="srijani-product-image-wrap">
-                            <span class="srijani-product-index">0{{ $loop->iteration ?? 1 }} • {{ $product->category ?? 'Handmade' }}</span>
-                            @if($product->image)
-                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="srijani-product-photo">
-                            @else
-                                <div class="srijani-photo-placeholder">
-                                    <i class="bi bi-bag-heart"></i>
-                                </div>
-                            @endif
-
-                            @if($product->discount_percent)
-                                <span class="srijani-discount-tag">{{ $product->discount_percent }}% OFF</span>
-                            @endif
-                        </div>
-
-                        <div class="srijani-product-body">
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <span class="srijani-price">₹{{ number_format($product->price, 2) }}</span>
-                                @if($product->original_price && $product->original_price > $product->price)
-                                    <del class="text-muted small fw-semibold">MRP ₹{{ number_format($product->original_price, 2) }}</del>
+                    <div class="col srijani-item-col" data-category="{{ $catSlug }}" data-title="{{ strtolower($product->name) }}">
+                        <div class="srijani-craft-card h-100">
+                            <!-- Image Frame -->
+                            <div class="craft-img-frame">
+                                @if($product->image)
+                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="craft-main-photo">
+                                @else
+                                    <div class="craft-no-photo">
+                                        <i class="bi bi-bag-heart"></i>
+                                    </div>
                                 @endif
-                            </div>
 
-                            <h3 class="srijani-product-name">{{ $product->name }}</h3>
-                            
-                            <p class="srijani-product-desc">
-                                {{ $product->short_description ?? Str::limit(strip_tags($product->description), 140) }}
-                            </p>
+                                <!-- Category Badge -->
+                                @if($product->category)
+                                    <span class="craft-badge-cat">
+                                        {{ $product->category }}
+                                    </span>
+                                @endif
 
-                            <div class="srijani-product-actions">
-                                <a href="{{ $product->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="srijani-btn srijani-btn-whatsapp">
-                                    <i class="bi bi-whatsapp"></i>
-                                    <span>Buy on WhatsApp</span>
-                                </a>
-                                <button type="button" class="srijani-btn srijani-btn-secondary" data-bs-toggle="modal" data-bs-target="#srijaniModal{{ $product->id ?? $loop->index }}">
-                                    <span>View Details</span>
+                                <!-- Discount Badge -->
+                                @if($product->discount_percent)
+                                    <span class="craft-badge-discount">
+                                        {{ $product->discount_percent }}% OFF
+                                    </span>
+                                @endif
+
+                                <!-- Quick View Floating Overlay -->
+                                <button type="button" class="craft-quickview-btn" data-bs-toggle="modal" data-bs-target="#quickModal{{ $product->id ?? $loop->index }}" title="Quick Details">
+                                    <i class="bi bi-eye-fill"></i>
                                 </button>
                             </div>
+
+                            <!-- Card Body -->
+                            <div class="craft-card-content">
+                                <div class="d-flex align-items-center justify-content-between mb-2">
+                                    <!-- Star Ratings -->
+                                    <div class="craft-rating">
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <i class="bi bi-star-fill"></i>
+                                        <span>5.0</span>
+                                    </div>
+                                    @if($product->sku)
+                                        <span class="craft-sku">#{{ $product->sku }}</span>
+                                    @endif
+                                </div>
+
+                                <!-- Title -->
+                                <h3 class="craft-title">{{ $product->name }}</h3>
+
+                                <!-- Description -->
+                                <p class="craft-description">
+                                    {{ $product->short_description ?? Str::limit(strip_tags($product->description), 110) }}
+                                </p>
+
+                                <!-- Price Bar -->
+                                <div class="craft-price-bar">
+                                    <div class="price-wrap">
+                                        <span class="price-val">₹{{ number_format($product->price, 2) }}</span>
+                                        @if($product->original_price && $product->original_price > $product->price)
+                                            <del class="price-mrp">₹{{ number_format($product->original_price, 2) }}</del>
+                                        @endif
+                                    </div>
+                                    @if($product->original_price && $product->original_price > $product->price)
+                                        <span class="save-tag">Save ₹{{ number_format($product->original_price - $product->price, 0) }}</span>
+                                    @endif
+                                </div>
+
+                                <!-- Action Buttons -->
+                                <div class="craft-actions-row">
+                                    <a href="{{ $product->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-order">
+                                        <i class="bi bi-whatsapp fs-5"></i>
+                                        <span>Buy on WhatsApp</span>
+                                    </a>
+                                    <button type="button" class="btn-specs-view" data-bs-toggle="modal" data-bs-target="#quickModal{{ $product->id ?? $loop->index }}">
+                                        <i class="bi bi-info-circle"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                    </article>
+                    </div>
 
                     <!-- PRODUCT DETAILS MODAL -->
-                    <div class="modal fade" id="srijaniModal{{ $product->id ?? $loop->index }}" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade" id="quickModal{{ $product->id ?? $loop->index }}" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-lg">
-                            <div class="modal-content srijani-dialog">
+                            <div class="modal-content srijani-modal-box">
                                 <div class="modal-header border-0 pb-0">
-                                    <span class="srijani-kicker">Product Showcase</span>
-                                    <button type="button" class="srijani-close-btn" data-bs-dismiss="modal" aria-label="Close">×</button>
+                                    <span class="srijani-mini-badge">Artisan Craft Details</span>
+                                    <button type="button" class="srijani-modal-close" data-bs-dismiss="modal" aria-label="Close">×</button>
                                 </div>
                                 <div class="modal-body p-4 pt-2">
                                     <div class="row g-4 align-items-center">
                                         <div class="col-md-5">
-                                            <div class="rounded-4 overflow-hidden shadow-sm" style="background:#f3e9dd; height: 320px;">
+                                            <div class="modal-img-container">
                                                 @if($product->image)
-                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="w-100 h-100" style="object-fit: cover;">
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="modal-product-img">
                                                 @else
                                                     <div class="w-100 h-100 d-flex align-items-center justify-content-center fs-1 text-muted">
                                                         <i class="bi bi-bag-heart"></i>
@@ -198,32 +320,35 @@
                                             </div>
                                         </div>
                                         <div class="col-md-7">
-                                            <span class="srijani-card-number mb-1 d-block">{{ $product->category ?? 'Handicrafts' }}</span>
-                                            <h3 class="srijani-product-name mb-2" style="font-size: 1.6rem;">{{ $product->name }}</h3>
+                                            <span class="badge bg-light text-dark border px-3 py-1 rounded-pill mb-2">{{ $product->category ?? 'Handmade Craft' }}</span>
+                                            <h3 class="modal-title mb-2">{{ $product->name }}</h3>
                                             
                                             <div class="d-flex align-items-baseline gap-2 mb-3">
-                                                <span class="srijani-price" style="font-size: 1.1rem; padding: 6px 16px;">₹{{ number_format($product->price, 2) }}</span>
+                                                <span class="modal-price">₹{{ number_format($product->price, 2) }}</span>
                                                 @if($product->original_price && $product->original_price > $product->price)
-                                                    <del class="text-muted">₹{{ number_format($product->original_price, 2) }}</del>
+                                                    <del class="text-muted fs-6">₹{{ number_format($product->original_price, 2) }}</del>
                                                     <span class="badge bg-danger text-white rounded-pill px-2 py-1 small">{{ $product->discount_percent }}% OFF</span>
                                                 @endif
                                             </div>
 
-                                            <div class="srijani-modal-description mb-4">
+                                            <div class="modal-desc-text mb-4">
                                                 {{ $product->description ?? $product->short_description }}
                                             </div>
 
-                                            <div class="p-3 rounded-4 mb-3" style="background: #fff8eb; border: 1px solid rgba(229,138,23,.25); color: #783f04; font-size: 0.85rem;">
-                                                <i class="bi bi-shield-check text-warning me-1"></i>
-                                                <strong>Ordering Process:</strong> Click below to start a WhatsApp chat with our coordinator. We will confirm color/size preferences, provide shipping cost, and share UPI payment options.
+                                            <div class="modal-assurance-box mb-4">
+                                                <i class="bi bi-shield-check text-success fs-4"></i>
+                                                <div>
+                                                    <strong class="d-block text-dark">Verified SHG Quality</strong>
+                                                    <small class="text-muted">Chat with us on WhatsApp for size choices, custom colors, bulk inquiry, and UPI QR code.</small>
+                                                </div>
                                             </div>
 
                                             <div class="d-flex gap-2 flex-wrap">
-                                                <a href="{{ $product->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="srijani-btn srijani-btn-whatsapp flex-grow-1 justify-content-center">
-                                                    <i class="bi bi-whatsapp"></i>
-                                                    <span>Order on WhatsApp</span>
+                                                <a href="{{ $product->whatsapp_url }}" target="_blank" rel="noopener noreferrer" class="btn-whatsapp-order flex-grow-1 justify-content-center py-2 px-4">
+                                                    <i class="bi bi-whatsapp fs-5"></i>
+                                                    <span>Order via WhatsApp</span>
                                                 </a>
-                                                <button type="button" class="srijani-btn srijani-btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-light border rounded-pill px-4" data-bs-dismiss="modal">Close</button>
                                             </div>
                                         </div>
                                     </div>
@@ -232,33 +357,33 @@
                         </div>
                     </div>
                 @empty
-                    <div class="srijani-empty-box">
-                        <i class="bi bi-bag-x fs-1 mb-2 d-block text-muted"></i>
-                        <h4>No Products Found</h4>
-                        <p class="text-muted">Our artisans are creating new batches. Please message us directly on WhatsApp for custom inquiries.</p>
+                    <div class="col-12 text-center py-5">
+                        <div class="srijani-empty-notice">
+                            <i class="bi bi-bag-x fs-1 text-muted mb-3 d-block opacity-50"></i>
+                            <h4 class="fw-bold text-dark">No Products Available Currently</h4>
+                            <p class="text-muted">Our artisans are creating new batches. Please contact us on WhatsApp for custom orders.</p>
+                        </div>
                     </div>
                 @endforelse
             </div>
         </div>
     </section>
 
-    <!-- CUSTOM & BULK ORDERS BANNER -->
-    <section class="srijani-section pb-5">
+    <!-- 5. CORPORATE & BULK ORDERS SHOWCASE -->
+    <section class="srijani-bulk-section pb-5">
         <div class="srijani-container">
-            <div class="srijani-bulk-card">
+            <div class="srijani-bulk-banner">
                 <div class="row align-items-center gy-4">
                     <div class="col-lg-8">
-                        <span class="srijani-kicker text-warning">Bulk &amp; Corporate Orders</span>
-                        <h2 class="text-white mt-1 mb-2" style="font-family: Georgia, serif; font-size: clamp(1.8rem, 3.5vw, 2.4rem);">
-                            Custom Corporate Gifting &amp; Event Supplies
-                        </h2>
-                        <p class="text-white-50 mb-0" style="line-height: 1.7;">
-                            We craft customized eco-friendly conference bags, jute folders, handmade mementos, festive gifting hampers, and pottery decor customized with your organization's branding.
+                        <span class="srijani-mini-badge bg-warning text-dark mb-2">Corporate Gifting &amp; Bulk Orders</span>
+                        <h2 class="bulk-heading">Customized Eco-Friendly Gifting &amp; Event Kits</h2>
+                        <p class="bulk-sub">
+                            Looking for sustainable conference bags, custom jute files, festive hampers, or handmade terracotta gifts with your organization logo? Our women SHGs produce customized bulk orders with high precision and fair pricing.
                         </p>
                     </div>
                     <div class="col-lg-4 text-lg-end">
-                        <a href="https://wa.me/919415451910?text={{ urlencode('Hello Matri Seva Samiti, I would like to inquire about Bulk / Corporate handcrafted product orders.') }}" target="_blank" rel="noopener noreferrer" class="srijani-btn srijani-btn-gold" style="padding: 14px 26px; font-size: 1rem;">
-                            <i class="bi bi-whatsapp fs-5"></i>
+                        <a href="https://wa.me/{{ $waPhone }}?text={{ urlencode('Hello ' . config('site.site_name', 'Matri Seva Samiti') . ', I would like to inquire about Bulk / Corporate product orders.') }}" target="_blank" rel="noopener noreferrer" class="bulk-cta-btn">
+                            <i class="bi bi-whatsapp fs-4"></i>
                             <span>Inquire on WhatsApp</span>
                         </a>
                     </div>
@@ -268,452 +393,612 @@
     </section>
 </div>
 
-<!-- MATRI SRIJANI DEDICATED STYLESHEET (Replicating exact matrikalamatrisrijani design tokens) -->
+<!-- ULTRA MODERN CSS STYLING (Inspired by Matrikala Matrisrijani & Luxury Indian Craft Aesthetics) -->
 <style>
 :root {
-    --srijani-maroon: #7d241f;
-    --srijani-maroon-2: #a7352d;
-    --srijani-saffron: #e58a17;
-    --srijani-gold: #c99a3b;
-    --srijani-cream: #fffaf2;
-    --srijani-paper: #fffdf9;
-    --srijani-ink: #2d211d;
-    --srijani-muted: #725f56;
-    --srijani-line: rgba(125, 36, 31, 0.13);
-    --srijani-shadow: 0 22px 70px rgba(61, 35, 20, 0.12);
-    --srijani-radius: 26px;
+    --mss-maroon: #7d241f;
+    --mss-maroon-dark: #581814;
+    --mss-saffron: #e58a17;
+    --mss-gold: #c99a3b;
+    --mss-cream: #fffaf2;
+    --mss-paper: #ffffff;
+    --mss-ink: #2b1d19;
+    --mss-muted: #736159;
+    --mss-line: rgba(125, 36, 31, 0.12);
+    --mss-shadow: 0 20px 60px rgba(61, 35, 20, 0.10);
+    --mss-radius: 26px;
 }
 
-.srijani-page-wrapper {
-    background-color: var(--srijani-cream);
-    background-image: radial-gradient(circle at 15% 20%, rgba(229, 138, 23, 0.08), transparent 30%), radial-gradient(circle at 85% 70%, rgba(125, 36, 31, 0.07), transparent 35%);
-    color: var(--srijani-ink);
+.srijani-master-wrapper {
+    background-color: var(--mss-cream);
+    background-image: 
+        radial-gradient(circle at 10% 15%, rgba(229, 138, 23, 0.08), transparent 30%),
+        radial-gradient(circle at 90% 45%, rgba(125, 36, 31, 0.08), transparent 35%),
+        radial-gradient(circle at 30% 85%, rgba(201, 154, 59, 0.06), transparent 30%);
+    color: var(--mss-ink);
     position: relative;
     overflow-x: hidden;
-    padding-bottom: 40px;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 .srijani-container {
-    width: min(1140px, 92%);
+    width: min(1180px, 92%);
     margin: auto;
 }
 
-/* Floating Ambient Orbs */
-.srijani-floating-orb {
+/* Ambient Glowing Orbs */
+.srijani-ambient-glow {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
-    filter: blur(40px);
-    opacity: 0.22;
+    filter: blur(60px);
+    opacity: 0.18;
     pointer-events: none;
     z-index: 0;
 }
-.srijani-floating-orb.orb-a {
-    left: -80px;
-    top: 15%;
-    background: var(--srijani-saffron);
-}
-.srijani-floating-orb.orb-b {
-    right: -90px;
-    top: 55%;
-    background: var(--srijani-maroon);
-}
+.glow-1 { top: 5%; left: -80px; background: var(--mss-saffron); }
+.glow-2 { top: 40%; right: -90px; background: var(--mss-maroon); }
+.glow-3 { bottom: 10%; left: 20%; background: var(--mss-gold); }
 
-/* Typography & Kickers */
-.srijani-kicker {
-    display: inline-flex;
-    color: var(--srijani-maroon);
-    font-weight: 900;
-    letter-spacing: 0.09em;
-    text-transform: uppercase;
-    font-size: 0.74rem;
-}
-.srijani-muted {
-    color: var(--srijani-muted);
-    line-height: 1.8;
-}
-
-/* Buttons */
-.srijani-btn {
-    border: 0;
-    border-radius: 999px;
-    padding: 12px 22px;
-    font-weight: 800;
-    font-size: 0.92rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: 0.25s transform, 0.25s box-shadow, 0.25s background-color;
-    cursor: pointer;
-}
-.srijani-btn:hover {
-    transform: translateY(-3px);
-}
-.srijani-btn-primary {
-    background: linear-gradient(135deg, var(--srijani-maroon), var(--srijani-maroon-2));
-    color: #fff;
-    box-shadow: 0 8px 24px rgba(125, 36, 31, 0.25);
-}
-.srijani-btn-gold {
-    background: linear-gradient(135deg, var(--srijani-saffron), #f0b238);
-    color: #2e1b0e;
-    box-shadow: 0 8px 25px rgba(229, 138, 23, 0.25);
-}
-.srijani-btn-gold:hover {
-    color: #2e1b0e;
-    box-shadow: 0 12px 30px rgba(229, 138, 23, 0.35);
-}
-.srijani-btn-secondary {
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid var(--srijani-line);
-    color: var(--srijani-maroon);
-    box-shadow: 0 4px 15px rgba(61, 35, 20, 0.06);
-}
-.srijani-btn-secondary:hover {
-    background: #fff;
-    color: var(--srijani-maroon-2);
-}
-.srijani-btn-whatsapp {
-    background: #25D366;
-    color: #ffffff;
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
-}
-.srijani-btn-whatsapp:hover {
-    background: #1fa851;
-    color: #ffffff;
-    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.4);
-}
-
-/* Hero Section */
-.srijani-hero {
-    padding: 40px 0 30px;
+/* 1. HERO GLASS BOX */
+.srijani-hero-section {
+    padding: 40px 0 25px;
     position: relative;
     z-index: 1;
 }
-.srijani-hero-card {
-    position: relative;
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(16px);
+.srijani-hero-glass-box {
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(18px);
     border: 1px solid rgba(255, 255, 255, 0.95);
-    box-shadow: var(--srijani-shadow);
+    box-shadow: var(--mss-shadow);
     border-radius: 38px;
-    padding: 46px;
-    display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
-    gap: 30px;
-    align-items: center;
+    padding: 50px;
+    position: relative;
     overflow: hidden;
 }
-.srijani-hero-title {
-    font: 700 clamp(2.6rem, 5.5vw, 4.2rem)/1.0 Georgia, serif;
-    margin: 14px 0;
-    color: #5d1c18;
-    letter-spacing: -0.03em;
+.srijani-live-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff3e0;
+    border: 1px solid rgba(229, 138, 23, 0.3);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 800;
+    color: #a04c00;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
 }
-.srijani-hero-desc {
-    color: var(--srijani-muted);
+.srijani-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    animation: pulseGlow 1.8s infinite;
+}
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+.srijani-hero-headline {
+    font: 700 clamp(2.4rem, 4.8vw, 3.8rem)/1.1 Georgia, serif;
+    color: var(--mss-maroon-dark);
+    margin: 12px 0 16px;
+    letter-spacing: -0.02em;
+}
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--mss-maroon), #d97706);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.srijani-hero-subtext {
+    color: var(--mss-muted);
     font-size: 1.05rem;
-    line-height: 1.8;
-    max-width: 580px;
+    line-height: 1.75;
     margin-bottom: 24px;
 }
-.srijani-hero-actions {
-    display: flex;
-    gap: 12px;
+
+/* CTA Buttons */
+.srijani-cta-gold {
+    background: linear-gradient(135deg, #e58a17, #f59e0b);
+    color: #2b1708 !important;
+    font-weight: 800;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(229, 138, 23, 0.3);
+    transition: 0.25s all;
+    display: inline-flex;
     align-items: center;
+}
+.srijani-cta-gold:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(229, 138, 23, 0.4);
+}
+
+.srijani-cta-whatsapp {
+    background: #25D366;
+    color: #ffffff !important;
+    font-weight: 800;
+    padding: 13px 26px;
+    border-radius: 999px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    transition: 0.25s all;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.srijani-cta-whatsapp:hover {
+    background: #1eb855;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(37, 211, 102, 0.4);
+}
+
+/* Metrics */
+.srijani-hero-metrics {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 24px;
     flex-wrap: wrap;
 }
-.srijani-hero-stats {
+.metric-item {
     display: flex;
-    gap: 22px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-    color: var(--srijani-muted);
-    font-size: 0.84rem;
+    flex-direction: column;
 }
-.srijani-hero-stats b {
-    color: var(--srijani-maroon);
-    margin-right: 4px;
+.metric-num {
+    font: 800 1.35rem Georgia, serif;
+    color: var(--mss-maroon);
 }
-.srijani-hero-art {
-    display: flex;
+.metric-label {
+    font-size: 0.78rem;
+    color: var(--mss-muted);
+    font-weight: 600;
+}
+.metric-divider {
+    width: 1px;
+    height: 30px;
+    background: var(--mss-line);
+}
+
+/* Hero Emblem & Halo Art */
+.srijani-hero-visual {
+    position: relative;
+    display: inline-flex;
     justify-content: center;
-    position: relative;
-    min-height: 280px;
     align-items: center;
+    padding: 20px;
 }
-.srijani-hero-logo-box {
-    position: relative;
-    z-index: 2;
-    background: #ffffff;
-    padding: 24px;
-    border-radius: 32px;
-    box-shadow: 0 20px 45px rgba(90, 35, 20, 0.15);
-}
-.srijani-hero-img {
-    width: min(200px, 60vw);
-    height: auto;
-    object-fit: contain;
-    display: block;
-}
-.srijani-hero-ring {
+.rotating-halo {
     position: absolute;
     width: 290px;
     height: 290px;
     border-radius: 50%;
-    border: 1px dashed rgba(125, 36, 31, 0.25);
-    box-shadow: 0 0 0 20px rgba(229, 138, 23, 0.05), 0 0 0 40px rgba(125, 36, 31, 0.03);
+    border: 2px dashed rgba(125, 36, 31, 0.25);
+    box-shadow: 0 0 0 18px rgba(229, 138, 23, 0.06), 0 0 0 36px rgba(125, 36, 31, 0.03);
+    animation: rotateSlow 24s linear infinite;
+}
+@keyframes rotateSlow {
+    to { transform: rotate(360deg); }
+}
+.srijani-hero-emblem-card {
+    position: relative;
+    z-index: 2;
+    background: #ffffff;
+    border-radius: 34px;
+    padding: 32px;
+    box-shadow: 0 20px 50px rgba(90, 35, 20, 0.16);
+    border: 1px solid rgba(125, 36, 31, 0.1);
+}
+.srijani-emblem-img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+}
+.floating-badge-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 3;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--mss-maroon);
+    border: 1px solid var(--mss-line);
+}
+.floating-badge-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    background: #ffffff;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: #1a7f37;
+    border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
-/* Info Grid (3-cards) */
-.srijani-section {
-    padding: 30px 0;
+/* 2. PILLAR CARDS */
+.srijani-pillars-section {
+    padding: 35px 0 20px;
     position: relative;
     z-index: 1;
 }
-.srijani-section-head h2 {
-    font: 700 clamp(1.9rem, 3.5vw, 2.6rem) Georgia, serif;
-    color: #5d1c18;
-    margin: 4px 0 10px;
+.pillar-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--mss-line);
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(61, 35, 20, 0.05);
+    transition: 0.3s transform, 0.3s box-shadow;
+    height: 100%;
 }
-.srijani-info-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+.pillar-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(61, 35, 20, 0.1);
 }
-.srijani-info-card {
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid var(--srijani-line);
-    border-radius: var(--srijani-radius);
-    box-shadow: 0 12px 35px rgba(61, 35, 20, 0.06);
-    padding: 26px;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.25s ease;
+.pillar-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin-bottom: 16px;
 }
-.srijani-info-card:hover {
-    transform: translateY(-4px);
+.bg-icon-amber { background: #fef3c7; color: #d97706; }
+.bg-icon-emerald { background: #d1fae5; color: #059669; }
+.bg-icon-blue { background: #dbeafe; color: #2563eb; }
+.bg-icon-rose { background: #ffe4e6; color: #e11d48; }
+.pillar-title {
+    font: 700 1.15rem Georgia, serif;
+    color: var(--mss-maroon-dark);
+    margin-bottom: 8px;
 }
-.srijani-info-card h3 {
-    margin: 8px 0;
-    color: var(--srijani-maroon);
-    font: 700 1.25rem Georgia, serif;
-}
-.srijani-info-card p {
-    color: var(--srijani-muted);
-    font-size: 0.92rem;
-    line-height: 1.65;
+.pillar-desc {
+    color: var(--mss-muted);
+    font-size: 0.88rem;
+    line-height: 1.6;
     margin: 0;
 }
-.srijani-card-number {
+
+/* 3. ORDERING STEPS */
+.srijani-steps-box {
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255, 248, 238, 0.95));
+    border: 1px solid var(--mss-line);
+    border-radius: 28px;
+    padding: 30px;
+    box-shadow: 0 12px 35px rgba(61, 35, 20, 0.06);
+}
+.srijani-mini-badge {
+    display: inline-flex;
+    background: rgba(125, 36, 31, 0.1);
+    color: var(--mss-maroon);
+    font-weight: 800;
     font-size: 0.72rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: var(--srijani-saffron);
+    padding: 4px 12px;
+    border-radius: 999px;
     text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+.step-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--mss-maroon);
+    color: #ffffff;
+    font: 800 1.2rem Georgia, serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+    box-shadow: 0 6px 16px rgba(125, 36, 31, 0.25);
 }
 
-/* Trust Strip */
-.srijani-trust-strip {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 14px;
+/* 4. PRODUCT CATALOGUE & FILTER BAR */
+.srijani-catalog-section {
+    padding: 45px 0 30px;
+    position: relative;
+    z-index: 1;
 }
-.srijani-trust-strip > div {
-    padding: 18px 16px;
-    border: 1px solid var(--srijani-line);
-    border-radius: 20px;
-    background: rgba(255, 255, 255, 0.85);
-    box-shadow: 0 10px 25px rgba(61, 35, 20, 0.05);
-    display: grid;
-    gap: 4px;
+.srijani-catalog-heading {
+    font: 700 clamp(2rem, 4vw, 2.8rem) Georgia, serif;
+    color: var(--mss-maroon-dark);
+    margin: 8px 0 6px;
 }
-.srijani-trust-strip b {
-    color: var(--srijani-maroon);
-    font-size: 0.92rem;
-}
-.srijani-trust-strip span {
-    color: var(--srijani-muted);
-    font-size: 0.76rem;
-    line-height: 1.4;
+.srijani-catalog-sub {
+    color: var(--mss-muted);
+    font-size: 1rem;
 }
 
 /* Filter Bar */
-.srijani-filter-bar {
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid var(--srijani-line);
-    border-radius: 20px;
-    padding: 14px 18px;
-    box-shadow: 0 8px 24px rgba(61, 35, 20, 0.04);
+.srijani-toolbar-box {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid var(--mss-line);
+    border-radius: 24px;
+    padding: 14px 20px;
+    box-shadow: 0 8px 30px rgba(61, 35, 20, 0.05);
 }
-.srijani-tab-btn {
-    border: 1px solid var(--srijani-line);
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--srijani-maroon);
+.srijani-category-pills {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.srijani-cat-btn {
+    border: 1px solid var(--mss-line);
+    background: #ffffff;
+    color: var(--mss-maroon);
     padding: 8px 18px;
     border-radius: 999px;
     font-weight: 800;
-    font-size: 0.88rem;
+    font-size: 0.86rem;
     transition: 0.2s all;
     cursor: pointer;
 }
-.srijani-tab-btn:hover {
-    background: rgba(125, 36, 31, 0.08);
+.srijani-cat-btn:hover {
+    background: #fdf6ec;
 }
-.srijani-tab-btn.active {
-    background: var(--srijani-maroon);
+.srijani-cat-btn.active {
+    background: var(--mss-maroon);
     color: #ffffff;
-    border-color: var(--srijani-maroon);
+    border-color: var(--mss-maroon);
     box-shadow: 0 4px 14px rgba(125, 36, 31, 0.25);
 }
-.srijani-search-box {
+.srijani-search-field {
     display: flex;
     align-items: center;
-    gap: 8px;
-    background: #ffffff;
-    border: 1px solid #ddcec2;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
     border-radius: 999px;
-    padding: 6px 14px;
-    min-width: 250px;
+    padding: 8px 16px;
 }
-.srijani-search-box input {
+.srijani-search-field input {
     border: 0;
-    outline: 0;
-    font-size: 0.88rem;
     background: transparent;
+    outline: none;
+    font-size: 0.88rem;
     width: 100%;
 }
-.srijani-search-box i {
-    color: var(--srijani-muted);
+.srijani-search-field i {
+    color: var(--mss-muted);
 }
 
-/* Product Feed & Cards */
-.srijani-feed {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 24px;
-}
-.srijani-product-card {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid var(--srijani-line);
-    border-radius: 30px;
-    box-shadow: var(--srijani-shadow);
+/* PRODUCT CARD STYLES */
+.srijani-craft-card {
+    background: #ffffff;
+    border: 1px solid var(--mss-line);
+    border-radius: 28px;
+    box-shadow: 0 12px 35px rgba(61, 35, 20, 0.07);
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: 0.3s transform, 0.3s box-shadow;
+    transition: 0.35s transform, 0.35s box-shadow;
 }
-.srijani-product-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 30px 70px rgba(61, 35, 20, 0.16);
+.srijani-craft-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 60px rgba(61, 35, 20, 0.16);
 }
-.srijani-product-image-wrap {
+.craft-img-frame {
     position: relative;
-    height: 270px;
+    height: 260px;
+    background: #f4ede4;
     overflow: hidden;
-    background: #f3e9dd;
 }
-.srijani-product-photo {
+.craft-main-photo {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: 0.5s transform;
+    transition: 0.6s transform ease;
 }
-.srijani-product-card:hover .srijani-product-photo {
-    transform: scale(1.05);
+.srijani-craft-card:hover .craft-main-photo {
+    transform: scale(1.08);
 }
-.srijani-photo-placeholder {
+.craft-no-photo {
     width: 100%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 3rem;
-    color: var(--srijani-muted);
+    font-size: 3.5rem;
+    color: var(--mss-muted);
     opacity: 0.3;
 }
-.srijani-product-index {
+.craft-badge-cat {
     position: absolute;
-    left: 14px;
     top: 14px;
-    background: rgba(255, 255, 255, 0.9);
+    left: 14px;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(8px);
-    padding: 6px 12px;
+    padding: 5px 12px;
     border-radius: 999px;
-    font-size: 0.72rem;
-    font-weight: 900;
-    color: var(--srijani-maroon);
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--mss-maroon);
     box-shadow: 0 4px 10px rgba(0,0,0,0.06);
 }
-.srijani-discount-tag {
+.craft-badge-discount {
     position: absolute;
-    right: 14px;
     top: 14px;
-    background: var(--srijani-maroon);
+    right: 14px;
+    background: #e11d48;
     color: #ffffff;
-    padding: 6px 10px;
+    padding: 5px 10px;
     border-radius: 999px;
     font-size: 0.72rem;
     font-weight: 900;
 }
-.srijani-product-body {
+.craft-quickview-btn {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--mss-maroon);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.25s all;
+    opacity: 0.9;
+}
+.craft-quickview-btn:hover {
+    transform: scale(1.15);
+    background: #ffffff;
+}
+
+.craft-card-content {
     padding: 24px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     flex-grow: 1;
 }
-.srijani-product-name {
-    font: 700 1.35rem Georgia, serif;
-    color: #54201b;
+.craft-rating {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    color: #f59e0b;
+    font-size: 0.8rem;
+}
+.craft-rating span {
+    color: var(--mss-muted);
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-left: 4px;
+}
+.craft-sku {
+    font-size: 0.72rem;
+    color: var(--mss-muted);
+    font-weight: 600;
+}
+.craft-title {
+    font: 700 1.28rem Georgia, serif;
+    color: var(--mss-maroon-dark);
     margin: 0 0 8px;
     line-height: 1.35;
+    min-height: 48px;
 }
-.srijani-price {
-    display: inline-flex;
-    width: max-content;
-    padding: 6px 12px;
-    border-radius: 999px;
-    background: #fff0d6;
-    color: #9b5100;
-    font-weight: 900;
-    font-size: 1.15rem;
-}
-.srijani-product-desc {
-    color: var(--srijani-muted);
+.craft-description {
+    color: var(--mss-muted);
+    font-size: 0.86rem;
     line-height: 1.6;
-    font-size: 0.88rem;
     margin-bottom: 18px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
-}
-.srijani-product-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    border-top: 1px solid var(--srijani-line);
-    padding-top: 16px;
+    min-height: 40px;
 }
 
-/* Modal Dialog Styling */
-.srijani-dialog {
-    background: #fffaf6 !important;
-    border-radius: 30px !important;
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.25) !important;
-    border: 1px solid var(--srijani-line) !important;
+/* Price Bar */
+.craft-price-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--mss-line);
 }
-.srijani-close-btn {
+.price-wrap {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+.price-val {
+    font: 800 1.45rem Georgia, serif;
+    color: var(--mss-maroon);
+}
+.price-mrp {
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+.save-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #16a34a;
+    background: #dcfce7;
+    padding: 3px 8px;
+    border-radius: 6px;
+}
+
+/* Actions */
+.craft-actions-row {
+    display: flex;
+    gap: 8px;
+}
+.btn-whatsapp-order {
+    flex: 1;
+    background: linear-gradient(135deg, #25D366, #128C7E);
+    color: #ffffff !important;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-weight: 800;
+    font-size: 0.92rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 6px 18px rgba(37, 211, 102, 0.28);
+    transition: 0.25s all;
+}
+.btn-whatsapp-order:hover {
+    background: linear-gradient(135deg, #1fa851, #0d7065);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(37, 211, 102, 0.38);
+}
+.btn-specs-view {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid var(--mss-line);
+    background: #f8fafc;
+    color: var(--mss-maroon);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.2s all;
+}
+.btn-specs-view:hover {
+    background: #ffffff;
+    transform: scale(1.08);
+}
+
+/* MODAL STYLING */
+.srijani-modal-box {
+    background: #fffcf8 !important;
+    border-radius: 32px !important;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, 0.28) !important;
+    border: 1px solid var(--mss-line) !important;
+}
+.srijani-modal-close {
     width: 36px;
     height: 36px;
     border-radius: 50%;
     border: 0;
     background: #f2e8df;
-    color: var(--srijani-maroon);
+    color: var(--mss-maroon);
     font-size: 1.4rem;
     line-height: 1;
     display: flex;
@@ -721,63 +1006,115 @@
     justify-content: center;
     cursor: pointer;
 }
-.srijani-modal-description {
-    color: var(--srijani-muted);
-    font-size: 0.92rem;
+.modal-img-container {
+    height: 320px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #f3e9dd;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+.modal-product-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.modal-title {
+    font: 700 1.65rem Georgia, serif;
+    color: var(--mss-maroon-dark);
+}
+.modal-price {
+    font: 800 1.7rem Georgia, serif;
+    color: #16a34a;
+}
+.modal-desc-text {
+    color: var(--mss-muted);
+    font-size: 0.9rem;
     line-height: 1.7;
     white-space: pre-line;
-    max-height: 180px;
+    max-height: 170px;
     overflow-y: auto;
 }
-
-/* Bulk Card */
-.srijani-bulk-card {
-    background: linear-gradient(135deg, #5d1c18 0%, #872822 100%);
-    border-radius: 36px;
-    padding: 44px;
-    box-shadow: 0 20px 60px rgba(93, 28, 24, 0.25);
+.modal-assurance-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-radius: 16px;
+    padding: 12px 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
 }
 
-.srijani-empty-box {
-    text-align: center;
-    padding: 48px 20px;
-    border: 2px dashed var(--srijani-line);
+/* 5. BULK BANNER */
+.srijani-bulk-banner {
+    background: linear-gradient(135deg, #581814 0%, #872822 60%, #b43e35 100%);
+    border-radius: 36px;
+    padding: 46px;
+    box-shadow: 0 20px 60px rgba(88, 24, 20, 0.28);
+    position: relative;
+    overflow: hidden;
+}
+.bulk-heading {
+    font: 700 clamp(1.8rem, 3.2vw, 2.5rem) Georgia, serif;
+    color: #ffffff;
+    margin: 8px 0;
+}
+.bulk-sub {
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.bulk-cta-btn {
+    background: linear-gradient(135deg, #e58a17, #f59e0b);
+    color: #2b1708 !important;
+    font-weight: 800;
+    padding: 15px 30px;
+    border-radius: 999px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+}
+.bulk-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+}
+
+.srijani-empty-notice {
+    background: #ffffff;
+    border: 2px dashed var(--mss-line);
     border-radius: 28px;
-    color: var(--srijani-muted);
-    background: rgba(255, 255, 255, 0.58);
-    grid-column: 1 / -1;
+    padding: 50px 20px;
+    max-width: 600px;
+    margin: auto;
 }
 
 /* Responsive */
-@media (max-width: 900px) {
-    .srijani-hero-card {
-        grid-template-columns: 1fr;
+@media (max-width: 991px) {
+    .srijani-hero-glass-box {
         padding: 30px;
     }
-    .srijani-hero-art {
-        order: -1;
-        min-height: 200px;
+    .srijani-hero-visual {
+        margin-top: 20px;
     }
-    .srijani-hero-ring {
+    .rotating-halo {
         width: 220px;
         height: 220px;
     }
-    .srijani-info-grid {
-        grid-template-columns: 1fr;
-    }
-    .srijani-trust-strip {
-        grid-template-columns: repeat(2, 1fr);
-    }
 }
-@media (max-width: 540px) {
-    .srijani-trust-strip {
-        grid-template-columns: 1fr;
+@media (max-width: 767px) {
+    .srijani-hero-glass-box {
+        padding: 24px;
+        border-radius: 28px;
     }
-    .srijani-feed {
-        grid-template-columns: 1fr;
+    .srijani-bulk-banner {
+        padding: 28px;
+        border-radius: 28px;
     }
-    .srijani-bulk-card {
-        padding: 26px;
+    .srijani-category-pills {
+        overflow-x: auto;
+        padding-bottom: 6px;
     }
 }
 </style>
@@ -785,43 +1122,43 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    const tabBtns = document.querySelectorAll('.srijani-tab-btn');
-    const searchInput = document.getElementById('srijaniSearchInput');
-    const productCards = document.querySelectorAll('.srijani-product-card');
+    const catBtns = document.querySelectorAll('.srijani-cat-btn');
+    const searchInput = document.getElementById('srijaniLiveSearch');
+    const itemCols = document.querySelectorAll('.srijani-item-col');
 
-    let activeFilter = 'all';
-    let searchKeyword = '';
+    let currentCat = 'all';
+    let currentSearch = '';
 
-    function filterCatalog() {
-        productCards.forEach(card => {
-            const cat = card.getAttribute('data-category') || '';
-            const title = card.getAttribute('data-title') || '';
+    function applyFilters() {
+        itemCols.forEach(col => {
+            const cat = col.getAttribute('data-category') || '';
+            const title = col.getAttribute('data-title') || '';
 
-            const matchesFilter = (activeFilter === 'all' || cat === activeFilter);
-            const matchesSearch = (searchKeyword === '' || title.includes(searchKeyword));
+            const matchesCategory = (currentCat === 'all' || cat === currentCat);
+            const matchesQuery = (currentSearch === '' || title.includes(currentSearch));
 
-            if (matchesFilter && matchesSearch) {
-                card.style.display = 'flex';
+            if (matchesCategory && matchesQuery) {
+                col.style.display = 'block';
             } else {
-                card.style.display = 'none';
+                col.style.display = 'none';
             }
         });
     }
 
-    tabBtns.forEach(btn => {
+    catBtns.forEach(btn => {
         btn.addEventListener('click', function() {
-            tabBtns.forEach(b => b.classList.remove('active'));
+            catBtns.forEach(b => b.classList.remove('active'));
             this.classList.add('active');
 
-            activeFilter = this.getAttribute('data-filter');
-            filterCatalog();
+            currentCat = this.getAttribute('data-filter');
+            applyFilters();
         });
     });
 
     if (searchInput) {
         searchInput.addEventListener('input', function(e) {
-            searchKeyword = e.target.value.toLowerCase().trim();
-            filterCatalog();
+            currentSearch = e.target.value.toLowerCase().trim();
+            applyFilters();
         });
     }
 });

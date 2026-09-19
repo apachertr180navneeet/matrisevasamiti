@@ -182,6 +182,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('/home-sections', [AdminSettingController::class, 'updateHomeSections'])->name('home-sections.update');
 
     // Leads & Communication
+    Route::post('/contacts/bulk-delete', [AdminContactInboxController::class, 'bulkDestroy'])->name('contacts.bulk-delete');
     Route::get('/contacts', [AdminContactInboxController::class, 'index'])->name('contacts.index');
     Route::get('/contacts/{contact}', [AdminContactInboxController::class, 'show'])->name('contacts.show');
     Route::post('/contacts/{contact}/status', [AdminContactInboxController::class, 'updateStatus'])->name('contacts.status');
