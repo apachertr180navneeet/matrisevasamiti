@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\CareerController as AdminCareerController;
 use App\Http\Controllers\Admin\ContactInboxController as AdminContactInboxController;
 use App\Http\Controllers\Admin\VolunteerAdminController as AdminVolunteerController;
 use App\Http\Controllers\Admin\DonationAdminController as AdminDonationController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +43,7 @@ Route::get('/impact', [PageController::class, 'impact'])->name('impact');
 Route::get('/certificate', [PageController::class, 'certificate'])->name('certificate');
 Route::get('/grants', [PageController::class, 'grants'])->name('grants');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
+Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::redirect('/ngo-news', '/news', 301);
@@ -199,6 +201,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('causes', AdminCauseController::class);
     Route::resource('programs', AdminProgramController::class);
     Route::resource('projects', AdminProjectController::class);
+    Route::resource('products', AdminProductController::class);
     Route::resource('news', AdminNewsEventController::class);
     Route::resource('gallery', AdminGalleryController::class);
     Route::resource('members', AdminMemberController::class);

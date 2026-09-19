@@ -18,6 +18,7 @@ use App\Models\Faq;
 use App\Models\Certificate;
 use App\Models\Grant;
 use App\Models\Career;
+use App\Models\Product;
 
 class DatabaseSeeder extends Seeder
 {
@@ -982,6 +983,94 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($defaultCareers as $career) {
             Career::create($career);
+        }
+
+        // 16. Handcrafted & Artisan Products (SHG Empowerment Store)
+        if (Product::count() === 0) {
+            $defaultProducts = [
+                [
+                    'name' => 'Handcrafted Eco-Friendly Jute Tote Bag',
+                    'slug' => 'handcrafted-eco-friendly-jute-tote-bag',
+                    'price' => 349.00,
+                    'original_price' => 499.00,
+                    'category' => 'Jute & Bags',
+                    'sku' => 'MSS-JUTE-001',
+                    'image' => 'images/project1.jpeg',
+                    'short_description' => 'Premium durable tote bag hand-stitched by rural women artisans from biodegradable natural jute fibers.',
+                    'description' => "Our Eco-Friendly Jute Tote Bag is 100% biodegradable, stylish, and highly durable. Hand-crafted with reinforced cotton webbed handles and sturdy stitching by self-help group women in Prayagraj.\n\n• Material: 100% Pure Natural Golden Jute\n• Size: 15\" x 14\" x 4\"\n• Capacity: Holds up to 10kg with ease\n• Handcrafted by: Matri Seva Samiti Women Empowerment Center\n• Impact: Directly supports rural livelihoods.",
+                    'sort_order' => 1,
+                    'is_active' => true,
+                ],
+                [
+                    'name' => 'Handmade Embroidered Chikankari Kurti',
+                    'slug' => 'handmade-embroidered-chikankari-kurti',
+                    'price' => 899.00,
+                    'original_price' => 1299.00,
+                    'category' => 'Apparel & Textiles',
+                    'sku' => 'MSS-TEXT-002',
+                    'image' => 'images/skill-development-news.jpg',
+                    'short_description' => 'Traditional fine thread embroidery on breathable pure cotton fabric handcrafted by trained village artisans.',
+                    'description' => "Elegant handmade Chikankari Kurti featuring intricate traditional shadow-work and floral embroidery on soft, skin-friendly cotton.\n\n• Fabric: 100% Breathable Pure Cotton\n• Available Sizes: M, L, XL, XXL\n• Care: Gentle handwash recommended\n• Craft origin: Uttar Pradesh Artisans\n• Empowering: 1 kurti provides 2 days of fair wage work to a rural artisan.",
+                    'sort_order' => 2,
+                    'is_active' => true,
+                ],
+                [
+                    'name' => 'Organic Cow Dung Herbal Dhoop & Incense',
+                    'slug' => 'organic-cow-dung-herbal-dhoop-incense',
+                    'price' => 199.00,
+                    'original_price' => 280.00,
+                    'category' => 'Organic & Wellness',
+                    'sku' => 'MSS-ORGN-003',
+                    'image' => 'images/slider1.jpg',
+                    'short_description' => '100% charcoal-free, non-toxic organic incense sticks made with desi cow dung, neem, camphor, and pure essential oils.',
+                    'description' => "Chemical-free, purifying natural dhoop sticks made using indigenous gaushala cow dung, herbs, camphor, and dried flower extracts collected from local temples.\n\n• 100% Natural & Charcoal Free\n• Pack contains: 40 long-burning sticks + ceramic holder\n• Key ingredients: Desi Cow Dung, Guggal, Loban, Camphor, Rose Petals\n• Environment: Zero chemical smoke, air-purifying aroma.",
+                    'sort_order' => 3,
+                    'is_active' => true,
+                ],
+                [
+                    'name' => 'Handmade Clay Terracotta Tea Kulhad Set (Set of 6)',
+                    'slug' => 'handmade-clay-terracotta-tea-kulhad-set',
+                    'price' => 249.00,
+                    'original_price' => 350.00,
+                    'category' => 'Home Decor & Pottery',
+                    'sku' => 'MSS-POT-004',
+                    'image' => 'images/project2.jpeg',
+                    'short_description' => 'Traditional unglazed natural clay cups made on potter wheels, bringing natural earthy aroma to every sip of tea.',
+                    'description' => "Experience the authentic rich aroma of traditional Indian Chai with these wheel-thrown, kiln-baked terracotta kulhads.\n\n• Set of 6 clay cups (150ml each)\n• 100% Natural terracotta clay, non-toxic, eco-friendly\n• Supports local potters and traditional craft preservation.",
+                    'sort_order' => 4,
+                    'is_active' => true,
+                ],
+                [
+                    'name' => 'Handwoven Bamboo Fruit Basket & Organizer',
+                    'slug' => 'handwoven-bamboo-fruit-basket-organizer',
+                    'price' => 299.00,
+                    'original_price' => 420.00,
+                    'category' => 'Home Decor & Pottery',
+                    'sku' => 'MSS-BAMB-005',
+                    'image' => 'images/project3.jpeg',
+                    'short_description' => 'Eco-friendly handwoven bamboo multipurpose basket for kitchen, fruits, vegetables, and dining table decor.',
+                    'description' => "Crafted from locally sourced matured bamboo canes, this multipurpose storage basket is lightweight, sturdy, and adds a rustic charm to your dining space.\n\n• Material: Natural Organic Bamboo\n• Dimensions: Diameter 10 inches, Height 4 inches\n• Handcrafted by tribal & rural artisans.",
+                    'sort_order' => 5,
+                    'is_active' => true,
+                ],
+                [
+                    'name' => 'Artisanal Hand-Poured Soy Wax Scented Candle',
+                    'slug' => 'artisanal-hand-poured-soy-wax-scented-candle',
+                    'price' => 399.00,
+                    'original_price' => 550.00,
+                    'category' => 'Organic & Wellness',
+                    'sku' => 'MSS-CNDL-006',
+                    'image' => 'images/project4.jpeg',
+                    'short_description' => 'Clean burning natural soy wax candle infused with lavender and sandalwood essential oils in a reusable clay pot.',
+                    'description' => "Hand-poured using clean, smokeless 100% soy wax and therapeutic essential oils. Features a natural cotton wick for a clean 30+ hour burn time.\n\n• Fragrance: Royal Sandalwood & French Lavender\n• Container: Handcrafted reusable clay bowl\n• Burn Time: 30-35 Hours.",
+                    'sort_order' => 6,
+                    'is_active' => true,
+                ],
+            ];
+
+            foreach ($defaultProducts as $productData) {
+                Product::create($productData);
+            }
         }
     }
 }

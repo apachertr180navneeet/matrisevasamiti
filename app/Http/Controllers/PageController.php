@@ -17,6 +17,7 @@ use App\Models\Certificate;
 use App\Models\Grant;
 use App\Models\Career;
 use App\Models\Donation;
+use App\Models\Product;
 
 class PageController extends Controller
 {
@@ -78,6 +79,13 @@ class PageController extends Controller
         $gallery = GalleryItem::where('is_active', true)->orderBy('sort_order', 'asc')->get();
         $categories = $gallery->pluck('category')->unique();
         return view('pages.gallery', compact('gallery', 'categories'));
+    }
+
+    public function products(): View
+    {
+        $products = Product::where('is_active', true)->orderBy('sort_order', 'asc')->latest()->get();
+        $categories = $products->pluck('category')->filter()->unique();
+        return view('pages.products', compact('products', 'categories'));
     }
 
     public function news(): View

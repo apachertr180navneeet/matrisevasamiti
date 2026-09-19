@@ -66,6 +66,7 @@
                     <div class="ul-footer-widget-links">
                         <a href="{{ route('about') }}">About MSS</a>
                         <a href="{{ route('programs') }}">Our Programs</a>
+                        <a href="{{ route('products') }}">Products &amp; Store</a>
                         <a href="{{ route('donate.index') }}">Donate with 80G Exemption</a>
                         <a href="{{ route('volunteer.index') }}">Volunteer Registration</a>
                         <a href="{{ route('certificate') }}">Tax Certificates</a>

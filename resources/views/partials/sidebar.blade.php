@@ -34,6 +34,10 @@
             </div>
 
             <!-- Quick Action Button -->
+            <a href="{{ route('products') }}" class="btn btn-outline-success w-100 rounded-3 py-2 fw-semibold d-flex align-items-center justify-content-center gap-2 mb-2" style="font-size: 14px;">
+                <i class="bi bi-whatsapp"></i> Buy Artisan Products
+            </a>
+
             <a href="{{ route('donate.index') }}" class="ul-sidebar-cta-btn">
                 <i class="flaticon-fast-forward-double-right-arrows-symbol"></i> Donate with 80G Exemption
             </a>

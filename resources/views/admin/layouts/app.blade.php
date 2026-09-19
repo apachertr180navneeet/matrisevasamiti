@@ -471,6 +471,12 @@
                 </a>
             </li>
             <li class="menu-item">
+                <a href="{{ route('admin.products.index') }}" class="menu-link {{ request()->routeIs('admin.products.*') ? 'active' : '' }}">
+                    <i class="bi bi-bag-heart-fill"></i>
+                    <span>Products (Store)</span>
+                </a>
+            </li>
+            <li class="menu-item">
                 <a href="{{ route('admin.projects.index') }}" class="menu-link {{ request()->routeIs('admin.projects.*') ? 'active' : '' }}">
                     <i class="bi bi-kanban-fill"></i>
                     <span>Projects</span>
