@@ -3,25 +3,39 @@
 @section('title', 'Artisan Store — Matri Srijani | Handcrafted & Natural Products')
 
 @section('content')
-<!-- ULTRA PREMIUM MATRI SRIJANI ARTISAN PRODUCT STORE -->
-<div class="srijani-master-wrapper">
-    <!-- Ambient Background Lighting -->
-    <div class="srijani-ambient-glow glow-1"></div>
-    <div class="srijani-ambient-glow glow-2"></div>
-    <div class="srijani-ambient-glow glow-3"></div>
+<main>
+    <!-- BREADCRUMBS SECTION START -->
+    <section class="ul-breadcrumb ul-section-spacing">
+        <div class="ul-container">
+            <h2 class="ul-breadcrumb-title">Artisan Products &amp; Rural Store</h2>
+            <ul class="ul-breadcrumb-nav">
+                <li><a href="{{ route('home') }}">Home</a></li>
+                <li><span class="separator"><i class="flaticon-right"></i></span></li>
+                <li>Products</li>
+            </ul>
+        </div>
+    </section>
+    <!-- BREADCRUMBS SECTION END -->
 
-    <!-- 1. HERO SHOWCASE SECTION -->
-    <section class="srijani-hero-section">
-        <div class="srijani-container">
-            <div class="srijani-hero-glass-box">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-7">
-                        <div class="srijani-hero-content">
-                            <!-- Live Store Pill -->
-                            <div class="srijani-live-pill mb-3">
-                                <span class="srijani-pulse-dot"></span>
-                                <span>Matri Srijani • Rural Artisan &amp; SHG Store</span>
-                            </div>
+    <!-- ULTRA PREMIUM MATRI SRIJANI ARTISAN PRODUCT STORE -->
+    <div class="srijani-master-wrapper">
+        <!-- Ambient Background Lighting -->
+        <div class="srijani-ambient-glow glow-1"></div>
+        <div class="srijani-ambient-glow glow-2"></div>
+        <div class="srijani-ambient-glow glow-3"></div>
+
+        <!-- 1. HERO SHOWCASE SECTION -->
+        <section class="srijani-hero-section">
+            <div class="srijani-container">
+                <div class="srijani-hero-glass-box">
+                    <div class="row align-items-center g-5">
+                        <div class="col-lg-7">
+                            <div class="srijani-hero-content">
+                                <!-- Live Store Pill -->
+                                <div class="srijani-live-pill mb-3">
+                                    <span class="srijani-pulse-dot"></span>
+                                    <span>Matri Srijani • Rural Artisan &amp; SHG Store</span>
+                                </div>
 
                             <h1 class="srijani-hero-headline">
                                 Authentic Indian Craftsmanship &amp; <span class="text-gradient-gold">Natural Products</span>
@@ -1164,4 +1178,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 @endpush
+</main>
 @endsection
