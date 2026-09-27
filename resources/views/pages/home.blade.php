@@ -171,11 +171,11 @@
                 <div class="col">
                     <div class="ul-about-imgs">
                         <div class="img-wrapper" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ !empty($siteSettings['home_about_image']) ? asset($siteSettings['home_about_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project1.jpeg')) }}" alt="About {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}" style="width: 100%; height: 380px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['home_about_image']) ? asset($siteSettings['home_about_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project1.jpeg')) }}" alt="About {{ $siteSettings['site_name'] ?? 'Matri Seva Samiti' }}" loading="lazy" decoding="async" style="width: 100%; height: 380px; object-fit: cover;">
                         </div>
                         <div class="ul-about-imgs-vectors">
-                            <img src="{{ asset('assets/img/about-img-vector-1.svg') }}" alt="Decoration" class="vector-1">
-                            <img src="{{ asset('assets/img/about-img-vector-2.svg') }}" alt="Decoration" class="vector-2">
+                            <img src="{{ asset('assets/img/about-img-vector-1.svg') }}" alt="Decoration" class="vector-1" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/about-img-vector-2.svg') }}" alt="Decoration" class="vector-2" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
@@ -199,7 +199,7 @@
                                 </ul>
                             </div>
                             <div class="block-right">
-                                <img src="{{ !empty($siteSettings['home_about_thumb_image']) ? asset($siteSettings['home_about_thumb_image']) : asset('images/student1.jpeg') }}" alt="MSS Field Program" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
+                                <img src="{{ !empty($siteSettings['home_about_thumb_image']) ? asset($siteSettings['home_about_thumb_image']) : asset('images/student1.jpeg') }}" alt="MSS Field Program" loading="lazy" decoding="async" style="width: 120px; height: 120px; border-radius: 12px; object-fit: cover;">
                             </div>
                         </div>
 
@@ -323,7 +323,7 @@
                         <div class="swiper-slide">
                             <div class="ul-donation">
                                 <div class="ul-donation-img">
-                                    <img src="{{ $imageSrc }}" alt="{{ $cause->title }}" style="height: 220px; width: 100%; object-fit: cover;">
+                                    <img src="{{ $imageSrc }}" alt="{{ $cause->title }}" loading="lazy" decoding="async" style="height: 220px; width: 100%; object-fit: cover;">
                                     @if(!empty($cause->category))
                                         <span class="tag">{{ $cause->category }}</span>
                                     @endif
@@ -488,7 +488,7 @@
                         <div class="col wow animate__fadeInUp">
                             <div class="ul-event">
                                 <div class="ul-event-img">
-                                    <img src="{{ !empty($event->image) ? asset($event->image) : asset('images/healthcare-camp-news.jpg') }}" alt="{{ $event->title }}" style="height: 200px; width: 100%; object-fit: cover;">
+                                    <img src="{{ !empty($event->image) ? asset($event->image) : asset('images/healthcare-camp-news.jpg') }}" alt="{{ $event->title }}" loading="lazy" decoding="async" style="height: 200px; width: 100%; object-fit: cover;">
                                     @if($event->published_date)
                                         <span class="date">{{ \Carbon\Carbon::parse($event->published_date)->format('d') }} <span>{{ \Carbon\Carbon::parse($event->published_date)->format('M') }}</span></span>
                                     @endif
@@ -560,7 +560,7 @@
                 <div class="row row-cols-md-2 row-cols-1 gy-4 align-items-center">
                     <div class="col">
                         <div class="ul-why-join-img" style="border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-                            <img src="{{ !empty($siteSettings['home_why_image']) ? asset($siteSettings['home_why_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project2.jpg')) }}" alt="Join as Volunteer" style="width: 100%; height: 420px; object-fit: cover;">
+                            <img src="{{ !empty($siteSettings['home_why_image']) ? asset($siteSettings['home_why_image']) : (!empty($siteSettings['about_image']) ? asset($siteSettings['about_image']) : asset('images/project2.jpg')) }}" alt="Join as Volunteer" loading="lazy" decoding="async" style="width: 100%; height: 420px; object-fit: cover;">
                         </div>
                     </div>
 
@@ -633,7 +633,7 @@
                     <div class="col">
                         <div class="ul-team-member">
                             <div class="ul-team-member-img">
-                                <img src="{{ !empty($member->photo) ? asset($member->photo) : asset('images/student1.jpeg') }}" alt="{{ $member->name }}" style="height: 280px; width: 100%; object-fit: cover;">
+                                <img src="{{ !empty($member->photo) ? asset($member->photo) : asset('images/student1.jpeg') }}" alt="{{ $member->name }}" loading="lazy" decoding="async" style="height: 280px; width: 100%; object-fit: cover;">
                                 <div class="ul-team-member-socials">
                                     <a href="{{ $member->facebook ?: config('site.social.facebook') }}" target="_blank"><i class="flaticon-facebook"></i></a>
                                     <a href="{{ $member->twitter ?: config('site.social.twitter') }}" target="_blank"><i class="flaticon-twitter"></i></a>
@@ -813,7 +813,7 @@
                                 <div class="swiper-slide">
                                     <div class="ul-blog">
                                         <div class="ul-blog-img">
-                                            <img src="{{ !empty($blog->image) ? asset($blog->image) : asset('assets/img/blog-1.jpg') }}" alt="{{ $blog->title }}" style="height: 220px; width: 100%; object-fit: cover;">
+                                            <img src="{{ !empty($blog->image) ? asset($blog->image) : asset('assets/img/blog-1.jpg') }}" alt="{{ $blog->title }}" loading="lazy" decoding="async" style="height: 220px; width: 100%; object-fit: cover;">
                                             @if(!empty($blog->published_date))
                                                 <div class="date">
                                                     <span class="number">{{ \Carbon\Carbon::parse($blog->published_date)->format('d') }}</span>

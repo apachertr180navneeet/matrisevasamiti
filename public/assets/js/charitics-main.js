@@ -1,12 +1,4 @@
 document.addEventListener("DOMContentLoaded", (event) => {
-    // preloader
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        preloader.classList.add('loaded');
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 300);
-    }
     document.body.style.position = 'static';
 
     // HEADER NAV IN MOBILE & TABLET

@@ -57,7 +57,7 @@ $galleryImages = [
                     @foreach ($gallery as $item)
                     <div class="col">
                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative group h-100">
-                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;">
+                            <img src="{{ asset($item->image) }}" alt="{{ $item->title }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;" loading="lazy" decoding="async">
                             <div class="p-3 bg-white d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title h6 mb-1 text-dark">{{ $item->title }}</h5>
@@ -72,7 +72,7 @@ $galleryImages = [
                     @foreach ($galleryImages as $item)
                     <div class="col">
                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative group h-100">
-                            <img src="{{ asset($item['src']) }}" alt="{{ $item['title'] }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;">
+                            <img src="{{ asset($item['src']) }}" alt="{{ $item['title'] }}" class="img-fluid w-100" style="height: 280px; object-fit: cover;" loading="lazy" decoding="async">
                             <div class="p-3 bg-white d-flex justify-content-between align-items-center">
                                 <div>
                                     <h5 class="card-title h6 mb-1 text-dark">{{ $item['title'] }}</h5>

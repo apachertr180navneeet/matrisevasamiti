@@ -82,7 +82,7 @@
                             @foreach($footerNews as $item)
                                 <div class="ul-blog-sidebar-post ul-footer-post">
                                     <div class="img">
-                                        <img src="{{ asset($item->image ?? 'assets/img/blog-1.jpg') }}" alt="{{ $item->title }}" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+                                        <img src="{{ asset($item->image ?? 'assets/img/blog-1.jpg') }}" alt="{{ $item->title }}" loading="lazy" decoding="async" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
                                     </div>
                                     <div class="txt">
                                         <span class="date">
@@ -96,7 +96,7 @@
                         @else
                             <div class="ul-blog-sidebar-post ul-footer-post">
                                 <div class="img">
-                                    <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Post Image">
+                                    <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Post Image" loading="lazy" decoding="async" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
                                 </div>
                                 <div class="txt">
                                     <span class="date">
@@ -143,7 +143,7 @@
     <div class="ul-footer-bottom">
         <div class="ul-footer-container">
             <div class="ul-footer-bottom-wrapper">
-                <p class="copyright-txt">&copy; {{ date('Y') }} Matri Seva Samiti. All rights reserved. Registered under Indian Societies Act XXI, 1860.</p>
+                <p class="copyright-txt">&copy; {{ date('Y') }} Digi Grow Infotech. All Rights Reserved. | Designed & Developed by Digi Grow Infotech</p>
                 <div class="ul-footer-bottom-nav">
                     <a href="{{ route('terms') }}">Terms & Conditions</a>
                     <a href="{{ route('privacy') }}">Privacy Policy</a>

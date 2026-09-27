@@ -45,7 +45,7 @@
                     @endphp
                     <div class="col project-card-item" data-status="{{ $statusKey }}">
                         <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100 p-0 hover-lift transition">
-                            <img src="{{ asset($proj->image ?? 'images/project1.jpeg') }}" alt="{{ $proj->title }}" style="height: 240px; width: 100%; object-fit: cover;">
+                            <img src="{{ asset($proj->image ?? 'images/project1.jpeg') }}" alt="{{ $proj->title }}" loading="lazy" decoding="async" style="height: 240px; width: 100%; object-fit: cover;">
                             <div class="p-4 d-flex flex-column justify-content-between flex-grow-1">
                                 <div>
                                     <div class="d-flex justify-content-between align-items-center mb-2">

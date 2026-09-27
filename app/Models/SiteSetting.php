@@ -23,6 +23,7 @@ class SiteSetting extends Model
 
     public static function set(string $key, $value, string $group = 'general')
     {
+        \Illuminate\Support\Facades\Cache::forget('app_site_settings_array');
         return static::updateOrCreate(
             ['key' => $key],
             ['value' => $value, 'group' => $group]

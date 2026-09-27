@@ -32,7 +32,7 @@
                             <div class="row g-0 align-items-stretch">
                                 <div class="col-lg-4 col-md-5">
                                     <div class="h-100 position-relative" style="min-height: 280px;">
-                                        <img src="{{ asset($prog->image ?? 'images/Educationimage.png') }}" alt="{{ $prog->title }}" class="w-100 h-100 position-absolute top-0 start-0" style="object-fit: cover;">
+                                        <img src="{{ asset($prog->image ?? 'images/Educationimage.png') }}" alt="{{ $prog->title }}" class="w-100 h-100 position-absolute top-0 start-0" loading="lazy" decoding="async" style="object-fit: cover;">
                                     </div>
                                 </div>
                                 <div class="col-lg-8 col-md-7 p-4 p-lg-5 d-flex flex-column justify-content-between">
