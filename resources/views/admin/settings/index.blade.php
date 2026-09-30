@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    <form action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data">
+    <form id="settingsForm" action="{{ route('admin.settings.update') }}" method="POST" enctype="multipart/form-data" novalidate>
         @csrf
 
         <!-- SETTINGS TABS -->
@@ -211,23 +211,23 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <label class="form-label"><i class="bi bi-facebook text-primary me-1"></i> Facebook Page URL</label>
-                                <input type="url" name="facebook_url" class="form-control" value="{{ $settings['facebook_url'] ?? '' }}">
+                                <input type="text" name="facebook_url" class="form-control" value="{{ $settings['facebook_url'] ?? '' }}" placeholder="https://facebook.com/... or #">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><i class="bi bi-twitter text-info me-1"></i> Twitter / X URL</label>
-                                <input type="url" name="twitter_url" class="form-control" value="{{ $settings['twitter_url'] ?? '' }}">
+                                <input type="text" name="twitter_url" class="form-control" value="{{ $settings['twitter_url'] ?? '' }}" placeholder="https://x.com/... or #">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><i class="bi bi-instagram text-danger me-1"></i> Instagram URL</label>
-                                <input type="url" name="instagram_url" class="form-control" value="{{ $settings['instagram_url'] ?? '' }}">
+                                <input type="text" name="instagram_url" class="form-control" value="{{ $settings['instagram_url'] ?? '' }}" placeholder="https://instagram.com/... or #">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><i class="bi bi-linkedin text-primary me-1"></i> LinkedIn Page URL</label>
-                                <input type="url" name="linkedin_url" class="form-control" value="{{ $settings['linkedin_url'] ?? '' }}">
+                                <input type="text" name="linkedin_url" class="form-control" value="{{ $settings['linkedin_url'] ?? '' }}" placeholder="https://linkedin.com/... or #">
                             </div>
                             <div class="col-md-6">
                                 <label class="form-label"><i class="bi bi-youtube text-danger me-1"></i> YouTube Channel URL</label>
-                                <input type="url" name="youtube_url" class="form-control" value="{{ $settings['youtube_url'] ?? '' }}">
+                                <input type="text" name="youtube_url" class="form-control" value="{{ $settings['youtube_url'] ?? '' }}" placeholder="https://youtube.com/... or #">
                             </div>
                         </div>
                     </div>
@@ -388,3 +388,50 @@
     </form>
 </div>
 @endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Restore active tab from hash or localStorage
+        const storedTab = window.location.hash || localStorage.getItem('admin_settings_active_tab');
+        if (storedTab) {
+            const tabBtn = document.querySelector(`button[data-bs-target="${storedTab}"]`);
+            if (tabBtn) {
+                const tab = bootstrap.Tab.getOrCreateInstance(tabBtn);
+                tab.show();
+            }
+        }
+
+        // Save active tab on change
+        const tabButtons = document.querySelectorAll('#settingsTab button[data-bs-toggle="tab"]');
+        tabButtons.forEach(btn => {
+            btn.addEventListener('shown.bs.tab', function (e) {
+                const target = e.target.getAttribute('data-bs-target');
+                if (target) {
+                    localStorage.setItem('admin_settings_active_tab', target);
+                    if (history.replaceState) {
+                        history.replaceState(null, null, target);
+                    }
+                }
+            });
+        });
+
+        // Tab-aware invalid handler: switches to the hidden tab if a control is invalid
+        const form = document.getElementById('settingsForm');
+        if (form) {
+            form.addEventListener('invalid', function (e) {
+                const field = e.target;
+                const tabPane = field.closest('.tab-pane');
+                if (tabPane) {
+                    const tabBtn = document.querySelector(`button[data-bs-target="#${tabPane.id}"]`);
+                    if (tabBtn) {
+                        bootstrap.Tab.getOrCreateInstance(tabBtn).show();
+                        setTimeout(() => field.focus(), 150);
+                    }
+                }
+            }, true);
+        }
+    });
+</script>
+@endsection
+

@@ -61,6 +61,7 @@
         <div class="ul-sidebar-footer-social">
             <a href="{{ config('site.facebook_url', config('site.social.facebook')) }}" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="flaticon-facebook"></i></a>
             <a href="{{ config('site.twitter_url', config('site.social.twitter')) }}" target="_blank" rel="noopener noreferrer" title="Twitter"><i class="flaticon-twitter"></i></a>
+            <a href="{{ config('site.instagram_url', config('site.social.instagram')) }}" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="flaticon-instagram"></i></a>
             <a href="{{ config('site.linkedin_url', config('site.social.linkedin')) }}" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="flaticon-linkedin-big-logo"></i></a>
             <a href="{{ config('site.youtube_url', config('site.social.youtube')) }}" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="flaticon-youtube"></i></a>
         </div>

@@ -55,6 +55,7 @@
                     <div class="ul-footer-socials">
                         <a href="{{ config('site.facebook_url', config('site.social.facebook')) }}" target="_blank"><i class="flaticon-facebook"></i></a>
                         <a href="{{ config('site.twitter_url', config('site.social.twitter')) }}" target="_blank"><i class="flaticon-twitter"></i></a>
+                        <a href="{{ config('site.instagram_url', config('site.social.instagram')) }}" target="_blank"><i class="flaticon-instagram"></i></a>
                         <a href="{{ config('site.linkedin_url', config('site.social.linkedin')) }}" target="_blank"><i class="flaticon-linkedin-big-logo"></i></a>
                         <a href="{{ config('site.youtube_url', config('site.social.youtube')) }}" target="_blank"><i class="flaticon-youtube"></i></a>
                     </div>
