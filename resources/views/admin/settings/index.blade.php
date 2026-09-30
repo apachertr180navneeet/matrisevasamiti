@@ -199,9 +199,13 @@
                                 <label class="form-label">Working Hours</label>
                                 <input type="text" name="working_hours" class="form-control" value="{{ $settings['working_hours'] ?? 'Mon - Sat: 9:00 AM - 6:00 PM' }}">
                             </div>
-                            <div class="col-12">
-                                <label class="form-label">Registered Office Address</label>
-                                <textarea name="contact_address" class="form-control" rows="3">{{ $settings['contact_address'] ?? '' }}</textarea>
+                            <div class="col-md-6">
+                                <label class="form-label">Main Registered &amp; Head Office Address</label>
+                                <textarea name="contact_address" class="form-control" rows="3" placeholder="Head Office address...">{{ $settings['contact_address'] ?? $settings['address_primary'] ?? '' }}</textarea>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Project &amp; Field Office Address (Outreach Center)</label>
+                                <textarea name="contact_address_secondary" class="form-control" rows="3" placeholder="Field / Outreach office address...">{{ $settings['contact_address_secondary'] ?? $settings['address_secondary'] ?? '' }}</textarea>
                             </div>
                         </div>
                     </div>

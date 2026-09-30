@@ -115,8 +115,8 @@
                 <div class="ul-footer-widget ul-nwsltr-widget">
                     <h3 class="ul-footer-widget-title">Stay Connected</h3>
                     <div class="ul-footer-widget-links ul-footer-contact-links">
-                        <a href="mailto:{{ config('site.email') }}"><i class="flaticon-mail"></i> {{ config('site.email') }}</a>
-                        <a href="tel:{{ config('site.phone_primary') }}"><i class="flaticon-telephone-call"></i> {{ config('site.phone_primary') }}</a>
+                        <a href="mailto:{{ config('site.contact_email', config('site.email')) }}"><i class="flaticon-mail"></i> {{ config('site.contact_email', config('site.email')) }}</a>
+                        <a href="tel:{{ config('site.contact_phone_primary', config('site.phone_primary')) }}"><i class="flaticon-telephone-call"></i> {{ config('site.contact_phone_primary', config('site.phone_primary')) }}</a>
                     </div>
                     <form action="{{ route('contact.submit') }}" method="POST" class="ul-nwsltr-form">
                         @csrf
@@ -144,7 +144,7 @@
     <div class="ul-footer-bottom">
         <div class="ul-footer-container">
             <div class="ul-footer-bottom-wrapper">
-                <p class="copyright-txt">&copy; {{ date('Y') }} Digi Grow Infotech. All Rights Reserved. | Designed & Developed by Digi Grow Infotech</p>
+                <p class="copyright-txt">&copy; {{ date('Y') }} {{ config('site.site_name', 'Matri Seva Samiti') }}. All Rights Reserved. | Designed & Developed by Digi Grow Infotech</p>
                 <div class="ul-footer-bottom-nav">
                     <a href="{{ route('terms') }}">Terms & Conditions</a>
                     <a href="{{ route('privacy') }}">Privacy Policy</a>

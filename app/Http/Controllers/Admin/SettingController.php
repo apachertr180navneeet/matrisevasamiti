@@ -22,7 +22,7 @@ class SettingController extends Controller
         // Handle text/config settings
         foreach ($data as $key => $value) {
             $group = 'general';
-            if (str_starts_with($key, 'contact_') || $key === 'working_hours') $group = 'contact';
+            if (str_starts_with($key, 'contact_') || str_starts_with($key, 'address_') || $key === 'working_hours') $group = 'contact';
             elseif (str_ends_with($key, '_url')) $group = 'social';
             elseif (in_array($key, ['ngo_darpan_id', 'tax_exemption_80g', 'tax_exemption_12a', 'csr_registration_no', 'pan_number'])) $group = 'legal';
             elseif (str_starts_with($key, 'bank_') || $key === 'upi_id') $group = 'bank';
@@ -30,6 +30,25 @@ class SettingController extends Controller
 
             SiteSetting::set($key, $value ?? '', $group);
         }
+
+        // Keep legacy key pairs in sync for complete backwards compatibility
+        if (isset($data['contact_address'])) {
+            SiteSetting::set('address_primary', $data['contact_address'] ?? '', 'contact');
+        }
+        if (isset($data['contact_address_secondary'])) {
+            SiteSetting::set('address_secondary', $data['contact_address_secondary'] ?? '', 'contact');
+        }
+        if (isset($data['contact_phone_primary'])) {
+            SiteSetting::set('phone_primary', $data['contact_phone_primary'] ?? '', 'contact');
+        }
+        if (isset($data['contact_phone_secondary'])) {
+            SiteSetting::set('phone_secondary', $data['contact_phone_secondary'] ?? '', 'contact');
+        }
+        if (isset($data['contact_email'])) {
+            SiteSetting::set('email', $data['contact_email'] ?? '', 'contact');
+        }
+
+        \Illuminate\Support\Facades\Cache::forget('app_site_settings_array');
 
         // Handle logo upload
         if ($request->hasFile('site_logo')) {
