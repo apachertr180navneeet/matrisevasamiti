@@ -47,14 +47,11 @@ class VolunteerController extends Controller
 
             // Send confirmation email to applicant
             Mail::to($validated['email'])->send(new VolunteerConfirmationMail($validated));
-
-            return redirect()->route('volunteer.index')
-                ->with('volunteer_success', 'Thank you! Your volunteer registration has been submitted successfully. We will contact you soon.');
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             Log::error('Error processing volunteer registration: ' . $e->getMessage(), ['exception' => $e]);
-
-            return redirect()->route('volunteer.index')
-                ->with('volunteer_success', 'Thank you! Your volunteer registration has been submitted successfully. We will contact you soon.');
         }
+
+        return redirect()->route('volunteer.index')
+            ->with('volunteer_success', 'Thank you! Your volunteer registration has been submitted successfully. We will contact you soon.');
     }
 }

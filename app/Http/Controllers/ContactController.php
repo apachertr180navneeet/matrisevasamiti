@@ -39,14 +39,11 @@ class ContactController extends Controller
         try {
             $adminEmail = config('site.admin_email', config('mail.from.address', 'info@matrisevasamiti.ngo'));
             Mail::to($adminEmail)->send(new ContactFormMail($validated));
-
-            return redirect()->route('contact.index')
-                ->with('contact_success', "Thank you for your message! We'll get back to you soon.");
-        } catch (\Exception $e) {
+        } catch (\Throwable $e) {
             Log::error('Error sending contact email: ' . $e->getMessage(), ['exception' => $e]);
-
-            return redirect()->route('contact.index')
-                ->with('contact_success', "Thank you for your message! We'll get back to you soon.");
         }
+
+        return redirect()->route('contact.index')
+            ->with('contact_success', "Thank you for your message! We'll get back to you soon.");
     }
 }
