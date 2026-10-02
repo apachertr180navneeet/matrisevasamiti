@@ -37,7 +37,7 @@ class ContactController extends Controller
         }
 
         try {
-            $adminEmail = config('site.admin_email', 'matrisevasamiti1910@gmail.com');
+            $adminEmail = config('site.admin_email', config('mail.from.address', 'info@matrisevasamiti.ngo'));
             Mail::to($adminEmail)->send(new ContactFormMail($validated));
 
             return redirect()->route('contact.index')

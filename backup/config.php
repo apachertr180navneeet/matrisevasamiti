@@ -9,8 +9,8 @@ error_reporting(E_ALL);
 // Site Configuration
 define('SITE_NAME', 'Matri Seva Samiti');
 define('SITE_URL', 'https://dspremierlogistics.co.uk/ngo/');
-define('SITE_EMAIL', 'matrisevasamiti1910@gmail.com');
-define('ADMIN_EMAIL', 'matrisevasamiti1910@gmail.com');
+define('SITE_EMAIL', 'info@matrisevasamiti.ngo');
+define('ADMIN_EMAIL', 'info@matrisevasamiti.ngo');
 
 // Contact Information
 define('PHONE_PRIMARY', '+91 9415451910');

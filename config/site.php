@@ -2,8 +2,8 @@
 
 return [
     'name' => env('APP_NAME', 'Matri Seva Samiti'),
-    'email' => env('SITE_EMAIL', 'matrisevasamiti1910@gmail.com'),
-    'admin_email' => env('ADMIN_EMAIL', 'matrisevasamiti1910@gmail.com'),
+    'email' => env('SITE_EMAIL', 'info@matrisevasamiti.ngo'),
+    'admin_email' => env('ADMIN_EMAIL', 'info@matrisevasamiti.ngo'),
     'phone_primary' => env('PHONE_PRIMARY', '+91 9415451910'),
     'phone_secondary' => env('PHONE_SECONDARY', '+91 9838291910'),
     'address_primary' => env('ADDRESS_PRIMARY', '01 NAIKA CHHATNAG ROAD NEAR RAM SHIV COLONY JHUNSI PRAYAGRAJ UTTAR PRADESH 211019'),

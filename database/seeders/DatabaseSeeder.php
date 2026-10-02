@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
             // Contact & Office Addresses (From config.php & contact.php)
             ['key' => 'contact_phone_primary', 'value' => '+91 9415451910', 'group' => 'contact'],
             ['key' => 'contact_phone_secondary', 'value' => '+91 9838291910', 'group' => 'contact'],
-            ['key' => 'contact_email', 'value' => 'matrisevasamiti1910@gmail.com', 'group' => 'contact'],
+            ['key' => 'contact_email', 'value' => 'info@matrisevasamiti.ngo', 'group' => 'contact'],
             ['key' => 'contact_address', 'value' => '01 NAIKA CHHATNAG ROAD NEAR RAM SHIV COLONY JHUNSI PRAYAGRAJ UTTAR PRADESH 211019', 'group' => 'contact'],
             ['key' => 'address_primary', 'value' => '01 NAIKA CHHATNAG ROAD NEAR RAM SHIV COLONY JHUNSI PRAYAGRAJ UTTAR PRADESH 211019', 'group' => 'contact'],
             ['key' => 'address_secondary', 'value' => 'USTAPUR PATHSHALA ROAD BHAJNANAND ASHRAM NEAR, PANI TANKI JHUNSI PRAYAGRAJ UTTAR PRADESH 211019', 'group' => 'contact'],

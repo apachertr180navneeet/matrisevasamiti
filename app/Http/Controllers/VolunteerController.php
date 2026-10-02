@@ -40,7 +40,7 @@ class VolunteerController extends Controller
         }
 
         try {
-            $adminEmail = config('site.admin_email', 'matrisevasamiti1910@gmail.com');
+            $adminEmail = config('site.admin_email', config('mail.from.address', 'info@matrisevasamiti.ngo'));
             
             // Send email to NGO Admin
             Mail::to($adminEmail)->send(new VolunteerRegistrationMail($validated));
