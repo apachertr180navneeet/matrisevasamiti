@@ -1,0 +1,9 @@
+[10-Sep-2026 08:42:40 UTC] PHP Warning:  Unknown: open_basedir restriction in effect. File(/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php) is not within the allowed path(s): (/www/wwwroot/matrisevasamiti.ngo/:/tmp/) in Unknown on line 0
+[10-Sep-2026 08:42:40 UTC] PHP Warning:  Unknown: Failed to open stream: Operation not permitted in Unknown on line 0
+[10-Sep-2026 08:42:40 UTC] PHP Fatal error:  Failed opening required '/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in Unknown on line 0
+[10-Sep-2026 08:59:18 UTC] PHP Warning:  Unknown: open_basedir restriction in effect. File(/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php) is not within the allowed path(s): (/www/wwwroot/matrisevasamiti.ngo/:/tmp/) in Unknown on line 0
+[10-Sep-2026 08:59:18 UTC] PHP Warning:  Unknown: Failed to open stream: Operation not permitted in Unknown on line 0
+[10-Sep-2026 08:59:18 UTC] PHP Fatal error:  Failed opening required '/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in Unknown on line 0
+[13-Sep-2026 05:56:31 UTC] PHP Warning:  Unknown: open_basedir restriction in effect. File(/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php) is not within the allowed path(s): (/www/wwwroot/matrisevasamiti.ngo/:/tmp/) in Unknown on line 0
+[13-Sep-2026 05:56:31 UTC] PHP Warning:  Unknown: Failed to open stream: Operation not permitted in Unknown on line 0
+[13-Sep-2026 05:56:31 UTC] PHP Fatal error:  Failed opening required '/home3/gsgwevi6/matrisevasamiti.ngo/public/perviouswebsite/index.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in Unknown on line 0
