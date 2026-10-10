@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $page_title ?? 'Matri Seva Samiti - Non Profit NGO' }}</title>
-    <meta name="description" content="Matri Seva Samiti is a registered non-profit NGO dedicated to empowering rural communities through education, skill development, healthcare, and women empowerment.">
+    <title>@yield('title', $page_title ?? 'Matri Seva Samiti - Non Profit NGO')</title>
+    <meta name="description" content="@yield('meta_description', $meta_description ?? 'Matri Seva Samiti is a registered non-profit NGO dedicated to empowering rural communities through education, skill development, healthcare, and women empowerment.')">
+    @yield('meta')
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ asset('logo/Logo.png') }}">

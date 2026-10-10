@@ -45,6 +45,7 @@ Route::get('/grants', [PageController::class, 'grants'])->name('grants');
 Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/news', [PageController::class, 'news'])->name('news');
+Route::get('/news/{slug}', [PageController::class, 'newsDetail'])->name('news.detail');
 Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
 Route::redirect('/ngo-news', '/news', 301);
 Route::redirect('/ngo-news.php', '/news', 301);

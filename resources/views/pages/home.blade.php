@@ -834,8 +834,9 @@
                                                     </div>
                                                 @endif
                                             </div>
-                                            <a href="{{ route('news') }}" class="ul-blog-title">{{ $blog->title }}</a>
-                                            <a href="{{ route('news') }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
+                                            @php $bUrl = !empty($blog->slug) ? route('news.detail', $blog->slug) : route('news'); @endphp
+                                            <a href="{{ $bUrl }}" class="ul-blog-title">{{ $blog->title }}</a>
+                                            <a href="{{ $bUrl }}" class="ul-blog-btn">Read More <span class="icon"><i class="flaticon-next"></i></span></a>
                                         </div>
                                     </div>
                                 </div>

@@ -90,21 +90,23 @@
                                             <span class="icon"><i class="flaticon-calendar"></i></span>
                                             <span>{{ optional($item->published_date)->format('M d, Y') ?? 'Recent' }}</span>
                                         </span>
-                                        <h4 class="title"><a href="{{ $item->type === 'blog' ? route('blogs') : route('news') }}">{{ Str::limit($item->title, 45) }}</a></h4>
+                                        <h4 class="title"><a href="{{ $item->type === 'blog' ? route('blogs') : route('news.detail', $item->slug ?? $item->id) }}">{{ Str::limit($item->title, 45) }}</a></h4>
                                     </div>
                                 </div>
                             @endforeach
                         @else
                             <div class="ul-blog-sidebar-post ul-footer-post">
                                 <div class="img">
-                                    <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Post Image" loading="lazy" decoding="async" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+                                    <a href="{{ route('news.detail', 'new-skill-development-center-inaugurated-jhunsi') }}">
+                                        <img src="{{ asset('images/skill-development-news.jpg') }}" alt="Post Image" loading="lazy" decoding="async" style="width:70px; height:70px; object-fit:cover; border-radius:8px;">
+                                    </a>
                                 </div>
                                 <div class="txt">
                                     <span class="date">
                                         <span class="icon"><i class="flaticon-calendar"></i></span>
                                         <span>Recent Update</span>
                                     </span>
-                                    <h4 class="title"><a href="{{ route('news') }}">New Skill Development Center Inaugurated in Jhunsi</a></h4>
+                                    <h4 class="title"><a href="{{ route('news.detail', 'new-skill-development-center-inaugurated-jhunsi') }}">New Skill Development Center Inaugurated in Jhunsi</a></h4>
                                 </div>
                             </div>
                         @endif
