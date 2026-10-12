@@ -130,16 +130,71 @@
 
                         <!-- Article Lead Excerpt Callout -->
                         @if(!empty($article->excerpt))
-                            <div class="lead-callout p-4 rounded-3 mb-4" style="background-color: #fcf6f2; border-left: 4px solid #EB5310;">
-                                <p class="mb-0 fst-italic text-dark fw-semibold" style="font-size: 1.1rem; line-height: 1.7;">
-                                    "{{ $article->excerpt }}"
-                                </p>
+                            <div class="lead-callout mb-4 p-4 rounded-4 shadow-xs" style="background: linear-gradient(135deg, #fff8f4 0%, #fffdf9 100%); border: 1px solid rgba(235, 83, 16, 0.2); border-left: 5px solid #EB5310;">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="callout-icon d-flex align-items-center justify-content-center rounded-circle flex-shrink-0" style="width: 38px; height: 38px; background: rgba(235, 83, 16, 0.12); color: #EB5310;">
+                                        <i class="fas fa-quote-left"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-uppercase fw-bold text-danger mb-1" style="letter-spacing: 0.8px; font-size: 11px;">
+                                            Key Takeaway &amp; Summary
+                                        </div>
+                                        <p class="mb-0 text-dark fw-semibold fst-italic" style="font-size: 1.12rem; line-height: 1.75; color: #1e293b;">
+                                            "{{ $article->excerpt }}"
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         @endif
 
+                        @php
+                            $rawBody = $article->content ?? '';
+                            // Check if content already contains rich HTML block tags
+                            $hasHtmlBlocks = preg_match('/<(?:p|h[1-6]|div|ul|ol|blockquote|table|br)[\s>\/]/i', $rawBody);
+                            
+                            if (!$hasHtmlBlocks) {
+                                // Normalize line breaks
+                                $normalized = str_replace(["\r\n", "\r"], "\n", $rawBody);
+                                
+                                // Auto-detect question headings or section headings typed in plain text
+                                $headingPatterns = [
+                                    '/(?<!\n)(What (?:Is|Are|Does) [^\?\n]+\?)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Why [^\?\n]+\?)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Importance of [^\.\n]+?)(?=\s+[A-Z0-9]|$)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Objectives? of [^\.\n]+?)(?=\s+[A-Z0-9]|$)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Key (?:Initiatives|Highlights|Activities|Benefits|Components|Goals) [^\.\n:]*:?)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Challenges (?:and|&) Solutions? [^\.\n:]*:?)/i' => "\n\n### $1\n\n",
+                                    '/(?<!\n)(Conclusion [^\.\n:]*:?)/i' => "\n\n### $1\n\n",
+                                ];
+                                foreach ($headingPatterns as $pat => $rep) {
+                                    $normalized = preg_replace($pat, $rep, $normalized);
+                                }
+                                
+                                // Parse into paragraphs and styled headings
+                                $paragraphs = array_filter(array_map('trim', explode("\n", $normalized)));
+                                $renderedBody = '';
+                                foreach ($paragraphs as $para) {
+                                    if (empty($para)) continue;
+                                    if (str_starts_with($para, '### ')) {
+                                        $hTitle = trim(substr($para, 4));
+                                        $renderedBody .= '<h3 class="article-section-title"><span class="title-accent-bar"></span>' . e($hTitle) . '</h3>';
+                                    } elseif (preg_match('/^([A-Z][A-Za-z0-9\s,\-\'\"]{3,60}\?)$/', $para)) {
+                                        $renderedBody .= '<h3 class="article-section-title"><span class="title-accent-bar"></span>' . e($para) . '</h3>';
+                                    } elseif (preg_match('/^[•\-\*]\s+(.*)$/', $para, $m)) {
+                                        $renderedBody .= '<div class="article-bullet-item"><i class="fas fa-check-circle text-danger me-2"></i>' . e($m[1]) . '</div>';
+                                    } else {
+                                        $renderedBody .= '<p class="article-paragraph">' . nl2br(e($para)) . '</p>';
+                                    }
+                                }
+                                $finalContent = $renderedBody;
+                            } else {
+                                $finalContent = $rawBody;
+                            }
+                        @endphp
+
                         <!-- Main Body Content -->
-                        <div class="mss-article-body text-secondary" style="font-size: 1.05rem; line-height: 1.85; color: #3b434e;">
-                            {!! $article->content !!}
+                        <div class="mss-article-body">
+                            {!! $finalContent !!}
                         </div>
 
                         <!-- Motto & Mission Highlight Banner -->
@@ -361,47 +416,59 @@
                         </div>
 
                         <!-- 3. Key Focus Areas Badges -->
-                        <div class="card border-0 rounded-4 shadow-sm bg-white p-4 border">
-                            <h4 class="h6 fw-bold text-dark text-uppercase border-bottom pb-3 mb-3">
-                                <i class="fas fa-cubes text-danger me-2"></i> Our Program Sectors
-                            </h4>
+                        <div class="card border-0 rounded-4 shadow-sm bg-white p-4">
+                            <div class="d-flex align-items-center justify-content-between border-bottom pb-3 mb-3">
+                                <h4 class="h6 fw-bold text-dark text-uppercase mb-0">
+                                    <i class="fas fa-cubes text-danger me-2"></i> Our Program Sectors
+                                </h4>
+                                <span class="badge bg-danger-subtle text-danger rounded-pill px-2 py-1" style="font-size: 10px; font-weight: 700;">6 Sectors</span>
+                            </div>
                             <div class="d-flex flex-wrap gap-2">
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-laptop-code text-danger me-1"></i> Skill Training
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #eff6ff; color: #2563eb;"><i class="fas fa-laptop-code"></i></span>
+                                    <span>Skill Training</span>
                                 </a>
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-heartbeat text-danger me-1"></i> Healthcare Camps
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #fef2f2; color: #dc2626;"><i class="fas fa-heartbeat"></i></span>
+                                    <span>Healthcare Camps</span>
                                 </a>
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-female text-danger me-1"></i> Women Empowerment
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #fdf2f8; color: #db2777;"><i class="fas fa-female"></i></span>
+                                    <span>Women Empowerment</span>
                                 </a>
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-book-reader text-danger me-1"></i> Digital Education
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #f0fdf4; color: #16a34a;"><i class="fas fa-book-reader"></i></span>
+                                    <span>Digital Education</span>
                                 </a>
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-water text-danger me-1"></i> Water &amp; Sanitation
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #ecfeff; color: #0891b2;"><i class="fas fa-water"></i></span>
+                                    <span>Water &amp; Sanitation</span>
                                 </a>
-                                <a href="{{ route('programs') }}" class="badge bg-light text-dark border p-2 text-decoration-none hover-pill">
-                                    <i class="fas fa-solar-panel text-danger me-1"></i> Rural Solar Energy
+                                <a href="{{ route('programs') }}" class="sector-chip">
+                                    <span class="sector-icon" style="background: #fffbeb; color: #d97706;"><i class="fas fa-solar-panel"></i></span>
+                                    <span>Rural Solar Energy</span>
                                 </a>
                             </div>
                         </div>
 
                         <!-- 4. Volunteer / Contact Helpline Card -->
-                        <div class="card border-0 rounded-4 shadow-sm p-4 text-center text-dark" style="background: #fff6f2; border: 1px solid #ffdcd0 !important;">
-                            <div class="mx-auto mb-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 55px; height: 55px; background: #EB5310; color: #fff;">
-                                <i class="fas fa-phone-alt fa-lg"></i>
+                        <div class="card border-0 rounded-4 shadow-sm p-4 text-center text-dark volunteer-cta-box" style="background: linear-gradient(145deg, #fff9f6 0%, #fff4ed 100%); border: 1px solid #ffd8c7 !important;">
+                            <div class="volunteer-cta-icon-wrapper mx-auto mb-3">
+                                <i class="fas fa-phone-alt"></i>
                             </div>
-                            <h4 class="h6 fw-bold mb-1">Want to Volunteer or Partner?</h4>
-                            <p class="small text-muted mb-3">
-                                Join hands with Matri Seva Samiti to create measurable grassroots change.
+                            <h4 class="h6 fw-bold mb-1 text-dark">Want to Volunteer or Partner?</h4>
+                            <p class="small text-muted mb-3" style="line-height: 1.55;">
+                                Join hands with Matri Seva Samiti to create measurable grassroots change in rural Uttar Pradesh.
                             </p>
-                            <a href="tel:{{ preg_replace('/[^0-9]/', '', config('site.phone_primary', '919415451910')) }}" class="btn btn-outline-danger btn-sm rounded-pill mb-2 w-100 fw-bold">
-                                <i class="fas fa-phone me-1"></i> Call +91 9415451910
+                            <a href="tel:{{ preg_replace('/[^0-9]/', '', config('site.phone_primary', '919415451910')) }}" class="btn btn-outline-danger btn-sm rounded-pill mb-2 w-100 fw-bold py-2 shadow-xs d-flex align-items-center justify-content-center gap-2">
+                                <i class="fas fa-phone"></i> Call +91 9415451910
                             </a>
-                            <a href="{{ route('volunteer.index') }}" class="btn btn-danger btn-sm rounded-pill w-100 fw-bold">
-                                <i class="fas fa-user-plus me-1"></i> Join as Volunteer
+                            <a href="{{ route('volunteer.index') }}" class="btn btn-danger btn-sm rounded-pill w-100 fw-bold py-2 shadow-sm d-flex align-items-center justify-content-center gap-2">
+                                <i class="fas fa-user-plus"></i> Join as Volunteer
                             </a>
+                            <div class="mt-3 pt-2 border-top d-flex justify-content-center align-items-center gap-2 small text-muted" style="font-size: 11px;">
+                                <i class="fas fa-certificate text-success"></i> Registered 12A / 80G Non-Profit
+                            </div>
                         </div>
 
                     </div>
@@ -490,41 +557,168 @@
 </div>
 
 <style>
+/* Section Backdrop & Card Architecture */
+.mss-article-section {
+    background-color: #faf9f6;
+}
 .mss-article-card {
-    border: 1px solid rgba(0,0,0,0.07) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.03) !important;
 }
-.mss-article-body p {
-    margin-bottom: 1.4rem;
+
+/* Editorial Body Typography */
+.mss-article-body {
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #2c3644;
+    font-size: 1.08rem;
+    line-height: 1.9;
+    letter-spacing: -0.01em;
 }
-.mss-article-body h2, .mss-article-body h3, .mss-article-body h4 {
-    color: #1a1e24;
-    font-weight: 700;
-    margin-top: 1.8rem;
-    margin-bottom: 0.9rem;
+.mss-article-body p,
+.mss-article-body .article-paragraph {
+    margin-bottom: 1.6rem;
+    color: #374151;
+}
+/* Subtle editorial drop-cap for first body paragraph */
+.mss-article-body > p:first-of-type::first-letter,
+.mss-article-body > .article-paragraph:first-of-type::first-letter {
+    font-size: 3.1rem;
+    float: left;
+    line-height: 0.85;
+    padding-right: 0.75rem;
+    padding-top: 0.2rem;
+    font-weight: 800;
+    color: #EB5310;
+    font-family: Georgia, serif;
+}
+
+/* Article Subheadings & Section Titles */
+.mss-article-body h2, 
+.mss-article-body h3, 
+.mss-article-body h4,
+.article-section-title {
+    color: #111827;
+    font-weight: 800;
+    margin-top: 2.4rem;
+    margin-bottom: 1.1rem;
+    line-height: 1.35;
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+.mss-article-body h2,
+.mss-article-body h3,
+.article-section-title {
+    font-size: 1.45rem;
+}
+.title-accent-bar {
+    display: inline-block;
+    width: 5px;
+    height: 24px;
+    background: linear-gradient(180deg, #EB5310 0%, #FAA019 100%);
+    border-radius: 999px;
+    flex-shrink: 0;
+}
+
+/* Bullet Items & Lists */
+.article-bullet-item {
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.65rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #334155;
+    border-left: 3px solid #EB5310;
 }
 .mss-article-body ul, .mss-article-body ol {
-    margin-bottom: 1.4rem;
+    margin-bottom: 1.6rem;
     padding-left: 1.5rem;
 }
 .mss-article-body li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.65rem;
+    color: #374151;
+    line-height: 1.75;
 }
+
+/* Blockquotes */
 .mss-article-body blockquote {
-    background-color: #fff9f6;
+    position: relative;
+    background: linear-gradient(135deg, #fff7f2 0%, #fffbf8 100%);
     border-left: 4px solid var(--ul-primary, #EB5310);
-    padding: 1.25rem 1.5rem;
-    margin: 1.8rem 0;
-    border-radius: 0.5rem;
+    padding: 1.4rem 1.75rem 1.4rem 3.2rem;
+    margin: 2rem 0;
+    border-radius: 0 16px 16px 0;
     font-style: italic;
-    color: #2c3644;
+    color: #1f2937;
     font-weight: 500;
+    font-size: 1.15rem;
+    line-height: 1.75;
+    box-shadow: 0 2px 14px rgba(235, 83, 16, 0.05);
 }
+.mss-article-body blockquote::before {
+    content: "\201C";
+    position: absolute;
+    left: 1rem;
+    top: 0.6rem;
+    font-size: 3.5rem;
+    line-height: 1;
+    color: rgba(235, 83, 16, 0.3);
+    font-family: Georgia, serif;
+}
+
+/* Program Sectors Interactive Chips */
+.sector-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px 6px 6px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+.sector-chip .sector-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+.sector-chip:hover {
+    background: #ffffff;
+    border-color: #EB5310;
+    color: #EB5310;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(235, 83, 16, 0.12);
+}
+
+/* Volunteer CTA Card */
+.volunteer-cta-icon-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #EB5310 0%, #FAA019 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    box-shadow: 0 6px 16px rgba(235, 83, 16, 0.25);
+}
+
 .font-hindi {
     font-family: 'Noto Sans Devanagari', 'Quicksand', sans-serif !important;
 }
 .share-btn {
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -533,11 +727,7 @@
 }
 .share-btn:hover {
     transform: translateY(-2px);
-}
-.hover-pill:hover {
-    background-color: var(--ul-primary, #EB5310) !important;
-    color: #fff !important;
-    border-color: var(--ul-primary, #EB5310) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 .text-truncate-2 {
     display: -webkit-box;
@@ -547,7 +737,7 @@
 }
 .sticky-sidebar {
     position: sticky;
-    top: 90px;
+    top: 95px;
 }
 .news-card {
     transition: transform 0.25s ease, box-shadow 0.25s ease;

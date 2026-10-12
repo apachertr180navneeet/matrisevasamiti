@@ -56,8 +56,12 @@
                             </div>
 
                             <div class="col-12">
-                                <label class="form-label">Full Article Content</label>
-                                <textarea name="content" class="form-control" rows="6" placeholder="Detailed story and press coverage details...">{{ old('content', $item->content) }}</textarea>
+                                <label class="form-label">Full Article Content *</label>
+                                <textarea name="content" class="form-control" rows="8" placeholder="Detailed story, key highlights, and quotes...">{{ old('content', $item->content) }}</textarea>
+                                <div class="form-text small text-muted mt-2">
+                                    <i class="bi bi-info-circle me-1 text-primary"></i> 
+                                    <strong>Formatting Tip:</strong> Use double line breaks between paragraphs. You can write question headings (e.g. <code>What Is Women Livelihood Development?</code>) or section titles (e.g. <code>Importance of Women Livelihood Development</code>), and bullet items starting with <code>•</code> or <code>-</code>. They will be formatted automatically with modern editorial headings and styles.
+                                </div>
                             </div>
 
                             <div class="col-md-6">

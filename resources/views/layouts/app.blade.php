@@ -120,10 +120,18 @@
             position: relative !important;
             top: 0;
             width: 100%;
-            transition: all 0.3s ease;
-            background: #ffffff;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.25s ease;
+            background: #ffffff !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
             z-index: 998;
+        }
+        /* Disable legacy clip-path polygon blobs that hang over page content */
+        .ul-header .logo-container::before,
+        .ul-header .logo-container::after,
+        .ul-header-bottom.sticky .logo-container::before,
+        .ul-header-bottom.sticky .logo-container::after {
+            display: none !important;
         }
         .ul-header-bottom.to-be-sticky.sticky {
             position: fixed !important;
@@ -131,8 +139,12 @@
             left: 0;
             right: 0;
             z-index: 9999;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            animation: slideDown 0.3s ease forwards;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08) !important;
+            animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         /* Page / Tab Breadcrumb Headings - Universal Responsive Spacing & Visibility */
