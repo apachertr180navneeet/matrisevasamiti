@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    @stack('styles')
 
     <style>
         :root {
@@ -146,6 +147,43 @@
             font-size: 0.75rem;
             padding: 2px 8px;
             border-radius: 12px;
+        }
+
+        /* SUBMENU STYLES */
+        .sidebar-submenu {
+            padding-left: 20px;
+            list-style: none;
+            margin: 4px 0 8px;
+        }
+        .sidebar-submenu .submenu-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            color: #94a3b8;
+            font-size: 0.88rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+        .sidebar-submenu .submenu-link:hover {
+            color: #ffffff;
+            background: rgba(255,255,255,0.06);
+            transform: translateX(3px);
+        }
+        .sidebar-submenu .submenu-link.active {
+            color: #ffffff;
+            background: rgba(227, 94, 37, 0.25);
+            font-weight: 600;
+            border-left: 3px solid var(--admin-secondary);
+        }
+        .menu-arrow {
+            margin-left: auto;
+            transition: transform 0.2s ease;
+            font-size: 0.8rem;
+        }
+        [aria-expanded="true"] .menu-arrow {
+            transform: rotate(180deg);
         }
 
         /* MAIN CONTENT AREA */
@@ -482,6 +520,32 @@
                     <span>Projects</span>
                 </a>
             </li>
+
+            <!-- BLOG SYSTEM ACCORDION -->
+            @php $isBlogActive = request()->routeIs('admin.blogs.*', 'admin.blog-categories.*'); @endphp
+            <li class="menu-item">
+                <a class="menu-link {{ $isBlogActive ? 'active' : '' }}" data-bs-toggle="collapse" href="#blogSystemMenu" role="button" aria-expanded="{{ $isBlogActive ? 'true' : 'false' }}">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span>Blog System</span>
+                    <i class="bi bi-chevron-down menu-arrow"></i>
+                </a>
+                <div class="collapse {{ $isBlogActive ? 'show' : '' }}" id="blogSystemMenu">
+                    <ul class="sidebar-submenu">
+                        <li>
+                            <a href="{{ route('admin.blogs.index') }}" class="submenu-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
+                                <i class="bi bi-card-text"></i>
+                                <span>All Blogs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('admin.blog-categories.index') }}" class="submenu-link {{ request()->routeIs('admin.blog-categories.*') ? 'active' : '' }}">
+                                <i class="bi bi-tags-fill"></i>
+                                <span>Categories</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
             <li class="menu-item">
                 <a href="{{ route('admin.news.index') }}" class="menu-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
                     <i class="bi bi-newspaper"></i>
@@ -624,7 +688,7 @@
                 </div>
             @endif
 
-            @if($errors->any())
+            @if(isset($errors) && $errors->any())
                 <div class="alert alert-danger alert-dismissible fade show rounded-3 shadow-sm border-0" role="alert">
                     <strong class="d-block mb-1"><i class="bi bi-x-circle-fill me-2"></i> Please fix the following errors:</strong>
                     <ul class="mb-0 ps-3">
@@ -672,5 +736,6 @@
         }
     </script>
     @yield('scripts')
+    @stack('scripts')
 </body>
 </html>

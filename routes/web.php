@@ -27,6 +27,9 @@ use App\Http\Controllers\Admin\ContactInboxController as AdminContactInboxContro
 use App\Http\Controllers\Admin\VolunteerAdminController as AdminVolunteerController;
 use App\Http\Controllers\Admin\DonationAdminController as AdminDonationController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
+use App\Http\Controllers\BlogFrontendController;
+use App\Http\Controllers\Admin\BlogController as AdminBlogController;
+use App\Http\Controllers\Admin\BlogCategoryController as AdminBlogCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +49,8 @@ Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/news/{slug}', [PageController::class, 'newsDetail'])->name('news.detail');
-Route::get('/blogs', [PageController::class, 'blogs'])->name('blogs');
+Route::get('/blogs', [BlogFrontendController::class, 'index'])->name('blogs');
+Route::get('/blogs/{slug}', [BlogFrontendController::class, 'show'])->name('blogs.show');
 Route::redirect('/ngo-news', '/news', 301);
 Route::redirect('/ngo-news.php', '/news', 301);
 Route::redirect('/blogs.php', '/blogs', 301);
@@ -212,6 +216,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('grants', AdminGrantController::class);
     Route::resource('careers', AdminCareerController::class);
     Route::resource('faqs', AdminFaqController::class);
+    Route::resource('blogs', AdminBlogController::class);
+    Route::resource('blog-categories', AdminBlogCategoryController::class);
 });
 
 /*
