@@ -91,7 +91,7 @@
                                             <span class="icon"><i class="flaticon-calendar"></i></span>
                                             <span>{{ optional($item->published_date)->format('M d, Y') ?? 'Recent' }}</span>
                                         </span>
-                                        <h4 class="title"><a href="{{ $item->type === 'blog' ? route('blogs') : route('news.detail', $item->slug ?? $item->id) }}">{{ Str::limit($item->title, 45) }}</a></h4>
+                                        <h4 class="title"><a href="{{ route('news.detail', $item->slug ?? $item->id) }}">{{ Str::limit($item->title, 45) }}</a></h4>
                                     </div>
                                 </div>
                             @endforeach

@@ -49,11 +49,15 @@ Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/news', [PageController::class, 'news'])->name('news');
 Route::get('/news/{slug}', [PageController::class, 'newsDetail'])->name('news.detail');
-Route::get('/blogs', [BlogFrontendController::class, 'index'])->name('blogs');
-Route::get('/blogs/{slug}', [BlogFrontendController::class, 'show'])->name('blogs.show');
+Route::get('/blogs', function () {
+    return redirect()->route('news', [], 301);
+})->name('blogs');
+Route::get('/blogs/{slug}', function ($slug) {
+    return redirect()->route('news.detail', $slug, 301);
+})->name('blogs.show');
 Route::redirect('/ngo-news', '/news', 301);
 Route::redirect('/ngo-news.php', '/news', 301);
-Route::redirect('/blogs.php', '/blogs', 301);
+Route::redirect('/blogs.php', '/news', 301);
 Route::redirect('/media.php', '/news', 301);
 Route::redirect('/media', '/news', 301);
 Route::redirect('/media.html', '/news', 301);
@@ -221,8 +225,8 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::resource('grants', AdminGrantController::class);
     Route::resource('careers', AdminCareerController::class);
     Route::resource('faqs', AdminFaqController::class);
-    Route::resource('blogs', AdminBlogController::class);
-    Route::resource('blog-categories', AdminBlogCategoryController::class);
+
+
 });
 
 /*

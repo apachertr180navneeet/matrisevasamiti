@@ -7,7 +7,7 @@
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
             <h4 class="fw-bold mb-1" style="color: #0F2B5B;">News &amp; NGO News Management</h4>
-            <p class="text-muted small mb-0">Publish and manage field updates, NGO news stories, press coverages, and community events.</p>
+            <p class="text-muted small mb-0">Publish and manage field updates, NGO news stories, press releases, and community events.</p>
         </div>
         <a href="{{ route('admin.news.create') }}" class="btn-admin-primary">
             <i class="bi bi-plus-circle me-1"></i> Add New Post

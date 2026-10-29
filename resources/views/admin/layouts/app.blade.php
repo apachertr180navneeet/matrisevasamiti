@@ -521,31 +521,7 @@
                 </a>
             </li>
 
-            <!-- BLOG SYSTEM ACCORDION -->
-            @php $isBlogActive = request()->routeIs('admin.blogs.*', 'admin.blog-categories.*'); @endphp
-            <li class="menu-item">
-                <a class="menu-link {{ $isBlogActive ? 'active' : '' }}" data-bs-toggle="collapse" href="#blogSystemMenu" role="button" aria-expanded="{{ $isBlogActive ? 'true' : 'false' }}">
-                    <i class="bi bi-journal-richtext"></i>
-                    <span>Blog System</span>
-                    <i class="bi bi-chevron-down menu-arrow"></i>
-                </a>
-                <div class="collapse {{ $isBlogActive ? 'show' : '' }}" id="blogSystemMenu">
-                    <ul class="sidebar-submenu">
-                        <li>
-                            <a href="{{ route('admin.blogs.index') }}" class="submenu-link {{ request()->routeIs('admin.blogs.*') ? 'active' : '' }}">
-                                <i class="bi bi-card-text"></i>
-                                <span>All Blogs</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.blog-categories.index') }}" class="submenu-link {{ request()->routeIs('admin.blog-categories.*') ? 'active' : '' }}">
-                                <i class="bi bi-tags-fill"></i>
-                                <span>Categories</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+            <!-- UNIFIED NEWS & BLOG -->
             <li class="menu-item">
                 <a href="{{ route('admin.news.index') }}" class="menu-link {{ request()->routeIs('admin.news.*') ? 'active' : '' }}">
                     <i class="bi bi-newspaper"></i>

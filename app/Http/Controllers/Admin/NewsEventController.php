@@ -27,7 +27,7 @@ class NewsEventController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:news_events,slug',
-            'type' => 'required|string|in:news,event,media,press',
+            'type' => 'required|string|in:news,blog,event,media,press',
             'category' => 'nullable|string|max:100',
             'published_date' => 'nullable|date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
@@ -53,8 +53,9 @@ class NewsEventController extends Controller
         Cache::forget('page_news_all');
         Cache::forget('page_home_news');
         Cache::forget('page_home_events');
+        Cache::forget('app_footer_news');
 
-        return redirect()->route('admin.news.index')->with('success', 'News & NGO News post created successfully.');
+        return redirect()->route('admin.news.index')->with('success', 'News article created successfully.');
     }
 
     public function edit(NewsEvent $news)
@@ -67,7 +68,7 @@ class NewsEventController extends Controller
         $data = $request->validate([
             'title' => 'required|string|max:255',
             'slug' => 'nullable|string|max:255|unique:news_events,slug,' . $news->id,
-            'type' => 'required|string|in:news,event,media,press',
+            'type' => 'required|string|in:news,blog,event,media,press',
             'category' => 'nullable|string|max:100',
             'published_date' => 'nullable|date',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg,webp,avif|max:5120',
@@ -92,8 +93,9 @@ class NewsEventController extends Controller
         Cache::forget('page_news_all');
         Cache::forget('page_home_news');
         Cache::forget('page_home_events');
+        Cache::forget('app_footer_news');
 
-        return redirect()->route('admin.news.index')->with('success', 'News & NGO News post updated successfully.');
+        return redirect()->route('admin.news.index')->with('success', 'News article updated successfully.');
     }
 
     public function destroy(NewsEvent $news)
@@ -104,6 +106,7 @@ class NewsEventController extends Controller
         Cache::forget('page_news_all');
         Cache::forget('page_home_news');
         Cache::forget('page_home_events');
+        Cache::forget('app_footer_news');
 
         return redirect()->route('admin.news.index')->with('success', 'Article deleted successfully.');
     }

@@ -130,11 +130,14 @@ class PageController extends Controller
 
     public function news(Request $request): View
     {
+        $selectedCategory = trim((string) $request->get('category', ''));
         $search = trim((string) $request->get('search', ''));
-        $category = trim((string) $request->get('category', ''));
 
-        $query = NewsEvent::where('is_published', true)
-            ->where('type', '!=', 'blog');
+        $query = NewsEvent::where('is_published', true);
+
+        if (!empty($selectedCategory) && $selectedCategory !== 'all') {
+            $query->where('category', $selectedCategory);
+        }
 
         if (!empty($search)) {
             $query->where(function ($q) use ($search) {
@@ -145,24 +148,51 @@ class PageController extends Controller
             });
         }
 
-        if (!empty($category) && $category !== 'all') {
-            $query->where('category', $category);
+        $news = $query->orderBy('sort_order', 'asc')->latest('published_date')->paginate(9)->withQueryString();
+
+        // If DB is completely empty and no search applied, use fallback items
+        if ($news->isEmpty() && empty($search) && empty($selectedCategory)) {
+            $fallback = collect($this->getFallbackNews())->map(fn($item) => (object) $item);
+            $news = new \Illuminate\Pagination\LengthAwarePaginator(
+                $fallback->forPage(1, 9),
+                $fallback->count(),
+                9,
+                1,
+                ['path' => url()->current()]
+            );
         }
 
-        $news = $query->orderBy('sort_order', 'asc')->latest('published_date')->get();
-
-        if ($news->isEmpty() && empty($search) && empty($category)) {
-            $news = collect($this->getFallbackNews())->map(fn($item) => (object) $item);
-        }
-
-        $categories = NewsEvent::where('is_published', true)
-            ->where('type', '!=', 'blog')
+        // Categories with article count (migrated from blog logic)
+        $categoriesWithCount = NewsEvent::where('is_published', true)
             ->whereNotNull('category')
-            ->pluck('category')
-            ->unique()
-            ->values();
+            ->where('category', '!=', '')
+            ->select('category', \Illuminate\Support\Facades\DB::raw('count(*) as count'))
+            ->groupBy('category')
+            ->orderBy('category', 'asc')
+            ->get();
 
-        return view('pages.news', compact('news', 'search', 'category', 'categories'));
+        $totalCount = NewsEvent::where('is_published', true)->count();
+
+        // Recent news for widgets / sidebar
+        $recentNews = NewsEvent::where('is_published', true)
+            ->orderBy('sort_order', 'asc')
+            ->latest('published_date')
+            ->take(5)
+            ->get();
+
+        $page_title = 'News & Field Updates - Matri Seva Samiti';
+        $meta_description = 'Official News and Grassroots Field Updates from Matri Seva Samiti. Explore our latest rural skill center inaugurations, healthcare camps, education drives, and community stories.';
+
+        return view('pages.news', compact(
+            'news',
+            'search',
+            'selectedCategory',
+            'categoriesWithCount',
+            'totalCount',
+            'recentNews',
+            'page_title',
+            'meta_description'
+        ));
     }
 
     public function newsDetail(string $slug): View
@@ -271,20 +301,18 @@ class PageController extends Controller
 
         $page_title = ($article->title ?? 'News Detail') . ' - Matri Seva Samiti';
 
-        return view('pages.news-detail', compact('article', 'relatedNews', 'recentNews', 'prevArticle', 'nextArticle', 'page_title'));
+                $categoriesWithCount = NewsEvent::where('is_published', true)
+            ->whereNotNull('category')
+            ->where('category', '!=', '')
+            ->select('category', \Illuminate\Support\Facades\DB::raw('count(*) as count'))
+            ->groupBy('category')
+            ->orderBy('category', 'asc')
+            ->get();
+
+        return view('pages.news-detail', compact('article', 'relatedNews', 'recentNews', 'prevArticle', 'nextArticle', 'categoriesWithCount', 'page_title'));
     }
 
-    public function blogs(): View
-    {
-        $blogs = Cache::remember('page_blogs_all', 1800, function () {
-            $b = NewsEvent::where('is_published', true)->where('type', 'blog')->orderBy('sort_order', 'asc')->latest('published_date')->get();
-            if ($b->isEmpty()) {
-                $b = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->get();
-            }
-            return $b;
-        });
-        return view('pages.blogs', compact('blogs'));
-    }
+
 
     public function career(): View
     {

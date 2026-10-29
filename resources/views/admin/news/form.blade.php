@@ -1,16 +1,16 @@
 @extends('admin.layouts.app')
 
-@section('title', $item->exists ? 'Edit News & NGO News Post' : 'Create News & NGO News Post')
+@section('title', $item->exists ? 'Edit News Post' : 'Create News Post')
 
 @section('content')
 <div class="container-fluid px-0">
     <div class="d-flex align-items-center justify-content-between mb-4">
         <div>
-            <h4 class="fw-bold mb-1" style="color: #0F2B5B;">{{ $item->exists ? 'Edit News & NGO News Article' : 'Create New News & NGO News Article' }}</h4>
+            <h4 class="fw-bold mb-1" style="color: #0F2B5B;">{{ $item->exists ? 'Edit News &amp; NGO News Article' : 'Create New News &amp; NGO News Article' }}</h4>
             <p class="text-muted small mb-0">Publish stories, press coverages, and event reports.</p>
         </div>
         <a href="{{ route('admin.news.index') }}" class="btn btn-outline-secondary btn-sm">
-            <i class="bi bi-arrow-left me-1"></i> Back to News &amp; NGO News
+            <i class="bi bi-arrow-left me-1"></i> Back to News
         </a>
     </div>
 
@@ -34,6 +34,7 @@
                                 <label class="form-label">Post Type *</label>
                                 <select name="type" class="form-select" required>
                                     <option value="news" {{ old('type', $item->type) == 'news' ? 'selected' : '' }}>News Update</option>
+                                    <option value="blog" {{ old('type', $item->type) == 'blog' ? 'selected' : '' }}>Blog Article / Story</option>
                                     <option value="event" {{ old('type', $item->type) == 'event' ? 'selected' : '' }}>Community Event</option>
                                     <option value="media" {{ old('type', $item->type) == 'media' ? 'selected' : '' }}>Media / Press</option>
                                     <option value="press" {{ old('type', $item->type) == 'press' ? 'selected' : '' }}>Press Release</option>

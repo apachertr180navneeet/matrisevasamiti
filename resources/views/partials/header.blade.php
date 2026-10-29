@@ -57,7 +57,7 @@
                                 <ul>
                                     <li><a href="{{ route('gallery') }}">Photo Gallery</a></li>
                                     <li><a href="{{ route('news') }}">News &amp; NGO News</a></li>
-                                    <li><a href="{{ route('blogs') }}">Blogs &amp; Articles</a></li>
+
                                     <li><a href="{{ route('faq') }}">FAQs</a></li>
                                 </ul>
                             </div>
