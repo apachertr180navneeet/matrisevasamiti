@@ -21,6 +21,9 @@ class NewsEvent extends Model
         'image',
         'excerpt',
         'content',
+        'meta_title',
+        'meta_keywords',
+        'meta_description',
         'is_published',
         'sort_order',
     ];

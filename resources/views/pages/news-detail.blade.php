@@ -17,14 +17,17 @@
     $readMinutes = max(2, ceil($wordCount / 200));
 @endphp
 
-@section('title', $articleTitle . ' - Matri Seva Samiti')
-@section('meta_description', Str::limit(strip_tags($articleExcerpt), 160))
+@section('title', !empty($article->meta_title) ? $article->meta_title : ($articleTitle . ' - Matri Seva Samiti'))
+@section('meta_description', !empty($article->meta_description) ? $article->meta_description : Str::limit(strip_tags($articleExcerpt), 160))
 
 @section('meta')
+    @if(!empty($article->meta_keywords))
+        <meta name="keywords" content="{{ $article->meta_keywords }}">
+    @endif
     <!-- Open Graph / Social Sharing Meta Tags -->
     <meta property="og:type" content="article">
-    <meta property="og:title" content="{{ $articleTitle }}">
-    <meta property="og:description" content="{{ Str::limit(strip_tags($articleExcerpt), 160) }}">
+    <meta property="og:title" content="{{ !empty($article->meta_title) ? $article->meta_title : $articleTitle }}">
+    <meta property="og:description" content="{{ !empty($article->meta_description) ? $article->meta_description : Str::limit(strip_tags($articleExcerpt), 160) }}">
     <meta property="og:image" content="{{ $articleImage }}">
     <meta property="og:url" content="{{ $articleUrl }}">
     <meta property="og:site_name" content="Matri Seva Samiti">
@@ -33,8 +36,8 @@
     @endif
     <meta property="article:section" content="{{ $articleCategory }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $articleTitle }}">
-    <meta name="twitter:description" content="{{ Str::limit(strip_tags($articleExcerpt), 160) }}">
+    <meta name="twitter:title" content="{{ !empty($article->meta_title) ? $article->meta_title : $articleTitle }}">
+    <meta name="twitter:description" content="{{ !empty($article->meta_description) ? $article->meta_description : Str::limit(strip_tags($articleExcerpt), 160) }}">
     <meta name="twitter:image" content="{{ $articleImage }}">
 @endsection
 
