@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsEvent;
 use App\Services\FileUploadService;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 
 class NewsEventController extends Controller
 {
@@ -48,7 +49,12 @@ class NewsEventController extends Controller
         }
 
         NewsEvent::create($data);
-        return redirect()->route('admin.news.index')->with('success', 'Article / Event post created successfully.');
+
+        Cache::forget('page_news_all');
+        Cache::forget('page_home_news');
+        Cache::forget('page_home_events');
+
+        return redirect()->route('admin.news.index')->with('success', 'News & NGO News post created successfully.');
     }
 
     public function edit(NewsEvent $news)
@@ -82,13 +88,23 @@ class NewsEventController extends Controller
         }
 
         $news->update($data);
-        return redirect()->route('admin.news.index')->with('success', 'Article / Event post updated successfully.');
+
+        Cache::forget('page_news_all');
+        Cache::forget('page_home_news');
+        Cache::forget('page_home_events');
+
+        return redirect()->route('admin.news.index')->with('success', 'News & NGO News post updated successfully.');
     }
 
     public function destroy(NewsEvent $news)
     {
         FileUploadService::delete($news->image);
         $news->delete();
+
+        Cache::forget('page_news_all');
+        Cache::forget('page_home_news');
+        Cache::forget('page_home_events');
+
         return redirect()->route('admin.news.index')->with('success', 'Article deleted successfully.');
     }
 }

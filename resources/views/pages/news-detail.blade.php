@@ -47,7 +47,7 @@
             <ul class="ul-breadcrumb-nav">
                 <li><a href="{{ route('home') }}">Home</a></li>
                 <li><span class="separator"><i class="flaticon-right"></i></span></li>
-                <li><a href="{{ route('news') }}">News</a></li>
+                <li><a href="{{ route('news') }}">News &amp; NGO News</a></li>
                 <li><span class="separator"><i class="flaticon-right"></i></span></li>
                 <li class="active">{{ Str::limit($articleTitle, 35) }}</li>
             </ul>

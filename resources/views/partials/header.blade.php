@@ -52,11 +52,11 @@
                         </div>
 
                         <div class="has-sub-menu">
-                            <a role="button" class="{{ request()->routeIs(['gallery', 'news', 'blogs', 'faq']) ? 'active' : '' }}">Media</a>
+                            <a role="button" class="{{ request()->routeIs(['gallery', 'news', 'news.detail', 'blogs', 'blogs.show', 'faq']) ? 'active' : '' }}">Media</a>
                             <div class="ul-header-submenu">
                                 <ul>
                                     <li><a href="{{ route('gallery') }}">Photo Gallery</a></li>
-                                    <li><a href="{{ route('news') }}">NGO News</a></li>
+                                    <li><a href="{{ route('news') }}">News &amp; NGO News</a></li>
                                     <li><a href="{{ route('blogs') }}">Blogs &amp; Articles</a></li>
                                     <li><a href="{{ route('faq') }}">FAQs</a></li>
                                 </ul>

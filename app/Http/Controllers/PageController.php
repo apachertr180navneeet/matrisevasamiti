@@ -128,22 +128,41 @@ class PageController extends Controller
         return view('pages.products', compact('products', 'categories'));
     }
 
-    public function news(): View
+    public function news(Request $request): View
     {
-        $news = Cache::remember('page_news_all', 1800, function () {
-            try {
-                $items = NewsEvent::where('is_published', true)->orderBy('sort_order', 'asc')->latest('published_date')->get();
-                if ($items->isNotEmpty()) {
-                    return $items;
-                }
-            } catch (\Throwable $e) {
-                // Ignore DB error and fallback
-            }
+        $search = trim((string) $request->get('search', ''));
+        $category = trim((string) $request->get('category', ''));
 
-            return collect($this->getFallbackNews())->map(fn($item) => (object) $item);
-        });
+        $query = NewsEvent::where('is_published', true)
+            ->where('type', '!=', 'blog');
 
-        return view('pages.news', compact('news'));
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%{$search}%")
+                  ->orWhere('excerpt', 'like', "%{$search}%")
+                  ->orWhere('content', 'like', "%{$search}%")
+                  ->orWhere('category', 'like', "%{$search}%");
+            });
+        }
+
+        if (!empty($category) && $category !== 'all') {
+            $query->where('category', $category);
+        }
+
+        $news = $query->orderBy('sort_order', 'asc')->latest('published_date')->get();
+
+        if ($news->isEmpty() && empty($search) && empty($category)) {
+            $news = collect($this->getFallbackNews())->map(fn($item) => (object) $item);
+        }
+
+        $categories = NewsEvent::where('is_published', true)
+            ->where('type', '!=', 'blog')
+            ->whereNotNull('category')
+            ->pluck('category')
+            ->unique()
+            ->values();
+
+        return view('pages.news', compact('news', 'search', 'category', 'categories'));
     }
 
     public function newsDetail(string $slug): View

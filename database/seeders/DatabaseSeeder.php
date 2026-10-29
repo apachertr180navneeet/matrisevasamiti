@@ -457,7 +457,7 @@ class DatabaseSeeder extends Seeder
         }
 
         // 7. ALL News & ALL Blogs (Exact articles from perviouswebsite/ngo-news.php & blogs.php)
-        NewsEvent::truncate();
+        // NewsEvent::truncate();
         $newsItems = [
             // 6 Articles from perviouswebsite/ngo-news.php
             [
@@ -594,6 +594,43 @@ class DatabaseSeeder extends Seeder
                 'is_published' => true,
                 'sort_order' => 11,
             ],
+            // Merged Press & Media Coverage (from media.blade.php)
+            [
+                'title' => 'MSS Empowers Rural Youths with Digital Smart Learning',
+                'slug' => 'mss-empowers-rural-youths-with-digital-smart-learning',
+                'type' => 'media',
+                'category' => 'Dainik Jagran',
+                'published_date' => '2026-05-12',
+                'image' => 'images/education-initiative-news.jpg',
+                'excerpt' => 'Special media feature on the inauguration of digital smart classrooms in Prayagraj clusters published by Dainik Jagran.',
+                'content' => '<p><strong>Dainik Jagran Prayagraj Edition</strong> published a detailed feature highlighting Matri Seva Samiti’s successful installation and rollout of digital smart classrooms across rural schools.</p><p>The media report praises MSS for bridging the digital literacy divide for over 850 rural pupils who now engage with interactive science simulations, computer basics, and modern e-curricula.</p><blockquote>"Equipping village students with digital learning tools directly addresses regional disparities in education and employability."</blockquote>',
+                'is_published' => true,
+                'sort_order' => 13,
+            ],
+            [
+                'title' => 'Mega Health & Eye Camp Serves 500+ Villagers',
+                'slug' => 'mega-health-and-eye-camp-serves-500-villagers-amar-ujala',
+                'type' => 'media',
+                'category' => 'Amar Ujala',
+                'published_date' => '2026-05-18',
+                'image' => 'images/healthcare-camp-news.jpg',
+                'excerpt' => 'Front-page news coverage on the free multi-speciality health camp and medicine distribution conducted by Matri Seva Samiti.',
+                'content' => '<p>Leading regional daily <strong>Amar Ujala</strong> gave front-page coverage to the extensive free medical and optometry outreach camp hosted by Matri Seva Samiti in Bhadohi.</p><p>The report documented how volunteer doctors, nurses, and ophthalmologists delivered diagnostics, essential prescription medicines, and over 140 free reading spectacles to marginalized rural families and senior citizens.</p>',
+                'is_published' => true,
+                'sort_order' => 14,
+            ],
+            [
+                'title' => 'Grassroots Women Micro-Enterprises: The MSS Blueprint',
+                'slug' => 'grassroots-women-micro-enterprises-the-mss-blueprint',
+                'type' => 'press',
+                'category' => 'The Hindu',
+                'published_date' => '2026-05-24',
+                'image' => 'images/women-empowerment-news.jpg',
+                'excerpt' => 'Editorial highlighting the sustained livelihood models and financial empowerment created through vocational self-help clusters by The Hindu.',
+                'content' => '<p>National daily <strong>The Hindu</strong> featured an in-depth editorial analyzing the community transformation spearheaded by Matri Seva Samiti’s Women Empowerment & Self-Help Group initiatives.</p><p>The editorial commended the collective economic model where over 85 rural women achieved financial independence through artisan tailoring, quality handicrafts, and local market linkages, collectively generating significant household revenue.</p>',
+                'is_published' => true,
+                'sort_order' => 15,
+            ],
             [
                 'title' => 'Digital Literacy: Bridging The Technology Gap In Rural Areas',
                 'slug' => 'digital-literacy-bridging-technology-gap',
@@ -608,7 +645,7 @@ class DatabaseSeeder extends Seeder
             ],
         ];
         foreach ($newsItems as $item) {
-            NewsEvent::create($item);
+            NewsEvent::updateOrCreate(['slug' => $item['slug']], $item);
         }
 
         // 8. ALL Official Certificates (Exact files from perviouswebsite/certificate.php & assets/certificates/)
